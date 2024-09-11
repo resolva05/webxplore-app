@@ -1,0 +1,7 @@
+.crd{
+    transition: all 0.3s;
+}
+
+.crd:hover{
+    transform: scale(1.1);
+}

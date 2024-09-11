@@ -1,7 +1,8 @@
 // import React from 'react'
 import logo from "../../assets/logo.jpg";
-import blank from "../../assets/blank.jpg";
-import Carousel from "react-bootstrap/Carousel";
+
+import Services from "./Services";
+import Testimonials from "./Testimonials";
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
         <div className="d-flex justify-content-between align-items-center">
           <div>
             <h1 className="display-4 text-danger">
-              Welcome to Resolva Insights!
+              Welcome to WebXplore Studios!
             </h1>
             <p className="lead">
               Your Business, Our Expertise, Infinite Possibilities....
@@ -24,64 +25,41 @@ const Home = () => {
               real-time, these systems are revolutionizing business strategies,
               driving innovation, and boosting operational efficiency. Embrace
               AI-driven decision-making to stay ahead of the competition and
-              unlock new opportunities for growth!
+              unlock new opportunities for growth! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente nihil mollitia quam, non eius corrupti, cumque earum, voluptates ex enim esse odit officiis? Ad saepe distinctio deserunt cupiditate labore molestiae.
+              Qui ab repellat adipisci temporibus cupiditate ut fuga corporis deserunt quaerat. Mollitia autem possimus iste labore! Doloremque minus enim reprehenderit, non nihil alias porro aliquid dolore, cum, soluta deserunt eaque.
+              Magni commodi quidem, odit quod nihil quae earum, dolor iusto autem beatae nam. Nemo in veritatis quam maiores iste eaque, voluptatum laudantium nesciunt cumque minus! Quam sint doloremque non maxime.
+              Similique nobis explicabo doloribus sint magnam autem dolorum ab blanditiis dicta aperiam id, saepe non minima odio architecto repudiandae eius sed eligendi suscipit est consectetur odit possimus? Cupiditate, unde dignissimos.
+              Vero ipsum magni corrupti, ipsa animi harum cum expedita tenetur illum reiciendis qui maxime soluta impedit amet officiis temporibus enim a? Minus aliquam, nulla quibusdam nobis excepturi rem sunt itaque.
             </p>
-            <a className="btn btn-outline-danger" href="#" role="button">
-              About Us
-            </a>
           </div>
           <img
             src={logo}
             alt=""
             className="img-fluid ml-4 shadow-lg"
             style={{
-              height: "300px",
               marginRight: "20px",
               marginBottom: "50px",
               borderRadius: "15px",
             }}
           />
         </div>
-        <Carousel data-bs-theme="dark">
-          <Carousel.Item>
-            <img
-              className="d-block w-100 shadow-lg"
-              src={blank}
-              alt="First slide"
-              style={{height:"500px", borderRadius: "15px"}}
-            />
-            <Carousel.Caption>
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 shadow-lg"
-              src={blank}
-              alt="Second slide"
-              style={{height:"500px", borderRadius: "15px"}}
-            />
-            <Carousel.Caption>
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 shadow-lg"
-              src={blank}
-              alt="Third slide"
-              style={{height:"500px", borderRadius: "15px"}}
-            />
-            <Carousel.Caption>
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+        <hr className="my-4"></hr>
+        <div className="text-center  fs-1" style={{ fontFamily: "sans-serif" }}>
+          Services Overview
+        </div>
+        <Services />
+        <hr className="my-4"></hr>
+        <br />
+        <div
+          className="text-center  fs-1 mb-4"
+          style={{ fontFamily: "sans-serif" }}
+        >
+          Clients testimonials
+        </div>
+        <div>
+          <Testimonials />
+        </div>
+        <hr className="my-4"></hr>
       </div>
     </div>
   );
