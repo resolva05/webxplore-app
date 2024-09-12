@@ -1,23 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-//   Route,
-//   Link,
-// } from "react-router-dom";
-// import logo from "../src/assets/logo.jpg"
 import Footer from './components/Footer';
 import Header from './components/header/Header';
-import Cta from './components/cta';
+import Service from './components/service/Service';
+// import Cta from './components/cta';
 // import Footer from './components/Footer';
+import {createBrowserRouter , RouterProvider} from 'react-router-dom'
 
 function App() {
+  const router=createBrowserRouter([
+    {
+      path:'/',
+      element: <Service/>
+    }
+  ])
 
   return (
     <>
       <Header/>
-      <Cta/>
+      {/* <Cta/> */}
+      {/* <Service/> */}
+      <RouterProvider router={router} />
       <Footer/>
     </>
 

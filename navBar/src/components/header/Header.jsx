@@ -5,12 +5,13 @@ import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from "../../assets/logo.jpg"
 import './Header.css'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div>
 
-        <Navbar expand="lg" className="bg-secondary">
+        <Navbar expand="lg" className="" style={{backgroundColor:"#2b2a29"}}>
           <Container>
             <a href="#home">
               <img src={logo} alt="" style={{ height: "60px", borderRadius: "15px", marginLeft: "10px"}} className='shadow-lg img'/></a>
@@ -20,9 +21,10 @@ const Header = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
                 {/* <Nav.Link href="#home">Home</Nav.Link> */}
-                <Nav.Link href='#about' className='/' style={{marginRight:"50px", fontSize:"20px", color:""}}>Services</Nav.Link>
-                <Nav.Link href='#contact' className='/' style={{marginRight:"40px", fontSize:"20px"}}>Portfolio</Nav.Link>
-                <Nav.Link href='#link' className='/' style={{marginRight:"30px", fontSize:"20px"}}>Contact Us</Nav.Link>
+                <link rel="stylesheet" href="" />
+                <Nav.Link href='#about' className='/service' style={{marginRight:"50px", fontSize:"20px", color:"white"}}>Services</Nav.Link>
+                <Nav.Link href='#contact' className='/' style={{marginRight:"40px", fontSize:"20px", color:"white"}}>Portfolio</Nav.Link>
+                <Nav.Link href='#link' className='/' style={{marginRight:"30px", fontSize:"20px", color:"white"}}>Contact Us</Nav.Link>
                 {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
@@ -38,9 +40,9 @@ const Header = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <br />
-        Home
-        <br />
+        {/* <br />
+        home
+        <br /> */}
         
       </div>
   )
