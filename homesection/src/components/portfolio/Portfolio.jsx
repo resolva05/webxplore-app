@@ -1,11 +1,11 @@
 // import React from 'react'
-import logo from "../../assets/logo.jpg";
+
 import "./Portfolio.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { useState } from "react";
-import '../home/Testimon.css'
+import "../home/Testimon.css";
 
 const Portfolio = () => {
   const [open, setOpen] = useState(false);
@@ -53,7 +53,7 @@ const Portfolio = () => {
                 >
                   Know More
                 </Button>
-                <div style={{ minHeight: "150px" }}>
+                {/* <div style={{ minHeight: "150px" }}>
                   <Collapse in={open} dimension="width">
                     <div id="example-collapse-text">
                       <Card body style={{ width: "400px" }}>
@@ -64,20 +64,31 @@ const Portfolio = () => {
                       </Card>
                     </div>
                   </Collapse>
+                </div> */}
+                <div style={{ minHeight: "150px", width: "100%" }}>
+                  <Collapse in={open} dimension="height">
+                    <div id="example-collapse-text">
+                      <Card
+                        body
+                        style={{
+                          width: "100%",
+                          maxWidth: "100%",
+                          minWidth: "250px",
+                          height: "auto",
+                          backgroundColor: "white",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        Anim pariatur cliche reprehenderit, enim eiusmod high
+                        life accusamus terry richardson ad squid. Nihil anim
+                        keffiyeh helvetica, craft beer labore wes anderson cred
+                        nesciunt sapiente ea proident.
+                      </Card>
+                    </div>
+                  </Collapse>
                 </div>
               </div>
             </form>
-          </div>
-          <div
-            className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6"
-            style={{}}
-          >
-            <img
-              className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9]"
-              src={logo}
-              alt=""
-              style={{ height: "25vw", marginRight: "30px" }}
-            />
           </div>
         </div>
       </div>
@@ -93,97 +104,248 @@ const Portfolio = () => {
         >
           Our Projects
         </h2>
-        <div className="d-flex text-center justify-content-center">
+        <div className="container">
           <div
-            className="crd w-[300px] rounded-md border shadow-lg"
-            style={{
-              backgroundColor: "white",
-              marginRight: "10px",
-              marginLeft: "10px",
-              marginBottom: "20px",
-              borderRadius: "20px",
-              height: "30%",
-              width: "28.3vw",
-            }}
+            className="row justify-content-center text-center"
+            style={{ gap: "10px" }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-              alt="Laptop"
-              className="rounded-md object-cover"
-              style={{ height: "18.75vw", borderRadius: "20px" }}
-            />
-            <div className="p-4 text-center">
-              <h1 className="text-lg font-semibold">Project Title</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
-                dolor sit amet consectetur adipisicing elit. Ratione
-                exercitationem eius at, aut laboriosam molestias ut. Similique
-                quos nam molestiae ducimus maxime ex nemo numquam possimus.
-                
-              </p>
+            <div
+              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
+              style={{
+                backgroundColor: "white",
+                borderRadius: "20px",
+                paddingTop: "10px",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: "20px",
+                  height: "30%",
+                  width: "100%",
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                  alt="Laptop"
+                  className="rounded-md object-cover"
+                  style={{
+                    height: "18.115vw",
+                    borderRadius: "20px",
+                    marginTop: "10px",
+                  }}
+                />
+                <div className="p-4 text-center">
+                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
+              style={{
+                backgroundColor: "white",
+                borderRadius: "20px",
+                paddingTop: "10px",
+              }}
+            >
+              <div
+                style={{
+                  borderRadius: "20px",
+                  height: "30%",
+                  width: "100%",
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                  alt="Laptop"
+                  className="rounded-md object-cover"
+                  style={{
+                    height: "18.115vw",
+                    borderRadius: "20px",
+                    marginTop: "10px",
+                  }}
+                />
+                <div className="p-4 text-center">
+                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
+              style={{
+                backgroundColor: "white",
+                borderRadius: "20px",
+                paddingTop: "10px",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: "20px",
+                  height: "30%",
+                  width: "100%",
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                  alt="Laptop"
+                  className="rounded-md object-cover"
+                  style={{
+                    height: "18.115vw",
+                    borderRadius: "20px",
+                    marginTop: "10px",
+                  }}
+                />
+                <div className="p-4 text-center">
+                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
+              style={{
+                backgroundColor: "white",
+                borderRadius: "20px",
+                paddingTop: "10px",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: "20px",
+                  height: "30%",
+                  width: "100%",
+                }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                  alt="Laptop"
+                  className="rounded-md object-cover"
+                  style={{
+                    height: "18.115vw",
+                    borderRadius: "20px",
+                    marginTop: "10px",
+                  }}
+                />
+                <div className="p-4 text-center">
+                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-            <div
-                className="crd w-[300px] rounded-md border shadow-lg"
-                style={{
-                backgroundColor: "white",
-                marginRight: "10px",
-                marginLeft: "20px",
-                marginBottom: "20px",
-                borderRadius: "20px",
-                height: "30%",
-                width: "28.3vw",
-                }}
-            >
-                <img
-                src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                alt="Laptop"
-                className="h-[200px] w-full rounded-md object-cover"
-                style={{ height: "18.75vw", borderRadius: "20px" }}
-                />
-                <div className="p-4 text-center">
-                <h1 className="text-lg font-semibold">Project Title</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
-                    dolor sit amet consectetur adipisicing elit. Ratione
-                    exercitationem eius at, aut laboriosam molestias ut. Similique
-                    quos nam molestiae ducimus maxime ex nemo numquam possimus.
-                    
-                </p>
-                </div>
-            </div>
-            <div
-                className="crd w-[300px] rounded-md border shadow-lg"
-                style={{
-                backgroundColor: "white",
-                marginRight: "10px",
-                marginLeft: "20px",
-                marginBottom: "20px",
-                borderRadius: "20px",
-                height: "30%",
-                width: "28.3vw",
-                }}
-            >
-                <img
-                src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                alt="Laptop"
-                className="h-[200px] w-full rounded-md object-cover"
-                style={{ height: "18.75vw", borderRadius: "20px" }}
-                />
-                <div className="p-4 text-center">
-                <h1 className="text-lg font-semibold">Project Title</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
-                    dolor sit amet consectetur adipisicing elit. Ratione
-                    exercitationem eius at, aut laboriosam molestias ut. Similique
-                    quos nam molestiae ducimus maxime ex nemo numquam possimus.
-                </p>
-                </div>
-            </div>
         </div>
       </div>
-      <div>
 
+      <div
+        className="d-flex"
+        style={{
+          margin: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <div
+          className="d-flex sec max-w-2xl flex flex-col items-center rounded-md border md:flex-row shadow-lg w-full"
+          style={{ borderRadius: "20px" }}
+        >
+          <div className="h-full w-full md:h-[200px] md:w-[300px]">
+            <img
+              src="https://img.freepik.com/free-vector/website-development-banner_33099-1687.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1726099200&semt=ais_hybrid"
+              alt="Laptop"
+              className="h-full w-full rounded-md object-cover"
+              style={{ borderRadius: "20px", margin: "10px", height: "20vw" }}
+            />
+          </div>
+          <div className="flex-grow w-full p-4 md:p-6">
+            <h1 className="text-lg font-semibold break-words" style={{fontSize:"20px"}}>
+              Web Development
+            </h1>
+            <p className="mt-3 text-sm text-gray-600 break-words">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              consequatur accusamus nobis ad quas aspernatur dolores possimus
+              veritatis itaque vel? Impedit perferendis dolorem totam qui
+              quaerat temporibus voluptate nihil neque?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="d-flex"
+        style={{
+          margin: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <div
+          className="d-flex sec max-w-2xl flex flex-col items-center rounded-md border md:flex-row shadow-lg w-full"
+          style={{ borderRadius: "20px" }}
+        >
+          <div className="h-full w-full md:h-[200px] md:w-[300px]">
+            <img
+              src="https://img.freepik.com/free-vector/app-development-banner_33099-1720.jpg"
+              alt="Laptop"
+              className="h-full w-full rounded-md object-cover"
+              style={{ borderRadius: "20px", margin: "10px", height: "20vw" }}
+            />
+          </div>
+          <div className="flex-grow w-full p-4 md:p-6 ">
+            <h1 className="text-lg font-semibold break-words" style={{fontSize:"20px"}}>
+              App Development
+            </h1>
+            <p className="mt-3 text-sm text-gray-600 break-words">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              consequatur accusamus nobis ad quas aspernatur dolores possimus
+              veritatis itaque vel? Impedit perferendis dolorem totam qui
+              quaerat temporibus voluptate nihil neque?
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div
+        className="d-flex"
+        style={{
+          margin: "20px",
+          borderRadius: "20px",
+        }}
+      >
+        <div
+          className="d-flex sec max-w-2xl flex flex-col items-center rounded-md border md:flex-row shadow-lg w-full"
+          style={{ borderRadius: "20px" }}
+        >
+          <div className="h-full w-full md:h-[200px] md:w-[300px]">
+            <img
+              src="https://img.freepik.com/free-photo/showing-cart-trolley-shopping-online-sign-graphic_53876-133967.jpg"
+              alt="Laptop"
+              className="h-full w-full rounded-md object-cover"
+              style={{ borderRadius: "20px", margin: "10px", height: "20vw" }}
+            />
+          </div>
+          <div className="flex-grow w-full p-4 md:p-6">
+            <h1 className="text-lg font-semibold break-words" style={{fontSize:"20px"}}>E-Commerce</h1>
+            <p className="mt-3 text-sm text-gray-600 break-words">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              consequatur accusamus nobis ad quas aspernatur dolores possimus
+              veritatis itaque vel? Impedit perferendis dolorem totam qui
+              quaerat temporibus voluptate nihil neque?
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

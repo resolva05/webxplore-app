@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import '../App.css'
 import styled from 'styled-components'
 import logo from "../../src/assets/logo.jpg"
