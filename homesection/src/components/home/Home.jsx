@@ -1,13 +1,24 @@
 // import React from 'react'
 import logo from "../../assets/logo.jpg";
-
+import './Home.css'
 import Services from "./Services";
 import Testimonials from "./Testimonials";
-
+import { animated, useSpring } from "react-spring";
+import { useState } from "react";
 const Home = () => {
+  const [flip, setFlip] = useState(false);
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    reset: false,
+    reverse: flip,
+    delay: 600,
+    onRest: () => setFlip(flip),
+  });
   return (
     <div>
       <div className="jumbotron">
+      <animated.div style={props}>
         <div className="d-flex justify-content-between align-items-center">
           <div>
             <h1 className="display-4 text-danger">
@@ -26,7 +37,7 @@ const Home = () => {
               borderRadius: "15px",
             }}
           />
-            <p>
+            <p className="text-slide">
               In todays fast-paced world, businesses need to make smarter and
               faster decisions. AI-driven decision-making systems leverage
               advanced technologies like machine learning and predictive
@@ -39,6 +50,7 @@ const Home = () => {
           </div>
           
         </div>
+      </animated.div>
 
         <hr className="my-4"></hr>
         <div className="text-center  fs-1" style={{ fontFamily: "sans-serif" }}>
