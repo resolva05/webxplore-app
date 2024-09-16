@@ -1,24 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-//   Route,
-//   Link,
-// } from "react-router-dom";
-// import logo from "../src/assets/logo.jpg"
-import Footer from './components/Footer';
+import Footer from '../src/components/footer/Footer';
 import Header from './components/header/Header';
-import Cta from './components/cta';
-// import Footer from './components/Footer';
+import { Outlet } from 'react-router-dom';
 
 function App() {
 
+
   return (
     <>
-      <Header/>
-      <Cta/>
-      <Footer/>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
 
   )
