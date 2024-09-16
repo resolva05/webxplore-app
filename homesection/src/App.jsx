@@ -4,14 +4,17 @@ import Home from './components/home/Home';
 // import Portfolio from './components/portfolio/Portfolio';
 // import Testimonials from './components/home/Testimonials';
 
+
 function App() {
+
+  
 
   return (
       <div>
         <Header/>
         <Home/>
-        
          {/* <Portfolio/> */}
+        
          {/* <Testimonials/> */}
         {/* <Header/> */}
       </div>

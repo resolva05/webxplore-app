@@ -1,0 +1,18 @@
+.text-slide {
+    position: relative;
+    display: inline-block;
+    font-size: 1.01rem;
+    opacity: 1; 
+    animation: slideIn 2s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0; 
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

@@ -6,9 +6,19 @@ import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { useState } from "react";
 import "../home/Testimon.css";
-
+import { animated, useSpring } from "react-spring";
+// mport { useState } from 'react';
 const Portfolio = () => {
   const [open, setOpen] = useState(false);
+  const [flip, setFlip] = useState(false);
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    reset: false,
+    reverse: flip,
+    delay: 600,
+    onRest: () => setFlip(flip),
+  });
 
   return (
     <>
@@ -42,13 +52,14 @@ const Portfolio = () => {
             <form action="" className="mt-8 flex items-start space-x-2">
               <div>
                 <Button
+                  className="btn"
                   onClick={() => setOpen(!open)}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}
                   style={{
                     marginBottom: "10px",
                     borderRadius: "25px",
-                    backgroundColor: "red",
+                    // backgroundColor: "red",
                   }}
                 >
                   Know More
@@ -104,6 +115,7 @@ const Portfolio = () => {
         >
           Our Projects
         </h2>
+
         <div className="container">
           <div
             className="row justify-content-center text-center"
@@ -125,16 +137,18 @@ const Portfolio = () => {
                   width: "100%",
                 }}
               >
-                <img
-                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                  alt="Laptop"
-                  className="rounded-md object-cover"
-                  style={{
-                    height: "18.115vw",
-                    borderRadius: "20px",
-                    marginTop: "10px",
-                  }}
-                />
+                <animated.div style={props}>
+                  <img
+                    src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                    alt="Laptop"
+                    className="rounded-md object-cover"
+                    style={{
+                      height: "18.115vw",
+                      borderRadius: "20px",
+                      marginTop: "10px",
+                    }}
+                  />
+                </animated.div>
                 <div className="p-4 text-center">
                   <h1 className="text-lg font-semibold">Project Title</h1>
                   <p>
@@ -159,51 +173,18 @@ const Portfolio = () => {
                   width: "100%",
                 }}
               >
-                <img
-                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                  alt="Laptop"
-                  className="rounded-md object-cover"
-                  style={{
-                    height: "18.115vw",
-                    borderRadius: "20px",
-                    marginTop: "10px",
-                  }}
-                />
-                <div className="p-4 text-center">
-                  <h1 className="text-lg font-semibold">Project Title</h1>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
-                    dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
-              style={{
-                backgroundColor: "white",
-                borderRadius: "20px",
-                paddingTop: "10px",
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: "20px",
-                  height: "30%",
-                  width: "100%",
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                  alt="Laptop"
-                  className="rounded-md object-cover"
-                  style={{
-                    height: "18.115vw",
-                    borderRadius: "20px",
-                    marginTop: "10px",
-                  }}
-                />
+                <animated.div style={props}>
+                  <img
+                    src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                    alt="Laptop"
+                    className="rounded-md object-cover"
+                    style={{
+                      height: "18.115vw",
+                      borderRadius: "20px",
+                      marginTop: "10px",
+                    }}
+                  />
+                </animated.div>
                 <div className="p-4 text-center">
                   <h1 className="text-lg font-semibold">Project Title</h1>
                   <p>
@@ -229,16 +210,55 @@ const Portfolio = () => {
                   width: "100%",
                 }}
               >
-                <img
-                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                  alt="Laptop"
-                  className="rounded-md object-cover"
-                  style={{
-                    height: "18.115vw",
-                    borderRadius: "20px",
-                    marginTop: "10px",
-                  }}
-                />
+                <animated.div style={props}>
+                  <img
+                    src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                    alt="Laptop"
+                    className="rounded-md object-cover"
+                    style={{
+                      height: "18.115vw",
+                      borderRadius: "20px",
+                      marginTop: "10px",
+                    }}
+                  />
+                </animated.div>
+                <div className="p-4 text-center">
+                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
+              style={{
+                backgroundColor: "white",
+                borderRadius: "20px",
+                paddingTop: "10px",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: "20px",
+                  height: "30%",
+                  width: "100%",
+                }}
+              >
+                <animated.div style={props}>
+                  <img
+                    src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                    alt="Laptop"
+                    className="rounded-md object-cover"
+                    style={{
+                      height: "18.115vw",
+                      borderRadius: "20px",
+                      marginTop: "10px",
+                    }}
+                  />
+                </animated.div>
                 <div className="p-4 text-center">
                   <h1 className="text-lg font-semibold">Project Title</h1>
                   <p>
@@ -272,7 +292,10 @@ const Portfolio = () => {
             />
           </div>
           <div className="flex-grow w-full p-4 md:p-6">
-            <h1 className="text-lg font-semibold break-words" style={{fontSize:"20px"}}>
+            <h1
+              className="text-lg font-semibold break-words"
+              style={{ fontSize: "20px" }}
+            >
               Web Development
             </h1>
             <p className="mt-3 text-sm text-gray-600 break-words">
@@ -304,7 +327,10 @@ const Portfolio = () => {
             />
           </div>
           <div className="flex-grow w-full p-4 md:p-6 ">
-            <h1 className="text-lg font-semibold break-words" style={{fontSize:"20px"}}>
+            <h1
+              className="text-lg font-semibold break-words"
+              style={{ fontSize: "20px" }}
+            >
               App Development
             </h1>
             <p className="mt-3 text-sm text-gray-600 break-words">
@@ -316,7 +342,7 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      
+
       <div
         className="d-flex"
         style={{
@@ -337,7 +363,12 @@ const Portfolio = () => {
             />
           </div>
           <div className="flex-grow w-full p-4 md:p-6">
-            <h1 className="text-lg font-semibold break-words" style={{fontSize:"20px"}}>E-Commerce</h1>
+            <h1
+              className="text-lg font-semibold break-words"
+              style={{ fontSize: "20px" }}
+            >
+              E-Commerce
+            </h1>
             <p className="mt-3 text-sm text-gray-600 break-words">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
               consequatur accusamus nobis ad quas aspernatur dolores possimus
