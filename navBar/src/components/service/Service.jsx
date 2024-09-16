@@ -29,7 +29,7 @@ const Service = () => {
                 <div className='row justify-content-center text-center'>
                     <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
                         <Card style={{ width: '100%', borderRadius: '15px', overflow: 'hidden', marginTop: "30px" }}>
-                            {/* Image */}
+                            {/* Main Image */}
                             <Card.Img
                                 variant="top"
                                 src="https://via.placeholder.com/286x180.png?text=Macbook+Image"

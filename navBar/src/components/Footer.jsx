@@ -49,7 +49,7 @@ function Footer() {
                             </ul>
 
                         </div>
-                        {/* coloumn 4 */}
+                        {/* coloumn-4 */}
                         {/* <div className='App'> <FontAwesomeIcon icon={faHippo} /></div> */}
                         <div className="col-md-3 col sm-6">
                             <h4>About</h4>
