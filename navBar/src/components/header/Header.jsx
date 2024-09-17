@@ -18,10 +18,10 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto" >
-              <NavLink to='/' className='/' style={{ marginRight: "50px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Home</NavLink>
-              <NavLink to='/service' className='/service' style={{ marginRight: "50px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Services</NavLink>
-              <NavLink to='/' className='/' style={{ marginRight: "40px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Portfolio</NavLink>
-              <NavLink to='/' className='/' style={{ marginRight: "30px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Contact Us</NavLink>
+              <NavLink to='/home' style={{ marginRight: "50px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Home</NavLink>
+              <NavLink to='/service' style={{ marginRight: "50px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Services</NavLink>
+              <NavLink to='/portfolio' style={{ marginRight: "40px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Portfolio</NavLink>
+              <NavLink to='' style={{ marginRight: "30px", fontSize: "20px", color: "white", textDecoration: 'none' }}>Contact Us</NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
