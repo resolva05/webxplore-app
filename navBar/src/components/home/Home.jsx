@@ -5,6 +5,8 @@ import Services from "./Services";
 import Testimonials from "./Testimonials";
 import { animated, useSpring } from "react-spring";
 import { useState } from "react";
+import bg from '../../assets/b.mp4'
+
 const Home = () => {
   const [flip, setFlip] = useState(false);
   const props = useSpring({
@@ -18,6 +20,8 @@ const Home = () => {
   return (
     <div>
       <div className="jumbotron">
+        {/* <div className="main ">
+        <video src={bg} autoPlay loop muted ></video>
       <animated.div style={props}>
         <div className="d-flex justify-content-between align-items-center">
           <div>
@@ -51,6 +55,42 @@ const Home = () => {
           
         </div>
       </animated.div>
+      </div> */}
+        <div className="main">
+          <div className="video-background">
+            <video src={bg} autoPlay loop muted></video>
+          </div>
+
+          <animated.div style={props}>
+            <div className="d-flex justify-content-between align-items-center">
+              <div>
+                <h1 className="display-4 text-danger">
+                  Welcome to WebXplore Studios!
+                </h1>
+                <p className="lead">
+                  Your Business, Our Expertise, Infinite Possibilities....
+                </p>
+                <img
+                  src={logo}
+                  alt=""
+                  className="img-fluid ml-4 shadow-lg"
+                  style={{
+                    marginRight: "20px",
+                    marginBottom: "50px",
+                    borderRadius: "15px",
+                  }}
+                />
+                <p className="text-slide">
+                  In today's fast-paced world, businesses need to make smarter and
+                  faster decisions. AI-driven decision-making systems leverage advanced
+                  technologies like machine learning and predictive analytics to
+                  transform data into actionable insights. By nt quaerat... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio eum molestiae alias consequatur veniam necessitatibus excepturi nostrum molestias omnis pariatur assumenda impedit quidem, voluptatum eveniet suscipit, fugit accusamus sapiente voluptatibus.
+                </p>
+              </div>
+            </div>
+          </animated.div>
+        </div>
+
 
         <hr className="my-4"></hr>
         <div className="text-center  fs-1" style={{ fontFamily: "sans-serif" }}>
@@ -70,6 +110,7 @@ const Home = () => {
         </div>
         <hr className="my-4"></hr>
       </div>
+
     </div>
   );
 };

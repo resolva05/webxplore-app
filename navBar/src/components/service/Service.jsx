@@ -3,7 +3,7 @@ import './Cta.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Badge } from 'react-bootstrap';
 import '../header/Header.css'
-
+import { NavLink } from 'react-router-dom';
 
 const Service = () => {
     return (
@@ -42,7 +42,9 @@ const Service = () => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facere consectetur recusandae accusantium ducimus exercitationem cupiditate excepturi? Earum molestiae fugit, labore doloribus, exercitationem neque enim quia repellat, officia quos obcaecati? Lorem ipsum do dolor sit amet consectetur adipisicing elit. Placeat doloribus eveniet repudiandae ea, delectus deleniti
                                 </Card.Text>
                                 {/* Read Button */}
+                                <NavLink to={'./subservice1'}>
                                 <Button variant="dark" className="w-100">Read</Button>
+                                </NavLink>
                             </Card.Body>
                         </Card>
                     </div>
@@ -62,7 +64,9 @@ const Service = () => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facere consectetur recusandae accusantium ducimus exercitationem cupiditate excepturi? Earum molestiae fugit, labore doloribus, exercitationem neque enim quia repellat, officia quos obcaecati? Lorem ipsum do dolor sit amet consectetur adipisicing elit. Placeat doloribus eveniet repudiandae ea, delectus deleniti
                                 </Card.Text>
                                 {/* Read Button */}
+                                <NavLink to={'./subservice2'}>
                                 <Button variant="dark" className="w-100">Read</Button>
+                                </NavLink>
                             </Card.Body>
                         </Card>
                     </div>
@@ -82,7 +86,9 @@ const Service = () => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facere consectetur recusandae accusantium ducimus exercitationem cupiditate excepturi? Earum molestiae fugit, labore doloribus, exercitationem neque enim quia repellat, officia quos obcaecati? Lorem ipsum do dolor sit amet consectetur adipisicing elit. Placeat doloribus eveniet repudiandae ea, delectus deleniti
                                 </Card.Text>
                                 {/* Read Button */}
+                                <NavLink to={'./subservice3'}>
                                 <Button variant="dark" className="w-100">Read</Button>
+                                </NavLink>
                             </Card.Body>
                         </Card>
                     </div>
