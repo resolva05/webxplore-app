@@ -5,7 +5,9 @@ import img2 from "../../assets/categoryimg.png";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import "./Blogpage.css";
+import logo from "../../assets/logonew.png";
 import { posts } from "./temp";
+import vid from '../../assets/blogvideo.mp4'
 import {
   Row,
   Col,
@@ -160,6 +162,7 @@ const Blogpage = () => {
 
   return (
     <>
+    <video className="vid" src={vid} autoPlay loop muted/>
       <Container fluid className="mt-4" style={{ marginBottom: "20px" }}>
         <Container className="text-center mb-5" style={{ maxWidth: "42rem" }}>
           <Badge pill bg="light" text="dark" className="px-3 py-1 mb-3">
@@ -200,6 +203,26 @@ const Blogpage = () => {
                   ))}
                 </ListGroup>
               )}
+              <input
+                type="text"
+                placeholder="Type Here.."
+                style={{
+                  borderRadius: "20px",
+                  border: "2px solid gray",
+                  padding: "5px",
+                }}
+              />{" "}
+              <NavLink>
+                <img
+                  src={logo}
+                  alt=""
+                  style={{
+                    height: "30px",
+                    marginBottom: "50px",
+                    marginTop: "50px",
+                  }}
+                />
+              </NavLink>
             </div>
           </Col>
 
@@ -207,7 +230,7 @@ const Blogpage = () => {
             <Row className="g-4">
               {filteredPosts.map((post) => (
                 <Col md={6} lg={4} key={post.title}>
-                  <Card style={{ borderRadius: "20px" }}>
+                  <Card style={{ borderRadius: "20px", height: "100%" }}>
                     <Card.Img
                       variant="top"
                       src={post.poster}
@@ -228,22 +251,22 @@ const Blogpage = () => {
                     </Card.Body>
                     <div className="text-center hh">
                       {
-                      <NavLink to={`/blogpage/subblogpage/${post.id}`}>
-                        <button
-                          type="button"
-                          className="inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold text-white "
-                          style={{
-                            width: "80%",
-                            borderRadius: "20px",
-                            marginTop: "-15px",
-                            marginBottom: "20px",
-                          }}
-                        >
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4 arrow-right" />
-                        </button>
-                      </NavLink>
-                        }
+                        <NavLink to={`/blogpage/subblogpage/${post.id}`}>
+                          <button
+                            type="button"
+                            className="inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold text-white "
+                            style={{
+                              width: "80%",
+                              borderRadius: "20px",
+                              marginTop: "-15px",
+                              marginBottom: "20px",
+                            }}
+                          >
+                            Read More
+                            <ArrowRight className="ml-2 h-4 w-4 arrow-right" />
+                          </button>
+                        </NavLink>
+                      }
                     </div>
                   </Card>
                 </Col>
