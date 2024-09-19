@@ -1,7 +1,12 @@
 // import React from 'react'
 import maplogo from '../../assets/mapslogo.png'
+import { useEffect } from 'react';
 const Contactus = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
+
     <>
       <div className="container mx-auto px-4">
         <div className="d-flex flex-column pb-10 pt-12 text-center" style={{ marginTop: "20px" }}>

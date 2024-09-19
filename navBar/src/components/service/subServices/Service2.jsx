@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Row, Col, Card, Image } from 'react-bootstrap';
+import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Service2 = () => {
     useEffect(() => {
@@ -135,9 +136,9 @@ const Service2 = () => {
                         <Col>
                             <p className="text-muted">
                                 Can't find what you're looking for?{' '}
-                                <a href="#" className="font-weight-bold text-dark">
-                                    Contact us
-                                </a>
+                                <NavLink to={'./contact'} >
+                                    <Button>Contact us</Button>
+                                </NavLink>
                             </p>
                         </Col>
                     </Row>

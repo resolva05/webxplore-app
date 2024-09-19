@@ -1,12 +1,13 @@
 import React from 'react'
-import { Container, Row, Col, Card, Image } from 'react-bootstrap';
+import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import '../subServices/Service1.css'
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Service1 = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
-      }, []);
+        window.scrollTo(top);
+    }, []);
     return (
         <div>
             <Container>
@@ -25,7 +26,7 @@ const Service1 = () => {
                         <p>
                             This section provides a detailed description of the project, including its objectives,
                             goals, and overall importance. It can include the project background, the problem it aims to solve,
-                            and the potential impact on its users or stakeholders.
+                            and the potential impact on its users or stakeholders. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eveniet at neque voluptatum laudantium eaque ipsum dicta odit pariatur fugit voluptatibus amet accusantium delectus saepe necessitatibus omnis dolorum libero iusto?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus sit in itaque facilis autem. Nulla illo adipisci impedit ad alias soluta eligendi, ab fugiat a sapiente perspiciatis, vero quas repellendus.
                         </p>
                     </Col>
                     <Col md={6}>
@@ -101,7 +102,7 @@ const Service1 = () => {
                 </Row>
                 <hr className="my-4"></hr>
             </Container>
-           
+
             <div>
                 <Container className="py-5">
                     {/* Section Heading */}
@@ -136,9 +137,9 @@ const Service1 = () => {
                         <Col>
                             <p className="text-muted">
                                 Can't find what you're looking for?{' '}
-                                <a href="#" className="font-weight-bold text-dark">
-                                    Contact us
-                                </a>
+                                <NavLink to={'./contact'} >
+                                    <Button>Contact us</Button>
+                                </NavLink>
                             </p>
                         </Col>
                     </Row>

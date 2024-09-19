@@ -50,7 +50,21 @@ const router = createBrowserRouter([
       {
         path:'/service/subservice3',
         element:<Service3/>
+      },
+      {
+        path:'/service/subservice1/contact',
+        element:<Contactus/>
+      },
+      {
+        path:'/service/subservice2/contact',
+        element:<Contactus/>
       }
+      ,
+      {
+        path:'/service/subservice3/contact',
+        element:<Contactus/>
+      }
+      
       
     ]
   }
