@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import vid from '../../../assets/vid.mp4'
 
 const Service3 = () => {
     useEffect(() => {
@@ -9,6 +10,7 @@ const Service3 = () => {
       }, []);
     return (
         <div>
+             <video className="vid" src={vid} autoPlay loop muted/>
             <Container>
                 {/* Header Section */}
                 <Row className="my-5">

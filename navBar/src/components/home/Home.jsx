@@ -6,6 +6,7 @@ import Testimonials from "./Testimonials";
 import { animated, useSpring } from "react-spring";
 import { useState } from "react";
 import bg from '../../assets/heroVideo.mp4'
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const [flip, setFlip] = useState(false);
@@ -52,30 +53,32 @@ const Home = () => {
                 </p>
               </div>
             </div>
-                <button className="btn blog-btn"> Blog Page </button>
+            <NavLink to={'./blogpage'}>
+              <button className="btn blog-btn"> Blog Page </button>
+            </NavLink>
           </animated.div>
         </div>
-          <hr className="my-4"></hr>
-          <div className="text-center  fs-1" style={{ fontFamily: "sans-serif" }}>
-            Services Overview
-          </div>
-          <Services />
-          <hr className="my-4"></hr>
-          <br />
-          <div
-            className="text-center  fs-1 mb-4"
-            style={{ fontFamily: "sans-serif" }}
-          >
-            Clients testimonials
-          </div>
-          <div>
-            <Testimonials />
-          </div>
-          <hr className="my-4"></hr>
+        <hr className="my-4"></hr>
+        <div className="text-center  fs-1" style={{ fontFamily: "sans-serif" }}>
+          Services Overview
         </div>
-</div>
+        <Services />
+        <hr className="my-4"></hr>
+        <br />
+        <div
+          className="text-center  fs-1 mb-4"
+          style={{ fontFamily: "sans-serif" }}
+        >
+          Clients testimonials
+        </div>
+        <div>
+          <Testimonials />
+        </div>
+        <hr className="my-4"></hr>
+      </div>
+    </div>
 
-      );
+  );
 };
 
-      export default Home;
+export default Home;

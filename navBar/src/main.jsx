@@ -10,6 +10,9 @@ import Contactus from './components/contactus/Contactus.jsx'
 import Service1 from './components/service/subServices/Service1.jsx'
 import Service2 from './components/service/subServices/Service2.jsx'
 import Service3 from './components/service/subServices/Service3.jsx'
+import Blogpage from './components/blogpage/Blogpage.jsx'
+import Subblogpage from './components/blogpage/Subblogpage.jsx'
+import Faq from './components/faq/Faq.jsx'
 
 const router = createBrowserRouter([
   {
@@ -63,9 +66,19 @@ const router = createBrowserRouter([
       {
         path:'/service/subservice3/contact',
         element:<Contactus/>
+      },
+      {
+        path: "home/blogpage",
+        element: <Blogpage/>,
+      },
+      {
+        path: "blogpage/subblogpage/:postId",
+        element:<Subblogpage/>
+      },
+      {
+        path:"/faq",
+        element:<Faq/>
       }
-      
-      
     ]
   }
 

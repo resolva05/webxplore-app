@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import vid from '../../../assets/vid.mp4'
+import S2faq from './S2faq';
 
 const Service2 = () => {
     useEffect(() => {
@@ -9,6 +11,7 @@ const Service2 = () => {
       }, []);
   return (
         <div>
+             <video className="vid" src={vid} autoPlay loop muted/>
             <Container>
                 {/* Header Section */}
                 <Row className="my-5">
@@ -115,7 +118,7 @@ const Service2 = () => {
                     </Row>
 
                     {/* FAQ Grid */}
-                    <Row className="mt-4">
+                    {/* <Row className="mt-4">
                         {Array.from({ length: 4 }).map((_, i) => (
                             <Col md={6} className="mb-4" key={i}>
                                 <Card>
@@ -129,8 +132,8 @@ const Service2 = () => {
                                 </Card>
                             </Col>
                         ))}
-                    </Row>
-
+                    </Row> */}
+                    <S2faq/>
                     {/* Contact Link */}
                     <Row className="text-center mt-4">
                         <Col>

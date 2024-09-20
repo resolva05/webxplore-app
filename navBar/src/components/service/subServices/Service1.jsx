@@ -3,6 +3,8 @@ import { Container, Row, Col, Card, Image, Button } from 'react-bootstrap';
 import '../subServices/Service1.css'
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import vid from '../../../assets/vid.mp4';
+import S1faq from './S1faq.jsx'
 
 const Service1 = () => {
     useEffect(() => {
@@ -10,6 +12,7 @@ const Service1 = () => {
     }, []);
     return (
         <div>
+               <video className="vid" src={vid} autoPlay loop muted/>
             <Container>
                 {/* Header Section */}
                 <Row className="my-5">
@@ -115,22 +118,7 @@ const Service1 = () => {
                         </Col>
                     </Row>
 
-                    {/* FAQ Grid */}
-                    <Row className="mt-4">
-                        {Array.from({ length: 4 }).map((_, i) => (
-                            <Col md={6} className="mb-4" key={i}>
-                                <Card>
-                                    <Card.Body>
-                                        <Card.Title className="h4">How do I get started?</Card.Title>
-                                        <Card.Text className="mt-3 text-muted">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquam adipisci
-                                            iusto aperiam? Sint asperiores sequi nobis inventore ratione deleniti?
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
+                    <S1faq/>
 
                     {/* Contact Link */}
                     <Row className="text-center mt-4">

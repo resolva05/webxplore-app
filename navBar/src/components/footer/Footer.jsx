@@ -2,6 +2,7 @@ import React from 'react'
 import '../../App.css'
 import styled from 'styled-components'
 import logo from "../../assets/logo.jpg"
+import { NavLink } from 'react-router-dom'
 
 function Footer() {
     return (
@@ -11,51 +12,58 @@ function Footer() {
                     <div className="row text-center text-md-start">
                         {/* Logo Section */}
                         <div className="col-12 col-md-3 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start">
-                            
-                                <img
-                                    src={logo}
-                                    alt="Logo"
-                                    style={{
-                                        height: "100px",
-                                        borderRadius: "15px",
-                                    }}
-                                />
-                            
+
+                            <img
+                                src={logo}
+                                alt="Logo"
+                                style={{
+                                    height: "100px",
+                                    borderRadius: "15px",
+                                }}
+                            />
                         </div>
 
                         {/* About Section */}
-                        <div className="col-12 col-md-3 mb-3 mb-md-0">
+                        <div className="col-12 col-md-2 mb-2 mb-md-0">
                             <h4>About</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/">Contact Us</a></li>
-                                <li><a href="/">About Us</a></li>
-                                <li><a href="/">Careers</a></li>
-                                <li><a href="/">Press</a></li>
+                                <li><NavLink to="/contact">Contact Us</NavLink></li>
+                                <li><NavLink to="/portfolio">About Us</NavLink></li>
+                                <li><NavLink to="/">Careers</NavLink></li>
+                                <li><NavLink to="/">Press</NavLink></li>
                             </ul>
                         </div>
 
                         {/* Socials Section */}
-                        <div className="col-12 col-md-3 mb-3 mb-md-0">
-                            <h4>Socials</h4>
+                        <div className="col-12 col-md-2 mb-2 mb-md-0">
+                            <h4>Information</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/">Terms & Conditions</a></li>
-                                <li><a href="/">Privacy Policy</a></li>
-                                <li><a href="/">Licensing</a></li>
+                                <li><NavLink to="/">Terms & Conditions</NavLink></li>
+                                <li><NavLink to="/">Privacy Policy</NavLink></li>
+                                <li><NavLink to="/">Licensing</NavLink></li>
                             </ul>
                         </div>
 
                         {/* Social Icons Section */}
-                        <div className="col-12 col-md-3 mb-3 mb-md-0">
-                            <h4>Follow Us</h4>
+                        <div className="col-12 col-md-2 mb-2 mb-md-0">
+                            <h4>Socials</h4>
                             <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
                                 <li style={{ marginRight: "10px" }}>
-                                    <a href="/"><i className="fa-brands fa-facebook"></i></a>
+                                    <NavLink to="/"><i className="fa-brands fa-facebook"></i></NavLink>
                                 </li>
                                 <li style={{ marginRight: "10px" }}>
-                                    <a href="/"><i className="fa-brands fa-instagram"></i></a>
+                                    <NavLink to="/"><i className="fa-brands fa-instagram"></i></NavLink>
                                 </li>
                                 <li style={{ marginRight: "10px" }}>
-                                    <a href="/"><i className="fa-brands fa-linkedin"></i></a>
+                                    <NavLink to="/"><i className="fa-brands fa-linkedin"></i></NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="col-12 col-md-2 mb-2 mb-md-0">
+                            <h4>FAQ's</h4>
+                            <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
+                                <li style={{ marginRight: "10px" }}>
+                                    <NavLink to="/faq"><i className="fa-solid fa-circle-question"></i></NavLink>
                                 </li>
                             </ul>
                         </div>
