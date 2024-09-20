@@ -1,0 +1,27 @@
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%); /* Start the text off-screen on the left */
+    opacity: 0; /* Text is invisible at the start */
+  }
+  100% {
+    transform: translateX(0); /* Text moves to its original position */
+    opacity: 1; /* Text becomes fully visible */
+  }
+}
+
+.text-animate {
+  display: inline-block;
+  animation: slideInLeft 1s ease-in-out forwards; /* 1s for animation duration */
+  opacity: 0; /* Start the text invisible */
+}
+
+.vid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+}
