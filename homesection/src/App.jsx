@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Contactus from './components/contactus/Contactus';
+import Pricing from './components/pricingSection/Pricing';
+// import Contactus from './components/contactus/Contactus';
 // import Home from './components/home/Home';
 // import Contactus from './components/contactus/Contactus';
 // import Portfolio from './components/portfolio/Portfolio';
@@ -12,7 +13,8 @@ function App() {
 
   return (
       <div>
-        <Contactus/>
+        <Pricing/>
+        {/* <Contactus/> */}
         {/* <Header/>
         <Blogpage/> */}
         {/* <Contactus/> */}

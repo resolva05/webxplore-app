@@ -6,7 +6,7 @@ import logo from "../../assets/logo.jpg"
 import './Header.css'
 import { NavLink } from 'react-router-dom';
 // import searchlogo from '../../assets/search.png'
-import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
