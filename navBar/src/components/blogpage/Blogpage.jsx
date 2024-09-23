@@ -2,7 +2,7 @@
 import img from "../../assets/blogimg.png";
 import { NavLink } from "react-router-dom";
 import img2 from "../../assets/categoryimg.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Blogpage.css";
 import logo from "../../assets/logonew.png";
 import { posts } from "./temp";
@@ -29,6 +29,9 @@ const categories = [
   "Sports",
 ];
 const Blogpage = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   // const { name } = useParams();
 
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -48,7 +51,7 @@ const Blogpage = () => {
 
   return (
     <>
-    <video className="vid" src={vid} autoPlay loop muted/>
+      <video className="vid" src={vid} autoPlay loop muted />
       <Container fluid className="mt-4" style={{ marginBottom: "20px" }}>
         <Container className="text-center mb-5" style={{ maxWidth: "42rem" }}>
           <Badge pill bg="light" text="dark" className="px-3 py-1 mb-3">

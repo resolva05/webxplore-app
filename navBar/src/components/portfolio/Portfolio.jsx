@@ -4,11 +4,14 @@ import "./Portfolio.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../home/Testimon.css";
 import { animated, useSpring } from "react-spring";
 // mport { useState } from 'react';
 const Portfolio = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const [open, setOpen] = useState(false);
   const [flip, setFlip] = useState(false);
   const props = useSpring({

@@ -13,6 +13,8 @@ import Service3 from './components/service/subServices/Service3.jsx'
 import Blogpage from './components/blogpage/Blogpage.jsx'
 import Subblogpage from './components/blogpage/Subblogpage.jsx'
 import Faq from './components/faq/Faq.jsx'
+import AboutUs from './components/aboutus/aboutUs.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -72,12 +74,20 @@ const router = createBrowserRouter([
         element: <Blogpage/>,
       },
       {
+        path: "blogpage",
+        element: <Blogpage/>,
+      },
+      {
         path: "blogpage/subblogpage/:postId",
         element:<Subblogpage/>
       },
       {
         path:"/faq",
         element:<Faq/>
+      },
+      {
+        path:"aboutus",
+        element:<AboutUs/>
       }
     ]
   }
