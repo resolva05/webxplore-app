@@ -1,0 +1,16 @@
+.crd {
+  transition: all 0.3s;
+}
+
+.crd:hover {
+  transform: scale(1.04);
+}
+
+.sec {
+  transition: all 0.3s;
+}
+
+.sec:hover {
+  transform: scale(1.02);
+}
+

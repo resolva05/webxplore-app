@@ -1,0 +1,31 @@
+.carousel-control-prev, .carousel-control-next {
+    width: 50px; /* Set width to reduce button size */
+    height: 50px; /* Set height to reduce button size */
+    background-color: rgba(177, 184, 179, 0.5); /* Set a background color */
+    border-radius: 50%; /* Make the button circular */
+    top: 50%; /* Align the button vertically */
+    transform: translateY(-50%); /* Adjust button to center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 20px; /* Set icon width */
+    height: 20px; /* Set icon height */
+  }
+
+  .carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: rgba(126, 124, 124, 0.8); /* Darken background on hover */
+  }
+
+  /* Initially hide the carousel */
+.carousel-container {
+    opacity: 0;
+    transition: opacity 2s ease-out; /* Smooth transition for fade-in */
+  }
+  
+  /* Animation when visible */
+  .carousel-container.visible {
+    opacity: 1;
+  }
