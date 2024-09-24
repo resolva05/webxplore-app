@@ -6,7 +6,8 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import "./Blogpage.css";
 import logo from "../../assets/logonew.png";
-import { posts } from "./temp";
+// import { posts } from "./temp";
+import { posts} from "./temp.jsx"
 import vid from '../../assets/blogvideo.mp4'
 import {
   Row,
@@ -19,9 +20,9 @@ import {
 } from "react-bootstrap";
 
 const categories = [
-  "Design",
-  "Technology",
-  "Business",
+  "Web Development",
+  "AI Web Development",
+  "Dark Mode",
   "Health",
   "Education",
   "Travel",

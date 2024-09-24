@@ -9,8 +9,7 @@ const Pricing = () => {
 
     useEffect(() => {
         // The text to animate word by word
-        const text = `We provide top-notch development solutions tailored to your needs. 
-      Whether it's a stunning website or a mobile app, our expert team ensures quality, performance, and client satisfaction. Choose the right plan and let us bring your vision to life.`;
+        const text = `We provide top-notch development solutions tailored to your needs. Whether it's a stunning website or a mobile app, our expert team ensures quality, performance, and client satisfaction. Choose the right plan and let us bring your vision to life.`;
 
         const words = text.split(' '); // Split the text into words
 
@@ -45,11 +44,11 @@ const Pricing = () => {
             </Row>
 
             {/* Pricing Toggle Switch */}
-            <Row className="text-center mb-5">
+            <Row className="text-center mb-4" style={{marginTop:"-20px"}}>
                 <Col>
                     <div className="d-flex justify-content-center align-items-center">
                         {/* Highlight active label */}
-                        <span className={`switch-label ${isMobile ? '' : 'active'}`} style={{fontSize:"20px"}}>Web Development</span>
+                        <span className={`switch-label ${isMobile ? '' : 'active'}`} >Web Development</span>
                         
                         {/* Toggle switch */}
                         <div
@@ -58,13 +57,13 @@ const Pricing = () => {
                         ></div>
 
                         {/* Highlight active label */}
-                        <span className={`switch-label ${!isMobile ? '' : 'active'}`}style={{fontSize:"20px"}}>Mobile Development</span>
+                        <span className={`switch-label ${!isMobile ? '' : 'active'}`}>Mobile Development</span>
                     </div>
                 </Col>
             </Row>
 
             {/* Pricing Section */}
-            <Row className="justify-content-center">
+            <Row className="justify-content-center" >
                 <Col md={8} lg={8} className="mb-4">
                     <Card className="pricing-card text-center" style={{ marginRight: "auto", marginLeft: "auto" }}>
                         <Card.Body>
@@ -72,7 +71,7 @@ const Pricing = () => {
                                 {isMobile ? 'Mobile Development' : 'Web Development'}
                             </Card.Title>
                             <Card.Text className="price">
-                                {isMobile ? '₹1,00,000' : '₹1,50,000'}
+                                {isMobile ? '$10000' : '$25000'}
                             </Card.Text>
                             <ul className="pricing-features">
                                 {isMobile ? (
@@ -95,7 +94,7 @@ const Pricing = () => {
                                     </>
                                 )}
                             </ul>
-                            <Button variant="primary" className="pricing-btn">
+                            <Button variant="primary">
                                 Choose {isMobile ? 'Mobile' : 'Web'} Plan
                             </Button>
                         </Card.Body>

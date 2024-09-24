@@ -57,37 +57,36 @@
 
 /* Toggle Switch */
 .toggle-switch {
-  /* position: relative;
-    width: 70px;
-    height: 35px;
-    background-color: #ccc;
-    border-radius: 35px;
-    cursor: pointer;
-    transition: background-color 0.4s ease; */
-  width: 80px;
+  /* width: 80px;
   height: 40px;
-  background-color: #6c757d; /* Default background */
+  background-color: #6c757d; 
   border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease; */
+  width: 70px;
+  height: 35px;
+  background-color: #6c757d;
+  border-radius: 35px;
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .toggle-switch::before {
-  /* content: '';
-    position: absolute;
-    width: 31px;
-    height: 31px;
-    border-radius: 50%;
-    background-color: white;
-    top: 2px;
-    left: 2px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease; */
-  content: "";
+  /* content: "";
   position: absolute;
   top: 5px;
   left: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease; */
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
   width: 30px;
   height: 30px;
   background-color: white;
@@ -100,7 +99,7 @@
 }
 
 .toggle-switch.active::before {
-  transform: translateX(40px);
+  transform: translateX(35px);
 }
 
 .switch-label {
@@ -218,5 +217,65 @@
   to {
     opacity: 1;
     transform: translateX(0); /* End at normal position */
+  }
+}
+
+@media (max-width: 992px) {
+  .toggle-switch {
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+  }
+
+  .toggle-switch::before {
+    width: 25px;
+    height: 25px;
+    top: 2.5px;
+    left: 2.5px;
+    transform: translateX(0); /* Reset position for smaller width */
+  }
+
+  .toggle-switch.active::before {
+    transform: translateX(30px); /* Adjusted for 60px width */
+  }
+}
+
+@media (max-width: 768px) {
+  .toggle-switch {
+    width: 55px;
+    height: 28px;
+    border-radius: 28px;
+  }
+
+  .toggle-switch::before {
+    width: 23px;
+    height: 23px;
+    top: 2.5px;
+    left: 2.5px;
+    transform: translateX(0);
+  }
+
+  .toggle-switch.active::before {
+    transform: translateX(27px); /* Adjusted for 55px width */
+  }
+}
+
+@media (max-width: 576px) {
+  .toggle-switch {
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+  }
+
+  .toggle-switch::before {
+    width: 20px;
+    height: 20px;
+    top: 2.5px;
+    left: 2.5px;
+    transform: translateX(0);
+  }
+
+  .toggle-switch.active::before {
+    transform: translateX(17px); /* Adjusted for 50px width */
   }
 }

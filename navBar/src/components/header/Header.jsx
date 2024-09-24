@@ -61,7 +61,7 @@ const Header = () => {
                 className="nav-link"
                 style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
               >
-                Contact Us
+                 Contact Us
               </NavLink>
 
               {/* Search Icon */}
