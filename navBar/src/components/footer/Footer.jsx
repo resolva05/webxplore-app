@@ -28,7 +28,7 @@ function Footer() {
                             <h4>About</h4>
                             <ul className="list-unstyled">
                                 <li><NavLink to="/contact">Contact Us</NavLink></li>
-                                <li><NavLink to="/portfolio">About Us</NavLink></li>
+                                <li><NavLink to="/aboutus">About Us</NavLink></li>
                                 <li><NavLink to="/">Careers</NavLink></li>
                                 <li><NavLink to="/">Press</NavLink></li>
                             </ul>

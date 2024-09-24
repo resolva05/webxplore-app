@@ -33,7 +33,7 @@ const Service2 = () => {
                     </Col>
                     <Col md={6}>
                         <Image
-                            src="https://via.placeholder.com/500"
+                            src="https://img.freepik.com/free-vector/app-development-business-concept-background_23-2147872248.jpg?size=626&ext=jpg&ga=GA1.1.151066200.1727091391&semt=ais_hybrid"
                             alt="Project Image"
                             rounded
                             fluid
