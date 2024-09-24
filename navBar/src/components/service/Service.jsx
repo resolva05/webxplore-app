@@ -80,13 +80,10 @@ const Service = () => {
               <Card.Img variant="top" src={applogo} alt="Macbook" />
               {/* Card body */}
               <Card.Body style={{ display: "flex", flexDirection: "column" }}>
-                <Card.Title>Web Development</Card.Title>
+                <Card.Title>Mobile App Development</Card.Title>
                 <Card.Text style={{ flexGrow: 1 }}>
                   lbfjslkfjhgasdfjkghsdfgasdfdbjvbergejbcegrtecbejrgewufbwegtium
-                  ducimus exercitationem cupiditate excepturi? Earum molestiae
-                  fugit, labore doloribus, exercitationem neque enim quia
-                  repellat, officia quos obcaecati? Lorem ipsum do dolor sit
-                  amet consectetur adipisicing elit. Placeat doloribus eveniet
+                  cing elit. Placeat doloribus eveniet
                   repudiandae ea, delectus deleniti
                 </Card.Text>
                 {/* Read Button */}
@@ -117,7 +114,7 @@ const Service = () => {
               />
               {/* Card body */}
               <Card.Body style={{ display: "flex", flexDirection: "column" }}>
-                <Card.Title>Web Development</Card.Title>
+                <Card.Title>Other Services</Card.Title>
                 <Card.Text style={{ flexGrow: 1 }}>
                   lbfjslkfjhgasdfjkghsdfgasdfdbjvbergejbcegrtecbejrgewufbwegtium
                   ducimus exercitationem cupiditate excepturi? Earum molestiae

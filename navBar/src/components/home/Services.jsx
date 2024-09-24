@@ -23,7 +23,6 @@ const Services = () => {
 
     return () => {
       if (carouselRef.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(carouselRef.current);
       }
     };

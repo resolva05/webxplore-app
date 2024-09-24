@@ -3,6 +3,7 @@ import Footer from '../src/components/footer/Footer';
 import Header from './components/header/Header';
 import { Outlet } from 'react-router-dom';
 import BackToTop from './components/BackToTop';
+import PopUp from './components/popup/PopUp';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     
       <Header />
       <Outlet />
+      {/* <PopUp/> */}
       <BackToTop/>
       <Footer />
     </>

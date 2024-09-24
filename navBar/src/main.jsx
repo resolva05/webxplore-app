@@ -14,6 +14,7 @@ import Blogpage from './components/blogpage/Blogpage.jsx'
 import Subblogpage from './components/blogpage/Subblogpage.jsx'
 import Faq from './components/faq/Faq.jsx'
 import AboutUs from './components/aboutus/aboutUs.jsx'
+import PopUp from './components/popup/PopUp.jsx'
 
 
 const router = createBrowserRouter([
