@@ -1,0 +1,87 @@
+/* Initial Navbar styles */
+.main-nav {
+    background-color: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+  }
+  
+  .main-nav .nav-link {
+    color: white;
+    margin-right: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .main-nav .nav-link:hover {
+    color: #ffb3b3;
+    text-decoration: none;
+  }
+  
+  .main-nav.scrolled {
+    background-color: #343a40; /* Dark background on scroll */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-nav.scrolled .nav-link {
+    color: #fff; /* White text on scroll */
+  }
+  
+  .main-nav.scrolled .nav-link:hover {
+    color: #ffeb3b; /* Yellow hover effect on scroll */
+  }
+  
+  .main-nav .navbar-brand {
+    color: white;
+    font-weight: bold;
+    transition: color 0.2s ease;
+  }
+  
+  .main-nav.scrolled .navbar-brand {
+    color: #ffeb3b;
+  }
+  
+  .form-control {
+    margin-right: 10px;
+  }
+  
+  /* For mobile responsiveness */
+  @media (max-width: 992px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .main-nav {
+      padding: 0.5rem;
+    }
+  
+    .form-control {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  
+    .navbar-collapse {
+      justify-content: space-between;
+    }
+  }
+  .search-bar {
+    transition: all 0.3s ease;
+    max-width: 200px;
+    width: 100%;
+  }
+  
+  .search-bar.active {
+    max-width: 90%;
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar input:focus {
+    width: 100%;
+  }
+  
+  .search-bar.active ~ .animated-nav,
+  .search-bar.active ~ .navbar-brand,
+  .search-bar.active ~ .navbar-toggle {
+    display:none;
+}

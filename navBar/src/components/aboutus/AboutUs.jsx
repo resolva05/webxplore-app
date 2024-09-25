@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import "./AboutUs.css";
+import { Card, Button, Container, Row, Col, Image } from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -33,8 +35,10 @@ const AboutUs = () => {
   return (
     <div className="about-us-page">
       {/* Header Section */}
-      <header className="about-header text-center" >
-        <h1 className="about-main-heading" style={{color:"white"}}>About Us</h1>
+      <header className="about-header text-center">
+        <h1 className="about-main-heading" style={{ color: "white" }}>
+          About Us
+        </h1>
       </header>
 
       {/* Content Section */}
@@ -51,18 +55,30 @@ const AboutUs = () => {
             />
           </div>
           <div className="col-md-6 text-center text-md-left">
-            <h2 className="about-subheading mb-3">Who We Are</h2>
+            <h2 className="about-subheading mb-3" style={{ color: "#007bff" }}>Who We Are</h2>
             <p className="about-description">
               We are a dynamic and innovative company that specializes in
               delivering top-notch services and solutions to clients around the
               globe. Our team is passionate, driven, and committed to helping
               businesses thrive in a digital-first world.
             </p>
-            <h2 className="about-subheading mb-3">Our Mission</h2>
+            <h2 className="about-subheading mb-3" style={{ color: "#007bff" }}>
+              Our Process
+            </h2>
             <p className="about-description">
-              Our mission is to provide cutting-edge technologies, customized
-              solutions, and exceptional service that empowers our clients to
-              achieve their business goals and exceed expectations.
+              1. Discovery & Planning: We start by understanding your business,
+              goals, and target audience to define the scope of your project.{" "}
+              <br />
+              2. Design & Prototyping: Our designers craft visually appealing
+              and user-friendly interfaces, ensuring your brand identity is
+              reflected. <br />
+              3. Development: Our developers bring the design to life, building
+              a responsive and fully functional website using the latest
+              technologies. <br />
+              4. Testing: We rigorously test the website across different
+              browsers and devices to ensure it performs flawlessly. <br />
+              5. Launch & Maintenance: After launch, we provide ongoing support
+              and maintenance to keep your website updated and secure. <br />
             </p>
             <button className="btn btn-primary about-btn">Discover More</button>
           </div>
@@ -71,7 +87,12 @@ const AboutUs = () => {
 
       {/* Key Points Section */}
       <div className="key-points-section container mt-5 p-4" ref={keyPointsRef}>
-        <h2 className="about-subheading text-center mb-4">Our Core Values</h2>
+        <h2
+          className="about-subheading text-center mb-4"
+          style={{ color: "#007bff" }}
+        >
+          Why Choose Us?
+        </h2>
         <div className="key-point text-center">
           <div className="key-point-icon">
             <i className="fas fa-star"></i>
@@ -84,34 +105,41 @@ const AboutUs = () => {
         </div>
         <div className="row mt-4">
           <div className="col-md-6 key-point">
-            <h5 className="key-point-subtitle">Innovation</h5>
+            <h5 className="key-point-subtitle">Expert Developers</h5>
             <p className="key-point-description">
-              We foster a culture of creativity and continuous improvement.
+              Our team of skilled web developers is proficient in the latest
+              technologies, including HTML5, CSS3, JavaScript, and popular
+              frameworks like React, Angular, and Laravel.
             </p>
           </div>
           <div className="col-md-6 key-point">
-            <h5 className="key-point-subtitle">Integrity</h5>
+            <h5 className="key-point-subtitle">Client-Centric Approach</h5>
             <p className="key-point-description">
-              We act with honesty, transparency, and accountability.
+              We focus on delivering solutions that align with your business
+              goals, ensuring a user-friendly and result-driven website.
             </p>
           </div>
           <div className="col-md-6 key-point">
-            <h5 className="key-point-subtitle">Collaboration</h5>
+            <h5 className="key-point-subtitle">On-Time Delivery</h5>
             <p className="key-point-description">
-              We believe in the power of teamwork and open communication.
+              We adhere to strict deadlines and ensure timely delivery of all
+              our web development projects.
             </p>
           </div>
           <div className="col-md-6 key-point">
-            <h5 className="key-point-subtitle">Customer Focus</h5>
+            <h5 className="key-point-subtitle">Scalable Solutions</h5>
             <p className="key-point-description">
-              We put our clients needs at the center of everything we do.
+              Our websites are built to grow with your business. Whether you
+              need to add new features or scale up operations, we ensure your
+              website can handle it.
             </p>
           </div>
           <div className="col-md-12 key-point">
-            <h5 className="key-point-subtitle">Sustainability</h5>
+            <h5 className="key-point-subtitle">SEO-Optimized</h5>
             <p className="key-point-description">
-              We are committed to long-term solutions that are good for business
-              and the planet.
+              We build websites that not only look great but are also optimized
+              for search engines. We implement the best SEO practices to help
+              your website rank higher in search results.
             </p>
           </div>
         </div>
@@ -155,6 +183,18 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+      <Row className="text-center mt-4">
+            <Col>
+              <p className="text-muted">
+                Can't find what you're looking for?{" "}
+                <NavLink to={"./contact"}>
+                  <Button>Contact us</Button>
+                </NavLink>
+              </p>
+            </Col>
+          </Row>
       </div>
     </div>
   );

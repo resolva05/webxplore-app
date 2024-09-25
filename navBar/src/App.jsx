@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import { Outlet } from 'react-router-dom';
 import BackToTop from './components/BackToTop';
 import PopUp from './components/popup/PopUp';
+import Temp from './components/Temp';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       {/* <PopUp/> */}
       <BackToTop/>
       <Footer />
+      {/* <Temp/> */}
     </>
 
   )

@@ -33,7 +33,7 @@ const Services = () => {
         <Carousel.Item>
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
             <img
-              src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+              src="https://ideausher.com/wp-content/uploads/2023/05/Custom-Web-Application-Development-_.webp"
               alt="Laptop"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
@@ -43,7 +43,7 @@ const Services = () => {
                 className="font-semibold md:text-xl"
                 style={{ fontSize: "25px" }}
               >
-                Service 1
+                Custom Web Applications Development
               </h1>
               <div
                 className="text-container mx-auto"
@@ -63,12 +63,12 @@ const Services = () => {
                     marginBottom: "20px",
                   }}
                 >
-                  Qui alias molestias, animi doloremque error voluptate,
-                  veritatis repellat perspiciatis numquam nisi et rem adipisci
-                  possimus provident inventore obcaecati, beatae nemo.
-                  Laboriosam! Rerum nesciunt distinctio quod ducimus accusantium
-                  officia aliquam eveniet, saepe harum earum itaque aut!
-                  Quibusdam aspernatur tempore.
+                  At WebXplore Studio, we specialize in developing secure and
+                  scalable web applications meticulously tailored to align with
+                  your unique business goals. Our custom web application
+                  development services encompass a comprehensive range of
+                  solutions, from initial concept design to full-scale
+                  deployment and maintenance.
                 </p>
               </div>
             </div>
@@ -77,7 +77,7 @@ const Services = () => {
         <Carousel.Item>
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
             <img
-              src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+              src="https://media.istockphoto.com/id/1273058761/vector/tiny-people-testing-quality-assurance-in-software.jpg?s=612x612&w=0&k=20&c=DsNlOqfMpPkHlVEavkrz8atzgOxVSRgZPkGHYH-e1-8="
               alt="Laptop"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
@@ -87,7 +87,7 @@ const Services = () => {
                 className="font-semibold md:text-xl"
                 style={{ fontSize: "25px" }}
               >
-                Service 2
+                Prototype Services
               </h1>
               <div
                 className="text-container mx-auto"
@@ -107,12 +107,13 @@ const Services = () => {
                     marginBottom: "20px",
                   }}
                 >
-                  Qui alias molestias, animi doloremque error voluptate,
-                  veritatis repellat perspiciatis numquam nisi et rem adipisci
-                  possimus provident inventore obcaecati, beatae nemo.
-                  Laboriosam! Rerum nesciunt distinctio quod ducimus accusantium
-                  officia aliquam eveniet, saepe harum earum itaque aut!
-                  Quibusdam aspernatur tempore.
+                  Bringing your vision to life starts with a solid prototype,
+                  and at WebXplore Studio, our experienced UX designers excel in
+                  crafting detailed models that accurately reflect your user
+                  requirements. Our prototype services are designed to bridge
+                  the gap between your ideas and the final product, ensuring
+                  that every aspect of your web application or mobile app is
+                  thoughtfully planned and executed.
                 </p>
               </div>
             </div>
@@ -121,7 +122,7 @@ const Services = () => {
         <Carousel.Item>
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
             <img
-              src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+              src="https://www.extwebtech.com/wp-content/uploads/2023/01/Full_stack_developer-1024x507.webp"
               alt="Laptop"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
@@ -131,7 +132,7 @@ const Services = () => {
                 className="font-semibold md:text-xl"
                 style={{ fontSize: "25px" }}
               >
-                Service 3
+                Full Stack Development
               </h1>
               <div
                 className="text-container mx-auto"
@@ -151,18 +152,197 @@ const Services = () => {
                     marginBottom: "20px",
                   }}
                 >
-                  Qui alias molestias, animi doloremque error voluptate,
-                  veritatis repellat perspiciatis numquam nisi et rem adipisci
-                  possimus provident inventore obcaecati, beatae nemo.
-                  Laboriosam! Rerum nesciunt distinctio quod ducimus accusantium
-                  officia aliquam eveniet, saepe harum earum itaque aut!
-                  Quibusdam aspernatur tempore.
+                  Our Full Stack Development services at WebXplore Studio
+                  encompass both frontend and backend development, providing a
+                  seamless and integrated approach to building comprehensive web
+                  applications. We are proficient in a variety of technologies
+                  and frameworks, including MEAN (MongoDB, Express.js, Angular,
+                  Node.js), MERN (MongoDB, Express.js, React, Node.js), PHP,
+                  .NET, and more, allowing us to choose the best stack tailored
+                  to your project’s requirements.
                 </p>
               </div>
             </div>
           </div>
         </Carousel.Item>
         {/* Additional Carousel.Items here */}
+        <Carousel.Item>
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+            <img
+              src="https://shastatek.com/sites/default/files/3party_api.jpg"
+              alt="Laptop"
+              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
+              style={{ borderRadius: "15px", maxHeight: "360px" }}
+            />
+            <div className="p-4">
+              <h1
+                className="font-semibold md:text-xl"
+                style={{ fontSize: "25px" }}
+              >
+                Third Party Integration
+              </h1>
+              <div
+                className="text-container mx-auto"
+                style={{
+                  maxWidth: "85%",
+                  padding: "10px",
+                  borderRadius: "10px",
+                  boxSizing: "border-box",
+                }}
+              >
+                <p
+                  className="mt-3 text-sm text-gray-600"
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    margin: "0",
+                    marginBottom: "20px",
+                  }}
+                >
+                  In today’s interconnected digital landscape, integrating
+                  third-party services is essential for enhancing the
+                  functionality and user experience of your web applications. At
+                  WebXplore Studio, our Third Party Integration services focus
+                  on creating seamless connections between your web applications
+                  and external platforms, APIs, and data sources.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+            <img
+              src="https://cdn-bbaid.nitrocdn.com/wYFmIWkSNKpdInpiRfVoEqTErZtkFjBo/assets/images/optimized/rev-ff73c2b/www.rishabhsoft.com/wp-content/uploads/2022/03/Software-Product-Development-Strategy_Banner.jpg"
+              alt="Laptop"
+              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
+              style={{ borderRadius: "15px", maxHeight: "360px" }}
+            />
+            <div className="p-4">
+              <h1
+                className="font-semibold md:text-xl"
+                style={{ fontSize: "25px" }}
+              >
+                Software Product Development
+              </h1>
+              <div
+                className="text-container mx-auto"
+                style={{
+                  maxWidth: "85%",
+                  padding: "10px",
+                  borderRadius: "10px",
+                  boxSizing: "border-box",
+                }}
+              >
+                <p
+                  className="mt-3 text-sm text-gray-600"
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    margin: "0",
+                    marginBottom: "20px",
+                  }}
+                >
+                  At WebXplore Studio, we offer comprehensive Software Product
+                  Development services designed to transform your innovative
+                  ideas into market-ready products. Our team combines technical
+                  expertise with industry knowledge to deliver software
+                  solutions that are not only functional but also secure and
+                  user-centric.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+            <img
+              src="https://media.istockphoto.com/id/1212446148/photo/update-with-blurred-city-lights.jpg?s=612x612&w=0&k=20&c=w5GES6fFoPkAYqBSFX5f-wjpkelJtdzpXif7Cic53q8="
+              alt="Laptop"
+              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
+              style={{ borderRadius: "15px", maxHeight: "360px" }}
+            />
+            <div className="p-4">
+              <h1
+                className="font-semibold md:text-xl"
+                style={{ fontSize: "25px" }}
+              >
+                Upgradation Services
+              </h1>
+              <div
+                className="text-container mx-auto"
+                style={{
+                  maxWidth: "85%",
+                  padding: "10px",
+                  borderRadius: "10px",
+                  boxSizing: "border-box",
+                }}
+              >
+                <p
+                  className="mt-3 text-sm text-gray-600"
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    margin: "0",
+                    marginBottom: "20px",
+                  }}
+                >
+                  Keeping your web technologies up-to-date is crucial for
+                  maintaining performance, security, and user satisfaction. At
+                  WebXplore Studio, our Upgradation Services are designed to
+                  revitalize your existing websites and applications by
+                  upgrading outdated technologies and migrating to new, more
+                  efficient platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+            <img
+              src="https://www.shutterstock.com/image-photo/analyst-uses-computer-dashboard-data-600nw-2285412737.jpg"
+              alt="Laptop"
+              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
+              style={{ borderRadius: "15px", maxHeight: "360px" }}
+            />
+            <div className="p-4">
+              <h1
+                className="font-semibold md:text-xl"
+                style={{ fontSize: "25px" }}
+              >
+                Consulting and Business Analysis
+              </h1>
+              <div
+                className="text-container mx-auto"
+                style={{
+                  maxWidth: "85%",
+                  padding: "10px",
+                  borderRadius: "10px",
+                  boxSizing: "border-box",
+                }}
+              >
+                <p
+                  className="mt-3 text-sm text-gray-600"
+                  style={{
+                    whiteSpace: "normal",
+                    wordWrap: "break-word",
+                    margin: "0",
+                    marginBottom: "20px",
+                  }}
+                >
+                  Navigating the complexities of web development projects
+                  requires expert guidance and strategic planning. At WebXplore
+                  Studio, our Consulting and Business Analysis services provide
+                  you with the insights and direction needed to make informed
+                  decisions and achieve your business objectives.Our experienced
+                  consultants work closely with you to understand your business
+                  model, goals, and challenges.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Carousel.Item>
       </Carousel>
     </div>
   );

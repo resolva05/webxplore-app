@@ -1,0 +1,79 @@
+/* Global Styles */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+  } */
+  
+  /* Custom Card Styles */
+  .custom-card {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 95%; /* Let the card adjust to content */
+  }
+  
+  /* Image Styling */
+  .custom-card img {
+    height: auto;
+    max-height: 180px;
+    object-fit: cover; /* Ensures the image scales properly */
+  }
+  
+  /* Hover effect for Card */
+  .custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Card Body Flexibility */
+  .custom-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  /* Card Text Flexibility */
+  .custom-card .card-text {
+    flex-grow: 1;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  /* Button styling */
+  .custom-card .btn {
+    margin-top: auto;
+    border-radius: 8px;
+    background-color: #343a40;
+    border: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-card .btn:hover {
+    background-color: #212529;
+  }
+  
+  /* Responsive Breakpoints */
+  @media (max-width: 767px) {
+    .custom-card {
+      height: auto; /* Auto height for smaller devices */
+    }
+  
+    .custom-card .card-text {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .custom-card .card-body {
+      padding: 25px;
+    }
+  }
+  

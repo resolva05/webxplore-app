@@ -146,7 +146,7 @@ const Cards = () => {
                       inView ? "animate-text" : ""
                     }`}
                   >
-                    <Card.Title className="card-title">
+                    <Card.Title className="card-title text-center">
                       Cross-Playform Development
                     </Card.Title>
                     <Card.Text className="card-text">

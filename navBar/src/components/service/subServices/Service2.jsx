@@ -60,7 +60,7 @@ const Service2 = () => {
 
           {/* Case Study 1 */}
           <Col md={4} className="my-3">
-            <Card>
+            <Card style={{height:"100%"}}>
               <Card.Img
                 variant="top"
                 src="https://via.placeholder.com/300x200"
@@ -78,7 +78,7 @@ const Service2 = () => {
 
           {/* Case Study 2 */}
           <Col md={4} className="my-3">
-            <Card>
+            <Card style={{height:"100%"}}>
               <Card.Img
                 variant="top"
                 src="https://via.placeholder.com/300x200"
@@ -96,7 +96,7 @@ const Service2 = () => {
 
           {/* Case Study 3 */}
           <Col md={4} className="my-3">
-            <Card>
+            <Card style={{height:"100%"}}>
               <Card.Img
                 variant="top"
                 src="https://via.placeholder.com/300x200"

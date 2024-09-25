@@ -7,6 +7,7 @@ import { animated, useSpring } from "react-spring";
 import { useState } from "react";
 import bg from '../../assets/heroVideo.mp4'
 import { NavLink } from "react-router-dom";
+import KeyFeatures from "./KeyFeatures";
 
 const Home = () => {
   const [flip, setFlip] = useState(false);
@@ -65,6 +66,11 @@ const Home = () => {
         <Services />
         <hr className="my-4"></hr>
         <br />
+
+        <div>
+          <KeyFeatures/>
+        </div>
+        <hr className="my-4"></hr>
         <div
           className="text-center  fs-1 mb-4"
           style={{ fontFamily: "sans-serif" }}

@@ -22,7 +22,7 @@ const PopUp = () => {
 
     const intervalId = setInterval(() => {
       handleShow();
-    }, 60000);
+    }, 120000);
 
     return () => clearInterval(intervalId);
   }, []);

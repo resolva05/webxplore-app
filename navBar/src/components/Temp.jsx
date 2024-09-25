@@ -1,18 +1,8 @@
-// import React from 'react';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-import logo from "../../assets/logo.jpg"
-import './Header.css'
-import { NavLink } from 'react-router-dom';
-// import searchlogo from '../../assets/search.png'
-// import { Form, FormControl, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container, Form, FormControl, Button } from "react-bootstrap";
+import "./Temp.css";
 
-const Header = () => {
+const Temp = () => {
   const [scrolled, setScrolled] = useState(false);
   const [searchActive, setSearchActive] = useState(false); // State for search field expansion
 
@@ -38,9 +28,10 @@ const Header = () => {
   const handleSearchBlur = () => {
     setSearchActive(false); // Collapse search bar when not in focus
   };
+
   return (
     <div>
-      <Navbar expand="lg" className={`main-nav ${scrolled ? "scrolled" : ""}`} fixed="top" style={{border:"2px solid-yellow"}}>
+      <Navbar expand="lg" className={`main-nav ${scrolled ? "scrolled" : ""}`} fixed="top">
         <Container>
           <Navbar.Brand href="#home">MyLogo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -67,8 +58,13 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
-  )
-}
 
-export default Header
+      {/* Dummy content to enable scrolling */}
+      <div style={{ height: "200vh", paddingTop: "100px" }}>
+        <h1>Scroll down to see the header change</h1>
+      </div>
+    </div>
+  );
+};
+
+export default Temp;
