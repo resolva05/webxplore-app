@@ -42,7 +42,7 @@ const KeyFeatures = () => {
                       style={{ fontSize: "3rem" }}
                     />
                     <Card.Title>{feature.title}</Card.Title>
-                    <Card.Text>{feature.description}</Card.Text>
+                    <Card.Text style={{fontSize:"1.3rem"}}>{feature.description}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>

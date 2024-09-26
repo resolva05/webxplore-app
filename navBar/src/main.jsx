@@ -15,6 +15,7 @@ import Subblogpage from './components/blogpage/Subblogpage.jsx'
 import Faq from './components/faq/Faq.jsx'
 import AboutUs from './components/aboutus/AboutUs.jsx'
 import PopUp from './components/popup/PopUp.jsx'
+import CaseStudy from './components/caseStudy/CaseStudy.jsx'
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:'',
         element:<Home/>
+      },
+      {
+        path:"casestudy",
+        element:<CaseStudy/>
       }
       ,
       {

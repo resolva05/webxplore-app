@@ -1,69 +1,101 @@
 // import React from 'react';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import logo from "../../assets/logo.jpg"
 import './Header.css'
 import { NavLink } from 'react-router-dom';
 // import searchlogo from '../../assets/search.png'
-// import { Form, FormControl, Button } from 'react-bootstrap';
+import { Form, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from 'react';
-import { Navbar, Nav, Container, Form, FormControl, Button } from "react-bootstrap";
+import { useState } from 'react';
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [searchActive, setSearchActive] = useState(false); // State for search field expansion
+  // const [showSearch, setShowSearch] = useState(false);
 
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  // const toggleSearchBar = () => {
+  //   setShowSearch(!showSearch);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [showSearch, setShowSearch] = useState(false);
 
-  const handleSearchFocus = () => {
-    setSearchActive(true); // Expand search bar
-  };
-
-  const handleSearchBlur = () => {
-    setSearchActive(false); // Collapse search bar when not in focus
+  // Function to toggle search bar visibility
+  const toggleSearchBar = () => {
+    setShowSearch(!showSearch);
   };
   return (
     <div>
-      <Navbar expand="lg" className={`main-nav ${scrolled ? "scrolled" : ""}`} fixed="top" style={{border:"2px solid-yellow"}}>
+      <Navbar expand="lg" className="" style={{ backgroundColor: "#2b2a29" }}>
         <Container>
-          <Navbar.Brand href="#home">MyLogo</Navbar.Brand>
+
+          <img src={logo} alt="" style={{ height: "60px", borderRadius: "15px", marginLeft: "10px" }} className='shadow-lg img' />
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            {!searchActive && ( // Hide navigation links when the search bar is active
-              <Nav className="ml-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#services">Services</Nav.Link>
-                <Nav.Link href="#portfolio">Portfolio</Nav.Link>
-                <Nav.Link href="#contact">Contact Us</Nav.Link>
-              </Nav>
-            )}
-            <Form className={`d-flex search-bar ${searchActive ? "active" : ""}`}>
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2 search-input"
-                aria-label="Search"
-                onFocus={handleSearchFocus} // Expand search on focus
-                onBlur={handleSearchBlur} // Collapse search when not focused
+
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Nav className="ms-auto d-flex align-items-center" style={{ flexWrap: "wrap" }}>
+              <NavLink
+                to="/home"
+                className="nav-link"
+                style={{ marginRight: "30px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/service"
+                className="nav-link"
+                style={{ marginRight: "30px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Services
+              </NavLink>
+              <NavLink
+                to="/portfolio"
+                className="nav-link"
+                style={{ marginRight: "30px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Portfolio
+              </NavLink>
+              <NavLink
+                to="/casestudy"
+                className="nav-link"
+                style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Case Study
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className="nav-link"
+                style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Contact Us
+              </NavLink>
+
+              {/* Search Icon */}
+              <FontAwesomeIcon
+                icon={faSearch}
+                size="lg"
+                onClick={toggleSearchBar}
+                className="search-icon"
               />
-              <Button variant="outline-light">Search</Button>
-            </Form>
+
+              {/* Search Bar */}
+              <div className={`search-bar-container ${showSearch ? "show" : ""}`}>
+                <Form className="d-flex">
+                  <FormControl
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    size="lg"
+                    className="search-submit-icon"
+                  />
+                </Form>
+              </div>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
