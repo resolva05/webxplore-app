@@ -1,23 +1,13 @@
-// import { useParams } from "react-router-dom";
-import img from "../../assets/blogimg.png";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import img from "../../assets/blogimg.png";
 import img2 from "../../assets/categoryimg.png";
 import { ArrowRight, MessageCircle } from "lucide-react"; // Comment Icon
-import { useState } from "react";
-import "./Blogpage.css";
+import { Row, Col, Card, Container, Badge, Form, ListGroup, Modal } from "react-bootstrap";
 import logo from "../../assets/logonew.png";
-import { posts } from "./temp.jsx";
 import vid from "../../assets/blogvideo.mp4";
-import {
-  Row,
-  Col,
-  Card,
-  Container,
-  Badge,
-  Form,
-  ListGroup,
-  Modal // Import Modal
-} from "react-bootstrap";
+import { posts } from "./temp.jsx";
+import "./Blogpage.css";
 
 const categories = [
   "Web Development",
@@ -137,7 +127,7 @@ const Blogpage = () => {
             <Row className="g-4">
               {filteredPosts.map((post) => (
                 <Col md={6} lg={4} key={post.title}>
-                  <Card style={{ borderRadius: "20px", height: "100%" }}>
+                  <Card  className="card-hover" style={{ borderRadius: "20px", height: "97%" }}>
                     <Card.Img
                       variant="top"
                       src={post.poster}
@@ -156,32 +146,61 @@ const Blogpage = () => {
                         <p style={{ marginLeft: "5px" }}>{post.date}</p>
                       </div>
                     </Card.Body>
-                    <div className="text-center hh">
-                      <NavLink to={`/blogpage/subblogpage/${post.id}`}>
+
+                    {/* Adjusting Read More Button and Comment Icon */}
+                    <div
+                      className="d-flex align-items-center justify-content-between"
+                      style={{ padding: "10px 15px", marginBottom: "20px" }}
+                    >
+                      {/* Read More Button (80% width) */}
+                      <NavLink
+                        to={`/blogpage/subblogpage/${post.id}`}
+                        style={{ width: "77%" }}
+                      >
                         <button
                           type="button"
-                          className="inline-flex items-center rounded-md  px-3 py-2 text-sm font-semibold  read-more-btn"
+                          className="inline-flex items-xcenter rounded-md px-3 py-2 text-sm font-semibold  read-more-btn"
                           style={{
-                            width: "80%",
+                            width: "100%",
                             borderRadius: "20px",
-                            marginTop: "-15px",
-                            marginBottom: "20px",
                           }}
                         >
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4 arrow-right" />
                         </button>
                       </NavLink>
-                    </div>
 
-                    {/* Comment Toggle Icon */}
-                    <div className="comment-icon-wrapper">
-                      <button
-                        onClick={() => handleOpenComments(post.id)}
-                        className="comment-icon-btn"
+                      {/* Comment Button (20% width) with Comment Count */}
+                      <div
+                        className="comment-icon-wrapper d-flex align-items-center justify-content-center"
+                        style={{ width: "20%" }}
                       >
-                        <MessageCircle size={24} />
-                      </button>
+                        <button
+                          onClick={() => handleOpenComments(post.id)}
+                          className="comment-icon-btn"
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                            borderRadius: "20px",
+                            // backgroundColor: "#f8f9fa",
+                            // border: "1px solid #ced4da",
+                            padding: "5px",
+                            marginTop:"-17px",
+                            height:"42px"
+
+                          }}
+                        >
+                          <MessageCircle size={24} style={{marginBottom:"3px"}} />
+                          <span
+                            className="comment-count"
+                            style={{ marginLeft: "5px", fontWeight: "bold",marginBottom:"3px"}}
+                          >
+                            {comments[post.id]?.length || 0}
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </Card>
                 </Col>
