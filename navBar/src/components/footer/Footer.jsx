@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import '../../App.css'
 import styled from 'styled-components'
 import logo from "../../assets/logo.jpg"
@@ -60,7 +60,7 @@ function Footer() {
                             </ul>
                         </div>
                         <div className="col-12 col-md-2 mb-2 mb-md-0">
-                            <h4>FAQ's</h4>
+                            <h4>FAQs</h4>
                             <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
                                 <li style={{ marginRight: "10px" }}>
                                     <NavLink to="/faq"><i className="fa-solid fa-circle-question"></i></NavLink>

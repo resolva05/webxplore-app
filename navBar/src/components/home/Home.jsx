@@ -47,7 +47,7 @@ const Home = () => {
                   }}
                 />
                 <p className="text-slide">
-                  In today's fast-paced world, businesses need to make smarter and
+                  In todays fast-paced world, businesses need to make smarter and
                   faster decisions. AI-driven decision-making systems leverage advanced
                   technologies like machine learning and predictive analytics to
                   transform data into actionable insights. By nt quaerat... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio eum molestiae alias consequatur veniam necessitatibus excepturi nostrum molestias omnis pariatur assumenda impedit quidem, voluptatum eveniet suscipit, fugit accusamus sapiente voluptatibus.
