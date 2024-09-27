@@ -57,9 +57,16 @@ const Header = () => {
                 Portfolio
               </NavLink>
               <NavLink
+                to="/casestudy"
+                className="nav-link"
+                style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Case Study
+              </NavLink>
+              <NavLink
                 to="/pricing"
                 className="nav-link"
-                style={{ marginRight: "30px", fontSize: "18px", color: "white", textDecoration: "none" }}
+                style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
               >
                 Pricing
               </NavLink>
@@ -68,7 +75,7 @@ const Header = () => {
                 className="nav-link"
                 style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
               >
-                Contact Us
+                 Contact Us
               </NavLink>
 
               {/* Search Icon */}

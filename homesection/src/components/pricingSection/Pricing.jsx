@@ -70,7 +70,7 @@ const Pricing = () => {
                             <Card.Title className="pricing-plan-title">
                                 {isMobile ? 'Mobile Development' : 'Web Development'}
                             </Card.Title>
-                            <Card.Text className="price">
+                            <Card.Text className="price text-center">
                                 {isMobile ? '$10000' : '$25000'}
                             </Card.Text>
                             <ul className="pricing-features">

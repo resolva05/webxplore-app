@@ -13,7 +13,9 @@ import Service3 from './components/service/subServices/Service3.jsx'
 import Blogpage from './components/blogpage/Blogpage.jsx'
 import Subblogpage from './components/blogpage/Subblogpage.jsx'
 import Faq from './components/faq/Faq.jsx'
-import AboutUs from './components/aboutus/aboutUs.jsx'
+import AboutUs from './components/aboutus/AboutUs.jsx'
+// import PopUp from './components/popup/PopUp.jsx'
+import Case from './components/caseStudy/Case.jsx'
 import Pricing from './components/pricingSection/Pricing.jsx'
 
 const router = createBrowserRouter([
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path:'',
         element:<Home/>
+      },
+      {
+        path:"casestudy",
+        element:<Case/>
+      },
+      {
+        path:"pricing",
+        element:<Pricing/>
       }
       ,
       {
@@ -88,10 +98,6 @@ const router = createBrowserRouter([
       {
         path:"aboutus",
         element:<AboutUs/>
-      },
-      {
-        path:"pricing",
-        element:<Pricing/>
       }
     ]
   }

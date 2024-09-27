@@ -9,6 +9,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../homesection/src/components/header/Header';
 import BackToTop from '../../homesection/src/components/BackToTop';
 import Footer from '../../homesection/src/components/footer/Footer';
+import Chatbot from './components/chatbot/Chatbot';
 function App() {
 
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+      <Chatbot/>
       <Outlet />
       <BackToTop />
       <Footer />
