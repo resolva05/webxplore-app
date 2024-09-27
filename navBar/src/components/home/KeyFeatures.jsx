@@ -29,19 +29,19 @@ const KeyFeatures = () => {
     <div>
       <section className="py-5 bg-light">
         <Container>
-          <h2 className="text-center mb-5" style={{ color: "black" }}>
+          <h2 className="text-center mb-5 " style={{ color: "black" }}>
             Key Features
           </h2>
           <Row>
             {features.map((feature, index) => (
-              <Col key={index} md={4} className="mb-4">
+              <Col key={index} md={4} className="mb-4 ">
                 <Card className="h-100 text-center shadow-lg border-0 crd " style={{borderRadius:"20px"}}>
                   <Card.Body className="d-flex flex-column align-items-center">
                     <feature.icon
                       className="text-primary mb-3"
                       style={{ fontSize: "3rem" }}
                     />
-                    <Card.Title>{feature.title}</Card.Title>
+                    <Card.Title className="cardtitle">{feature.title}</Card.Title>
                     <Card.Text style={{fontSize:"1.3rem"}}>{feature.description}</Card.Text>
                   </Card.Body>
                 </Card>

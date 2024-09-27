@@ -127,7 +127,7 @@ const Blogpage = () => {
             <Row className="g-4">
               {filteredPosts.map((post) => (
                 <Col md={6} lg={4} key={post.title}>
-                  <Card  className="card-hover orgcard" style={{ borderRadius: "20px", height: "97%" }}>
+                  <Card  className="card-hover abc" style={{ borderRadius: "20px", height: "97%" }}>
                     <Card.Img
                       variant="top"
                       src={post.poster}
@@ -137,7 +137,7 @@ const Blogpage = () => {
                       <Card.Text className="text-muted text-xs">
                         #{post.category}
                       </Card.Text>
-                      <Card.Title className="cardtitle">
+                      <Card.Title className="font-weight-bold">
                         {post.title}
                       </Card.Title>
                       <Card.Text>{post.description}</Card.Text>

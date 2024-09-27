@@ -1,6 +1,3 @@
-/* Common styling for both cards */
-
-/* First card's initial state (left to right) */
 .full-width-card {
     transform: translateX(-30%);
     opacity: 0;
@@ -64,7 +61,7 @@
   }
   
   /* Card title and text */
-  .card-title {
+  .cardtitle {
     font-size: 2rem;
     font-weight: bold;
   }

@@ -47,7 +47,7 @@ const Cards = () => {
                       inView ? "animate-text" : ""
                     }`}
                   >
-                    <Card.Title className="card-title text-center">
+                    <Card.Title className="cardtitle text-center">
                       IOS Development
                     </Card.Title>
                     <Card.Text className="card-text">

@@ -212,11 +212,6 @@ button.submit-btn:hover {
 button.submit-btn:hover {
   color: white !important; /* Prevent Bootstrap from changing text color */
 }
-.orgcard{
-  height: 97%;
-  border-radius: 20px;
-  width: 24vw;
-}
-.cardtitle{
-  font-size: 20px;
+.abc{
+  height: 80%;
 }

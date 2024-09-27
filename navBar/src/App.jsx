@@ -4,8 +4,8 @@ import Header from './components/header/Header';
 import { Outlet } from 'react-router-dom';
 import BackToTop from './components/BackToTop';
 import PopUp from './components/popup/PopUp';
-import Temp from './components/Temp';
 import Cookies from './components/cookie/Cookie.jsx'
+import Chatbot from './components/chatbot/Chatbot.jsx'
 
 function App() {
 
@@ -15,10 +15,10 @@ function App() {
       <Header />
       <Outlet />
       <Cookies/>
+      <Chatbot/>
       {/* <PopUp/> */}
       <BackToTop/>
       <Footer />
-      {/* <Temp/> */}
     </>
 
   )
