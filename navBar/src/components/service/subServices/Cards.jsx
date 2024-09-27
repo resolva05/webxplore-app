@@ -26,18 +26,18 @@ const Cards = () => {
       <Container fluid className="d-flex justify-content-center mt-5">
         <Row className="w-100">
           <Col>
-            <Card
+            <Card 
               ref={ref}
-              className={`full-width-card ${inView ? "animate-card" : ""}`}
+              className={` ${inView ? "animate-card" : ""}`}
             >
               <Row noGutters>
                 <Col md={5} className="card-image-section">
-                  <video
+                  <video className="vidcard"
                     src={ios}
                     autoPlay
                     muted
                     loop
-                    style={{ height: "58vh", width: "35vw" }}
+                   
                   ></video>
                 </Col>
 

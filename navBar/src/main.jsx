@@ -15,8 +15,8 @@ import Subblogpage from './components/blogpage/Subblogpage.jsx'
 import Faq from './components/faq/Faq.jsx'
 import AboutUs from './components/aboutus/AboutUs.jsx'
 import PopUp from './components/popup/PopUp.jsx'
-import CaseStudy from './components/caseStudy/CaseStudy.jsx'
-
+import Case from './components/caseStudy/Case.jsx'
+import Pricing from './components/pricingSection/Pricing.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path:"casestudy",
-        element:<CaseStudy/>
+        element:<Case/>
+      },
+      {
+        path:"pricing",
+        element:<Pricing/>
       }
       ,
       {

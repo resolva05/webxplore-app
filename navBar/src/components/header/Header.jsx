@@ -64,6 +64,13 @@ const Header = () => {
                 Case Study
               </NavLink>
               <NavLink
+                to="/pricing"
+                className="nav-link"
+                style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}
+              >
+                Pricing
+              </NavLink>
+              <NavLink
                 to="/contact"
                 className="nav-link"
                 style={{ marginRight: "20px", fontSize: "18px", color: "white", textDecoration: "none" }}

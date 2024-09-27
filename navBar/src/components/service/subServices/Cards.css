@@ -79,4 +79,7 @@
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+  .vidcard{
+    height: 58vh;
+    width: 35vw;
+  }

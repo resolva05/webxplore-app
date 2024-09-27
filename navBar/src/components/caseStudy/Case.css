@@ -1,0 +1,206 @@
+/* Page Container */
+.case-page-container {
+    padding: 40px;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Ensures padding is included in the element's width/height */
+  }
+  
+  /* Page Heading */
+  .page-heading {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px; /* Adds some padding for smaller screens */
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Prevents overflow if the title is too long */
+  }
+  
+  /* Page Description with smooth word-by-word animation */
+  .page-description {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+    padding: 0 20px; /* Adds padding to ensure it fits well on smaller screens */
+  }
+  
+  /* Individual Word Animation */
+  .animated-word {
+    opacity: 0;
+    display: inline-block;
+    transform: translateX(-20px);
+    animation: wordFadeIn 0.8s forwards ease-in-out;
+  }
+  
+  /* Keyframes for word animation */
+  @keyframes wordFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Container */
+  .case-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    padding: 0 20px; /* Adds padding to prevent content from touching the edges */
+    box-sizing: border-box;
+  }
+  
+  /* Card */
+  .case-card {
+    width: 75%;
+    padding: 50px;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 1s forwards;
+    min-height: 500px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    cursor: pointer; /* Makes the card clickable */
+    
+  }
+  .case-link {
+    text-decoration: none;
+    color: inherit; /* Maintain text color from the card */
+  }
+  
+  .case-card:hover {
+    transform: translateY(10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Title */
+  .case-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  /* Subtitle */
+  .case-subtitle {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #2c3e50;
+  }
+  
+  /* Description */
+  .case-description {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    line-height: 1.6;
+    word-wrap: break-word; /* Ensures text wraps within the card */
+  }
+  
+  /* List */
+  .case-list {
+    list-style-type: disc;
+    margin-left: 40px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  /* Animation for fade-in */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 768px) {
+    .case-card {
+      width: 90%;
+      padding: 30px; /* Reduces padding on smaller screens */
+    }
+  
+    .main-title {
+      font-size: 2.2rem; /* Reduces title size for mobile */
+    }
+  
+    .case-title {
+      font-size: 2rem; /* Adjusts case title font size */
+    }
+  
+    .page-description {
+      font-size: 1rem; /* Adjusts font size for the description */
+      padding: 0 10px; /* Adds padding for mobile */
+    }
+  
+    .case-description {
+      font-size: 1rem; /* Adjusts case description size */
+    }
+  
+    .case-list {
+      margin-left: 20px; /* Reduces list margin on mobile */
+      font-size: 1rem; /* Adjusts font size for the list */
+    }
+  }
+  
+  /* Extra Small Screens (max-width: 480px) */
+  @media (max-width: 480px) {
+    .case-card {
+      width: 95%;
+      padding: 20px; /* Further reduces padding on extra small screens */
+    }
+  
+    .main-title {
+      font-size: 2rem; /* Further reduces title size */
+    }
+  
+    .case-title {
+      font-size: 1.8rem; /* Adjusts case title font size */
+    }
+  
+    .page-description {
+      font-size: 0.9rem; /* Reduces font size for the description */
+    }
+  
+    .case-description {
+      font-size: 0.9rem; /* Further reduces case description size */
+    }
+  
+    .case-list {
+      margin-left: 15px; /* Further reduces list margin */
+      font-size: 0.9rem; /* Further adjusts font size for the list */
+    }
+  }
+  .case-link:hover {
+    text-decoration: none;
+    color: inherit; /* Maintain text color from the card */
+  }
