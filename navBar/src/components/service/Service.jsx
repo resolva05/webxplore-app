@@ -63,8 +63,13 @@ const Service = () => {
                 <Card.Body>
                   <Card.Title>Mobile App Development</Card.Title>
                   <Card.Text>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Placeat doloribus eveniet repudiandae ea...
+                    Elevate your business with custom mobile app solutions
+                    tailored to your needs. We specialize in iOS, Android, and
+                    cross-platform app development, ensuring seamless user
+                    experiences across all devices. From concept to launch, our
+                    expert team delivers innovative, scalable, and secure apps
+                    designed to enhance user engagement and drive business
+                    growth.
                   </Card.Text>
                   <NavLink to={"./subservice2"}>
                     <Button variant="dark" className="w-100 mt-auto">

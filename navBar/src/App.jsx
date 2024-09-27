@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 import BackToTop from './components/BackToTop';
 import PopUp from './components/popup/PopUp';
 import Temp from './components/Temp';
+import Cookies from './components/cookie/Cookie.jsx'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     
       <Header />
       <Outlet />
+      <Cookies/>
       {/* <PopUp/> */}
       <BackToTop/>
       <Footer />

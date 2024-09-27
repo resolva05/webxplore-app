@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import "./AboutUs.css";
-import { Card, Button, Container, Row, Col, Image } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const AboutUs = () => {
@@ -55,12 +55,14 @@ const AboutUs = () => {
             />
           </div>
           <div className="col-md-6 text-center text-md-left">
-            <h2 className="about-subheading mb-3" style={{ color: "#007bff" }}>Who We Are</h2>
+            <h2 className="about-subheading mb-3" style={{ color: "#007bff" }}>
+             What We Do
+            </h2>
             <p className="about-description">
-              We are a dynamic and innovative company that specializes in
-              delivering top-notch services and solutions to clients around the
-              globe. Our team is passionate, driven, and committed to helping
-              businesses thrive in a digital-first world.
+              At WebX Studio, we are passionate about transforming your ideas
+              into powerful digital experiences. Our commitment goes beyond just
+              building websites; we focus on crafting solutions that resonate
+              with your audience and drive meaningful engagement
             </p>
             <h2 className="about-subheading mb-3" style={{ color: "#007bff" }}>
               Our Process
@@ -185,16 +187,16 @@ const AboutUs = () => {
         </div>
       </div>
       <div>
-      <Row className="text-center mt-4">
-            <Col>
-              <p className="text-muted">
-                Can't find what you're looking for?{" "}
-                <NavLink to={"./contact"}>
-                  <Button>Contact us</Button>
-                </NavLink>
-              </p>
-            </Col>
-          </Row>
+        <Row className="text-center mt-4">
+          <Col>
+            <p className="text-muted">
+              Can't find what you're looking for?{" "}
+              <NavLink to={"./contact"}>
+                <Button>Contact us</Button>
+              </NavLink>
+            </p>
+          </Col>
+        </Row>
       </div>
     </div>
   );

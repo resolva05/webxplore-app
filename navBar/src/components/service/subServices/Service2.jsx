@@ -1,18 +1,17 @@
 import React from "react";
-import { Card, Button, Container, Row, Col, Image } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, Image } from "react-bootstrap";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import vid from "../../../assets/vid.mp4";
 import S2faq from "./S2faq";
 import "./Service2.css";
 import Cards from "./Cards";
-import s2 from '../../../assets/s2img.jpg'
+import s2 from "../../../assets/s2img.jpg";
 
 const Service2 = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
- 
 
   return (
     <div>
@@ -22,96 +21,31 @@ const Service2 = () => {
         <Row className="my-5">
           <Col md={12}>
             <h1 className="text-center">Mobile App Development</h1>
-            <p className="text-center">
-              A brief overview of the project with highlights of its key points.
-            </p>
           </Col>
         </Row>
 
         {/* Description Section */}
         <Row className="my-5">
           <Col md={6}>
-            <h2 style={{color:"#007bff"}}>Project Description</h2>
+            <h2 style={{ color: "#007bff" }}>Project Description</h2>
             <p>
-              This section provides a detailed description of the project,
-              including its objectives, goals, and overall importance. It can
-              include the project background, the problem it aims to solve, and
-              the potential impact on its users or stakeholders.
+              Elevate your business with custom mobile app solutions tailored to
+              your needs. We specialize in iOS, Android, and cross-platform app
+              development, ensuring seamless user experiences across all
+              devices. From concept to launch, our expert team delivers
+              innovative, scalable, and secure apps designed to enhance user
+              engagement and drive business growth.
             </p>
           </Col>
           <Col md={6}>
-            <Image
-              src={s2}
-              rounded
-              fluid
-            />
+            <Image src={s2} rounded fluid />
           </Col>
         </Row>
 
         <hr className="my-4"></hr>
 
-    <Cards/>
-    <hr className="my-4"></hr>
-        {/* Case Studies Section */}
-        <Row className="my-5">
-          <Col md={12}>
-            <h2>Case Studies</h2>
-          </Col>
-
-          {/* Case Study 1 */}
-          <Col md={4} className="my-3">
-            <Card style={{height:"100%"}}>
-              <Card.Img
-                variant="top"
-                src="https://via.placeholder.com/300x200"
-              />
-              <Card.Body>
-                <Card.Title>Case Study 1</Card.Title>
-                <Card.Text>
-                  This case study focuses on the project's successful
-                  implementation, challenges faced, and the outcomes. It
-                  provides real-world insights into how the project added value.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Case Study 2 */}
-          <Col md={4} className="my-3">
-            <Card style={{height:"100%"}}>
-              <Card.Img
-                variant="top"
-                src="https://via.placeholder.com/300x200"
-              />
-              <Card.Body>
-                <Card.Title>Case Study 2</Card.Title>
-                <Card.Text>
-                  Another case study detailing a specific scenario where the
-                  project had a positive impact. It outlines the process,
-                  strategies used, and results obtained from the implementation.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Case Study 3 */}
-          <Col md={4} className="my-3">
-            <Card style={{height:"100%"}}>
-              <Card.Img
-                variant="top"
-                src="https://via.placeholder.com/300x200"
-              />
-              <Card.Body>
-                <Card.Title>Case Study 3</Card.Title>
-                <Card.Text>
-                  A third case study that highlights innovative solutions
-                  developed within the project. It shows key decisions made, and
-                  lessons learned along the way.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+        <Cards />
+        <hr className="my-4"></hr>
 
         {/* Conclusion Section */}
         <Row className="my-5">

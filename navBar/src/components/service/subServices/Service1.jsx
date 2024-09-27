@@ -143,72 +143,11 @@ const Service1 = () => {
             interruption.
           </p>
         </div>
-      
+
         {/* </Col>
         </Row> */}
 
         <hr className="my-4"></hr>
-
-        {/* Case Studies Section */}
-        <Row className="my-5">
-          <Col md={12}>
-            <h2 style={{color:"#007bff"}}>Case Studies</h2>
-          </Col>
-
-          {/* Case Study 1 */}
-          <Col md={4} className="my-3">
-            <Card style={{height:"100%"}}>
-              <Card.Img
-                variant="top"
-                src="https://via.placeholder.com/300x200"
-              />
-              <Card.Body>
-                <Card.Title>Case Study 1</Card.Title>
-                <Card.Text>
-                  This case study focuses on the project's successful
-                  implementation, challenges faced, and the outcomes. It
-                  provides real-world insights into how the project added value.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Case Study 2 */}
-          <Col md={4} className="my-3">
-            <Card style={{height:"100%"}}>
-              <Card.Img
-                variant="top"
-                src="https://via.placeholder.com/300x200"
-              />
-              <Card.Body>
-                <Card.Title>Case Study 2</Card.Title>
-                <Card.Text>
-                  Another case study detailing a specific scenario where the
-                  project had a positive impact. It outlines the process,
-                  strategies used, and results obtained from the implementation.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          {/* Case Study 3 */}
-          <Col md={4} className="my-3">
-            <Card style={{height:"100%"}}>
-              <Card.Img
-                variant="top"
-                src="https://via.placeholder.com/300x200"
-              />
-              <Card.Body>
-                <Card.Title>Case Study 3</Card.Title>
-                <Card.Text>
-                  A third case study that highlights innovative solutions
-                  developed within the project. It shows key decisions made, and
-                  lessons learned along the way.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
 
         {/* Conclusion Section */}
         <Row className="my-5">
