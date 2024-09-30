@@ -1,0 +1,172 @@
+/* HeroSection.css */
+.hero-section {
+    position: relative; /* Create a positioning context */
+    color: #fff;
+    min-height: 100vh; /* Full height for the section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 0; /* Adjusted top padding to create space for the header */
+    overflow: hidden; /* Prevent overflow of background image */
+  }
+  
+  .bckgrdimg {
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Cover the top */
+    left: 0; /* Cover the left */
+    right: 0; /* Cover the right */
+    bottom: 0; /* Cover the bottom */
+    background-image: url('../../assets/heroimg.png'); /* Ensure the correct path to your image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1.5s forwards; /* Fade in animation */
+  }
+  
+  /* Fade in animation for the background image */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .hero-title {
+    font-size: 4rem; /* Default for large screens */
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-top: -120px;
+  }
+  
+  /* Updated description styles */
+  .hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.8); /* Start smaller */
+    animation: scaleIn 0.8s forwards; /* Apply animation */
+    animation-delay: 1.5s; /* Start after the heading animation */
+  }
+  
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem; /* Smaller font on smaller screens */
+    }
+  
+    .hero-description {
+      font-size: 1rem;
+    }
+  }
+  
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Increased space between buttons */
+  }
+  
+  .cntus, .blgpage {
+    background-color: black;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 2px solid white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  }
+  
+  .cntus:hover, .blgpage:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-5px); /* Add a hover lift effect */
+  }
+  
+  /* Text animation for heading */
+  .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    margin-right: 8px;
+  }
+  
+  /* Animation for heading */
+  .hero-title .word {
+    animation: slideInLeft 0.5s ease-in-out forwards;
+  }
+  
+  /* Keyframes for sliding animation */
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Dynamic word animation delays for heading */
+  .hero-title .word-0 {
+    animation-delay: 0.1s;
+  }
+  .hero-title .word-1 {
+    animation-delay: 0.2s;
+  }
+  .hero-title .word-2 {
+    animation-delay: 0.3s;
+  }
+  .hero-title .word-3 {
+    animation-delay: 0.4s;
+  }
+  .hero-title .word-4 {
+    animation-delay: 0.5s;
+  }
+  
+  /* Animation for description */
+  @keyframes scaleIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8); /* Start smaller */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1); /* Scale to normal size */
+    }
+  }
+  
+  /* Button Animation */
+  .hero-button {
+    animation: fadeInButtons 0.6s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  .hero-button:nth-child(1) {
+    animation-delay: 1.6s;
+  }
+  
+  .hero-button:nth-child(2) {
+    animation-delay: 1.8s;
+  }
+  
+  /* Button Animation Keyframes */
+  @keyframes fadeInButtons {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

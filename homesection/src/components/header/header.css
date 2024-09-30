@@ -1,159 +1,162 @@
-/* @import url('https://fonts.googleapis.com/css?family=Inconsolata:700'); */
-.img{
-    transition: all 0.3s;
-}
-.img:hover{
-    transform: scale(1.15);
-}
-.crd{
-    transition: all 0.3s;
-}
-.crd:hover{
-    transform: scale(1.08);
-}
-.clr{
-    color: red;
-    
+.navbar {
+  background-color: white; /* White background for the navbar */
 }
 
-/* .search-bar-container {
-    width: 0;
-    opacity: 0;
-    transition: all 0.5s ease;
-    overflow: hidden;
+.img {
+  transition: all 0.3s;
 }
 
-.search-bar-container.show {
-    width: 200px; 
-    opacity: 1;
-} */
- /* General NavLink styling */
+.img:hover {
+  transform: scale(1.15);
+}
+
+.crd {
+  transition: all 0.3s;
+}
+
+.crd:hover {
+  transform: scale(1.08);
+}
+
+.clr {
+  color: red;
+}
 
 /* General NavLink styling */
 .nav-link {
-    margin-right: 30px;
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
+  margin-right: 30px; /* Space between links */
+  font-size: 1.2rem; /* Font size for links */
+  color: black; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.2s; /* Smooth color transition */
+  font-weight: bold;
+}
+
+
+.maintext{
+  margin-right: 20px; /* Space between links */
+  font-size: 2.2rem; /* Font size for links */
+  color: black; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.2s; /* Smooth color transition */
+  font-weight: bold;
+  margin-left: 10px;
+}
+.maintext:hover {
+  color: gray; /* Change color on hover */
+  text-decoration: none;
+}
+
+
+.nav-link:hover {
+  color: gray; /* Change color on hover */
+}
+
+.nav-link:last-child {
+  margin-right: 20px; /* Space for the last link */
+}
+
+/* Search Icon styling */
+.search-icon {
+  color: black; /* Change to black */
+  cursor: pointer;
+  margin-left: 20px; /* Space to the left of the icon */
+}
+
+/* Search box styling */
+.search-box {
+  display: none; /* Initially hidden */
+  opacity: 0; /* Start with zero opacity */
+  transform: translateY(-20px); /* Move it up for animation */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.search-box.show {
+  display: block; /* Show the box */
+  opacity: 1; /* Fully opaque */
+  transform: translateY(0); /* Move it back to original position */
+  margin: 10px 0; /* Add some margin to separate from the header */
+  padding: 10px; /* Add some padding */
+  background-color: white; /* Set background color */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Right-aligned NavLink and search box on larger screens */
+@media (min-width: 769px) {
+  .navbar-nav {
+      justify-content: flex-end; /* Align links to the right */
   }
-  
-  .nav-link:last-child {
-    margin-right: 20px; /* Contact Us link */
+}
+
+/* Centered NavLink and search box when collapsed on smaller screens */
+@media (max-width: 768px) {
+  .navbar-nav {
+      justify-content: center; /* Center alignment for links */
+      width: 100%; /* Full width */
+      text-align: center; /* Center text */
   }
-  
-  /* Search Icon styling */
+
+  .search-box {
+      width: 100%; /* Make search box full width */
+      margin-top: 10px; /* Space above the search box */
+  }
+
+  .search-box form {
+      width: 100%; /* Full width form */
+  }
+
+  .nav-link {
+      width: 100%; /* Full width links */
+      margin-bottom: 10px; /* Space between links */
+  }
+
+  .navbar-toggler {
+      border: none; /* Removes the border */
+      outline: none; /* Optional: Removes any focus outline */
+  }
+
+  .navbar-toggler:focus {
+      border: none;
+      outline: none;
+      box-shadow: none; /* Removes focus-related shadow */
+  }
+
+  .navbar-toggler:active {
+      border: none;
+      outline: none;
+      box-shadow: none; /* Removes active state shadow */
+  }
+
+  .navbar-collapse {
+      justify-content: center; /* Ensure center alignment for dropdown content */
+      align-items: center; /* Vertically center the links */
+  }
+
   .search-icon {
-    color: white;
-    cursor: pointer;
-    margin-left: 20px;
-    margin-right: 5px;
+      display: block; /* Center icon horizontally */
+      margin: 10px auto; /* Center the icon */
   }
-  
-  /* Search bar container - initially hidden */
-  .search-bar-container {
-    display: none;
-    transition: max-width 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-    max-width: 0;
-    overflow: hidden;
+
+  .search-box {
+      justify-content: center; /* Center the search box */
+      width: 100%; /* Make it span full width */
   }
-  
-  /* Show search bar when the state is toggled */
-  .search-bar-container.show {
-    display: flex;
-    opacity: 1;
-    max-width: 200px; /* Adjust as needed */
+
+  .search-box form {
+      width: 100%; /* Full width form for proper centering */
   }
-  
-  .search-bar-container form {
-    display: flex;
-    width: 100%;
-  }
-  
-  /* Search input field */
-  .search-bar-container input {
-    flex: 1;
-    min-width: 8vw;
-    max-width: 100%;
-    padding: 5px;
-    color: white;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 4px;
-  }
-  
-  /* Search submit icon styling */
-  .search-bar-container .search-submit-icon {
-    color: white;
-    cursor: pointer;
-    margin-top: 3px;
+  .maintext{
+    margin-right: 20px; /* Space between links */
+    font-size: 1.5rem; /* Font size for links */
+    color: black; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.2s; /* Smooth color transition */
+    font-weight: bold;
     margin-left: 10px;
-    border: 2px solid white;
-    padding: 5px;
-    border-radius: 20px;
   }
-  
-  /* Right-aligned NavLink and search bar on larger screens */
-  @media (min-width: 769px) {
-    .navbar-nav {
-      justify-content: flex-end;
-    }
-  }
-  
-  /* Centered NavLink and search bar when collapsed on smaller screens */
-  @media (max-width: 768px) {   
-    .navbar-nav {
-      justify-content: center;
-      /* flex-direction: column; */
-      width: 100%;
-      text-align: center;
-    }
-  
-    .search-bar-container {
-      width: 100%;
-      margin-top: 10px;
-    }
-    
-    .search-bar-container form {
-        width: 100%;
-    }
-    
-    .nav-link {
-        width: 100%; 
-        margin-bottom: 10px; /* Space between links when centered */
-    }
-    .navbar-toggler {
-        border: none; /* Removes the border */
-        outline: none; /* Optional: Removes any focus outline if present */
-      }
-      .navbar-toggler:focus {
-        border: none;
-        outline: none;
-        box-shadow: none; /* Removes any focus-related shadow */
-      }
-      
-      /* Remove border on active (when the button is clicked and held) */
-      .navbar-toggler:active {
-        border: none;
-        outline: none;
-        box-shadow: none; /* Removes any active state shadow */
-      }
-      .navbar-collapse {
-        justify-content: center; /* Ensure center alignment for dropdown content */
-        align-items: center;     /* Vertically center the links in the collapse */
-      }
-      .search-icon {
-        display: block;
-        margin: 10px auto;       /* Center the icon horizontally */
-      }
-    
-      .search-bar-container {
-        justify-content: center; /* Center the search bar itself */
-        width: 100%;             /* Make sure it spans full width */
-      }
-    
-      .search-bar-container form {
-        width: 100%;             /* Full width form for proper centering */
-      }
-  }
-  
+}
