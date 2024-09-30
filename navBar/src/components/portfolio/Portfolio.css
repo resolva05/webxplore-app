@@ -1,13 +1,13 @@
 .btn{
-    background-color: red;
+    background-color: black;
             color: white;
-            border: 2px solid red;
+            /* border: 2px solid red; */
 }
 
 .btn:hover:hover {
             background-color: white;
-            color: red;
-            border: 2px solid red; /* Optional: Keeps a red border */
+            color: black;
+            border: 2px solid black; /* Optional: Keeps a red border */
             transition: all 0.3s ease;
 }
 
@@ -15,9 +15,28 @@
         .btn:active, 
         .btn.focus, 
         .btn.active {
-            background-color: red; /* Keep background red on click */
+            background-color: black; /* Keep background red on click */
             color: white;          /* Keep text white on click */
-            border-color: red;      /* Keep border red */
+            /* border-color: red;      Keep border red */
             box-shadow: none;       /* Remove the blue shadow */
             outline: none;          /* Remove the outline */
         }
+.portfolioimg{
+   
+        /* position: absolute; */
+        top: 0; /* Cover the top */
+        left: 0; /* Cover the left */
+        right: 0; /* Cover the right */
+        bottom: 0;
+        width: 100%; /* Make sure the width covers the full container */
+        height: 100%; /* Make sure the height covers the full container */
+        background-image: url('../../assets/projectback.png'); /* Ensure the correct path to your image */
+        background-size: cover; /* This ensures the image stretches to cover the container */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        opacity: 0; /* Initially hidden */
+        animation: fadeIn 1.5s forwards; /* Fade in animation */
+        overflow: hidden; /* Prevents content overflow */
+    
+    
+}
