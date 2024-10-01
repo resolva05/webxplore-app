@@ -3,6 +3,8 @@ import "./Services.css";
 import Carousel from "react-bootstrap/Carousel";
 import { useEffect, useRef } from "react";
 
+
+
 const Services = () => {
   const carouselRef = useRef(null);
   useEffect(() => {
@@ -28,7 +30,10 @@ const Services = () => {
     };
   }, []);
   return (
-    <div className="carousel-container" ref={carouselRef}>
+    <div className="carousel-container   " ref={carouselRef} >
+      <div className="text-center  servicediv" style={{ fontFamily: "sans-serif" }}>
+          Services Overview
+        </div>
       <Carousel id="myCarousel" data-bs-theme="dark">
         <Carousel.Item>
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
@@ -40,22 +45,22 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Custom Web Applications Development
               </h1>
               <div
-                className="text-container mx-auto"
+                className="text-container mx-auto "
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription "
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -74,6 +79,8 @@ const Services = () => {
             </div>
           </div>
         </Carousel.Item>
+       
+
         <Carousel.Item>
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
             <img
@@ -84,7 +91,7 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Prototype Services
@@ -92,14 +99,14 @@ const Services = () => {
               <div
                 className="text-container mx-auto"
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription"
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -129,7 +136,7 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Full Stack Development
@@ -137,14 +144,14 @@ const Services = () => {
               <div
                 className="text-container mx-auto"
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription"
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -176,7 +183,7 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Third Party Integration
@@ -184,14 +191,14 @@ const Services = () => {
               <div
                 className="text-container mx-auto"
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription"
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -220,7 +227,7 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Software Product Development
@@ -228,14 +235,14 @@ const Services = () => {
               <div
                 className="text-container mx-auto"
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription"
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -264,7 +271,7 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Upgradation Services
@@ -272,14 +279,14 @@ const Services = () => {
               <div
                 className="text-container mx-auto"
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription"
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
@@ -308,7 +315,7 @@ const Services = () => {
             />
             <div className="p-4">
               <h1
-                className="font-semibold md:text-xl"
+                className="servicetext"
                 style={{ fontSize: "25px" }}
               >
                 Consulting and Business Analysis
@@ -316,14 +323,14 @@ const Services = () => {
               <div
                 className="text-container mx-auto"
                 style={{
-                  maxWidth: "85%",
+                  maxWidth: "70%",
                   padding: "10px",
                   borderRadius: "10px",
                   boxSizing: "border-box",
                 }}
               >
                 <p
-                  className="mt-3 text-sm text-gray-600"
+                  className="servicedescription"
                   style={{
                     whiteSpace: "normal",
                     wordWrap: "break-word",
