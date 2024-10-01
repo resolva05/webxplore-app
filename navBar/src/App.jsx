@@ -16,7 +16,7 @@ function App() {
       <Outlet />
       <Cookies/>
       <Chatbot/>
-      <PopUp/>
+      {/* <PopUp/> */}
       <BackToTop/>
       <Footer />
     </>

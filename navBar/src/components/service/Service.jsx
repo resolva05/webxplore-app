@@ -1,7 +1,7 @@
 
 import "./Cta.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "../header/Header.css";
 import { NavLink } from "react-router-dom";
 import weblogo from "../../assets/webservice.jpg";
@@ -12,8 +12,8 @@ const Service = () => {
   return (
     <div>
       <div>
-        <div className="container-fluid banner ">
-          <div className="container-fluid banner d-flex align-items-center justify-content-center">
+        <div className="container-fluid banner abc imgservice">
+          <div className="container-fluid banner d-flex align-items-center justify-content-center abc imgservice">
             <div className="col-md-6 d-flex flex-column align-items-center text-center">
               <h2>What we do</h2>
               <br />
@@ -32,10 +32,11 @@ const Service = () => {
           </div>
         </div>
       </div>
+      
 
       <div className="container">
-        <div className="row justify-content-center text-center">
-          <div className="row">
+        <div className="row justify-content-center text-center ">
+          <div className="row ">
             <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
               <Card className="custom-card">
                 <Card.Img variant="top" src={weblogo} alt="Macbook" />
@@ -49,9 +50,9 @@ const Service = () => {
                     that boost user engagement and drive business growth.
                   </Card.Text>
                   <NavLink to={"./subservice1"}>
-                    <Button variant="dark" className="w-100 mt-auto">
+                    <button  className="w-100 mt-auto btncard">
                       Read
-                    </Button>
+                    </button>
                   </NavLink>
                 </Card.Body>
               </Card>
@@ -72,9 +73,9 @@ const Service = () => {
                     growth.
                   </Card.Text>
                   <NavLink to={"./subservice2"}>
-                    <Button variant="dark" className="w-100 mt-auto">
+                    <button className="w-100 mt-auto btncard">
                       Read
-                    </Button>
+                    </button>
                   </NavLink>
                 </Card.Body>
               </Card>
@@ -94,9 +95,9 @@ const Service = () => {
                     Placeat doloribus eveniet repudiandae ea...
                   </Card.Text>
                   <NavLink to={"./subservice3"}>
-                    <Button variant="dark" className="w-100 mt-auto">
+                    <button className="w-100 mt-auto btncard">
                       Read
-                    </Button>
+                    </button>
                   </NavLink>
                 </Card.Body>
               </Card>

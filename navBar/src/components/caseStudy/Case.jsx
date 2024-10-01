@@ -51,6 +51,7 @@ const Case = () => {
         </div>
       </div>
     </div>
+    <div style={{backgroundColor:"white", height:"1px"}}></div>
     </>
   );
 };
