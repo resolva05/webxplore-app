@@ -31,11 +31,11 @@ const Portfolio = () => {
             <h1
               className="mt-8 text-3xl font-bold tracking-tight md:text-4xl lg:text-6xl"
               style={{
-                color: "red",
+                color: "black",
                 fontSize: "50px",
                 marginBottom: "30px",
                 marginTop: "40px",
-                fontFamily: "fantasy",
+                // fontFamily: "fantasy",
               }}
             >
               Delivering cutting-edge solutions
@@ -67,18 +67,6 @@ const Portfolio = () => {
                 >
                   Know More
                 </Button>
-                {/* <div style={{ minHeight: "150px" }}>
-                  <Collapse in={open} dimension="width">
-                    <div id="example-collapse-text">
-                      <Card body style={{ width: "400px" }}>
-                        Anim pariatur cliche reprehenderit, enim eiusmod high
-                        life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident.
-                      </Card>
-                    </div>
-                  </Collapse>
-                </div> */}
                 <div style={{ minHeight: "150px", width: "100%" }}>
                   <Collapse in={open} dimension="height">
                     <div id="example-collapse-text">
@@ -106,11 +94,11 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      <div style={{ backgroundColor: "red" }}>
+      <div className="portfolioimg">
         <h2
           className="text-center"
           style={{
-            fontFamily: "fantasy",
+            // fontFamily: "fantasy",
             color: "white",
             paddingTop: "20px",
             paddingBottom: "20px",
@@ -153,7 +141,7 @@ const Portfolio = () => {
                   />
                 </animated.div>
                 <div className="p-4 text-center">
-                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <h1 className="text-lg font-semibold" style={{color:"black"}}>Project Title</h1>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
                     dolor sit amet consectetur adipisicing elit.
@@ -189,44 +177,7 @@ const Portfolio = () => {
                   />
                 </animated.div>
                 <div className="p-4 text-center">
-                  <h1 className="text-lg font-semibold">Project Title</h1>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
-                    dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
-              style={{
-                backgroundColor: "white",
-                borderRadius: "20px",
-                paddingTop: "10px",
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: "white",
-                  borderRadius: "20px",
-                  height: "30%",
-                  width: "100%",
-                }}
-              >
-                <animated.div style={props}>
-                  <img
-                    src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                    alt="Laptop"
-                    className="rounded-md object-cover"
-                    style={{
-                      height: "18.115vw",
-                      borderRadius: "20px",
-                      marginTop: "10px",
-                    }}
-                  />
-                </animated.div>
-                <div className="p-4 text-center">
-                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <h1 className="text-lg font-semibold" style={{color:"black"}}>Project Title</h1>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
                     dolor sit amet consectetur adipisicing elit.
@@ -263,7 +214,44 @@ const Portfolio = () => {
                   />
                 </animated.div>
                 <div className="p-4 text-center">
-                  <h1 className="text-lg font-semibold">Project Title</h1>
+                  <h1 className="text-lg font-semibold" style={{color:"black"}}>Project Title</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="crd col-lg-4 col-md-6 col-sm-12 mb-4"
+              style={{
+                backgroundColor: "white",
+                borderRadius: "20px",
+                paddingTop: "10px",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: "20px",
+                  height: "30%",
+                  width: "100%",
+                }}
+              >
+                <animated.div style={props}>
+                  <img
+                    src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                    alt="Laptop"
+                    className="rounded-md object-cover"
+                    style={{
+                      height: "18.115vw",
+                      borderRadius: "20px",
+                      marginTop: "10px",
+                    }}
+                  />
+                </animated.div>
+                <div className="p-4 text-center">
+                  <h1 className="text-lg font-semibold" style={{color:"black"}}>Project Title</h1>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipilo Lorem ipsum,
                     dolor sit amet consectetur adipisicing elit.

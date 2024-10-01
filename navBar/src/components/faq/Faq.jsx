@@ -1,4 +1,4 @@
-import React from "react";
+
 import { MDBAccordion, MDBAccordionItem, MDBContainer } from "mdb-react-ui-kit";
 import { Row, Col, Button } from "react-bootstrap";
 import { useEffect } from "react";
@@ -24,7 +24,7 @@ const Faq = () => {
               Welcome to our FAQ page, your one-stop resource for answers to
               commonly asked questions. <br />
               <b>
-                Whether you're a new customer looking to learn more about what
+                Whether you are a new customer looking to learn more about what
                 we offer or a long-time user seeking clarification on specific
                 topics, this page has clear and concise information about our
                 products and services.
@@ -225,7 +225,7 @@ const Faq = () => {
             >
               The development time depends on the app’s complexity, features,
               and design. A simple app might take 2-4 months, while more complex
-              apps could take 6 months or more. We'll provide a detailed project
+              apps could take 6 months or more. We will provide a detailed project
               timeline during the initial planning phase.
             </MDBAccordionItem>
 
@@ -255,7 +255,7 @@ const Faq = () => {
               headerTitle="Will my mobile app work on both iOS and Android?"
               style={{ marginBottom: "20px", border: "2px solid grey" }}
             >
-              If you're looking for cross-platform development, we can build
+              If youre looking for cross-platform development, we can build
               your app using Flutter or React Native to ensure it runs smoothly
               on both iOS and Android devices. We also offer native app
               development if needed.
@@ -319,14 +319,14 @@ const Faq = () => {
               <strong>Yes</strong>, we can integrate third-party services, such
               as payment gateways (Stripe, PayPal), analytics tools (Google
               Analytics, Firebase), social media APIs, or custom services to
-              meet your app's specific needs.
+              meet your apps specific needs.
             </MDBAccordionItem>
           </MDBAccordion>
         </MDBContainer>
         <hr className="my-4"></hr>
         <div className="text-center d-flex justify-content-center">
           <div style={{ marginBottom: "10px", marginTop: "7px" }}>
-            Can't find what you are looking for?
+            Cant find what you are looking for?
           </div>
           <Button style={{ marginBottom: "20px", marginLeft: "10px" }}>
             Contact Us
