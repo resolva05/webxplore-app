@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { Form, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
+import logo from '../../assets/logoimg.png'
 const Header = () => {
   const [showSearchBox, setShowSearchBox] = useState(false);
 
@@ -20,7 +20,7 @@ const Header = () => {
     <div className='head'>
       <Navbar expand="lg" className="sticky-top" style={{ backgroundColor: "white" }}>
         <Container>
-
+          <img src={logo} alt="" className='logoheader' />
           <NavLink to="/home" className="maintext" >Resolva Insights</NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 

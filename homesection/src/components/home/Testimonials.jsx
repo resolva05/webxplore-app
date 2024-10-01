@@ -38,7 +38,13 @@ const Testimonials = () => {
   return (
     <>
     
-      <div className="carousel-container" ref={carouselRef}>
+      <div className="carousel-container lastsection" ref={carouselRef}>
+      <div
+        className="text-center testmonheading"
+        style={{ fontFamily: "sans-serif" }}
+      >
+        Clients testimonials
+      </div>
         <Carousel id="myCarousel" data-bs-theme="dark">
         <Carousel.Item>
             <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
@@ -59,8 +65,8 @@ const Testimonials = () => {
               </div>
               <div className="p-4">
                 <h1
-                  className="font-semibold md:text-xl"
-                  style={{ fontSize: "20px" }}
+                  className="font-semibold "
+                  style={{ fontSize: "20px", color:"black" }}
                 >
                   Client 1
                 </h1>
@@ -78,8 +84,10 @@ const Testimonials = () => {
                     style={{
                       whiteSpace: "normal",
                       wordWrap: "break-word",
-                      margin: "0",
+                      marginRight:"auto",
+                      marginLeft:"auto",
                       marginBottom: "20px",
+                      width:"85%"
                     }}
                   >
                     <img
@@ -89,7 +97,7 @@ const Testimonials = () => {
                     />
                     Qui alias molestias, animi doloremque error voluptate,
                     veritatis repellat perspiciatis numquam nisi et rem adipisci
-                    possimus provident inventore obcaecati, beatae nemo.
+                    possimus provident iecati, beatae nemo.
                     Laboriosam! Rerum nesciunt distinctio quod ducimus
                     accusantium officia aliquam eveniet, saepe harum earum
                     itaque aut! Quibusdam aspernatur tempore.
@@ -123,7 +131,7 @@ const Testimonials = () => {
               <div className="p-4">
                 <h1
                   className="font-semibold md:text-xl"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "20px", color:"black"}}
                 >
                   Client 2
                 </h1>
@@ -141,8 +149,10 @@ const Testimonials = () => {
                     style={{
                       whiteSpace: "normal",
                       wordWrap: "break-word",
-                      margin: "0",
+                      marginRight:"auto",
+                      marginLeft:"auto",
                       marginBottom: "20px",
+                      width:"85%"
                     }}
                   >
                     <img
@@ -186,7 +196,7 @@ const Testimonials = () => {
               <div className="p-4">
                 <h1
                   className="font-semibold md:text-xl"
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "20px",color:"black" }}
                 >
                   Client 3
                 </h1>
@@ -204,8 +214,10 @@ const Testimonials = () => {
                     style={{
                       whiteSpace: "normal",
                       wordWrap: "break-word",
-                      margin: "0",
+                      marginRight:"auto",
+                      marginLeft:"auto",
                       marginBottom: "20px",
+                      width:"85%"
                     }}
                   >
                     <img

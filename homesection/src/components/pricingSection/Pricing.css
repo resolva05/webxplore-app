@@ -20,7 +20,7 @@
 /* Intro Section */
 .intro-title {
   font-size: 2.8rem;
-  color: #007bff;
+  color: black;
   font-weight: bold;
   margin-bottom: 30px;
   animation: fadeInDown 1s ease-in-out;
@@ -28,7 +28,7 @@
 
 .intro-text {
   font-size: 1.3rem;
-  color: #343a40;
+  color: black;
   max-width: 700px;
   margin: 0 auto;
   animation: fadeIn 1.5s ease-in-out;
@@ -66,7 +66,7 @@
   transition: background-color 0.3s ease; */
   width: 70px;
   height: 35px;
-  background-color: #6c757d;
+  background-color: black;
   border-radius: 35px;
   position: relative;
   cursor: pointer;
@@ -95,7 +95,7 @@
 }
 
 .toggle-switch {
-  background-color: #007bff;
+  background-color: black;
 }
 
 .toggle-switch.active::before {
@@ -109,7 +109,7 @@
     margin-right: 15px;
     transition: color 0.3s ease; */
   font-size: 1rem;
-  color: #6c757d;
+  color: black;
   margin: 0 10px;
 }
 
@@ -117,7 +117,7 @@
     color: #007bff;
   } */
 .switch-label.active {
-  color: #007bff; /* Active label color */
+  color: gray; /* Active label color */
 }
 /* Enhanced Card Styling */
 .pricing-card {
@@ -138,7 +138,7 @@
 .pricing-plan-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #007bff;
+  color: black;
   margin-bottom: 15px;
   letter-spacing: 1px;
   animation: fadeInUp 1s ease-in-out;
@@ -147,7 +147,7 @@
 .price {
   font-size: 2.8rem;
   font-weight: bold;
-  color: #28a745;
+  color: gray;
   margin-bottom: 30px;
   animation: fadeInUp 1.2s ease-in-out;
 }
@@ -161,7 +161,7 @@
 
 .pricing-features li {
   font-size: 1.1rem;
-  color: #6c757d;
+  color: black;
   margin-bottom: 10px;
   padding-left: 1.5rem;
   position: relative;
@@ -173,24 +173,27 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: #28a745;
+  color: black;
 }
 
 /* Pricing Button */
-.pricing-btn {
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 12px 30px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  background: linear-gradient(45deg, #007bff, #0056b3);
-  color: white;
-}
 
-.pricing-btn:hover {
-  background-color: #28a745;
-  color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+.pricebtn{
+  background-color: black;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 2px solid white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+.pricebtn:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-5px); /* Add a hover lift effect */
+  border: 2px solid black;
 }
 
 .word {

@@ -26,22 +26,22 @@ const KeyFeatures = () => {
   ];
 
   return (
-    <div>
-      <section className="py-5 bg-light">
+    <div className="">
+      <section className="py-5 bg-light keyfeatureimg">
         <Container>
-          <h2 className="text-center mb-5" style={{ color: "black" }}>
+          <h2 className="text-center mb-5 headingtext" style={{ color: "white" }}>
             Key Features
           </h2>
           <Row>
             {features.map((feature, index) => (
               <Col key={index} md={4} className="mb-4">
-                <Card className="h-100 text-center shadow-lg border-0 crd " style={{borderRadius:"20px"}}>
+                <Card className="h-100 text-center shadow-lg border-0 crd maincard " style={{borderRadius:"20px"}}>
                   <Card.Body className="d-flex flex-column align-items-center">
                     <feature.icon
-                      className="text-primary mb-3"
-                      style={{ fontSize: "3rem" }}
+                      className="mb-3"
+                      style={{ fontSize: "4rem" }}
                     />
-                    <Card.Title>{feature.title}</Card.Title>
+                    <Card.Title className="cardtitle">{feature.title}</Card.Title>
                     <Card.Text style={{fontSize:"1.3rem"}}>{feature.description}</Card.Text>
                   </Card.Body>
                 </Card>

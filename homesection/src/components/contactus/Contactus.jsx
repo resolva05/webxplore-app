@@ -94,58 +94,7 @@ const Contactus = () => {
                 Fill out the form below
               </h2>
               <p className="mt-4 lead text-muted">Reach to Us!</p>
-              {/* <form className="mt-4">
-          <div className="form-row">
-            <div className="form-group col-md-6">
-              <label htmlFor="first_name">First Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="first_name"
-                placeholder="First Name"
-              />
-            </div>
-            <div className="form-group col-md-6">
-              <label htmlFor="last_name">Last Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="last_name"
-                placeholder="Last Name"
-              />
-            </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="Email"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone_number">Phone number</label>
-            <input
-              type="tel"
-              className="form-control"
-              id="phone_number"
-              placeholder="Phone number"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              className="form-control"
-              id="message"
-              rows="3"
-              placeholder="Leave us a message"
-            ></textarea>
-          </div>
-          <button type="submit" className="btn btn-dark btn-block">
-            Send Message
-          </button>
-        </form> */}
+              
               <form className="mt-4" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group col-md-6">
@@ -223,14 +172,14 @@ const Contactus = () => {
                 </div>
 
                 {/* reCAPTCHA */}
-                <div className="form-group">
+                <div className="form-group recaptcha-container">
                   <ReCAPTCHA sitekey="your-site-key" onChange={handleCaptcha} />
                   {errors.captcha && (
                     <small className="text-danger">{errors.captcha}</small>
                   )}
                 </div>
                 {/* disabled={captchaVerified} */}
-                <button type="submit" className="btn btn-dark btn-block">
+                <button type="submit" className="submitbtn ">
                   Send Message
                 </button>
               </form>

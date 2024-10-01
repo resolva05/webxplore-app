@@ -19,31 +19,17 @@ const Home = () => {
   });
   return (
     <>
-        
-
-          <animated.div style={props}>
-            <HeroSection/>
-          </animated.div>
-        
-        
-        <Services />
-        <hr className="my-4"></hr>
-        <br />
-
-        <div>
-          <KeyFeatures/>
-        </div>
-        <hr className="my-4"></hr>
-        <div
-          className="text-center  fs-1 mb-4"
-          style={{ fontFamily: "sans-serif" }}
-        >
-          Clients testimonials
-        </div>
-        <div>
-          <Testimonials />
-        </div>
-        <hr className="my-4"></hr>
+      <animated.div style={props}>
+        <HeroSection />
+      </animated.div>
+      <Services />
+      <div>
+        <KeyFeatures />
+      </div>
+      
+      <div>
+        <Testimonials />
+      </div>
     </>
   );
 };
