@@ -18,7 +18,7 @@
   .main-title {
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
-    color: #2c3e50;
+    color: white;
     margin-bottom: 10px;
     word-wrap: break-word; /* Prevents overflow if the title is too long */
   }
@@ -27,7 +27,7 @@
   .page-description {
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
-    color: #555;
+    color: white;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
@@ -99,7 +99,7 @@
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    color: black;
     text-align: center;
     word-wrap: break-word;
   }
@@ -110,14 +110,14 @@
     margin-top: 30px;
     margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
-    color: #2c3e50;
+    color: black;
   }
   
   /* Description */
   .case-description {
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
-    color: #555;
+    color: black;
     line-height: 1.6;
     word-wrap: break-word; /* Ensures text wraps within the card */
   }
@@ -127,7 +127,7 @@
     list-style-type: disc;
     margin-left: 40px;
     font-size: 1.1rem;
-    color: #555;
+    color:black;
   }
   
   /* Animation for fade-in */
@@ -204,3 +204,17 @@
     text-decoration: none;
     color: inherit; /* Maintain text color from the card */
   }
+
+.bgimg{
+
+    top: 0; /* Cover the top */
+    left: 0; /* Cover the left */
+    right: 0; /* Cover the right */
+    bottom: 0; /* Cover the bottom */
+    background-image: url('../../assets/heroimg.png'); /* Ensure the correct path to your image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1.5s forwards; /* Fade in animation */
+}

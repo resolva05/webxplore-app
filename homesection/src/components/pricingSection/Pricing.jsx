@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import './Pricing.css';
 import { useEffect } from 'react';
 import vid from '../../assets/video4.mp4'
@@ -94,9 +94,9 @@ const Pricing = () => {
                                     </>
                                 )}
                             </ul>
-                            <Button variant="primary">
+                            <button className='pricebtn'>
                                 Choose {isMobile ? 'Mobile' : 'Web'} Plan
-                            </Button>
+                            </button>
                         </Card.Body>
                     </Card>
                 </Col>

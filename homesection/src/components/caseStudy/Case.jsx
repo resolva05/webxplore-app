@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import './Case.css';  // Ensure this file contains styles
 import pdf from '../../assets/cs1.pdf';  // Importing the PDF file
-
 const Case = () => {
   const [animatedDescription, setAnimatedDescription] = useState([]);
 
@@ -16,7 +15,8 @@ const Case = () => {
   };
 
   return (
-    <div className="case-page-container">
+    <>
+    <div className="case-page-container bgimg">
       {/* Page Heading */}
       <div className="page-heading">
         <h1 className="main-title">Our Case Studies</h1>
@@ -51,6 +51,7 @@ const Case = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
