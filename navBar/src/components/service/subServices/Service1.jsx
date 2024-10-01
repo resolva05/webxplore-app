@@ -3,7 +3,6 @@ import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import "../subServices/Service1.css";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-// import vid from "../../../assets/webvd.mp4";
 import S1faq from "./S1faq.jsx";
 import web1 from "../../../assets/webimg1.jpg";
 
@@ -36,8 +35,8 @@ const Service1 = () => {
         {/* Header Section */}
         <Row className="my-5">
           <Col md={12}>
-            <h1 className="text-center">Web Development Services</h1>
-            <p className="text-center">
+            <h1 className="text-center" style={{ color: "black" }}>Web Development Services</h1>
+            <p className="text-center" >
               A brief overview of the project with highlights of its key points.
             </p>
           </Col>
@@ -46,7 +45,7 @@ const Service1 = () => {
         {/* Description Section */}
         <Row className="my-5">
           <Col md={6}>
-            <h2 style={{ color: "#007bff" }} className="fade-in-left">
+            <h2 style={{ color: "black" }} className="fade-in-left">
               Project Description
             </h2>
             <p className="fade-in-left">
@@ -63,11 +62,11 @@ const Service1 = () => {
         </Row>
         <hr className="my-4"></hr>
         <div>
-          <h2 style={{ color: "#007bff", marginBottom: "40px" }}>
+          <h2 style={{ color: "black", marginBottom: "40px" }}>
             Our Web Development Services
           </h2>
 
-          <h4 style={{ color: "#007bff" }}>1. Custom Website Development</h4>
+          <h4 style={{ color: "black" }}>1. Custom Website Development</h4>
           <p>
             We build custom websites tailored to your specific business needs.
             From small business websites to complex enterprise solutions, we
@@ -75,14 +74,14 @@ const Service1 = () => {
             performance and security.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>2. eCommerce Development</h4>
+          <h4 style={{ color: "black" }}>2. eCommerce Development</h4>
           <p>
             Launch your online store with our robust eCommerce solutions. We
             develop secure, scalable, and easy-to-manage eCommerce websites
             using platforms like Shopify, WooCommerce, and Magento.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>3. Responsive Web Design</h4>
+          <h4 style={{ color: "black" }}>3. Responsive Web Design</h4>
           <p>
             Ensure your website looks great on all devices with our responsive
             web design services. We create websites that automatically adjust to
@@ -90,7 +89,7 @@ const Service1 = () => {
             tablets, and smartphones.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>4. CMS Development</h4>
+          <h4 style={{ color: "black" }}>4. CMS Development</h4>
           <p>
             Manage your website content effortlessly with our custom CMS
             (Content Management System) development services. Whether you need
@@ -98,14 +97,14 @@ const Service1 = () => {
             is easy to update without technical expertise.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>5. Progressive Web Apps (PWA)</h4>
+          <h4 style={{ color: "black" }}>5. Progressive Web Apps (PWA)</h4>
           <p>
             Enhance user experience with Progressive Web Apps that combine the
             best of web and mobile applications. PWAs offer fast loading times,
             offline capabilities, and native app-like experiences on any device.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>
+          <h4 style={{ color: "black" }}>
             6. Single Page Applications (SPA)
           </h4>
           <p>
@@ -115,14 +114,14 @@ const Service1 = () => {
             applications.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>7. API Integration & Development</h4>
+          <h4 style={{ color: "black" }}>7. API Integration & Development</h4>
           <p>
             Seamlessly connect your website to third-party services with our API
             integration services. We also develop custom APIs to enhance your
             website’s functionality and communication with other platforms.
           </p>
 
-          <h4 style={{ color: "#007bff" }}>8. Website Maintenance & Support</h4>
+          <h4 style={{ color: "black" }}>8. Website Maintenance & Support</h4>
           <p>
             Keep your website running smoothly with our ongoing maintenance and
             support services. We handle updates, security patches, backups, and
@@ -135,19 +134,6 @@ const Service1 = () => {
         </Row> */}
 
         <hr className="my-4"></hr>
-
-        {/* Conclusion Section */}
-        <Row className="my-5">
-          <Col md={12}>
-            <h2>Conclusion</h2>
-            <p>
-              In this section, wrap up the detailed page by summarizing the
-              project's overall success, lessons learned, and its potential for
-              future development or applications.
-            </p>
-          </Col>
-        </Row>
-        <hr className="my-4"></hr>
       </Container>
 
       <div>
@@ -155,7 +141,7 @@ const Service1 = () => {
           {/* Section Heading */}
           <Row className="text-center mb-4">
             <Col lg={{ span: 8, offset: 2 }}>
-              <h1 className="display-4 font-weight-bold">
+              <h1 className="display-4 font-weight-bold" style={{ color: "black" }}>
                 Frequently Asked Questions
               </h1>
               <p className="mt-3 text-muted">
