@@ -127,7 +127,7 @@ const Blogpage = () => {
             <Row className="g-4">
               {filteredPosts.map((post) => (
                 <Col md={6} lg={4} key={post.title}>
-                  <Card  className="card-hover" style={{ borderRadius: "20px", height: "97%" }}>
+                  <Card  className="card-hover abc" style={{ borderRadius: "20px", height: "97%" }}>
                     <Card.Img
                       variant="top"
                       src={post.poster}

@@ -84,21 +84,22 @@ function Footer() {
 export default Footer
 
 const FooterContainer = styled.footer`
-.footer-middle{
-background: var(--mainDark);
-padding-top: 3rem;
-color: var(--mainWhite)
-}
+  .footer-middle {
+    background: black; /* Set footer background to black */
+    padding-top: 3rem;
+    color: white; /* Set text color to white */
+  }
 
-.footer-bottom{
-paggding-top: 3rem;
-padding-bottom: 2rem;
-}
+  .footer-bottom {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
 
-ul li a {
-    color: var(--mainGrey);
-}
-ul li a:hover{
-    color: var(--mainLightGrey)
-}
+  ul li a {
+    color: white; /* Set link color to white */
+  }
+
+  ul li a:hover {
+    color: grey; /* Optionally change the hover color to grey */
+  }
 `;

@@ -1,7 +1,7 @@
-import React from "react";
+
 import "./Cta.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Button, Badge } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import "../header/Header.css";
 import { NavLink } from "react-router-dom";
 import weblogo from "../../assets/webservice.jpg";

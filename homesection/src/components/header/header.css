@@ -164,3 +164,26 @@
   height:60px;
   width: 60px;
 }
+/* Sticky header */
+.sticky-top {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure it's above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
+  background-color: white; /* Ensure the background remains visible */
+}
+/* For the sticky header effect */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  transition: all 0.3s ease;
+}
+
+.is-sticky {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow when sticky */
+}
