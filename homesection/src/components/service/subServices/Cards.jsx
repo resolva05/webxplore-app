@@ -28,7 +28,7 @@ const Cards = () => {
           <Col>
             <Card 
               ref={ref}
-              className={` ${inView ? "animate-card" : ""}`}
+              className={`full-width-card ${inView ? "animate-card" : ""}`}
             >
               <Row noGutters>
                 <Col md={5} className="card-image-section">
@@ -43,7 +43,7 @@ const Cards = () => {
 
                 <Col md={7}>
                   <Card.Body
-                    className={`card-body-content ${
+                    className={`card-body-content  ${
                       inView ? "animate-text" : ""
                     }`}
                   >

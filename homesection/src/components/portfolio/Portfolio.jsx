@@ -285,7 +285,7 @@ const Portfolio = () => {
           <div className="flex-grow w-full p-4 md:p-6">
             <h1
               className="text-lg font-semibold break-words"
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: "20px" , color:"black"}}
             >
               Web Development
             </h1>
@@ -320,7 +320,7 @@ const Portfolio = () => {
           <div className="flex-grow w-full p-4 md:p-6 ">
             <h1
               className="text-lg font-semibold break-words"
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: "20px" , color:"black" }}
             >
               App Development
             </h1>
@@ -356,7 +356,7 @@ const Portfolio = () => {
           <div className="flex-grow w-full p-4 md:p-6">
             <h1
               className="text-lg font-semibold break-words"
-              style={{ fontSize: "20px" }}
+              style={{ fontSize: "20px"  , color:"black"}}
             >
               E-Commerce
             </h1>
