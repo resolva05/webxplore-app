@@ -17,7 +17,9 @@ import AboutUs from './components/aboutus/AboutUs.jsx'
 import PopUp from './components/popup/PopUp.jsx'
 import Case from './components/caseStudy/Case.jsx'
 import Pricing from './components/pricingSection/Pricing.jsx'
-import TC from './components/terms/TC.jsx'
+import TermsConditions from '../../navBar/src/components/tnc/TermsConditions.jsx'
+import CookiesPolicy from '../../navBar/src/components/cookiePolicy/CookiesPolicy.jsx'
+import PrivacyPolicy from '../../navBar/src/components/privacyPolicy/PrivacyPolicy.jsx'
 
 const router = createBrowserRouter([
   {
@@ -103,6 +105,22 @@ const router = createBrowserRouter([
       {
         path:"aboutus",
         element:<AboutUs/>
+      },
+      {
+        path:"/privacypolicy",
+        element: <PrivacyPolicy/>
+      },
+      {
+        path:"/termsandcondtion",
+        element:<TermsConditions/>
+      },
+      {
+        path:"/privacypolicy",
+        element:<PrivacyPolicy/>
+      },
+      {
+        path:"/cookiespolicy",
+        element:<CookiesPolicy/>
       }
     ]
   }

@@ -46,10 +46,13 @@ function Footer() {
               <h4>Information</h4>
               <ul className="list-unstyled">
                 <li>
-                  <NavLink to="/">Terms & Conditions</NavLink>
+                  <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">Privacy Policy</NavLink>
+                  <NavLink to="/privacypolicy">Privacy Policy</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
                 </li>
                 <li>
                   <NavLink to="/">Licensing</NavLink>
