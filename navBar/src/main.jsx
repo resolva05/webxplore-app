@@ -17,6 +17,7 @@ import AboutUs from './components/aboutus/AboutUs.jsx'
 import PopUp from './components/popup/PopUp.jsx'
 import Case from './components/caseStudy/Case.jsx'
 import Pricing from './components/pricingSection/Pricing.jsx'
+import TC from './components/terms/TC.jsx'
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       ,
       {
         path:'contact',
+        element:<Contactus/>
+      },
+      {
+        path:'/faq/contact',
         element:<Contactus/>
       }
       ,
