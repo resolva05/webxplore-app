@@ -1,8 +1,11 @@
-
+import { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import "./PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   return (
     <>
     <div className="privacy-container">

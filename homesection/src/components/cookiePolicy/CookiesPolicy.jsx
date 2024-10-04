@@ -1,8 +1,11 @@
-
+import { useEffect } from "react";
 import { Container, Card } from "react-bootstrap";
 import './CookiesPolicy.css';
 
 const CookiesPolicy = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   return (
     <>
     <div className="cookies-container">

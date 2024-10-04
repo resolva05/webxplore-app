@@ -27,6 +27,7 @@ const Subblogpage = () => {
     });
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       paragraphsRef.current.forEach(paragraph => {
         if (paragraph) {
           observer.unobserve(paragraph);

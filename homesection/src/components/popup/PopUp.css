@@ -1,50 +1,34 @@
-.custom-modal {
-  height: 70vh; /* Set the height to 70% of the viewport */
+.custom-modal .modal-dialog {
+  width: 70vw; /* 70% of the viewport width */
+  max-width: 80vw;
+}
+.mod{
+  height: 95vh;
+  margin-top: 10px;
+}
+.custom-modal .modal-content {
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.videpop{
+  height: 60vh;
 }
 
-.custom-modal-body {
-  display: flex; /* Use flexbox for side-by-side layout */
-  align-items: center; /* Center items vertically */
-}
-
-.left-section {
-  flex: 1; /* Left section takes up 1 part of flex */
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-}
-
-.right-section {
-  flex: 1; /* Right section takes up 1 part of flex */
-}
-
-.popup-image {
-  max-width: 100%; /* Make sure image fits within its container */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.modal-header {
-  display: flex;
-  justify-content: flex-end; /* Align close button to the right */
-}
-
-.close-button {
-  border: none; /* Remove button border */
-  background: transparent; /* Make background transparent */
-}
-
-.close-icon {
-  width: 24px; /* Adjust icon size */
-  height: 24px; /* Adjust icon size */
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .custom-modal-body {
-    flex-direction: column; /* Stack sections on smaller screens */
+/* Add animation to the modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-  .left-section, .right-section {
-    width: 100%; /* Take full width */
-    margin-bottom: 20px; /* Add some spacing between sections */
+@media (max-width: 768px) {
+  .mod{
+    margin-right: auto;
+    margin-left: auto;
   }
 }

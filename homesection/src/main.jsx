@@ -20,6 +20,7 @@ import Pricing from './components/pricingSection/Pricing.jsx'
 import PrivacyPolicy from './components/privacyPolicy/PrivacyPolicy.jsx'
 import TermsConditions from './components/tnc/TermsConditions.jsx'
 import CookiesPolicy from './components/cookiePolicy/CookiesPolicy.jsx'
+import ProjectDetails from './components/portfolio/ProjectDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
         element:<Subblogpage/>
       },
       {
+        path:"portfolio/projectdetails/:dataId",
+        element:<ProjectDetails/>
+      },
+      {
         path:"/faq",
         element:<Faq/>
       },
@@ -116,7 +121,7 @@ const router = createBrowserRouter([
       {
         path:"/cookiespolicy",
         element:<CookiesPolicy/>
-      }
+      },
     ]
   }
 

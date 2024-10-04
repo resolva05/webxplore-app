@@ -2,8 +2,10 @@ import React from "react";
 import CookieConsent from "react-cookie-consent"; // Ensure correct import
 import { NavLink } from "react-router-dom";
 import './Cookie.css'; // Import the CSS file
+import { useEffect } from "react";
 
 const Cookie = () => {
+
   // Function to check if the cookie is set
   const hasConsented = () => {
     const consentCookie = document.cookie

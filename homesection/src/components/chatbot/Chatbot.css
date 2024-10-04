@@ -153,3 +153,29 @@
   display: block;
   border-radius: 50px;
 }
+/* New Sections Box */
+.sections {
+  margin-top: 10px;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scroll if needed */
+  max-height: 200px; /* Fixed max height for section box */
+}
+
+/* Scrollable Questions */
+.scrollable-questions {
+  max-height: 150px; /* Adjust max height for questions */
+  overflow-y: auto; /* Enable vertical scroll for questions */
+}
+
+/* Back Button */
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+  margin-bottom: 10px;
+  text-align: left;
+}

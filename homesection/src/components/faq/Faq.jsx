@@ -1,8 +1,8 @@
-
 import { MDBAccordion, MDBAccordionItem, MDBContainer } from "mdb-react-ui-kit";
 import { Row, Col, Button } from "react-bootstrap";
 import { useEffect } from "react";
 import vid from "../../assets/vid.mp4";
+import { NavLink } from "react-router-dom";
 
 const Faq = () => {
   useEffect(() => {
@@ -225,8 +225,8 @@ const Faq = () => {
             >
               The development time depends on the app’s complexity, features,
               and design. A simple app might take 2-4 months, while more complex
-              apps could take 6 months or more. We will provide a detailed project
-              timeline during the initial planning phase.
+              apps could take 6 months or more. We will provide a detailed
+              project timeline during the initial planning phase.
             </MDBAccordionItem>
 
             <MDBAccordionItem
@@ -255,10 +255,10 @@ const Faq = () => {
               headerTitle="Will my mobile app work on both iOS and Android?"
               style={{ marginBottom: "20px", border: "2px solid grey" }}
             >
-              If youre looking for cross-platform development, we can build
-              your app using Flutter or React Native to ensure it runs smoothly
-              on both iOS and Android devices. We also offer native app
-              development if needed.
+              If youre looking for cross-platform development, we can build your
+              app using Flutter or React Native to ensure it runs smoothly on
+              both iOS and Android devices. We also offer native app development
+              if needed.
             </MDBAccordionItem>
 
             <MDBAccordionItem
@@ -328,9 +328,11 @@ const Faq = () => {
           <div style={{ marginBottom: "10px", marginTop: "7px" }}>
             Cant find what you are looking for?
           </div>
-          <Button style={{ marginBottom: "20px", marginLeft: "10px" }}>
-            Contact Us
-          </Button>
+          <NavLink to={"./contact"}>
+            <Button style={{ marginBottom: "20px", marginLeft: "10px" }}>
+              Contact Us
+            </Button>
+          </NavLink>
         </div>
       </div>
     </div>

@@ -6,22 +6,14 @@ import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { useState, useEffect } from "react";
 import "../home/Testimon.css";
-import { animated, useSpring } from "react-spring";
+import ProjectCards from "./ProjectCards";
 // mport { useState } from 'react';
 const Portfolio = () => {
   useEffect(() => {
     window.scrollTo(top);
   }, []);
   const [open, setOpen] = useState(false);
-  const [flip, setFlip] = useState(false);
-  const props = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    reset: false,
-    reverse: flip,
-    delay: 600,
-    onRest: () => setFlip(flip),
-  });
+ 
 
   return (
     <>
@@ -106,8 +98,8 @@ const Portfolio = () => {
         >
           Our Projects
         </h2>
-
-        <div className="container">
+          <ProjectCards/>
+        {/* <div className="container">
           <div
             className="row justify-content-center text-center"
             style={{ gap: "10px" }}
@@ -260,7 +252,7 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div

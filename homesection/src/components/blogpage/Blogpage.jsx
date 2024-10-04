@@ -213,7 +213,7 @@ const Blogpage = () => {
         <Modal
           show={commentVisibility}
           onHide={handleCloseComments}
-          className="custom-modal"
+          className="custommodal"
           centered
         >
           <Modal.Header closeButton>
