@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import "./Case.css"; // Ensure this file contains styles
 import pdf from "../../assets/cs1.pdf"; // Importing the PDF file
 const Case = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const [animatedDescription, setAnimatedDescription] = useState([]);
 
   useEffect(() => {

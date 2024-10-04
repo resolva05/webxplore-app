@@ -7,8 +7,12 @@ import { NavLink } from "react-router-dom";
 import weblogo from "../../assets/webservice.jpg";
 import applogo from "../../assets/applogo.jpg";
 import "./Service.css";
+import { useEffect } from "react";
 
 const Service = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   return (
     <div>
       <div>

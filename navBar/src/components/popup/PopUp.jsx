@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Button, Form, Row, Col, Image, Alert } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import pop from "../../assets/popvd.mp4";
 import "./PopUp.css";
 
@@ -94,30 +94,22 @@ const PopUp = () => {
     <Modal
       show={show}
       onHide={handleClose}
-      size="lg"
+      className="mod"
       backdrop="static"
       keyboard={false}
       dialogClassName="custom-modal"
-      centered
     >
 
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body className="p-4">
         <Row className="align-items-center">
 
-          <Col md={5} className="p-0">
-            {/* <Image
-              src={pop} 
-              alt="Popup Image"
-              fluid
-              className="h-100 w-100"
-              style={{ objectFit: "cover", borderRadius: "5px" }}
-            /> */}
+          <Col md={5} className="p-0 videpop">
             <video src={pop} className="h-100 w-100" autoPlay muted loop></video>
           </Col>
 
           <Col md={7} className="p-4">
-            <h4 className="mb-4">Let's Grow Together!</h4>
+            <h4 className="mb-4">Lets Grow Together!</h4>
             <Form noValidate onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
@@ -187,11 +179,7 @@ const PopUp = () => {
               </div>
             </Form>
 
-            {Object.keys(errors).length > 0 && validated && (
-              <Alert variant="danger" className="mt-3">
-                Please fix the errors above and try again.
-              </Alert>
-            )}
+            
           </Col>
         </Row>
       </Modal.Body>

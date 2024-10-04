@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import img from "../../assets/blogimg.png";
 import img2 from "../../assets/categoryimg.png";
@@ -22,6 +22,9 @@ const categories = [
 ];
 
 const Blogpage = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
   const [comments, setComments] = useState({}); // Store comments per post

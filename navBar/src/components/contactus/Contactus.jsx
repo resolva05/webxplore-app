@@ -1,10 +1,14 @@
 // import React from 'react'
 import maplogo from "../../assets/mapslogo.png";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import vid from '../../assets/videobg.mp4'
 import './Contact.css'
+
 const Contactus = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",

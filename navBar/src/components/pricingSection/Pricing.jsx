@@ -3,7 +3,11 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import './Pricing.css';
 import { useEffect } from 'react';
 import vid from '../../assets/video4.mp4'
+
 const Pricing = () => {
+    useEffect(() => {
+        window.scrollTo(top);
+      }, []);
     const [isMobile, setIsMobile] = useState(true); // Mobile active by default
     const [introText, setIntroText] = useState([]);
 

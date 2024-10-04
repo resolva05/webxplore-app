@@ -20,6 +20,7 @@ import Pricing from './components/pricingSection/Pricing.jsx'
 import TermsConditions from '../../navBar/src/components/tnc/TermsConditions.jsx'
 import CookiesPolicy from '../../navBar/src/components/cookiePolicy/CookiesPolicy.jsx'
 import PrivacyPolicy from '../../navBar/src/components/privacyPolicy/PrivacyPolicy.jsx'
+import ProjectDetails from '../../navBar/src/components/portfolio/ProjectDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
       {
         path:"/cookiespolicy",
         element:<CookiesPolicy/>
+      },
+      {
+        path:"portfolio/projectdetails/:dataId",
+        element:<ProjectDetails/>
       }
     ]
   }
