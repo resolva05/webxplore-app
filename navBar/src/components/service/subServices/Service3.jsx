@@ -3,6 +3,9 @@ import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import vid from "../../../assets/vid.mp4";
+import OtherServicesCards from "./OtherServicesCards";
+import otherimg from '../../../assets/otherservices.png'
+import S3faq from "./S3faq";
 
 const Service3 = () => {
   useEffect(() => {
@@ -15,7 +18,7 @@ const Service3 = () => {
         {/* Header Section */}
         <Row className="my-5">
           <Col md={12}>
-            <h1 className="text-center">Project Title</h1>
+            <h1 className="text-center" style={{color:"black"}}>Other Services</h1>
             <p className="text-center">
               A brief overview of the project with highlights of its key points.
             </p>
@@ -25,7 +28,7 @@ const Service3 = () => {
         {/* Description Section */}
         <Row className="my-5">
           <Col md={6}>
-            <h2>Project Description</h2>
+            <h2 style={{color:"black"}}>Project Description</h2>
             <p>
               This section provides a detailed description of the project,
               including its objectives, goals, and overall importance. It can
@@ -33,9 +36,9 @@ const Service3 = () => {
               the potential impact on its users or stakeholders.
             </p>
           </Col>
-          <Col md={6}>
+          <Col md={5}>
             <Image
-              src="https://via.placeholder.com/500"
+              src={otherimg}
               alt="Project Image"
               rounded
               fluid
@@ -45,37 +48,24 @@ const Service3 = () => {
 
         <hr className="my-4"></hr>
 
-        {/* Conclusion Section */}
-        <Row className="my-5">
-          <Col md={12}>
-            <h2>Conclusion</h2>
-            <p>
-              In this section, wrap up the detailed page by summarizing the
-              project's overall success, lessons learned, and its potential for
-              future development or applications.
-            </p>
-          </Col>
-        </Row>
+        <OtherServicesCards/>
         <hr className="my-4"></hr>
       </Container>
 
       <div>
         <Container className="py-5">
+      
           {/* Section Heading */}
           <Row className="text-center mb-4">
             <Col lg={{ span: 8, offset: 2 }}>
-              <h1 className="display-4 font-weight-bold">
+              <h1 className="display-4 font-weight-bold" style={{color:"black"}}>
                 Frequently Asked Questions
               </h1>
-              <p className="mt-3 text-muted">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Facere, assumenda
-              </p>
             </Col>
           </Row>
-
+          <S3faq/>
           {/* FAQ Grid */}
-          <Row className="mt-4">
+          {/* <Row className="mt-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <Col md={6} className="mb-4" key={i}>
                 <Card>
@@ -92,7 +82,7 @@ const Service3 = () => {
                 </Card>
               </Col>
             ))}
-          </Row>
+          </Row> */}
 
           {/* Contact Link */}
           <Row className="text-center mt-4">

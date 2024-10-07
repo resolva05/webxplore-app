@@ -3,6 +3,8 @@ import './Chatbot.css';
 import { ListGroup } from 'react-bootstrap';
 import chatbot from '../../assets/chatbot.png';
 import close from '../../assets/close.png';
+import img from '../../assets/infoimg.png'
+
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +77,7 @@ const Chatbot = () => {
         { question: "What do I do if there are issues with payment processing?", answer: "Our support team is available to assist you with any issues related to payment processing, ensuring timely resolutions." }
       ]
     },
-    
+
     {
       name: "AI Interation",
       questions: [
@@ -91,7 +93,7 @@ const Chatbot = () => {
         { question: "What industries do you serve with your AI solutions?", answer: "We serve a variety of industries, including e-commerce, healthcare, finance, education, and more, tailoring AI solutions to meet specific industry needs." }
       ]
     },
-    
+
     {
       name: "Social Media Marketing (SMM)",
       questions: [
@@ -173,13 +175,15 @@ const Chatbot = () => {
                 <h6>Choose questions from below sections!!</h6>
                 <div className="sections">
                   {sections.map((section, index) => (
-                    <div key={index} className="section-item">
+                    <div key={index} className="section-item d-flex">
                       <ListGroup.Item
                         action
                         onClick={() => handleSectionClick(section)}
                       >
                         {section.name}
+                      
                       </ListGroup.Item>
+                    <img src={img} className='infoimg'  alt="" />
                     </div>
                   ))}
                 </div>

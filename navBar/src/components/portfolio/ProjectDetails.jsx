@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { data } from "./ProjectData.jsx";
-
+import { useEffect } from "react";
 import './ProjectDetails.css'
 
 const ProjectDetails = () => {

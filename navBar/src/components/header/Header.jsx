@@ -39,7 +39,7 @@ const Header = () => {
       <Navbar expand="lg" className={`sticky-top ${isSticky ? 'is-sticky' : ''}`} style={{ backgroundColor: "white" }}>
         <Container>
           <img src={logo} alt="" className='logoheader' />
-          <NavLink to="/home" className="maintext">Resolva Insights</NavLink>
+          <NavLink to="/home" className="maintext">WebXplore Studio</NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

@@ -35,8 +35,8 @@ const Services = () => {
           Services Overview
         </div>
       <Carousel id="myCarousel" data-bs-theme="dark">
-        <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+        <Carousel.Item >
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://ideausher.com/wp-content/uploads/2023/05/Custom-Web-Application-Development-_.webp"
               alt="Laptop"
@@ -82,7 +82,7 @@ const Services = () => {
        
 
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://media.istockphoto.com/id/1273058761/vector/tiny-people-testing-quality-assurance-in-software.jpg?s=612x612&w=0&k=20&c=DsNlOqfMpPkHlVEavkrz8atzgOxVSRgZPkGHYH-e1-8="
               alt="Laptop"
@@ -127,7 +127,7 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
             <img
               src="https://www.extwebtech.com/wp-content/uploads/2023/01/Full_stack_developer-1024x507.webp"
               alt="Laptop"
@@ -174,7 +174,7 @@ const Services = () => {
         </Carousel.Item>
         {/* Additional Carousel.Items here */}
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://shastatek.com/sites/default/files/3party_api.jpg"
               alt="Laptop"
@@ -218,7 +218,7 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
             <img
               src="https://cdn-bbaid.nitrocdn.com/wYFmIWkSNKpdInpiRfVoEqTErZtkFjBo/assets/images/optimized/rev-ff73c2b/www.rishabhsoft.com/wp-content/uploads/2022/03/Software-Product-Development-Strategy_Banner.jpg"
               alt="Laptop"
@@ -262,7 +262,7 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://media.istockphoto.com/id/1212446148/photo/update-with-blurred-city-lights.jpg?s=612x612&w=0&k=20&c=w5GES6fFoPkAYqBSFX5f-wjpkelJtdzpXif7Cic53q8="
               alt="Laptop"
@@ -306,7 +306,7 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
+          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://www.shutterstock.com/image-photo/analyst-uses-computer-dashboard-data-600nw-2285412737.jpg"
               alt="Laptop"

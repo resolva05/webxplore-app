@@ -61,12 +61,6 @@ const Testimonials = () => {
                 />
               </div>
               <div className="p-4">
-                <h1
-                  className="font-semibold "
-                  style={{ fontSize: "20px", color: "black" }}
-                >
-                  Client 1
-                </h1>
                 <div
                   className="text-container mx-auto"
                   style={{
@@ -187,12 +181,6 @@ const Testimonials = () => {
                 />
               </div>
               <div className="p-4">
-                <h1
-                  className="font-semibold md:text-xl"
-                  style={{ fontSize: "20px", color: "black" }}
-                >
-                  Client 3
-                </h1>
                 <div
                   className="text-container mx-auto"
                   style={{
@@ -252,12 +240,6 @@ const Testimonials = () => {
                 />
               </div>
               <div className="p-4">
-                <h1
-                  className="font-semibold "
-                  style={{ fontSize: "20px", color: "black" }}
-                >
-                  Client 4
-                </h1>
                 <div
                   className="text-container mx-auto"
                   style={{
@@ -317,12 +299,6 @@ const Testimonials = () => {
                 />
               </div>
               <div className="p-4">
-                <h1
-                  className="font-semibold "
-                  style={{ fontSize: "20px", color: "black" }}
-                >
-                  Client 5
-                </h1>
                 <div
                   className="text-container mx-auto"
                   style={{
@@ -382,12 +358,6 @@ const Testimonials = () => {
                 />
               </div>
               <div className="p-4">
-                <h1
-                  className="font-semibold "
-                  style={{ fontSize: "20px", color: "black" }}
-                >
-                  Client 6
-                </h1>
                 <div
                   className="text-container mx-auto"
                   style={{

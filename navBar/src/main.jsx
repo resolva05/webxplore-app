@@ -21,6 +21,8 @@ import TermsConditions from '../../navBar/src/components/tnc/TermsConditions.jsx
 import CookiesPolicy from '../../navBar/src/components/cookiePolicy/CookiesPolicy.jsx'
 import PrivacyPolicy from '../../navBar/src/components/privacyPolicy/PrivacyPolicy.jsx'
 import ProjectDetails from '../../navBar/src/components/portfolio/ProjectDetails.jsx'
+import ServiceDetails from '../../navBar/src/components/service/subServices/ServiceDetails.jsx'
+import Sitemap from '../../navBar/src/components/sitemap/Sitemap.jsx'
 
 const router = createBrowserRouter([
   {
@@ -55,10 +57,6 @@ const router = createBrowserRouter([
       ,
       {
         path:'contact',
-        element:<Contactus/>
-      },
-      {
-        path:'/faq/contact',
         element:<Contactus/>
       }
       ,
@@ -100,14 +98,21 @@ const router = createBrowserRouter([
         element:<Subblogpage/>
       },
       {
+        path:"portfolio/projectdetails/:dataId",
+        element:<ProjectDetails/>
+      },
+      {
+        path:"services/:servicekey",
+        element:<ServiceDetails/>
+      },
+      {
         path:"/faq",
         element:<Faq/>
       },
       {
         path:"aboutus",
         element:<AboutUs/>
-      },
-      {
+      },{
         path:"/privacypolicy",
         element: <PrivacyPolicy/>
       },
@@ -124,8 +129,8 @@ const router = createBrowserRouter([
         element:<CookiesPolicy/>
       },
       {
-        path:"portfolio/projectdetails/:dataId",
-        element:<ProjectDetails/>
+        path:"/sitemap",
+        element:<Sitemap/>
       }
     ]
   }
