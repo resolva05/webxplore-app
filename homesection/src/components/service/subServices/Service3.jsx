@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import vid from "../../../assets/vid.mp4";
+import OtherServicesCards from "./OtherServicesCards";
 
 const Service3 = () => {
   useEffect(() => {
@@ -46,16 +47,17 @@ const Service3 = () => {
         <hr className="my-4"></hr>
 
         {/* Conclusion Section */}
-        <Row className="my-5">
+        <OtherServicesCards/>
+        {/* <Row className="my-5">
           <Col md={12}>
             <h2>Conclusion</h2>
             <p>
               In this section, wrap up the detailed page by summarizing the
-              project's overall success, lessons learned, and its potential for
+              projes overall success, lessons learned, and its potential for
               future development or applications.
             </p>
           </Col>
-        </Row>
+        </Row> */}
         <hr className="my-4"></hr>
       </Container>
 

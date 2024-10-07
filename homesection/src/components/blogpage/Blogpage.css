@@ -60,17 +60,17 @@
 
 
 /* Ensure modal content stretches vertically */
-.custommodal .modal-content {
+.custom-modal .modal-content {
   transform: scale(0.5); /* Start smaller */
   opacity: 0; /* Start fully transparent */
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.custommodal.show .modal-content {
+.custom-modal.show .modal-content {
   transform: scale(1); /* Scale to full size */
   opacity: 1; /* Fade in */
 }
 /* Comments section inside the modal */
-.custommodal .modal-body {
+.custom-modal .modal-body {
   padding: 20px;
   display: flex;
   flex-direction: column;

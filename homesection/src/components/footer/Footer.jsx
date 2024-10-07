@@ -55,7 +55,7 @@ function Footer() {
                   <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">Licensing</NavLink>
+                  <NavLink to="/sitemap">Sitemap</NavLink>
                 </li>
               </ul>
             </div>

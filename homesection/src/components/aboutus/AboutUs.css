@@ -4,7 +4,7 @@
 }
 
 .about-header {
-  background-color: #007bff;
+  background-color: black;
   color: white;
   padding: 50px 0;
 }
@@ -128,4 +128,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.member{
+  margin-left: auto;
+  margin-right: auto;
+  gap: 10px;
 }

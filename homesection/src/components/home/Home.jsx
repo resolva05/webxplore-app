@@ -3,11 +3,14 @@ import './Home.css'
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 import { animated, useSpring } from "react-spring";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import KeyFeatures from "./KeyFeatures";
 import HeroSection from "../heroSection/HeroSection";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const [flip, setFlip] = useState(false);
   const props = useSpring({
     to: { opacity: 1 },

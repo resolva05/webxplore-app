@@ -4,6 +4,9 @@ import { posts } from './temp';
 import "./Subblogpage.css";
 
 const Subblogpage = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const { postId } = useParams();
   const post = posts.find((post) => post.id === parseInt(postId));
   
@@ -27,7 +30,6 @@ const Subblogpage = () => {
     });
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       paragraphsRef.current.forEach(paragraph => {
         if (paragraph) {
           observer.unobserve(paragraph);
