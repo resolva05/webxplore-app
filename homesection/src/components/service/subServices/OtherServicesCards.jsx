@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { data } from './OtherServicesData.jsx';
+import { useEffect } from "react";
 
 const OtherServicesCards = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const services = [
     { name: "SEO", key: "SEO" },
     { name: "Payment Gateway Integration", key: "PaymentGatewayIntegration" },
