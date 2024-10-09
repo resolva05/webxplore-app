@@ -1,7 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { data } from './OtherServicesData.jsx';
 import './ServiceDetails.css'
+import { useEffect } from 'react';
+
 const ServiceDetails = () => {
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
   const { servicekey } = useParams(); // Retrieve the service key from the URL params
   const serviceData = data[servicekey];
 //   const post = data.find((post) => post.id === parseInt(dataId));

@@ -2,8 +2,12 @@ import img from '../../assets/arrow.png'
 import { NavLink } from 'react-router-dom';
 import './Sitemap.css'
 import pdf from "../../assets/cs1.pdf";
+import { useEffect } from 'react';
 
 const Sitemap = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     const openPdf = () => {
         window.open(pdf, "_blank"); // Open the PDF in a new tab
     };

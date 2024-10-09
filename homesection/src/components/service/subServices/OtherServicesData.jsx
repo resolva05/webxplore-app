@@ -120,7 +120,7 @@ export const data = {
     SocialMediaMarketing: [
         {
             title: "Social Media Strategy Development",
-            description: "Creating a successful social media presence begins with a well-defined strategy. Our team collaborates with you to develop a tailored social media strategy that aligns with your business goals. We conduct a thorough analysis of your target audience, including demographics, interests, and online behaviour. This insight helps us determine the best platforms to focus on, whether it’s Facebook, Instagram, LinkedIn, Twitter, or others. Our approach includes market research, where we analyse competitors and industry trends to identify opportunities for your brand. We set clear objectives, such as increasing brand awareness, driving website traffic, or boosting engagement rates. Additionally, we create a detailed content calendar that outlines what and when to post, ensuring a consistent and strategic approach."
+            description: "Creating a successful social media presence begins with a well-defined strategy. Our team collaborates with you to develop a tailored social media strategy that aligns with your business goals. We conduct a thorough analysis of your target audience, including demographics, interests, and online behaviour."
         },
         {
             title: "Content Creation and Management",

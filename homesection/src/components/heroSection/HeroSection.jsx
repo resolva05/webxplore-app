@@ -6,7 +6,7 @@ const HeroSection = () => {
   const [headingWords, setHeadingWords] = useState([]);
 
   useEffect(() => {
-    const heading = "Welcome to Resolva Insights";
+    const heading = "Welcome to WebXplore Studio";
     setHeadingWords(heading.split(" "));
   }, []);
 
@@ -24,7 +24,7 @@ const HeroSection = () => {
               ))}
             </h1>
             <p className="hero-description">
-              Resolva develops an easy-to-use, full-service e-commerce platform that includes everything we need to successfully sell software globally.
+              WebXplore develops an easy-to-use, full-service e-commerce platform that includes everything we need to successfully sell software globally.
             </p>
             <div className="hero-buttons">
               <NavLink to={'/contact'}><button className="hero-button cntus">Contact Us</button></NavLink>
