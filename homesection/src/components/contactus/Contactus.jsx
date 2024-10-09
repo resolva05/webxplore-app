@@ -2,8 +2,8 @@
 import maplogo from "../../assets/mapslogo.png";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useState, useEffect } from "react";
-import vid from '../../assets/videobg.mp4'
-import './Contact.css'
+import vid from "../../assets/videobg.mp4";
+import "./Contact.css";
 
 const Contactus = () => {
   useEffect(() => {
@@ -75,7 +75,7 @@ const Contactus = () => {
 
   return (
     <>
-    <video className="vid" src={vid} autoPlay loop muted/>
+      <video className="vid" src={vid} autoPlay loop muted />
       <div className="container mx-auto px-4">
         <div
           className="d-flex flex-column pb-10 pt-12 text-center"
@@ -85,9 +85,8 @@ const Contactus = () => {
             Communicate With Us
           </h1>
           <p className="mx-auto lead text-muted">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            veritatis voluptates neque itaque repudiandae sint, explicabo
-            assumenda quam ratione placeat?
+            “Ready to start something new? Every great project starts with a
+            conversation, share your ideas and let’s build together.”
           </p>
         </div>
         <hr className="my-4"></hr>
@@ -98,7 +97,7 @@ const Contactus = () => {
                 Fill out the form below
               </h2>
               <p className="mt-4 lead text-muted">Reach to Us!</p>
-              
+
               <form className="mt-4" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group col-md-6">

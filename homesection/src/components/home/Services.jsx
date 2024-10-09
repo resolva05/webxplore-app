@@ -2,7 +2,7 @@
 import "./Services.css";
 import Carousel from "react-bootstrap/Carousel";
 import { useEffect, useRef } from "react";
-
+import customweb from '../../assets/customweb.png'
 
 
 const Services = () => {
@@ -38,8 +38,8 @@ const Services = () => {
         <Carousel.Item >
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
-              src="https://ideausher.com/wp-content/uploads/2023/05/Custom-Web-Application-Development-_.webp"
-              alt="Laptop"
+              src={customweb}
+              alt="Custom web application"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
@@ -85,7 +85,7 @@ const Services = () => {
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://media.istockphoto.com/id/1273058761/vector/tiny-people-testing-quality-assurance-in-software.jpg?s=612x612&w=0&k=20&c=DsNlOqfMpPkHlVEavkrz8atzgOxVSRgZPkGHYH-e1-8="
-              alt="Laptop"
+              alt="Prototype Services"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
@@ -130,7 +130,7 @@ const Services = () => {
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
             <img
               src="https://www.extwebtech.com/wp-content/uploads/2023/01/Full_stack_developer-1024x507.webp"
-              alt="Laptop"
+              alt="Full Stack Development"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
@@ -177,7 +177,7 @@ const Services = () => {
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://shastatek.com/sites/default/files/3party_api.jpg"
-              alt="Laptop"
+              alt="Third Party Integration"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
@@ -221,7 +221,7 @@ const Services = () => {
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
             <img
               src="https://cdn-bbaid.nitrocdn.com/wYFmIWkSNKpdInpiRfVoEqTErZtkFjBo/assets/images/optimized/rev-ff73c2b/www.rishabhsoft.com/wp-content/uploads/2022/03/Software-Product-Development-Strategy_Banner.jpg"
-              alt="Laptop"
+              alt="Software Product Development"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
@@ -265,7 +265,7 @@ const Services = () => {
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://media.istockphoto.com/id/1212446148/photo/update-with-blurred-city-lights.jpg?s=612x612&w=0&k=20&c=w5GES6fFoPkAYqBSFX5f-wjpkelJtdzpXif7Cic53q8="
-              alt="Laptop"
+              alt="Upgradation Services"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
@@ -309,7 +309,7 @@ const Services = () => {
           <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
             <img
               src="https://www.shutterstock.com/image-photo/analyst-uses-computer-dashboard-data-600nw-2285412737.jpg"
-              alt="Laptop"
+              alt="Consulting and Business Analysis"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
