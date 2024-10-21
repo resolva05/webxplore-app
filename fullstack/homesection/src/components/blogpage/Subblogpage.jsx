@@ -1,47 +1,38 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { posts } from './temp';
+import axios from "axios"; 
 import "./Subblogpage.css";
 
 const Subblogpage = () => {
-  useEffect(() => {
-    window.scrollTo(top);
-  }, []);
-  const { postId } = useParams();
-  const post = posts.find((post) => post.id === parseInt(postId));
-  
-  const paragraphsRef = useRef([]); // To keep track of each paragraph's reference
+  const { postId } = useParams(); 
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Adding scroll observer for paragraphs to animate as they appear in the viewport
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.1 }); // Trigger when 10% of the paragraph is visible
-
-    // Observing all paragraphs
-    paragraphsRef.current.forEach(paragraph => {
-      if (paragraph) {
-        observer.observe(paragraph);
+    const fetchPost = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/getUsers/${postId}`);
+        setPost(response.data); 
+      } catch (err) {
+        console.error("Error fetching post:", err);
+        setError("Post not found!");
+      } finally {
+        setLoading(false);
       }
-    });
-
-    return () => {
-      paragraphsRef.current.forEach(paragraph => {
-        if (paragraph) {
-          observer.unobserve(paragraph);
-        }
-      });
     };
-  }, []);
 
-  if (!post) {
-    return <div>Post not found!</div>;
+    fetchPost();
+  }, [postId]);
+
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
+  if (error || !post) {
+    return <p>{error}</p>; // Show "Post not found!" if there's an error
+  }
+  
   const contentParagraphs = post.content.split("\n");
 
   return (
@@ -50,13 +41,13 @@ const Subblogpage = () => {
       <p className="post-category">Category: {post.category}</p>
       <p className="post-description">{post.description}</p>
       <p className="post-date">Published on: {post.date}</p>
+      <p className="post-date">Published on: {post.content}</p>
 
       <div className="post-content">
         {contentParagraphs.map((paragraph, index) => (
           <p
             key={index}
-            ref={el => paragraphsRef.current[index] = el} // Attach each paragraph to ref
-            className="hidden-paragraph"
+            className="post-paragraph"
             dangerouslySetInnerHTML={{ __html: paragraph.replace(/\n/g, '<br />') }}
           />
         ))}

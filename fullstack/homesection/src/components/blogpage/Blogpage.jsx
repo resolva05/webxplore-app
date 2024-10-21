@@ -6,7 +6,6 @@ import { ArrowRight, MessageCircle } from "lucide-react"; // Comment Icon
 import { Row, Col, Card, Container, Badge, Form, ListGroup, Modal } from "react-bootstrap";
 import logo from "../../assets/logonew.png";
 import vid from "../../assets/blogvideo.mp4";
-import { posts } from "./temp.jsx";
 import "./Blogpage.css";
 
 const categories = [
@@ -22,14 +21,22 @@ const categories = [
 ];
 
 const Blogpage = () => {
-  useEffect(() => {
-    window.scrollTo(top);
-  }, []);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
   const [comments, setComments] = useState({}); // Store comments per post
   const [commentVisibility, setCommentVisibility] = useState(false); // Control modal visibility
   const [activePostId, setActivePostId] = useState(null); // Track which post's comments are being shown
+  const [posts, setPosts] = useState([]); // State to hold posts fetched from MongoDB
+
+  useEffect(() => {
+    window.scrollTo(top);
+
+    // Fetch posts from MongoDB
+    fetch("http://localhost:5000/getUsers")
+  .then((response) => response.json())
+  .then((data) => setPosts(data))
+  .catch((error) => console.error("Error fetching posts:", error));
+  }, []);
 
   const handleCategoryChange = (category) => {
     setSelectedCategories((prevState) =>
@@ -72,7 +79,7 @@ const Blogpage = () => {
             Welcome to our blog{" "}
             <img
               src={img}
-              alt=""
+              alt="Blog logo"
               style={{ height: "40px", marginBottom: "18px" }}
             />
           </h1>
@@ -84,7 +91,7 @@ const Blogpage = () => {
                 Categories{" "}
                 <img
                   src={img2}
-                  alt=""
+                  alt="Category icon"
                   style={{ height: "17px", cursor: "pointer" }}
                   onClick={() => setShowCategories(!showCategories)}
                 />
@@ -115,7 +122,7 @@ const Blogpage = () => {
               <NavLink>
                 <img
                   src={logo}
-                  alt=""
+                  alt="Logo"
                   style={{
                     height: "30px",
                     marginBottom: "50px",
@@ -129,8 +136,8 @@ const Blogpage = () => {
           <Col md={9}>
             <Row className="g-4">
               {filteredPosts.map((post) => (
-                <Col md={6} lg={4} key={post.title}>
-                  <Card  className="card-hover abc" style={{ borderRadius: "20px", height: "97%" }}>
+                <Col md={6} lg={4} key={post._id}>
+                  <Card className="card-hover abc" style={{ borderRadius: "20px", height: "97%" }}>
                     <Card.Img
                       variant="top"
                       src={post.poster}
@@ -138,7 +145,7 @@ const Blogpage = () => {
                     />
                     <Card.Body>
                       <Card.Text className="text-muted text-xs">
-                        #{post.category}
+                        {post.category}
                       </Card.Text>
                       <Card.Title className="font-weight-bold">
                         {post.title}
@@ -150,19 +157,17 @@ const Blogpage = () => {
                       </div>
                     </Card.Body>
 
-                    {/* Adjusting Read More Button and Comment Icon */}
                     <div
                       className="d-flex align-items-center justify-content-between"
                       style={{ padding: "10px 15px", marginBottom: "20px" }}
                     >
-                      {/* Read More Button (80% width) */}
                       <NavLink
-                        to={`/blogpage/subblogpage/${post.id}`}
+                        to={`/blogpage/subblogpage/${post._id}`}
                         style={{ width: "77%" }}
                       >
                         <button
                           type="button"
-                          className="inline-flex items-xcenter rounded-md px-3 py-2 text-sm font-semibold  read-more-btn"
+                          className="inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold read-more-btn"
                           style={{
                             width: "100%",
                             borderRadius: "20px",
@@ -173,13 +178,12 @@ const Blogpage = () => {
                         </button>
                       </NavLink>
 
-                      {/* Comment Button (20% width) with Comment Count */}
                       <div
                         className="comment-icon-wrapper d-flex align-items-center justify-content-center"
                         style={{ width: "20%" }}
                       >
                         <button
-                          onClick={() => handleOpenComments(post.id)}
+                          onClick={() => handleOpenComments(post._id)}
                           className="comment-icon-btn"
                           style={{
                             display: "flex",
@@ -187,20 +191,17 @@ const Blogpage = () => {
                             justifyContent: "center",
                             width: "100%",
                             borderRadius: "20px",
-                            // backgroundColor: "#f8f9fa",
-                            // border: "1px solid #ced4da",
                             padding: "5px",
-                            marginTop:"-17px",
-                            height:"42px"
-
+                            marginTop: "-17px",
+                            height: "42px",
                           }}
                         >
-                          <MessageCircle size={24} style={{marginBottom:"3px"}} />
+                          <MessageCircle size={24} style={{ marginBottom: "3px" }} />
                           <span
                             className="comment-count"
-                            style={{ marginLeft: "5px", fontWeight: "bold",marginBottom:"3px"}}
+                            style={{ marginLeft: "5px", fontWeight: "bold", marginBottom: "3px" }}
                           >
-                            {comments[post.id]?.length || 0}
+                            {comments[post._id]?.length || 0}
                           </span>
                         </button>
                       </div>
@@ -223,12 +224,11 @@ const Blogpage = () => {
             <Modal.Title>Comments</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {/* Scrollable comment box */}
             <div className="comment-box">
               {comments[activePostId]?.length > 0 ? (
                 comments[activePostId].map((comment, index) => (
                   <div key={index} className="comment-item">
-                    <div className="comment-icon">{index + 1}</div> {/* Comment icon */}
+                    <div className="comment-icon">{index + 1}</div>
                     <div className="comment-text">{comment}</div>
                   </div>
                 ))
@@ -237,7 +237,6 @@ const Blogpage = () => {
               )}
             </div>
 
-            {/* Comment Form (Now placed at the bottom) */}
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
