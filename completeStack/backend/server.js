@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,32 +10,26 @@ const PORT = 5000;
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/blogpage", {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  tls: true, // Try with or without this option
+  tlsInsecure: true, // Disable TLS validation temporarily for testing
+}).then(() => console.log('DB Connected Mongo Running'))
+.catch(err => {
+  console.error('DB Connection Error:', err);
+  console.error('Error cause:', err.cause);  // This will give you more information
 });
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-  console.log("Connected to MongoDB");
-});
 
-// Define a Post schema (adjust fields according to your MongoDB document structure)
-const postSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  content: String,
-  date: String,
-});
 
-// Create a model based on the schema
-const Post = mongoose.model("data2", postSchema);
-
+const Post=require('./models/Post')
+const D=require('./models/d')
 // Route to get all posts (if you need to fetch all posts somewhere)
 app.get("/getUsers", async (req, res) => {
   try {
     const posts = await Post.find();
+    console.log(posts)
     res.json(posts);
   } catch (error) {
     console.error(error);
@@ -57,6 +52,16 @@ app.get("/getUsers/:postId", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+const postSchema = new Post({
+  title: 'new title',
+});
+postSchema.save();
+
+const newd = new D({
+  name:'saksham',
+});
+newd.save();
 
 // Start the server
 app.listen(PORT, () => {

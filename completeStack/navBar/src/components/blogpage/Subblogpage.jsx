@@ -38,10 +38,10 @@ const Subblogpage = () => {
   return (
     <div className="subblogpage-container">
       <h1 className="post-title">{post.title}</h1>
-      <p className="post-category">Category: {post.category}</p>
+      {/* <p className="post-category">Category: {post.category}</p> */}
       <p className="post-description">{post.description}</p>
       <p className="post-date">Published on: {post.date}</p>
-      <p className="post-date">Published on: {post.content}</p>
+      {/* <p className="post-date">Published on: {post.content}</p> */}
 
       <div className="post-content">
         {contentParagraphs.map((paragraph, index) => (
