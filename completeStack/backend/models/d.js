@@ -1,11 +1,13 @@
 const mongoose=require('mongoose')
 
 const pre = new mongoose.Schema({
-    name: String,
-    description: String,
-    content: String,
-    date: String,
+    title: String,
+    industry: String,
+    technologyStack: [String],
+    projectOverview: String,
+    solution:String,
+    results:String,
   });
   
   // Create a model based on the schema
-  module.exports = mongoose.model("port", pre);
+  module.exports = mongoose.model("ports", pre);
