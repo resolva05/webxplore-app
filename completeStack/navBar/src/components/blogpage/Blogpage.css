@@ -22,8 +22,8 @@
 }
 
 .card-hover:hover {
-  transform: translateY(-20px); /* Slight move upwards */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transform: translateY(-20px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .read-more-btn {
@@ -60,7 +60,7 @@
 
 
 /* Ensure modal content stretches vertically */
-.custom-modal .modal-content {
+.custom-modals .modal-content {
   transform: scale(0.5); /* Start smaller */
   opacity: 0; /* Start fully transparent */
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -123,6 +123,16 @@
 .comment-item:last-child {
   border-bottom: none;
 }
+.loading-container {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: calc(100vh - 100px); /* Full height minus space for header and footer */
+  margin-top: 30px; /* Optional: Adjust this margin to create more space if needed */
+  margin-bottom: 50px; /* Optional: Adjust this margin to create more space if needed */
+}
+
+
 
 /* Icon or symbol for each comment */
 .comment-icon {

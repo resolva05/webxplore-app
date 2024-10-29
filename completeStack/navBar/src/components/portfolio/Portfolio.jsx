@@ -15,21 +15,15 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className=" cont relative w-full">
+      <div className=" cont relative w-full port">
         <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 d-flex">
           <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
             <h1
-              className="mt-8 text-3xl font-bold tracking-tight md:text-4xl lg:text-6xl"
-              style={{
-                color: "black",
-                fontSize: "50px",
-                marginBottom: "30px",
-                marginTop: "40px",
-              }}
+              className="headingport"
             >
               Delivering cutting-edge solutions
             </h1>
-            <p className="mt-8 text-lg text-gray-700">
+            <p className="ptagtext">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Consequatur modi blanditiis dolores quasi eaque explicabo!Lorem
               ipsum dolor sit amet consectetur adipisicing elit. Consequatur
@@ -61,8 +55,8 @@ const Portfolio = () => {
                       <Card
                         body
                         style={{
-                          width: "100%",
-                          maxWidth: "100%",
+                          width: "60%",
+                          maxWidth: "60%",
                           minWidth: "250px",
                           height: "auto",
                           backgroundColor: "white",
@@ -96,113 +90,7 @@ const Portfolio = () => {
         </h2>
           <ProjectCards/>
       </div>
-
-      <div
-        className="d-flex"
-        style={{
-          margin: "20px",
-          borderRadius: "20px",
-        }}
-      >
-        <div
-          className="d-flex sec max-w-2xl flex flex-col items-center rounded-md border md:flex-row shadow-lg w-full"
-          style={{ borderRadius: "20px" }}
-        >
-          <div className="h-full w-full md:h-[200px] md:w-[300px]">
-            <img
-              src="https://img.freepik.com/free-vector/website-development-banner_33099-1687.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1726099200&semt=ais_hybrid"
-              alt="Laptop"
-              className="h-full w-full rounded-md object-cover"
-              style={{ borderRadius: "20px", margin: "10px", height: "20vw" }}
-            />
-          </div>
-          <div className="flex-grow w-full p-4 md:p-6">
-            <h1
-              className="text-lg font-semibold break-words"
-              style={{ fontSize: "20px" , color:"black"}}
-            >
-              Web Development
-            </h1>
-            <p className="mt-3 text-sm text-gray-600 break-words">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              consequatur accusamus nobis ad quas aspernatur dolores possimus
-              veritatis itaque vel? Impedit perferendis dolorem totam qui
-              quaerat temporibus voluptate nihil neque?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        className="d-flex"
-        style={{
-          margin: "20px",
-          borderRadius: "20px",
-        }}
-      >
-        <div
-          className="d-flex sec max-w-2xl flex flex-col items-center rounded-md border md:flex-row shadow-lg w-full"
-          style={{ borderRadius: "20px" }}
-        >
-          <div className="h-full w-full md:h-[200px] md:w-[300px]">
-            <img
-              src="https://img.freepik.com/free-vector/app-development-banner_33099-1720.jpg"
-              alt="Laptop"
-              className="h-full w-full rounded-md object-cover"
-              style={{ borderRadius: "20px", margin: "10px", height: "20vw" }}
-            />
-          </div>
-          <div className="flex-grow w-full p-4 md:p-6 ">
-            <h1
-              className="text-lg font-semibold break-words"
-              style={{ fontSize: "20px" , color:"black" }}
-            >
-              App Development
-            </h1>
-            <p className="mt-3 text-sm text-gray-600 break-words">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              consequatur accusamus nobis ad quas aspernatur dolores possimus
-              veritatis itaque vel? Impedit perferendis dolorem totam qui
-              quaerat temporibus voluptate nihil neque?
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="d-flex"
-        style={{
-          margin: "20px",
-          borderRadius: "20px",
-        }}
-      >
-        <div
-          className="d-flex sec max-w-2xl flex flex-col items-center rounded-md border md:flex-row shadow-lg w-full"
-          style={{ borderRadius: "20px" }}
-        >
-          <div className="h-full w-full md:h-[200px] md:w-[300px]">
-            <img
-              src="https://img.freepik.com/free-photo/showing-cart-trolley-shopping-online-sign-graphic_53876-133967.jpg"
-              alt="Laptop"
-              className="h-full w-full rounded-md object-cover"
-              style={{ borderRadius: "20px", margin: "10px", height: "20vw" }}
-            />
-          </div>
-          <div className="flex-grow w-full p-4 md:p-6">
-            <h1
-              className="text-lg font-semibold break-words"
-              style={{ fontSize: "20px"  , color:"black"}}
-            >
-              E-Commerce
-            </h1>
-            <p className="mt-3 text-sm text-gray-600 break-words">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              consequatur accusamus nobis ad quas aspernatur dolores possimus
-              veritatis itaque vel? Impedit perferendis dolorem totam qui
-              quaerat temporibus voluptate nihil neque?
-            </p>
-          </div>
-        </div>
-      </div>
+      <div style={{ backgroundColor: "white", height: "1px" }}></div>
     </>
   );
 };

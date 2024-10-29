@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import img from "../../assets/blogimg.png";
 import img2 from "../../assets/categoryimg.png";
 import { ArrowRight, MessageCircle } from "lucide-react"; // Comment Icon
-import { Row, Col, Card, Container, Badge, Form, ListGroup, Modal } from "react-bootstrap";
+import { Row, Col, Card, Container, Badge, Form, ListGroup, Modal, Spinner } from "react-bootstrap";
 import logo from "../../assets/logonew.png";
 import vid from "../../assets/blogvideo.mp4";
 import "./Blogpage.css";
@@ -19,23 +19,28 @@ const categories = [
   "5G",
   "Sports",
 ];
+  useEffect(() => {
+    window.scrollTo(top);
+  }, []);
+  const [open, setOpen] = useState(false);
 
 const Blogpage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
-  const [comments, setComments] = useState({}); // Store comments per post
-  const [commentVisibility, setCommentVisibility] = useState(false); // Control modal visibility
-  const [activePostId, setActivePostId] = useState(null); // Track which post's comments are being shown
-  const [posts, setPosts] = useState([]); // State to hold posts fetched from MongoDB
+  const [comments, setComments] = useState({});
+  const [commentVisibility, setCommentVisibility] = useState(false);
+  const [activePostId, setActivePostId] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
-    window.scrollTo(top);
-
+    window.scrollTo(0, 0);
     // Fetch posts from MongoDB
     fetch("http://localhost:5000/getUsers")
-  .then((response) => response.json())
-  .then((data) => setPosts(data))
-  .catch((error) => console.error("Error fetching posts:", error));
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Error fetching posts:", error))
+      .finally(() => setLoading(false)); // Set loading to false after fetching
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -66,6 +71,14 @@ const Blogpage = () => {
   const filteredPosts = selectedCategories.length
     ? posts.filter((post) => selectedCategories.includes(post.category))
     : posts;
+
+    if (loading) {
+      return (
+        <div className="loading-container">
+          <Spinner animation="border" role="status" />
+        </div>
+      );
+    }
 
   return (
     <>
@@ -217,7 +230,7 @@ const Blogpage = () => {
         <Modal
           show={commentVisibility}
           onHide={handleCloseComments}
-          className="custom-modal"
+          className="custom-modals"
           centered
         >
           <Modal.Header closeButton>
