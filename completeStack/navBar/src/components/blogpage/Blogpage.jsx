@@ -2,8 +2,18 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import img from "../../assets/blogimg.png";
 import img2 from "../../assets/categoryimg.png";
-import { ArrowRight, MessageCircle } from "lucide-react"; // Comment Icon
-import { Row, Col, Card, Container, Badge, Form, ListGroup, Modal, Spinner } from "react-bootstrap";
+import img3 from "../../assets/blogone.png";
+import { ArrowRight, MessageCircle } from "lucide-react";
+import {
+  Row,
+  Col,
+  Card,
+  Container,
+  Badge,
+  Form,
+  ListGroup,
+  Modal,
+} from "react-bootstrap";
 import logo from "../../assets/logonew.png";
 import vid from "../../assets/blogvideo.mp4";
 import "./Blogpage.css";
@@ -19,28 +29,29 @@ const categories = [
   "5G",
   "Sports",
 ];
-  useEffect(() => {
-    window.scrollTo(top);
-  }, []);
-  const [open, setOpen] = useState(false);
 
 const Blogpage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
-  const [comments, setComments] = useState({});
-  const [commentVisibility, setCommentVisibility] = useState(false);
-  const [activePostId, setActivePostId] = useState(null);
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
-
+  const [comments, setComments] = useState({}); // Store comments per post
+  const [commentVisibility, setCommentVisibility] = useState(false); // Control modal visibility
+  const [activePostId, setActivePostId] = useState(null); // Track which post's comments are being shown
+  const [posts, setPosts] = useState([]); // State to hold posts fetched from MongoDB
+  const [loading, setLoading] = useState(true); // Initialize loading state
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(top);
+
     // Fetch posts from MongoDB
     fetch("http://localhost:5000/getUsers")
       .then((response) => response.json())
-      .then((data) => setPosts(data))
-      .catch((error) => console.error("Error fetching posts:", error))
-      .finally(() => setLoading(false)); // Set loading to false after fetching
+      .then((data) => {
+        setPosts(data);
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+        setLoading(false); // Set loading to false if there's an error
+      });
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -71,31 +82,42 @@ const Blogpage = () => {
   const filteredPosts = selectedCategories.length
     ? posts.filter((post) => selectedCategories.includes(post.category))
     : posts;
-
-    if (loading) {
-      return (
-        <div className="loading-container">
-          <Spinner animation="border" role="status" />
-        </div>
-      );
-    }
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner"></div>
+        <p>Loading posts...</p>
+      </div>
+    );
+  }
 
   return (
     <>
       <video className="vid" src={vid} autoPlay loop muted />
       <Container fluid className="mt-4" style={{ marginBottom: "20px" }}>
-        <Container className="text-center mb-5" style={{ maxWidth: "42rem" }}>
-          <Badge pill bg="light" text="dark" className="px-3 py-1 mb-3">
-            OUR BLOG
-          </Badge>
-          <h1 className="display-6 font-weight-bold">
-            Welcome to our blog{" "}
-            <img
-              src={img}
-              alt="Blog logo"
-              style={{ height: "40px", marginBottom: "18px" }}
-            />
-          </h1>
+        <Container className="text-center mb-5" style={{ maxWidth: "73rem" }}>
+          <Row className="align-items-center">
+            {/* Left Column: Text */}
+            <Badge pill bg="light" text="dark" className="px-3 py-1 mb-3">
+              OUR BLOG
+            </Badge>
+            <Col md={8} className="text-left">
+              <h1 className="display-6 tex font-weight text-center">
+                <b> Welcome to our blog page</b>, where you’ll find a curated
+                collection of insightful articles across a variety of topics
+              </h1>
+            </Col>
+
+            {/* Right Column: Image */}
+            <Col md={4} className="text-right">
+              <img
+                src={img3}
+                alt="Blog illustration"
+                className="blogone"
+                style={{ width: "100%", maxWidth: "300px" }}
+              />
+            </Col>
+          </Row>
         </Container>
         <Row>
           <Col md={2} className="mb-4">
@@ -150,7 +172,10 @@ const Blogpage = () => {
             <Row className="g-4">
               {filteredPosts.map((post) => (
                 <Col md={6} lg={4} key={post._id}>
-                  <Card className="card-hover abc" style={{ borderRadius: "20px", height: "97%" }}>
+                  <Card
+                    className="card-hover abc"
+                    style={{ borderRadius: "20px", height: "97%" }}
+                  >
                     <Card.Img
                       variant="top"
                       src={post.poster}
@@ -209,10 +234,17 @@ const Blogpage = () => {
                             height: "42px",
                           }}
                         >
-                          <MessageCircle size={24} style={{ marginBottom: "3px" }} />
+                          <MessageCircle
+                            size={24}
+                            style={{ marginBottom: "3px" }}
+                          />
                           <span
                             className="comment-count"
-                            style={{ marginLeft: "5px", fontWeight: "bold", marginBottom: "3px" }}
+                            style={{
+                              marginLeft: "5px",
+                              fontWeight: "bold",
+                              marginBottom: "3px",
+                            }}
                           >
                             {comments[post._id]?.length || 0}
                           </span>
