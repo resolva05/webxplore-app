@@ -1,4 +1,3 @@
-// import React from 'react'
 import maplogo from "../../assets/mapslogo.png";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useState, useEffect } from "react";
@@ -9,6 +8,7 @@ const Contactus = () => {
   useEffect(() => {
     window.scrollTo(top);
   }, []);
+  
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -55,21 +55,46 @@ const Contactus = () => {
     } else if (!validatePhoneNumber(formData.phoneNumber)) {
       formErrors.phoneNumber = "Phone number must be exactly 10 digits";
     }
-    // if (!formData.phoneNumber.trim()!=10) formErrors.phoneNumber = "Phone number is required";
-    // if (!formData.phoneNumber.length!=10) formErrors.phoneNumber = "Phone number is not valid";
     if (!formData.message.trim()) formErrors.message = "Message is required";
-    if (!captchaVerified) formErrors.captcha = "Please complete the captcha";
+    // if (!captchaVerified) formErrors.captcha = "Please complete the captcha";
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
 
   // Form submit handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Submit form
-      console.log("Form submitted", formData);
+      try {
+        const response = await fetch('http://localhost:5000/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData), // Send form data as JSON
+        });
+  
+        if (!response.ok) {
+          const errorData = await response.json(); // Get the error response
+          throw new Error(errorData.message || 'Something went wrong');
+        }
+  
+        const responseData = await response.json();
+        alert(responseData.message); // Show success message
+  
+        // Optionally reset the form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+          message: "",
+        });
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("An error occurred while submitting the form: " + error.message);
+      }
     }
   };
 
@@ -77,25 +102,17 @@ const Contactus = () => {
     <>
       <video className="vid" src={vid} autoPlay loop muted />
       <div className="container mx-auto px-4">
-        <div
-          className="d-flex flex-column pb-10 pt-12 text-center"
-          style={{ marginTop: "20px" }}
-        >
-          <h1 className="text-center display-4 font-weight-bold text-dark">
-            Communicate With Us
-          </h1>
+        <div className="d-flex flex-column pb-10 pt-12 text-center" style={{ marginTop: "20px" }}>
+          <h1 className="text-center display-4 font-weight-bold text-dark">Communicate With Us</h1>
           <p className="mx-auto lead text-muted">
-            “Ready to start something new? Every great project starts with a
-            conversation, share your ideas and let’s build together.”
+            “Ready to start something new? Every great project starts with a conversation, share your ideas and let’s build together.”
           </p>
         </div>
         <hr className="my-4"></hr>
         <div className="container py-5">
           <div className="row justify-content-center">
             <div className="col-lg-6">
-              <h2 className="font-weight-bold text-dark">
-                Fill out the form below
-              </h2>
+              <h2 className="font-weight-bold text-dark">Fill out the form below</h2>
               <p className="mt-4 lead text-muted">Reach to Us!</p>
 
               <form className="mt-4" onSubmit={handleSubmit}>
@@ -144,9 +161,7 @@ const Contactus = () => {
                   )}
                 </div>
                 <div className="form-group">
-                  <label htmlFor="phone_number" type="number">
-                    Phone number
-                  </label>
+                  <label htmlFor="phone_number" type="number">Phone number</label>
                   <input
                     type="tel"
                     className="form-control"
@@ -181,8 +196,8 @@ const Contactus = () => {
                     <small className="text-danger">{errors.captcha}</small>
                   )}
                 </div>
-                {/* disabled={captchaVerified} */}
-                <button type="submit" className="submitbtn ">
+
+                <button type="submit" className="submitbtn">
                   Send Message
                 </button>
               </form>
@@ -201,11 +216,7 @@ const Contactus = () => {
             <div className="col-lg-6">
               <h2 className="font-weight-bold text-dark">
                 We Are Here!{" "}
-                <img
-                  src={maplogo}
-                  alt=""
-                  style={{ height: "4vh", marginBottom: "10px" }}
-                />
+                <img src={maplogo} alt="" style={{ height: "4vh", marginBottom: "10px" }} />
               </h2>
               <div
                 className="embed-responsive embed-responsive-16by9"

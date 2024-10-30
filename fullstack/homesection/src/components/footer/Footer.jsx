@@ -1,7 +1,7 @@
 // import React from 'react'
 import "../../App.css";
 import styled from "styled-components";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 
 function Footer() {
@@ -16,7 +16,7 @@ function Footer() {
                 src={logo}
                 alt="Logo"
                 style={{
-                  height: "100px",
+                  height: "150px",
                   borderRadius: "15px",
                 }}
               />
