@@ -169,17 +169,30 @@ const AboutUs = () => {
               <p className="team-role">mayur@resolvainsights.com</p>
             </div>
           </div>
-          {/* <div className="col-md-4">
+          <div className="col-md-4">
             <div className="team-card">
               <img
                 src="https://cdn.pixabay.com/photo/2016/03/31/20/37/client-1295901_640.png"
                 alt="Team Member"
                 className="img-fluid team-img"
               />
-              <h5 className="team-name">Bob Johnson</h5>
-              <p className="team-role">Project Manager</p>
+              <h5 className="team-name">Saksham</h5>
+              <p className="team-role">Full Stack Developer</p>
+              <p className="team-role">saksham.k@resolvainsights.com</p>
             </div>
-          </div> */}
+          </div>
+          <div className="col-md-4">
+            <div className="team-card">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/03/31/20/37/client-1295901_640.png"
+                alt="Team Member"
+                className="img-fluid team-img"
+              />
+              <h5 className="team-name">Rohit Chandra</h5>
+              <p className="team-role">Full Stack Developer</p>
+              <p className="team-role">rohit.c@resolvainsights.com</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

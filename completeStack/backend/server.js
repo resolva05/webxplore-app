@@ -83,41 +83,85 @@ app.get("/portfolio/:postId", async (req, res) => {
 });
 
 //contact
-
-
 const Contact=require('./models/contact')
 
+app.get('/getContactFormData', async (req, res) => {
+  try {
+    const contactFormData = await Contact.find({ formType: 'contact' });
+    res.json(contactFormData);
+  } catch (error) {
+    console.error('Error fetching contact form data:', error);
+    res.status(500).json({ message: 'Error fetching contact form data' });
+  }
+});
+
+app.get('/getPopupFormData', async (req, res) => {
+  try {
+    const popupFormData = await Contact.find({ formType: 'popup' });
+    res.json(popupFormData);
+  } catch (error) {
+    console.error('Error fetching popup form data:', error);
+    res.status(500).json({ message: 'Error fetching popup form data' });
+  }
+});
+
+
+app.get('/getAllFormData', async (req, res) => {
+  try {
+    const formData = await Contact.find();
+    res.json(formData);  // This will include the formType field in the response
+  } catch (error) {
+    console.error('Error fetching form data:', error);
+    res.status(500).json({ message: 'Error fetching form data' });
+  }
+});
 
 app.post('/contact', async (req, res) => {
   const { firstName, lastName, email, phoneNumber, message } = req.body;
 
-  // Validate the incoming data
   if (!firstName || !lastName || !email || !phoneNumber || !message) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
-  // Create a new contact entry
-  const newContact = new Contact({
+  const newContactData = new Contact({
     firstName,
     lastName,
     email,
-    phoneNumber,
+    phone: phoneNumber,
     message,
+    formType: 'contact',  // Set formType to 'contact'
   });
 
   try {
-    // Save the contact to MongoDB
-    await newContact.save();
-    console.log(newContact )
-
+    await newContactData.save();
     res.status(201).json({ message: 'Contact form submitted successfully!' });
-  
   } catch (error) {
     console.error('Error saving contact:', error);
     res.status(500).json({ message: 'Error saving contact' });
   }
 });
 
+//popup contact page
+
+// Route to handle form submission
+app.post('/submitForm', async (req, res) => {
+  const { name, email, phone, requirements } = req.body;
+
+  try {
+    const newFormData = new Contact({
+      name,
+      email,
+      phone,
+      requirements,
+      formType: 'popup',  // Set formType to 'popup'
+    });
+    await newFormData.save();
+    res.status(200).json({ message: 'Form data submitted successfully' });
+  } catch (error) {
+    console.error('Error saving popup data:', error);
+    res.status(500).json({ message: 'Error submitting form data', error });
+  }
+});
 
 // Start the server
 app.listen(PORT, () => {

@@ -71,14 +71,33 @@ const PopUp = () => {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setValidated(true);
 
     if (validateForm()) {
+      try {
+        const response = await fetch('http://localhost:5000/submitForm', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
 
-      alert("Form submitted successfully");
-      handleClose();
+        const result = await response.json();
+
+        if (response.ok) {
+          alert(result.message);
+          handleClose();
+          setFormData({ name: '', email: '', phone: '', requirements: '' }); // Clear form after submission
+        } else {
+          alert('Error submitting form. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error submitting form. Please check your server.');
+      }
     }
   };
 
@@ -99,17 +118,15 @@ const PopUp = () => {
       keyboard={false}
       dialogClassName="custom-modal"
     >
-
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body className="p-4">
         <Row className="align-items-center">
-
           <Col md={5} className="p-0 videpop">
             <video src={pop} className="h-100 w-100" autoPlay muted loop></video>
           </Col>
 
           <Col md={7} className="p-4">
-            <h4 className="mb-4">Lets Grow Together!</h4>
+            <h4 className="mb-4">Let's Grow Together!</h4>
             <Form noValidate onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formName">
                 <Form.Label>Name</Form.Label>
@@ -178,8 +195,6 @@ const PopUp = () => {
                 </Button>
               </div>
             </Form>
-
-            
           </Col>
         </Row>
       </Modal.Body>
@@ -187,4 +202,4 @@ const PopUp = () => {
   );
 };
 
-export default PopUp;
+export default PopUp;

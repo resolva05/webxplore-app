@@ -1,28 +1,28 @@
-.btn{
-    background-color: black;
-            color: white;
-            /* border: 2px solid red; */
-}
-
-.btn:hover:hover {
-            background-color: white;
-            color: black;
-            border: 2px solid black; /* Optional: Keeps a red border */
-            transition: all 0.3s ease;
-}
-
-.btn:focus, 
-        .btn:active, 
-        .btn.focus, 
-        .btn.active {
-            background-color: black; /* Keep background red on click */
-            color: white;          /* Keep text white on click */
-            /* border-color: red;      Keep border red */
-            box-shadow: none;       /* Remove the blue shadow */
-            outline: none;          /* Remove the outline */
-        }
-.portfolioimg{
-   
+.btn {
+        background-color: black;
+        color: white;
+        outline: none;
+        /* border: 2px solid red; */
+      }
+      
+      .btn:hover:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid black; /* Optional: Keeps a red border */
+        transition: all 0.3s ease;
+      }
+      
+      .btn:focus,
+      .btn:active,
+      .btn.focus,
+      .btn.active {
+        background-color: black; /* Keep background red on click */
+        color: white; /* Keep text white on click */
+        /* border-color: red;      Keep border red */
+        box-shadow: none; /* Remove the blue shadow */
+        outline: none; /* Remove the outline */
+      }
+      .portfolioimg {
         /* position: absolute; */
         top: 0; /* Cover the top */
         left: 0; /* Cover the left */
@@ -30,13 +30,59 @@
         bottom: 0;
         width: 100%; /* Make sure the width covers the full container */
         height: 100%; /* Make sure the height covers the full container */
-        background-image: url('../../assets/projectback.png'); /* Ensure the correct path to your image */
+        background-image: url("../../assets/projectback.png"); /* Ensure the correct path to your image */
         background-size: cover; /* This ensures the image stretches to cover the container */
         background-position: center; /* Centers the image */
         background-repeat: no-repeat; /* Prevents the image from repeating */
         opacity: 0; /* Initially hidden */
         animation: fadeIn 1.5s forwards; /* Fade in animation */
         overflow: hidden; /* Prevents content overflow */
-    
-    
-}
+      }
+      
+      .port {
+        top: 0; /* Cover the top */
+        left: 0; /* Cover the left */
+        right: 0; /* Cover the right */
+        bottom: 0;
+        width: 100%; /* Make sure the width covers the full container */
+        height: 100%; /* Make sure the height covers the full container */
+        background-image: url("../../assets/port.png"); /* Ensure the correct path to your image */
+        background-size: cover; /* This ensures the image stretches to cover the container */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        opacity: 0; /* Initially hidden */
+        animation: fadeIn 1.5s forwards; /* Fade in animation */
+        overflow: hidden; /* Prevents content overflow */
+      }
+      
+      @media (max-width: 768px) {
+        .port {
+          background-size: contain; /* Adjusts for smaller screens */
+          background-position: top center;
+        }
+      }
+      .ptagtext {
+        width: 60%; /* Default width */
+        color: black;
+      }
+      
+      .headingport {
+        font-size: 40px; /* Default font size */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: black;
+      }
+      
+      @media (max-width: 468px) {
+              .port{
+                      background-image: none;
+              }
+        .ptagtext {
+          width: 100%; /* Full width on small screens */
+          max-width: 100%; /* Ensure it does not exceed the container */
+        }
+      
+        .headingport {
+          font-size: 20px; /* Smaller font size for small screens */
+        }
+      }
