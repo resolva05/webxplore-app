@@ -86,7 +86,11 @@ const router = createBrowserRouter([
         element:<Contactus/>
       },
       {
-        path:'/aboutus/contact',
+        path:'/aboutus/service',
+        element:<Service/>
+      },
+      {
+        path:"/faq/contact",
         element:<Contactus/>
       },
       {

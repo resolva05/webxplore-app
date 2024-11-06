@@ -93,7 +93,7 @@ const AboutUs = () => {
               solutions, and exceptional service that empowers our clients to
               achieve their business goals and exceed expectations.
             </p>
-            <NavLink to={'./contact'}>
+            <NavLink to={'./service'}>
             <button className="btn btn-primary about-btn">Discover More</button>
             </NavLink>
           </div>

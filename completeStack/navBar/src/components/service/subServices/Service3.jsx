@@ -27,7 +27,6 @@ const Service3 = () => {
         {/* Description Section */}
         <Row className="my-5">
           <Col md={6}>
-            <h2 style={{ color: "black" }}>Project Description</h2>
             <p>
               Through specialized expertise, digital platforms are crafted to
               deliver flawless user experiences and peak performance. Leveraging
@@ -62,25 +61,6 @@ const Service3 = () => {
             </Col>
           </Row>
           <S3faq />
-          {/* FAQ Grid */}
-          {/* <Row className="mt-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <Col md={6} className="mb-4" key={i}>
-                <Card>
-                  <Card.Body>
-                    <Card.Title className="h4">
-                      How do I get started?
-                    </Card.Title>
-                    <Card.Text className="mt-3 text-muted">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Repellat aliquam adipisci iusto aperiam? Sint asperiores
-                      sequi nobis inventore ratione deleniti?
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row> */}
 
           {/* Contact Link */}
           <Row className="text-center mt-4">

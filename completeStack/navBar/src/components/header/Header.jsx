@@ -56,22 +56,22 @@ const Header = () => {
               className="ms-auto d-flex align-items-center"
               style={{ flexWrap: "wrap" }}
             >
-              <NavLink to="/home" className="nav-link">
+              <NavLink to="/home" className="nav-link" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 Home
               </NavLink>
-              <NavLink to="/service" className="nav-link">
+              <NavLink to="/service" className="nav-link" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 Services
               </NavLink>
-              <NavLink to="/portfolio" className="nav-link">
+              <NavLink to="/portfolio" className="nav-link" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 Portfolio
               </NavLink>
-              <NavLink to="/casestudy" className="nav-link">
+              <NavLink to="/casestudy" className="nav-link" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 Case Study
               </NavLink>
-              <NavLink to="/pricing" className="nav-link">
+              <NavLink to="/pricing" className="nav-link" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 Pricing
               </NavLink>
-              <NavLink to="/contact" className="nav-link">
+              <NavLink to="/contact" className="nav-link" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                 Contact Us
               </NavLink>
 

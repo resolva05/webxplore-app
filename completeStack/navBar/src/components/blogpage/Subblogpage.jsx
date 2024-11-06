@@ -4,8 +4,9 @@ import axios from "axios";
 import "./Subblogpage.css";
 import subimg from "../../assets/subblog2.png";
 
-
-
+useEffect(() => {
+  window.scrollTo(top);
+}, []);
 const Subblogpage = () => {
   const { postId } = useParams(); 
   const [post, setPost] = useState(null);
