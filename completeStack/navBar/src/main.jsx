@@ -86,6 +86,10 @@ const router = createBrowserRouter([
         element:<Contactus/>
       },
       {
+        path:'/aboutus/contact',
+        element:<Contactus/>
+      },
+      {
         path: "home/blogpage",
         element: <Blogpage/>,
       },

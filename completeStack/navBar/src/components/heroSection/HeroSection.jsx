@@ -2,6 +2,8 @@ import{ useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './HeroSection.css';
 import { NavLink } from "react-router-dom";
+
+
 const HeroSection = () => {
   const [headingWords, setHeadingWords] = useState([]);
 

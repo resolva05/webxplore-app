@@ -22,13 +22,10 @@ const Service = () => {
               <br />
               <h5 style={{ color: "white" }}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-                  facere consectetur recusandae accusantium ducimus
-                  exercitationem cupiditate excepturi? Earum molestiae fugit,
-                  labore doloribus, exercitationem neque enim quia repellat,
-                  officia quos obcaecati? Lorem ipsum do dolor sit amet
-                  consectetur adipisicing elit. Placeat doloribus eveniet
-                  repudiandae ea, delectus deleniti
+                  We’re driven to transform your ideas into impactful digital
+                  experiences. Our approach goes beyond building websites, we
+                  build solutions that connect with your audience and create
+                  lasting impact."
                 </p>
               </h5>
             </div>
@@ -89,8 +86,7 @@ const Service = () => {
                 <Card.Body>
                   <Card.Title>Other Services</Card.Title>
                   <Card.Text>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Placeat doloribus eveniet repudiandae ea...
+                  Our expertise ensures seamless functionality and growth for your digital platforms. 
                   </Card.Text>
                   <NavLink to={"./subservice3"}>
                     <button className="w-100 mt-auto btncard">Read</button>

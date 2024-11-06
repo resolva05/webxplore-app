@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import img from "../../assets/blogimg.png";
 import img2 from "../../assets/categoryimg.png";
@@ -38,6 +38,8 @@ const Blogpage = () => {
   const [activePostId, setActivePostId] = useState(null); // Track which post's comments are being shown
   const [posts, setPosts] = useState([]); // State to hold posts fetched from MongoDB
   const [loading, setLoading] = useState(true); // Initialize loading state
+  const contentSectionRef = useRef(null); // Declare contentSectionRef here
+  const keyPointsRef = useRef(null);
   useEffect(() => {
     window.scrollTo(top);
 
@@ -52,6 +54,36 @@ const Blogpage = () => {
         console.error("Error fetching posts:", error);
         setLoading(false); // Set loading to false if there's an error
       });
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target) {
+            entry.target.classList.add("fade-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const contentSection = contentSectionRef.current;
+    const keyPoints = keyPointsRef.current
+      ? keyPointsRef.current.querySelectorAll(".key-point")
+      : [];
+
+    if (contentSection) observer.observe(contentSection);
+    keyPoints.forEach((point) => {
+      if (point) observer.observe(point);
+    });
+
+    return () => {
+      if (contentSection) observer.unobserve(contentSection);
+      keyPoints.forEach((point) => {
+        if (point) observer.unobserve(point);
+      });
+    };
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -93,7 +125,15 @@ const Blogpage = () => {
 
   return (
     <>
-      <video className="vid" src={vid} autoPlay loop muted />
+      {/* <video className="vid" src={vid} autoPlay loop muted /> */}
+      <video
+        className="vid"
+        src={vid}
+        autoPlay
+        loop
+        muted
+        data-testid="blog-video"
+      />
       <Container fluid className="mt-4" style={{ marginBottom: "20px" }}>
         <Container className="text-center mb-5" style={{ maxWidth: "73rem" }}>
           <Row className="align-items-center">
@@ -262,7 +302,7 @@ const Blogpage = () => {
         <Modal
           show={commentVisibility}
           onHide={handleCloseComments}
-          className="custom-modals"
+          className="custom-modal"
           centered
         >
           <Modal.Header closeButton>

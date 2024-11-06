@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import "./AboutUs.css";
+import { NavLink } from "react-router-dom";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -8,6 +9,34 @@ const AboutUs = () => {
   }, []);
   const contentSectionRef = useRef(null);
   const keyPointsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target) {
+            entry.target.classList.add("fade-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+  
+    const contentSection = contentSectionRef.current;
+    const keyPoints = keyPointsRef.current ? keyPointsRef.current.querySelectorAll(".key-point") : [];
+  
+    if (contentSection) observer.observe(contentSection);
+    keyPoints.forEach((point) => {
+      if (point) observer.observe(point);
+    });
+  
+    return () => {
+      if (contentSection) observer.unobserve(contentSection);
+      keyPoints.forEach((point) => {
+        if (point) observer.unobserve(point);
+      });
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,7 +93,9 @@ const AboutUs = () => {
               solutions, and exceptional service that empowers our clients to
               achieve their business goals and exceed expectations.
             </p>
+            <NavLink to={'./contact'}>
             <button className="btn btn-primary about-btn">Discover More</button>
+            </NavLink>
           </div>
         </div>
       </div>
