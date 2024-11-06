@@ -10,7 +10,7 @@ const Faq = () => {
   }, []);
   return (
     <div style={{ marginTop: "20px" }}>
-      <video className="vid" src={vid} autoPlay loop muted />
+      <video data-testid="faq-video" className="vid" src={vid} autoPlay loop muted />
       <div>
         <Row className="text-center mb-4" style={{ width: "100%" }}>
           <Col lg={{ span: 8, offset: 2 }}>

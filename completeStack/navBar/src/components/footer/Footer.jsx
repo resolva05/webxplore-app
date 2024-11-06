@@ -96,7 +96,7 @@ function Footer() {
           {/* Footer Bottom */}
           <div className="footer-bottom text-center mt-3">
             <p className="text-xs-center">
-              &copy;{new Date().getFullYear()} City Guide App - All Rights
+              &copy;{new Date().getFullYear()} WebXplore Studio - All Rights
               Reserved
             </p>
           </div>

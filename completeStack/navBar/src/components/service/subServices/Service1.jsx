@@ -45,9 +45,7 @@ const Service1 = () => {
         {/* Description Section */}
         <Row className="my-5">
           <Col md={6}>
-            <h2 style={{ color: "black" }} className="fade-in-left">
-              Project Description
-            </h2>
+
             <p className="fade-in-left">
               At WebXplore Studio, we offer cutting-edge web development
               services tailored to meet your business needs. Our team of

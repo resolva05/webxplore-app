@@ -8,7 +8,7 @@ const Contactus = () => {
   useEffect(() => {
     window.scrollTo(top);
   }, []);
-  
+
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -67,22 +67,22 @@ const Contactus = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await fetch('http://localhost:5000/contact', {
-          method: 'POST',
+        const response = await fetch("http://localhost:5000/contact", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(formData), // Send form data as JSON
         });
-  
+
         if (!response.ok) {
           const errorData = await response.json(); // Get the error response
-          throw new Error(errorData.message || 'Something went wrong');
+          throw new Error(errorData.message || "Something went wrong");
         }
-  
+
         const responseData = await response.json();
         alert(responseData.message); // Show success message
-  
+
         // Optionally reset the form
         setFormData({
           firstName: "",
@@ -102,20 +102,28 @@ const Contactus = () => {
     <>
       <video className="vid" src={vid} autoPlay loop muted />
       <div className="container mx-auto px-4">
-        <div className="d-flex flex-column pb-10 pt-12 text-center" style={{ marginTop: "20px" }}>
-          <h1 className="text-center display-4 font-weight-bold text-dark">Communicate With Us</h1>
+        <div
+          className="d-flex flex-column pb-10 pt-12 text-center"
+          style={{ marginTop: "20px" }}
+        >
+          <h1 className="text-center display-4 font-weight-bold text-dark">
+            Communicate With Us
+          </h1>
           <p className="mx-auto lead text-muted">
-            “Ready to start something new? Every great project starts with a conversation, share your ideas and let’s build together.”
+            “Ready to start something new? Every great project starts with a
+            conversation, share your ideas and let’s build together.”
           </p>
         </div>
         <hr className="my-4"></hr>
         <div className="container py-5">
           <div className="row justify-content-center">
             <div className="col-lg-6">
-              <h2 className="font-weight-bold text-dark">Fill out the form below</h2>
+              <h2 className="font-weight-bold text-dark">
+                Fill out the form below
+              </h2>
               <p className="mt-4 lead text-muted">Reach to Us!</p>
 
-              <form className="mt-4" onSubmit={handleSubmit}>
+              {/* <form className="mt-4" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group col-md-6">
                     <label htmlFor="first_name">First Name</label>
@@ -189,7 +197,7 @@ const Contactus = () => {
                   )}
                 </div>
 
-                {/* reCAPTCHA */}
+             
                 <div className="form-group recaptcha-container">
                   <ReCAPTCHA sitekey="your-site-key" onChange={handleCaptcha} />
                   {errors.captcha && (
@@ -200,10 +208,97 @@ const Contactus = () => {
                 <button type="submit" className="submitbtn">
                   Send Message
                 </button>
+              </form> */}
+              <form className="mt-4" onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <div className="form-group col-md-6">
+                    <label htmlFor="firstName">First Name</label>{" "}
+                    {/* Update htmlFor here */}
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="firstName" // Ensure this id matches the htmlFor in the label
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                    />
+                    {errors.firstName && (
+                      <small className="text-danger">{errors.firstName}</small>
+                    )}
+                  </div>
+                  <div className="form-group col-md-6">
+                    <label htmlFor="lastName">Last Name</label>{" "}
+                    {/* Update htmlFor here */}
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="lastName" // Ensure this id matches the htmlFor in the label
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                    />
+                    {errors.lastName && (
+                      <small className="text-danger">{errors.lastName}</small>
+                    )}
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>{" "}
+                  {/* Update htmlFor here */}
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email" // Ensure this id matches the htmlFor in the label
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                  {errors.email && (
+                    <small className="text-danger">{errors.email}</small>
+                  )}
+                </div>
+                <div className="form-group">
+                  <label htmlFor="phoneNumber">Phone number</label>{" "}
+                  {/* Update htmlFor here */}
+                  <input
+                    type="tel"
+                    className="form-control"
+                    id="phoneNumber" // Ensure this id matches the htmlFor in the label
+                    placeholder="Phone number"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                  />
+                  {errors.phoneNumber && (
+                    <small className="text-danger">{errors.phoneNumber}</small>
+                  )}
+                </div>
+                <div className="form-group">
+                  <label htmlFor="message">Message</label>{" "}
+                  {/* Update htmlFor here */}
+                  <textarea
+                    className="form-control"
+                    id="message" // Ensure this id matches the htmlFor in the label
+                    rows="3"
+                    placeholder="Leave us a message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                  ></textarea>
+                  {errors.message && (
+                    <small className="text-danger">{errors.message}</small>
+                  )}
+                </div>
+                <div className="form-group recaptcha-container">
+                  <ReCAPTCHA sitekey="your-site-key" onChange={handleCaptcha} />
+                  {errors.captcha && (
+                    <small className="text-danger">{errors.captcha}</small>
+                  )}
+                </div>
+                <button type="submit" className="submitbtn">
+                  Send Message
+                </button>
               </form>
             </div>
 
-            {/* Divider for smaller screens */}
             <hr
               className="d-block d-lg-none"
               style={{
@@ -216,7 +311,11 @@ const Contactus = () => {
             <div className="col-lg-6">
               <h2 className="font-weight-bold text-dark">
                 We Are Here!{" "}
-                <img src={maplogo} alt="" style={{ height: "4vh", marginBottom: "10px" }} />
+                <img
+                  src={maplogo}
+                  alt=""
+                  style={{ height: "4vh", marginBottom: "10px" }}
+                />
               </h2>
               <div
                 className="embed-responsive embed-responsive-16by9"
