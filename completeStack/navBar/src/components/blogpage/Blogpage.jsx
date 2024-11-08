@@ -45,7 +45,7 @@ const Blogpage = () => {
 
 
   useEffect(() => {
-    window.scrollTo(top);
+    window.scrollTo(0,0);
   }, []);
   
   useEffect(() => {
@@ -63,35 +63,35 @@ const Blogpage = () => {
   }, []);
 
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target) {
-            entry.target.classList.add("fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting && entry.target) {
+  //           entry.target.classList.add("fade-in");
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.1 }
+  //   );
 
-    const contentSection = contentSectionRef.current;
-    const keyPoints = keyPointsRef.current
-      ? keyPointsRef.current.querySelectorAll(".key-point")
-      : [];
+  //   const contentSection = contentSectionRef.current;
+  //   const keyPoints = keyPointsRef.current
+  //     ? keyPointsRef.current.querySelectorAll(".key-point")
+  //     : [];
 
-    if (contentSection) observer.observe(contentSection);
-    keyPoints.forEach((point) => {
-      if (point) observer.observe(point);
-    });
+  //   if (contentSection) observer.observe(contentSection);
+  //   keyPoints.forEach((point) => {
+  //     if (point) observer.observe(point);
+  //   });
 
-    return () => {
-      if (contentSection) observer.unobserve(contentSection);
-      keyPoints.forEach((point) => {
-        if (point) observer.unobserve(point);
-      });
-    };
-  }, []);
+  //   return () => {
+  //     if (contentSection) observer.unobserve(contentSection);
+  //     keyPoints.forEach((point) => {
+  //       if (point) observer.unobserve(point);
+  //     });
+  //   };
+  // }, []);
 
   const handleCategoryChange = (category) => {
     setSelectedCategories((prevState) =>
@@ -121,14 +121,7 @@ const Blogpage = () => {
   const filteredPosts = selectedCategories.length
     ? posts.filter((post) => selectedCategories.includes(post.category))
     : posts;
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="spinner"></div>
-        <p>Loading posts...</p>
-      </div>
-    );
-  }
+
 
   return (
     <>
@@ -350,7 +343,9 @@ const Blogpage = () => {
         </Modal>
       </Container>
     </>
+    
   );
+
 };
 
 export default Blogpage;
