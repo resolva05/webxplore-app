@@ -23,6 +23,7 @@ import PrivacyPolicy from '../../navBar/src/components/privacyPolicy/PrivacyPoli
 import ProjectDetails from '../../navBar/src/components/portfolio/ProjectDetails.jsx'
 import ServiceDetails from '../../navBar/src/components/service/subServices/ServiceDetails.jsx'
 import Sitemap from '../../navBar/src/components/sitemap/Sitemap.jsx'
+import OtherServicesCards from './components/service/subServices/OtherServicesCards.jsx'
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,22 @@ const router = createBrowserRouter([
       {
         path:'/service/subservice3/contact',
         element:<Contactus/>
+      },
+      {
+        path:'/portfolio/contact',
+        element:<Contactus/>
+      },
+      {
+        path:'/webdevelopment/service/subservice1',
+        element:<Service1/>
+      },
+      {
+        path:'/mobiledevelopment/service/subservice2',
+        element:<Service2/>
+      },
+      {
+        path:'/service/SEO',
+        element:<OtherServicesCards/>
       },
       {
         path:'/aboutus/service',

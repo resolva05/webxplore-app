@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import "./AboutUs.css";
 import { NavLink } from "react-router-dom";
+import aboutus from "../../assets/aboutus.png"
 
 const AboutUs = () => {
   useEffect(() => {
@@ -74,9 +75,10 @@ const AboutUs = () => {
         <div className="row align-items-center">
           <div className="col-md-6">
             <img
-              src="https://via.placeholder.com/500x300"
+              src={aboutus}
               alt="About Us"
               className="img-fluid about-img"
+              style={{maxHeight:"600px"}}
             />
           </div>
           <div className="col-md-6 text-center text-md-left">
@@ -105,6 +107,10 @@ const AboutUs = () => {
         <h2 className="about-subheading text-center mb-4"style={{color:"black"}}>Our Core Values</h2>
         <div className="key-point text-center">
           <div className="key-point-icon">
+            <i className="fas fa-star" style={{color:"black"}}></i>
+            <i className="fas fa-star" style={{color:"black"}}></i>
+            <i className="fas fa-star" style={{color:"black"}}></i>
+            <i className="fas fa-star" style={{color:"black"}}></i>
             <i className="fas fa-star" style={{color:"black"}}></i>
           </div>
           <h4 className="key-point-title">Excellence in Everything We Do</h4>

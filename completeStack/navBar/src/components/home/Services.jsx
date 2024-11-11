@@ -2,8 +2,13 @@
 import "./Services.css";
 import Carousel from "react-bootstrap/Carousel";
 import { useEffect, useRef } from "react";
-import customweb from '../../assets/customweb.png'
-
+import customweb from "../../assets/customweb.png";
+import prototypeimg from "../../assets/prototype.png"
+import fullstackimg from "../../assets/fullstackimg.png"
+import swdev from "../../assets/swdev.png"
+import thirdparty from "../../assets/thirdparty.png"
+import upgrade from "../../assets/upgradeimg.png"
+import ba from "../../assets/ba.png"
 
 const Services = () => {
   const carouselRef = useRef(null);
@@ -30,13 +35,19 @@ const Services = () => {
     };
   }, []);
   return (
-    <div className="carousel-container   " ref={carouselRef} >
-      <div className="text-center  servicediv" style={{ fontFamily: "sans-serif" }}>
-          Services Overview
-        </div>
+    <div className="carousel-container   " ref={carouselRef}>
+      <div
+        className="text-center  servicediv"
+        style={{ fontFamily: "sans-serif" }}
+      >
+        Services Overview
+      </div>
       <Carousel id="myCarousel" data-bs-theme="dark">
-        <Carousel.Item >
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
+        <Carousel.Item>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
               src={customweb}
               alt="Custom web application"
@@ -44,10 +55,7 @@ const Services = () => {
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Custom Web Applications Development
               </h1>
               <div
@@ -66,7 +74,7 @@ const Services = () => {
                     wordWrap: "break-word",
                     margin: "0",
                     marginBottom: "20px",
-                  }}
+                  }}  
                 >
                   At WebXplore Studio, we specialize in developing secure and
                   scalable web applications meticulously tailored to align with
@@ -79,21 +87,20 @@ const Services = () => {
             </div>
           </div>
         </Carousel.Item>
-       
 
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
-              src="https://media.istockphoto.com/id/1273058761/vector/tiny-people-testing-quality-assurance-in-software.jpg?s=612x612&w=0&k=20&c=DsNlOqfMpPkHlVEavkrz8atzgOxVSRgZPkGHYH-e1-8="
+              src={prototypeimg}
               alt="Prototype Services"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Prototype Services
               </h1>
               <div
@@ -127,18 +134,18 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
-              src="https://www.extwebtech.com/wp-content/uploads/2023/01/Full_stack_developer-1024x507.webp"
+              src={fullstackimg}
               alt="Full Stack Development"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Full Stack Development
               </h1>
               <div
@@ -174,18 +181,18 @@ const Services = () => {
         </Carousel.Item>
         {/* Additional Carousel.Items here */}
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
-              src="https://shastatek.com/sites/default/files/3party_api.jpg"
+              src={thirdparty}
               alt="Third Party Integration"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Third Party Integration
               </h1>
               <div
@@ -218,18 +225,18 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
-              src="https://cdn-bbaid.nitrocdn.com/wYFmIWkSNKpdInpiRfVoEqTErZtkFjBo/assets/images/optimized/rev-ff73c2b/www.rishabhsoft.com/wp-content/uploads/2022/03/Software-Product-Development-Strategy_Banner.jpg"
+              src={swdev}
               alt="Software Product Development"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Software Product Development
               </h1>
               <div
@@ -262,18 +269,18 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
-              src="https://media.istockphoto.com/id/1212446148/photo/update-with-blurred-city-lights.jpg?s=612x612&w=0&k=20&c=w5GES6fFoPkAYqBSFX5f-wjpkelJtdzpXif7Cic53q8="
+              src={upgrade}
               alt="Upgradation Services"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Upgradation Services
               </h1>
               <div
@@ -306,18 +313,18 @@ const Services = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
+          <div
+            className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"
+            style={{ height: "650px" }}
+          >
             <img
-              src="https://www.shutterstock.com/image-photo/analyst-uses-computer-dashboard-data-600nw-2285412737.jpg"
+              src={ba}
               alt="Consulting and Business Analysis"
               className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
               style={{ borderRadius: "15px", maxHeight: "360px" }}
             />
             <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
+              <h1 className="servicetext" style={{ fontSize: "25px" }}>
                 Consulting and Business Analysis
               </h1>
               <div

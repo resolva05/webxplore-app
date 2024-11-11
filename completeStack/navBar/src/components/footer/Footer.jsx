@@ -23,7 +23,7 @@ function Footer() {
             </div>
 
             {/* About Section */}
-            <div className="col-12 col-md-2 mb-2 mb-md-0">
+            <div className="col-12 col-md-2 mb-2 mb-md-0 about">
               <h4>About</h4>
               <ul className="list-unstyled">
                 <li>
@@ -56,6 +56,29 @@ function Footer() {
                 </li>
                 <li>
                   <NavLink to="/sitemap">Sitemap</NavLink>
+                </li>
+              </ul>
+            </div>
+            <div className="col-12 col-md-2 mb-2 mb-md-0">
+              <h4>Information</h4>
+              <ul className="list-unstyled">
+                <li>
+                  <NavLink to="/webdevelopment/service/subservice1">Web Development</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/mobiledevelopment/service/subservice2">Mobile Development</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/service/SEO">SEO</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/sitemap">Payment Gateway Integration</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/sitemap">AI Integration</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/sitemap">Social Media Marketing</NavLink>
                 </li>
               </ul>
             </div>
@@ -113,6 +136,9 @@ const FooterContainer = styled.footer`
     padding-top: 3rem;
     color: white;
   }
+    .about{
+    margin-left:-120px;
+    }
 
   .footer-bottom {
     padding-top: 3rem;

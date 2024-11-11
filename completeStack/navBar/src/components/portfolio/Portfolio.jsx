@@ -1,8 +1,11 @@
 import "./Portfolio.css";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Collapse from "react-bootstrap/Collapse";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import "../home/Testimon.css";
 import ProjectCards from "./ProjectCards";
 
@@ -90,6 +93,17 @@ const Portfolio = () => {
         </h2>
           <ProjectCards/>
       </div>
+
+      <Row className="text-center mt-4">
+            <Col>
+              <p className="text-muted">
+                Can't find what you're looking for?{" "}
+                <NavLink to={"./contact"}>
+                  <Button>Contact us</Button>
+                </NavLink>
+              </p>
+            </Col>
+          </Row>
       <div style={{ backgroundColor: "white", height: "1px" }}></div>
     </>
   );
