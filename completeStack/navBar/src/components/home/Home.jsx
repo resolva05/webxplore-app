@@ -1,16 +1,17 @@
 // import React from 'react'
-import './Home.css'
-import Services from "./Services";
-import Testimonials from "./Testimonials";
-import { animated, useSpring } from "react-spring";
-import { useState, useEffect } from "react";
-import KeyFeatures from "./KeyFeatures";
-import HeroSection from "../heroSection/HeroSection";
+import './Home.css';
+import Services from './Services';
+import Testimonials from './Testimonials';
+import { animated, useSpring } from 'react-spring';
+import { useState, useEffect } from 'react';
+import KeyFeatures from './KeyFeatures';
+import HeroSection from '../heroSection/HeroSection';
 
 const Home = () => {
   useEffect(() => {
-    window.scrollTo(top);
+    window.scrollTo(0, 0); // Scroll to top when the component mounts
   }, []);
+
   const [flip, setFlip] = useState(false);
   const props = useSpring({
     to: { opacity: 1 },
@@ -20,6 +21,7 @@ const Home = () => {
     delay: 600,
     onRest: () => setFlip(flip),
   });
+
   return (
     <>
       <animated.div style={props}>

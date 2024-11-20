@@ -67,6 +67,29 @@
     padding: 0 20px; /* Adds padding to prevent content from touching the edges */
     box-sizing: border-box;
   }
+  .button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .open-pdf-button,
+  .download-pdf-button {
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .open-pdf-button:hover,
+  .download-pdf-button:hover {
+    background-color: white;
+    color: black;
+  }
   
   /* Card */
   .case-card {
@@ -81,18 +104,160 @@
     animation: fadeIn 1s forwards;
     min-height: 500px;
     box-sizing: border-box; /* Ensures padding is included in width */
-    cursor: pointer; /* Makes the card clickable */
     
   }
   .case-link {
     text-decoration: none;
     color: inherit; /* Maintain text color from the card */
   }
-  
-  .case-card:hover {
+  /* Request Case Study Button */
+.download-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Email Form Styles */
+.email-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Email Input Field */
+.email-form label {
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.email-form input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.email-form input:focus {
+  border-color: grey;
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Success and Error Messages */
+.success-message {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+  font-weight: bold;
+}
+/* Progress Indicator */
+.progress-indicator {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #0056b3; /* Subtle blue shade for text */
+}
+
+.progress-bar {
+  width: 100%;
+  max-width: 400px;
+  height: 15px; /* Slightly taller for visibility */
+  background: linear-gradient(90deg, #f0f0f0, #d9d9d9);
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden;
+  margin: 10px auto; /* Center align */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: relative; /* For inner gradient animation */
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #007bff,
+    #0056b3
+  ); /* Dynamic gradient */
+  border-radius: 10px 0 0 10px; /* Rounded corners for the fill */
+  transition: width 0.5s ease-in-out; /* Smooth transition for width */
+  animation: gradient-animation 1.5s infinite; /* Subtle moving gradient effect */
+}
+
+/* Subtle glowing effect for progress-fill */
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  animation: shimmer 2s infinite;
+}
+
+/* Animation for moving gradient */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+  /* .case-card:hover {
     transform: translateY(10px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
+  } */
   
   /* Title */
   .case-title {

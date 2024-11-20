@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
-import "./Case.css"; // Ensure this file contains styles
-import pdf from "../../assets/cs1.pdf"; // Importing the PDF file
+import axios from "axios";
+import "./Case.css";
+
 const Case = () => {
   useEffect(() => {
-    window.scrollTo(top);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   const [animatedDescription, setAnimatedDescription] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [email, setEmail] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const descriptionText =
@@ -14,8 +22,40 @@ const Case = () => {
     setAnimatedDescription(words);
   }, []);
 
-  const openPdf = () => {
-    window.open(pdf, "_blank"); // Open the PDF in a new tab
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setProgress(0);
+
+    // Simulate progress
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 10; // Adjust speed by changing this increment
+      });
+    }, 300); // Adjust duration by changing interval
+
+    try {
+      const response = await axios.post("http://localhost:5000/send-email", {
+        email,
+      });
+      setTimeout(() => {
+        setSuccessMessage(response.data.message);
+        setErrorMessage("");
+        setEmail(""); // Clear the input field
+        setIsLoading(false);
+      }, 3000); // Wait for the full progress to complete
+    } catch (error) {
+      clearInterval(interval);
+      setErrorMessage(
+        error.response?.data?.error || "Failed to send email. Please try again."
+      );
+      setSuccessMessage("");
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -39,7 +79,7 @@ const Case = () => {
 
         {/* Case Study Card */}
         <div className="case-container">
-          <div className="case-card" onClick={openPdf}>
+          <div className="case-card">
             <h1 className="case-title">
               Case Study: AI-Powered Chatbots for Real-Time Customer Support
             </h1>
@@ -60,6 +100,55 @@ const Case = () => {
               <li>Results</li>
               <li>Conclusion</li>
             </ul>
+
+            {/* Show Form on Button Click */}
+            <div className="button-container">
+              <button
+                onClick={() => setShowForm(!showForm)}
+                className="download-button"
+              >
+                Request Case Study
+              </button>
+            </div>
+
+            {/* Email Form */}
+            {showForm && !successMessage && (
+              <form onSubmit={handleEmailSubmit} className="email-form">
+                <label htmlFor="email">Enter your email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button type="submit" className="submit-button" disabled={isLoading}>
+                  Submit
+                </button>
+              </form>
+            )}
+
+            {/* Loading Indicator */}
+            {isLoading && (
+              <div className="progress-indicator">
+                <p>Sending email: {progress}%</p>
+                <div className="progress-bar">
+                  <div
+                    className="progress-fill"
+                    style={{ width: `${progress}%` }}
+                  ></div>
+                </div>
+              </div>
+            )}
+
+            {/* Success or Error Messages */}
+            {successMessage && (
+              <div className="success-message-container">
+                <p className="success-message">{successMessage}</p>
+                <p>Thank you for your request!</p>
+              </div>
+            )}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
         </div>
       </div>

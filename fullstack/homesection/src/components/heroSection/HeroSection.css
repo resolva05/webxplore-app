@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 /* HeroSection.css */
 .hero-section {
     position: relative; /* Create a positioning context */

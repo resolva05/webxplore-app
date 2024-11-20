@@ -86,6 +86,12 @@
   animation: fadeIn 1.5s ease-in-out;
 }
 
+.head {
+  height: 120px; /* Adjust this value as needed */
+  overflow: hidden;
+  margin-top: -20px;
+}
+
 /* Right-aligned NavLink and search box on larger screens */
 @media (min-width: 769px) {
   .navbar-nav {
@@ -160,9 +166,10 @@
     margin-left: 10px;
   }
 }
-.logoheader{
-  height:60px;
-  width: 60px;
+.logoheader {
+  width: 120px; /* Increase width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensures the image fits without stretching */
 }
 /* Sticky header */
 .sticky-top {
