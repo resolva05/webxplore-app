@@ -99,7 +99,7 @@ const router = createBrowserRouter([
         element:<Service2/>
       },
       {
-        path:'/service/SEO',
+        path:'/service/subservice3/:servicekey',
         element:<OtherServicesCards/>
       },
       {
@@ -127,7 +127,7 @@ const router = createBrowserRouter([
         element:<ProjectDetails/>
       },
       {
-        path:"services/:servicekey",
+        path:"services/subservice3/:servicekey",
         element:<ServiceDetails/>
       },
       {

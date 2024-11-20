@@ -1,3 +1,6 @@
+*{
+  user-select: none;
+  }
 .navbar {
   background-color: white; /* White background for the navbar */
 }
@@ -56,6 +59,63 @@
   margin-right: 20px; /* Space for the last link */
 }
 
+
+/* Make the search input more attractive */
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-input {
+  width: 85%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.search-button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #333;
+}
+
+.search-recommendations {
+  padding: 10px;
+}
+
+.search-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-icon:hover {
+  transform: scale(1.2);
+}
+
+
+
 /* Search Icon styling */
 .search-icon {
   color: black; /* Change to black */
@@ -65,10 +125,14 @@
 
 /* Search box styling */
 .search-box {
-  display: none; /* Initially hidden */
-  opacity: 0; /* Start with zero opacity */
-  transform: translateY(-20px); /* Move it up for animation */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  display: block;
+  position: absolute;
+  top: 100px; /* Adjust position */
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 10px;
 }
 
 .search-box.show {
@@ -164,6 +228,17 @@
   height:90%;
   width: 80px;
 }
+/* .logoheader{
+  height:auto;
+  width: 120px;
+  object-fit: contain;
+}
+.head{
+  height: 120px;
+  overflow: hidden;
+  margin-top: -10px;
+} */
+
 /* Sticky header */
 .sticky-top {
   position: -webkit-sticky; /* Safari */

@@ -5,9 +5,20 @@ import { fileURLToPath, URL } from 'url';
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/setupTests.js',
   }
+
+
 });

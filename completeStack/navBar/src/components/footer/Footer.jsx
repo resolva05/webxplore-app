@@ -4,6 +4,13 @@ import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 
+const openInsta = () => {
+  window.open("https://www.instagram.com/webxplore_studio?igsh=MTR3MmpmNHNqYnF2Nw=="); 
+};
+const openLinkedin = () => {
+  window.open("https://www.linkedin.com/company/webxplore-studio"); 
+};
+
 function Footer() {
   return (
     <FooterContainer className="main-footer">
@@ -60,25 +67,67 @@ function Footer() {
               </ul>
             </div>
             <div className="col-12 col-md-2 mb-2 mb-md-0">
-              <h4>Information</h4>
+              <h4>Services</h4>
               <ul className="list-unstyled">
                 <li>
-                  <NavLink to="/webdevelopment/service/subservice1">Web Development</NavLink>
+                  <NavLink
+                    to="/webdevelopment/service/subservice1"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    Web Development
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/mobiledevelopment/service/subservice2">Mobile Development</NavLink>
+                  <NavLink
+                    to="/mobiledevelopment/service/subservice2"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    Mobile Development
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/service/SEO">SEO</NavLink>
+                  <NavLink
+                    to="/services/subservice3/SEO"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    SEO
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/sitemap">Payment Gateway Integration</NavLink>
+                  <NavLink
+                    to="/services/subservice3/PaymentGatewayIntegration"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    Payment Gateway Integration
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/sitemap">AI Integration</NavLink>
+                  <NavLink
+                    to="/services/subservice3/AI_Integration_Services"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    AI Integration
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/sitemap">Social Media Marketing</NavLink>
+                  <NavLink
+                    to="/services/subservice3/SocialMediaMarketing"
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                  >
+                    Social Media Marketing
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -93,12 +142,12 @@ function Footer() {
                   </NavLink>
                 </li>
                 <li style={{ marginRight: "10px" }}>
-                  <NavLink to="/">
+                  <NavLink onClick={openInsta}>
                     <i className="fa-brands fa-instagram"></i>
                   </NavLink>
                 </li>
                 <li style={{ marginRight: "10px" }}>
-                  <NavLink to="/">
+                  <NavLink onClick={openLinkedin}>
                     <i className="fa-brands fa-linkedin"></i>
                   </NavLink>
                 </li>
@@ -136,9 +185,9 @@ const FooterContainer = styled.footer`
     padding-top: 3rem;
     color: white;
   }
-    .about{
-    margin-left:-120px;
-    }
+  .about {
+    margin-left: -120px;
+  }
 
   .footer-bottom {
     padding-top: 3rem;
