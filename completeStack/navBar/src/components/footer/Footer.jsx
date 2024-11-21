@@ -1,204 +1,281 @@
-// import React from 'react'
 import "../../App.css";
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+
 
 const openInsta = () => {
-  window.open("https://www.instagram.com/webxplore_studio?igsh=MTR3MmpmNHNqYnF2Nw=="); 
+  window.open("https://www.instagram.com/webxplore_studio?igsh=MTR3MmpmNHNqYnF2Nw==");
 };
 const openLinkedin = () => {
-  window.open("https://www.linkedin.com/company/webxplore-studio"); 
+  window.open("https://www.linkedin.com/company/webxplore-studio");
 };
 
+const NewsletterForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; `
+  ;
+
+const NewsletterInput = styled.input`
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;`
+  ;
+
+const NewsletterButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6b6b;
+  color: #fff;
+  cursor: pointer;
+  width:5vw;
+  &:hover {
+    background-color: #ff4b4b;
+  }`
+  ;
+
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:5000/subscribeNewsletter", { email });
+      setMessage(response.data.message);
+      setEmail("");
+    } catch (error) {
+      console.error("Error subscribing to newsletter:", error);
+      setMessage("Failed to subscribe. Please try again later.");
+    }
+  };
   return (
-    <FooterContainer className="main-footer">
-      <div className="footer-middle">
-        <div className="container">
-          <div className="row text-center text-md-start">
-            {/* Logo Section */}
-            <div className="col-12 col-md-3 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start">
-              <img
-                src={logo}
-                alt="Logo"
-                style={{
-                  height: "150px",
-                  borderRadius: "15px",
-                }}
-              />
-            </div>
+    <FooterContainer>
+      <div className="footer-content">
+        {/* Logo Section */}
+        <div className="footer-logo">
+          <img src={logo} alt="Logo" style={
+          {height:"23vh"}
+          } />
+        </div>
 
-            {/* About Section */}
-            <div className="col-12 col-md-2 mb-2 mb-md-0 about">
-              <h4>About</h4>
-              <ul className="list-unstyled">
-                <li>
-                  <NavLink to="/contact">Contact Us</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/aboutus">About Us</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">Careers</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">Press</NavLink>
-                </li>
-              </ul>
-            </div>
+        {/* About Section */}
+        <div className="footer-section">
+          <h4>About</h4>
+          <ul>
+            <li>
+              <NavLink to="/contact">Contact Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/aboutus">About Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/">Careers</NavLink>
+            </li>
+            <li>
+              <NavLink to="/">Press</NavLink>
+            </li>
+          </ul>
+        </div>
 
-            {/* Socials Section */}
-            <div className="col-12 col-md-2 mb-2 mb-md-0">
-              <h4>Information</h4>
-              <ul className="list-unstyled">
-                <li>
-                  <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/privacypolicy">Privacy Policy</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/sitemap">Sitemap</NavLink>
-                </li>
-              </ul>
-            </div>
-            <div className="col-12 col-md-2 mb-2 mb-md-0">
-              <h4>Services</h4>
-              <ul className="list-unstyled">
-                <li>
-                  <NavLink
-                    to="/webdevelopment/service/subservice1"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    Web Development
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/mobiledevelopment/service/subservice2"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    Mobile Development
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/services/subservice3/SEO"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    SEO
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/services/subservice3/PaymentGatewayIntegration"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    Payment Gateway Integration
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/services/subservice3/AI_Integration_Services"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    AI Integration
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/services/subservice3/SocialMediaMarketing"
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                  >
-                    Social Media Marketing
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+        {/* Information Section */}
+        <div className="footer-section">
+          <h4>Information</h4>
+          <ul>
+            <li>
+              <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
+            </li>
+            <li>
+              <NavLink to="/privacypolicy">Privacy Policy</NavLink>
+            </li>
+            <li>
+              <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
+            </li>
+            <li>
+              <NavLink to="/sitemap">Sitemap</NavLink>
+            </li>
+          </ul>
+        </div>
 
-            {/* Social Icons Section */}
-            <div className="col-12 col-md-2 mb-2 mb-md-0">
-              <h4>Socials</h4>
+        {/* Services Section */}
+        <div className="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <NavLink to="/webdevelopment/service/subservice1"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Web Development</NavLink>
+            </li>
+            <li>
+              <NavLink to="/mobiledevelopment/service/subservice2"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Mobile Development</NavLink>
+            </li>
+            <li>
+              <NavLink to="/services/subservice3/SEO" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>SEO</NavLink>
+            </li>
+            <li>
+              <NavLink to="/services/subservice3/PaymentGatewayIntegration"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Payment Gateway</NavLink>
+            </li>
+            <li>
+              <NavLink to="/services/subservice3/AI_Integration_Services"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>AI Integration</NavLink>
+            </li>
+            <li>
+              <NavLink to="/services/subservice3/SocialMediaMarketing"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Social Media</NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="footer-section">
+        <h4>Socials</h4>
               <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
-                <li style={{ marginRight: "10px" }}>
+                <li style={{ marginRight: "10px", marginTop:"-0.2rem" }}>
                   <NavLink to="/">
                     <i className="fa-brands fa-facebook"></i>
                   </NavLink>
                 </li>
-                <li style={{ marginRight: "10px" }}>
+                <li style={{ marginRight: "10px", marginTop:"-0.2rem" }}>
                   <NavLink onClick={openInsta}>
                     <i className="fa-brands fa-instagram"></i>
                   </NavLink>
                 </li>
-                <li style={{ marginRight: "10px" }}>
+                <li style={{ marginRight: "10px", marginTop:"-0.2rem" }}>
                   <NavLink onClick={openLinkedin}>
                     <i className="fa-brands fa-linkedin"></i>
                   </NavLink>
                 </li>
               </ul>
-            </div>
-            <div className="col-12 col-md-2 mb-2 mb-md-0">
-              <h4>FAQs</h4>
-              <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
-                <li style={{ marginRight: "10px" }}>
+        </div>
+        <div className="footer-section">
+        <h4>FAQs</h4>
+              <ul className="list-unstyled">
+                <li>
                   <NavLink to="/faq">
-                    <i className="fa-solid fa-circle-question"></i>
+                    <i className="fa-solid fa-circle-question"></i> 
                   </NavLink>
                 </li>
               </ul>
-            </div>
-          </div>
-
-          {/* Footer Bottom */}
-          <div className="footer-bottom text-center mt-3">
-            <p className="text-xs-center">
-              &copy;{new Date().getFullYear()} WebXplore Studio - All Rights
-              Reserved
-            </p>
-          </div>
         </div>
+
+        <div >
+          <h4>Newsletter</h4>
+          <p>Stay updated with our latest news and offerings.</p>
+          <NewsletterForm onSubmit={handleNewsletterSubmit}>
+            <NewsletterInput
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <NewsletterButton type="submit" className="send">Send</NewsletterButton>
+          </NewsletterForm>
+          {message && <p>{message}</p>}
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="footer-bottom">
+        <p>&copy;{new Date().getFullYear()} WebXplore Studio - All Rights Reserved</p>
       </div>
     </FooterContainer>
   );
 }
+
 export default Footer;
 
 const FooterContainer = styled.footer`
-  .footer-middle {
-    background: black;
-    padding-top: 3rem;
-    color: white;
-  }
-  .about {
-    margin-left: -120px;
+  background: black;
+  color: white;
+  padding: 2rem 1rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .footer-logo {
+      flex: 1;
+      text-align: center;
+
+      img {
+        height: 100px;
+        border-radius: 15px;
+      }
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 150px;
+
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin: 0.5rem 0;
+
+          a {
+            color: white;
+            text-decoration: none;
+          }
+
+          a:hover {
+            color: grey;
+          }
+        }
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+
+        i {
+          font-size: 1.5rem;
+          cursor: pointer;
+
+          &:hover {
+            color: grey;
+          }
+        }
+      }
+    }
   }
 
   .footer-bottom {
-    padding-top: 3rem;
-    padding-bottom: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid grey;
+    padding-top: 1rem;
   }
 
-  ul li a {
-    color: white;
-  }
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
 
-  ul li a:hover {
-    color: grey;
+    .footer-logo img {
+      height: 80px;
+    }
+
+    .footer-section {
+      text-align: center;
+    }
+      .send{
+        width:5rem
+      }
   }
+    
 `;

@@ -39,11 +39,18 @@ const Case = () => {
     }, 300); // Adjust duration by changing interval
 
     try {
-      const response = await axios.post("http://localhost:5000/send-email", {
+      // Send email for case study
+      const emailResponse = await axios.post("http://localhost:5000/send-email", {
         email,
       });
+
+      // Save email in database with formType: 'caseStudy'
+      await axios.post("http://localhost:5000/saveCaseEmail", {
+        email,
+      });
+
       setTimeout(() => {
-        setSuccessMessage(response.data.message);
+        setSuccessMessage(emailResponse.data.message);
         setErrorMessage("");
         setEmail(""); // Clear the input field
         setIsLoading(false);

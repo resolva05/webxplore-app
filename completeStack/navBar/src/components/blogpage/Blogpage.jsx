@@ -40,9 +40,6 @@ const Blogpage = () => {
   const [activePostId, setActivePostId] = useState(null); // Track which post's comments are being shown
   const [posts, setPosts] = useState([]); // State to hold posts fetched from MongoDB
   const [loading, setLoading] = useState(true); // Initialize loading state
-  const contentSectionRef = useRef(null); // Declare contentSectionRef here
-  const keyPointsRef = useRef(null);
-
 
   useEffect(() => {
     window.scrollTo(0,0);

@@ -27,14 +27,14 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 
 
-const Post=require('./models/Post')
-const D=require('./models/d')
-// Route to get all posts (if you need to fetch all posts somewhere)
+const Post = require('./models/Post');
+const D = require('./models/d');
+const Contact = require('./models/contact');
 
+// Route to get all posts (if you need to fetch all posts somewhere)
 app.get("/getUsers", async (req, res) => {
   try {
     const posts = await Post.find();
-    // console.log(posts)
     res.json(posts);
   } catch (error) {
     console.error(error);
@@ -49,6 +49,27 @@ app.get("/portfolio", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error fetching posts" });
+  }
+});
+
+app.post('/saveCaseEmail', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  const newCaseStudyData = new Contact({
+    email,
+    formType: 'caseStudy', // Set formType to caseStudy
+  });
+
+  try {
+    await newCaseStudyData.save();
+    res.status(201).json({ message: 'Case study email saved successfully!' });
+  } catch (error) {
+    console.error('Error saving case study email:', error);
+    res.status(500).json({ message: 'Error saving case study email' });
   }
 });
 
@@ -81,7 +102,6 @@ app.post("/send-email", async (req, res) => {
           <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 20px auto; border: 1px solid #e0e7ff; border-radius: 10px; padding: 20px; background-color: #f8faff;">
               <h2 style="color: #1e40af; text-align: center;">Hello,</h2>
               <p style="color: #1e3a8a;">Thank you for showing interest in our case study, <strong>*AI-Powered Chatbots for Real-Time Customer Support*</strong>. We're delighted to share how we solved complex challenges with innovative solutions.</p>
-              
               <p style="color: #1e3a8a;">Here's a quick overview of what you'll find in the case study:</p>
               <ul style="list-style-type: disc; margin-left: 20px; color: #1e3a8a;">
                   <li>Challenges and Objectives</li>
@@ -120,7 +140,6 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-
 // Route to get a post by postId
 app.get("/getUsers/:postId", async (req, res) => {
   const { postId } = req.params;
@@ -142,7 +161,6 @@ app.get("/portfolio/:postId", async (req, res) => {
 
   try {
     const post = await D.findById(postId); // Find the post by its MongoDB _id
-    // console.log(post)
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
@@ -153,9 +171,7 @@ app.get("/portfolio/:postId", async (req, res) => {
   }
 });
 
-//contact
-const Contact=require('./models/contact')
-
+// contact routes
 app.get('/getContactFormData', async (req, res) => {
   try {
     const contactFormData = await Contact.find({ formType: 'contact' });
@@ -176,7 +192,6 @@ app.get('/getPopupFormData', async (req, res) => {
   }
 });
 
-
 app.get('/getAllFormData', async (req, res) => {
   try {
     const formData = await Contact.find();
@@ -187,6 +202,29 @@ app.get('/getAllFormData', async (req, res) => {
   }
 });
 
+app.post('/subscribeNewsletter', async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  const newNewsletterData = new Contact({
+    email,
+    formType: 'newsletter', // Set formType to 'newsletter'
+  });
+
+  try {
+    await newNewsletterData.save();
+    res.status(201).json({ message: 'Newsletter subscription successful!' });
+  } catch (error) {
+    console.error('Error saving newsletter data:', error);
+    res.status(500).json({ message: 'Error saving newsletter data' });
+  }
+});
+
+
+// Contact form submission
 app.post('/contact', async (req, res) => {
   const { firstName, lastName, email, phoneNumber, message } = req.body;
 
@@ -212,31 +250,34 @@ app.post('/contact', async (req, res) => {
   }
 });
 
-//popup contact page
-
-// Route to handle form submission
+// Popup form submission
 app.post('/submitForm', async (req, res) => {
   const { name, email, phone, requirements } = req.body;
 
+  if (!name || !email || !phone || !requirements) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  const newPopupData = new Contact({
+    name,
+    email,
+    phone,
+    requirements,
+    formType: 'popup', // Set formType to 'popup'
+  });
+
   try {
-    const newFormData = new Contact({
-      name,
-      email,
-      phone,
-      requirements,
-      formType: 'popup',  // Set formType to 'popup'
-    });
-    await newFormData.save();
-    res.status(200).json({ message: 'Form data submitted successfully' });
+    await newPopupData.save();
+    res.status(201).json({ message: 'Popup form submitted successfully!' });
   } catch (error) {
     console.error('Error saving popup data:', error);
-    res.status(500).json({ message: 'Error submitting form data', error });
+    res.status(500).json({ message: 'Error saving popup data' });
   }
 });
 
+// Use search route
 app.use("/api", searchRoute);
 
-// Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
