@@ -42,10 +42,13 @@ const Header = () => {
   // Handle scroll event for sticky navbar
   const handleScroll = () => {
     setIsSticky(window.scrollY > 50);
+    setIsSticky(window.scrollY > 50);
   };
+
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

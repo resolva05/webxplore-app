@@ -23,7 +23,6 @@ import CookiesPolicy from './components/cookiePolicy/CookiesPolicy.jsx'
 import ProjectDetails from './components/portfolio/ProjectDetails.jsx'
 import Sitemap from './components/sitemap/Sitemap.jsx'
 import ServiceDetails from './components/service/subServices/ServiceDetails.jsx'
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -83,6 +82,10 @@ const router = createBrowserRouter([
       ,
       {
         path:'/service/subservice3/contact',
+        element:<Contactus/>
+      },
+      {
+        path:'/aboutus/contact',
         element:<Contactus/>
       },
       {

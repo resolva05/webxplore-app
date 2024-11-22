@@ -9,7 +9,9 @@
     margin-top:30px;
     margin-bottom: 30px;
 }
-
+.sitemap-container h1{
+  color: white;
+}
   
   .sitemap-section {
     margin-bottom: 20px; /* Space between sections */

@@ -2,10 +2,21 @@
 import "./Services.css";
 import Carousel from "react-bootstrap/Carousel";
 import { useEffect, useRef } from "react";
-import customweb from '../../assets/customweb.png'
-
+import customweb from "../../assets/customweb.png";
+import prototypeimg from "../../assets/prototype.png"
+import fullstackimg from "../../assets/fullstackimg.png"
+import swdev from "../../assets/swdev.png"
+import thirdparty from "../../assets/thirdparty.png"
+import upgrade from "../../assets/upgradeimg.png"
+import ba from "../../assets/ba.png"
+import { useInView } from "react-intersection-observer";
+import { Card, Button, Container, Row, Col, Image } from "react-bootstrap";
 
 const Services = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.2// Trigger when 20% of the card is visible
+  });
   const carouselRef = useRef(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,88 +41,120 @@ const Services = () => {
     };
   }, []);
   return (
-    <div className="carousel-container   " ref={carouselRef} >
-      <div className="text-center  servicediv" style={{ fontFamily: "sans-serif" }}>
-          Services Overview
-        </div>
-      <Carousel id="myCarousel" data-bs-theme="dark">
-        <Carousel.Item >
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
-            <img
-              src={customweb}
-              alt="Custom web application"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Custom Web Applications Development
-              </h1>
-              <div
-                className="text-container mx-auto "
-                style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
-                }}
-              >
-                <p
-                  className="servicedescription "
-                  style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
-                  }}
+    <div className="carousel-container   " ref={carouselRef}>
+      <div
+        className="text-center  servicediv"
+        style={{ fontFamily: "sans-serif" }}
+      >
+        Services Overview
+      </div>
+      <Carousel id="myCarousel">
+        <Carousel.Item>
+          <Container fluid className="d-flex justify-content-center mt-5">
+            <Row className="w-100">
+              <Col>
+                <Card
+                  // ref={ref}
+                  className={`full-width-card ${!inView ? "animate-card" : ""}`}
+                  style={{ marginRight: "10%", marginLeft: "10%", marginBottom: "15vh" }}
                 >
-                  At WebXplore Studio, we specialize in developing secure and
-                  scalable web applications meticulously tailored to align with
-                  your unique business goals. Our custom web application
-                  development services encompass a comprehensive range of
-                  solutions, from initial concept design to full-scale
-                  deployment and maintenance.
-                </p>
-              </div>
-            </div>
-          </div>
+                  <Row noGutters>
+                    <Col md={5} className="card-image-section">
+                      <img
+                        src={customweb}
+                        alt="Custom web application"
+                        className="img-fluid w-full h-auto rounded-md object-cover mt-2"
+                        style={{
+                          borderRadius: "15px",
+                          maxHeight: "360px",
+                          marginBottom: "10px",
+                        }}
+                      />
+                    </Col>
+
+                    <Col md={7}>
+                      <Card.Body
+                        className={`card-body-content ${!inView ? "animate-text" : ""}`}
+                      >
+                        {/* Responsive Title */}
+                        <Card.Title
+                          className="cardtitle text-center"
+                          style={{
+                            fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Custom Web Applications Development
+                        </Card.Title>
+
+                        {/* Responsive Text */}
+                        <Card.Text
+                          className="card-text"
+                          style={{
+                            fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                            marginTop: "20px",
+                          }}
+                        >
+                          At WebXplore Studio, we specialize in developing secure and
+                          scalable web applications meticulously tailored to align with
+                          your unique business goals. Our custom web application
+                          development services encompass a comprehensive range of
+                          solutions, from initial concept design to full-scale
+                          deployment and maintenance.
+                        </Card.Text>
+                      </Card.Body>
+                    </Col>
+                  </Row>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
         </Carousel.Item>
-       
 
         <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
-            <img
-              src="https://media.istockphoto.com/id/1273058761/vector/tiny-people-testing-quality-assurance-in-software.jpg?s=612x612&w=0&k=20&c=DsNlOqfMpPkHlVEavkrz8atzgOxVSRgZPkGHYH-e1-8="
-              alt="Prototype Services"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Prototype Services
-              </h1>
-              <div
-                className="text-container mx-auto"
+  <Container fluid className="d-flex justify-content-center mt-5">
+    <Row className="w-100">
+      <Col>
+        <Card
+          ref={ref}
+          className={`full-width-card ${!inView ? "animate-card" : ""}`}
+          style={{ marginRight: "10%", marginLeft: "10%", marginBottom:"15vh" }}
+        >
+          <Row noGutters>
+            <Col md={5} className="card-image-section">
+              <img
+                src={prototypeimg}
+                alt="Custom web application"
+                className="img-fluid w-full h-auto rounded-md object-cover mt-2"
                 style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
+                  borderRadius: "15px",
+                  maxHeight: "360px",
+                  marginBottom: "10px",
                 }}
+              />
+            </Col>
+
+            <Col md={7}>
+              <Card.Body
+                className={`card-body-content ${!inView ? "animate-text" : ""}`}
               >
-                <p
-                  className="servicedescription"
+                {/* Responsive Title */}
+                <Card.Title
+                  className="cardtitle text-center"
                   style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
+                    fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                    fontWeight: "bold",
+                  }}
+                >
+                   Prototype Services
+                </Card.Title>
+
+                {/* Responsive Text */}
+                <Card.Text
+                  className="card-text"
+                  style={{
+                    fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                    marginTop: "20px",
                   }}
                 >
                   Bringing your vision to life starts with a solid prototype,
@@ -121,42 +164,59 @@ const Services = () => {
                   the gap between your ideas and the final product, ensuring
                   that every aspect of your web application or mobile app is
                   thoughtfully planned and executed.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
-            <img
-              src="https://www.extwebtech.com/wp-content/uploads/2023/01/Full_stack_developer-1024x507.webp"
-              alt="Full Stack Development"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Full Stack Development
-              </h1>
-              <div
-                className="text-container mx-auto"
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</Carousel.Item>
+<Carousel.Item>
+  <Container fluid className="d-flex justify-content-center mt-5">
+    <Row className="w-100">
+      <Col>
+        <Card
+          ref={ref}
+          className={`full-width-card ${!inView ? "animate-card" : ""}`}
+          style={{ marginRight: "10%", marginLeft: "10%", marginBottom:"15vh" }}
+        >
+          <Row noGutters>
+            <Col md={5} className="card-image-section">
+              <img
+                src={fullstackimg}
+                alt="Custom web application"
+                className="img-fluid w-full h-auto rounded-md object-cover mt-2"
                 style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
+                  borderRadius: "15px",
+                  maxHeight: "360px",
+                  marginBottom: "10px",
                 }}
+              />
+            </Col>
+
+            <Col md={7}>
+              <Card.Body
+                className={`card-body-content ${!inView ? "animate-text" : ""}`}
               >
-                <p
-                  className="servicedescription"
+                {/* Responsive Title */}
+                <Card.Title
+                  className="cardtitle text-center"
                   style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
+                    fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                    fontWeight: "bold",
+                  }}
+                >
+                   Full Stack Development
+                </Card.Title>
+
+                {/* Responsive Text */}
+                <Card.Text
+                  className="card-text"
+                  style={{
+                    fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                    marginTop: "20px",
                   }}
                 >
                   Our Full Stack Development services at WebXplore Studio
@@ -167,189 +227,263 @@ const Services = () => {
                   Node.js), MERN (MongoDB, Express.js, React, Node.js), PHP,
                   .NET, and more, allowing us to choose the best stack tailored
                   to your project’s requirements.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
-        {/* Additional Carousel.Items here */}
-        <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
-            <img
-              src="https://shastatek.com/sites/default/files/3party_api.jpg"
-              alt="Third Party Integration"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Third Party Integration
-              </h1>
-              <div
-                className="text-container mx-auto"
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</Carousel.Item>
+<Carousel.Item>
+  <Container fluid className="d-flex justify-content-center mt-5">
+    <Row className="w-100">
+      <Col>
+        <Card
+          ref={ref}
+          className={`full-width-card ${!inView ? "animate-card" : ""}`}
+          style={{ marginRight: "10%", marginLeft: "10%", marginBottom:"15vh" }}
+        >
+          <Row noGutters>
+            <Col md={5} className="card-image-section">
+              <img
+                src={thirdparty}
+                alt="Custom web application"
+                className="img-fluid w-full h-auto rounded-md object-cover mt-2"
                 style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
+                  borderRadius: "15px",
+                  maxHeight: "360px",
+                  marginBottom: "10px",
                 }}
+              />
+            </Col>
+
+            <Col md={7}>
+              <Card.Body
+                className={`card-body-content ${!inView ? "animate-text" : ""}`}
               >
-                <p
-                  className="servicedescription"
+                {/* Responsive Title */}
+                <Card.Title
+                  className="cardtitle text-center"
                   style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
+                    fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                    fontWeight: "bold",
                   }}
                 >
-                  In today’s interconnected digital landscape, integrating
+                   Third Party Integration
+                </Card.Title>
+
+                {/* Responsive Text */}
+                <Card.Text
+                  className="card-text"
+                  style={{
+                    fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                    marginTop: "20px",
+                  }}
+                >
+                 In today’s interconnected digital landscape, integrating
                   third-party services is essential for enhancing the
                   functionality and user experience of your web applications. At
                   WebXplore Studio, our Third Party Integration services focus
                   on creating seamless connections between your web applications
                   and external platforms, APIs, and data sources.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto"style={{height:"650px"}}>
-            <img
-              src="https://cdn-bbaid.nitrocdn.com/wYFmIWkSNKpdInpiRfVoEqTErZtkFjBo/assets/images/optimized/rev-ff73c2b/www.rishabhsoft.com/wp-content/uploads/2022/03/Software-Product-Development-Strategy_Banner.jpg"
-              alt="Software Product Development"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Software Product Development
-              </h1>
-              <div
-                className="text-container mx-auto"
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</Carousel.Item>
+<Carousel.Item>
+  <Container fluid className="d-flex justify-content-center mt-5">
+    <Row className="w-100">
+      <Col>
+        <Card
+          ref={ref}
+          className={`full-width-card ${!inView ? "animate-card" : ""}`}
+          style={{ marginRight: "10%", marginLeft: "10%", marginBottom:"15vh" }}
+        >
+          <Row noGutters>
+            <Col md={5} className="card-image-section">
+              <img
+                src={swdev}
+                alt="Custom web application"
+                className="img-fluid w-full h-auto rounded-md object-cover mt-2"
                 style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
+                  borderRadius: "15px",
+                  maxHeight: "360px",
+                  marginBottom: "10px",
                 }}
+              />
+            </Col>
+
+            <Col md={7}>
+              <Card.Body
+                className={`card-body-content ${!inView ? "animate-text" : ""}`}
               >
-                <p
-                  className="servicedescription"
+                {/* Responsive Title */}
+                <Card.Title
+                  className="cardtitle text-center"
                   style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
+                    fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                    fontWeight: "bold",
                   }}
                 >
-                  At WebXplore Studio, we offer comprehensive Software Product
+                   Software Product Development
+                </Card.Title>
+
+                {/* Responsive Text */}
+                <Card.Text
+                  className="card-text"
+                  style={{
+                    fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                    marginTop: "20px",
+                  }}
+                >
+                 At WebXplore Studio, we offer comprehensive Software Product
                   Development services designed to transform your innovative
                   ideas into market-ready products. Our team combines technical
                   expertise with industry knowledge to deliver software
                   solutions that are not only functional but also secure and
                   user-centric.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
-            <img
-              src="https://media.istockphoto.com/id/1212446148/photo/update-with-blurred-city-lights.jpg?s=612x612&w=0&k=20&c=w5GES6fFoPkAYqBSFX5f-wjpkelJtdzpXif7Cic53q8="
-              alt="Upgradation Services"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Upgradation Services
-              </h1>
-              <div
-                className="text-container mx-auto"
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</Carousel.Item>
+<Carousel.Item>
+  <Container fluid className="d-flex justify-content-center mt-5">
+    <Row className="w-100">
+      <Col>
+        <Card
+          ref={ref}
+          className={`full-width-card ${!inView ? "animate-card" : ""}`}
+          style={{ marginRight: "10%", marginLeft: "10%", marginBottom:"15vh" }}
+        >
+          <Row noGutters>
+            <Col md={5} className="card-image-section">
+              <img
+                src={upgrade}
+                alt="Custom web application"
+                className="img-fluid w-full h-auto rounded-md object-cover mt-2"
                 style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
+                  borderRadius: "15px",
+                  maxHeight: "360px",
+                  marginBottom: "10px",
                 }}
+              />
+            </Col>
+
+            <Col md={7}>
+              <Card.Body
+                className={`card-body-content ${!inView ? "animate-text" : ""}`}
               >
-                <p
-                  className="servicedescription"
+                {/* Responsive Title */}
+                <Card.Title
+                  className="cardtitle text-center"
                   style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
+                    fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                    fontWeight: "bold",
                   }}
                 >
-                  Keeping your web technologies up-to-date is crucial for
+                   Upgradation Services
+                </Card.Title>
+
+                {/* Responsive Text */}
+                <Card.Text
+                  className="card-text"
+                  style={{
+                    fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                    marginTop: "20px",
+                  }}
+                >
+                 Keeping your web technologies up-to-date is crucial for
                   maintaining performance, security, and user satisfaction. At
                   WebXplore Studio, our Upgradation Services are designed to
                   revitalize your existing websites and applications by
                   upgrading outdated technologies and migrating to new, more
                   efficient platforms.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto" style={{height:"650px"}}>
-            <img
-              src="https://www.shutterstock.com/image-photo/analyst-uses-computer-dashboard-data-600nw-2285412737.jpg"
-              alt="Consulting and Business Analysis"
-              className="img-fluid w-full h-auto rounded-md object-cover mt-2 shadow-lg"
-              style={{ borderRadius: "15px", maxHeight: "360px" }}
-            />
-            <div className="p-4">
-              <h1
-                className="servicetext"
-                style={{ fontSize: "25px" }}
-              >
-                Consulting and Business Analysis
-              </h1>
-              <div
-                className="text-container mx-auto"
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</Carousel.Item>
+  
+<Carousel.Item>
+  <Container fluid className="d-flex justify-content-center mt-5">
+    <Row className="w-100">
+      <Col>
+        <Card
+          ref={ref}
+          className={`full-width-card ${!inView ? "animate-card" : ""}`}
+          style={{ marginRight: "10%", marginLeft: "10%", marginBottom:"15vh" }}
+        >
+          <Row noGutters>
+            <Col md={5} className="card-image-section">
+              <img
+                src={ba}
+                alt="Custom web application"
+                className="img-fluid w-full h-auto rounded-md object-cover mt-2"
                 style={{
-                  maxWidth: "70%",
-                  padding: "10px",
-                  borderRadius: "10px",
-                  boxSizing: "border-box",
+                  borderRadius: "15px",
+                  maxHeight: "360px",
+                  marginBottom: "10px",
                 }}
+              />
+            </Col>
+
+            <Col md={7}>
+              <Card.Body
+                className={`card-body-content ${!inView ? "animate-text" : ""}`}
               >
-                <p
-                  className="servicedescription"
+                {/* Responsive Title */}
+                <Card.Title
+                  className="cardtitle text-center"
                   style={{
-                    whiteSpace: "normal",
-                    wordWrap: "break-word",
-                    margin: "0",
-                    marginBottom: "20px",
+                    fontSize: "calc(1.6rem + 0.5vw)", // Responsive font size
+                    fontWeight: "bold",
                   }}
                 >
-                  Navigating the complexities of web development projects
+                   Consulting and Business Analysis
+                </Card.Title>
+
+                {/* Responsive Text */}
+                <Card.Text
+                  className="card-text"
+                  style={{
+                    fontSize: "calc(1rem + 0.3vw)", // Responsive font size
+                    marginTop: "20px",
+                  }}
+                >
+                 Navigating the complexities of web development projects
                   requires expert guidance and strategic planning. At WebXplore
                   Studio, our Consulting and Business Analysis services provide
                   you with the insights and direction needed to make informed
                   decisions and achieve your business objectives.Our experienced
                   consultants work closely with you to understand your business
                   model, goals, and challenges.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Carousel.Item>
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</Carousel.Item>
+  
+      
       </Carousel>
     </div>
   );

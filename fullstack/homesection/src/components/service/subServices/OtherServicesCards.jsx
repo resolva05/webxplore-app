@@ -19,7 +19,7 @@ const OtherServicesCards = () => {
         <div className="project-card" key={service.key}>
           <h3 className="projecttitle">{service.name}</h3>
           <p className="projectoverview">{data[service.key][0].description}</p>
-          <NavLink to={`/services/${service.key}`}>
+          <NavLink to={`/services/subservice3/${service.key}`}>
             <button className="read-more-button">Read More</button>
           </NavLink>
         </div>

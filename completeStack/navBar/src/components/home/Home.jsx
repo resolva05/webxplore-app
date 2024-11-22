@@ -10,8 +10,9 @@ import logo from "../../assets/hcl.png"
 
 const Home = () => {
   useEffect(() => {
-    window.scrollTo(top);
+    window.scrollTo(0, 0); // Scroll to top when the component mounts
   }, []);
+
   const [flip, setFlip] = useState(false);
   const props = useSpring({
     to: { opacity: 1 },
@@ -21,6 +22,7 @@ const Home = () => {
     delay: 600,
     onRest: () => setFlip(flip),
   });
+
   return (
     <>
       <animated.div style={props}>
