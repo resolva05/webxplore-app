@@ -2,7 +2,7 @@ import{ useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './HeroSection.css';
 import { NavLink } from "react-router-dom";
-
+import vido from "../../assets/homevid.mp4"
 
 const HeroSection = () => {
   const [headingWords, setHeadingWords] = useState([]);
@@ -14,6 +14,7 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section">
+      <video className="vid" src={vido} autoPlay loop muted />
       <div className="bckgrdimg" />
       <Container fluid>
         <Row className="justify-content-center align-items-center hero-content">
@@ -26,6 +27,7 @@ const HeroSection = () => {
               ))}
             </h1>
             <p className="hero-description">
+            
               WebXplore develops an easy-to-use, full-service e-commerce platform that includes everything we need to successfully sell software globally.
             </p>
             <div className="hero-buttons">

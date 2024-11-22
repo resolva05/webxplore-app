@@ -4,6 +4,10 @@ import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import aws from '../../assets/aws.png'
+import azure from '../../assets/azure.png'
+import cloud from '../../assets/cloud.png'
+
 
 
 const openInsta = () => {
@@ -16,16 +20,16 @@ const openLinkedin = () => {
 const NewsletterForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 20px; `
-  ;
+  margin-top: 20px;
+`;
 
 const NewsletterInput = styled.input`
   width: 150px;
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  border-radius: 5px;`
-  ;
+  border-radius: 5px;
+`;
 
 const NewsletterButton = styled.button`
   padding: 10px 20px;
@@ -34,11 +38,11 @@ const NewsletterButton = styled.button`
   background-color: #ff6b6b;
   color: #fff;
   cursor: pointer;
-  width:5vw;
+  width: 5vw;
   &:hover {
     background-color: #ff4b4b;
-  }`
-  ;
+  }
+`;
 
 function Footer() {
   const [email, setEmail] = useState("");
@@ -56,131 +60,155 @@ function Footer() {
       setMessage("Failed to subscribe. Please try again later.");
     }
   };
+
   return (
-    <FooterContainer>
-      <div className="footer-content">
-        {/* Logo Section */}
-        <div className="footer-logo">
-          <img src={logo} alt="Logo" style={
-          {height:"23vh"}
-          } />
+    <>
+      
+
+      {/* FooterContainer */}
+      <FooterContainer>
+        {/* Web Development Partners Section */}
+      <PartnerSection>
+        <h3>Our Web Development Partners</h3>
+        <div className="partners">
+          <div className="partner">
+            <img src={aws} alt="AWS" />
+            <p>AWS</p>
+          </div>
+          <div className="partner">
+            <img src={azure} alt="Microsoft Azure" />
+            <p>Microsoft Azure</p>
+          </div>
+          <div className="partner">
+            <img src={cloud} alt="Google Cloud" />
+            <p>Google Cloud</p>
+          </div>
+        </div>
+      </PartnerSection>
+        <div className="footer-content">
+          {/* Logo Section */}
+          <div className="footer-logo">
+            <img src={logo} alt="Logo" style={{ height: "23vh" }} />
+          </div>
+
+          {/* About Section */}
+          <div className="footer-section">
+            <h4>About</h4>
+            <ul>
+              <li>
+                <NavLink to="/contact">Contact Us</NavLink>
+              </li>
+              <li>
+                <NavLink to="/aboutus">About Us</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">Careers</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">Press</NavLink>
+              </li>
+            </ul>
+          </div>
+
+          {/* Information Section */}
+          <div className="footer-section">
+            <h4>Information</h4>
+            <ul>
+              <li>
+                <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
+              </li>
+              <li>
+                <NavLink to="/privacypolicy">Privacy Policy</NavLink>
+              </li>
+              <li>
+                <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
+              </li>
+              <li>
+                <NavLink to="/sitemap">Sitemap</NavLink>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services Section */}
+          <div className="footer-section">
+            <h4>Services</h4>
+            <ul>
+              <li>
+                <NavLink to="/webdevelopment/service/subservice1"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Web Development</NavLink>
+              </li>
+              <li>
+                <NavLink to="/mobiledevelopment/service/subservice2"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Mobile Development</NavLink>
+              </li>
+              <li>
+                <NavLink to="/services/subservice3/SEO" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>SEO</NavLink>
+              </li>
+              <li>
+                <NavLink to="/services/subservice3/PaymentGatewayIntegration"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Payment Gateway</NavLink>
+              </li>
+              <li>
+                <NavLink to="/services/subservice3/AI_Integration_Services"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>AI Integration</NavLink>
+              </li>
+              <li>
+                <NavLink to="/services/subservice3/SocialMediaMarketing"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Social Media</NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4>Socials</h4>
+            <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
+              <li style={{ marginRight: "10px" }}>
+                <NavLink to="/">
+                  <i className="fa-brands fa-facebook"></i>
+                </NavLink>
+              </li>
+              <li style={{ marginRight: "10px" }}>
+                <NavLink onClick={openInsta}>
+                  <i className="fa-brands fa-instagram"></i>
+                </NavLink>
+              </li>
+              <li style={{ marginRight: "10px" }}>
+                <NavLink onClick={openLinkedin}>
+                  <i className="fa-brands fa-linkedin"></i>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h4>FAQs</h4>
+            <ul className="list-unstyled">
+              <li>
+                <NavLink to="/faq">
+                  <i className="fa-solid fa-circle-question"></i>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Newsletter</h4>
+            <p>Stay updated with our latest news and offerings.</p>
+            <NewsletterForm onSubmit={handleNewsletterSubmit}>
+              <NewsletterInput
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <NewsletterButton type="submit" className="send">
+                Send
+              </NewsletterButton>
+            </NewsletterForm>
+            {message && <p>{message}</p>}
+          </div>
         </div>
 
-        {/* About Section */}
-        <div className="footer-section">
-          <h4>About</h4>
-          <ul>
-            <li>
-              <NavLink to="/contact">Contact Us</NavLink>
-            </li>
-            <li>
-              <NavLink to="/aboutus">About Us</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">Careers</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">Press</NavLink>
-            </li>
-          </ul>
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <p>&copy;{new Date().getFullYear()} WebXplore Studio - All Rights Reserved</p>
         </div>
-
-        {/* Information Section */}
-        <div className="footer-section">
-          <h4>Information</h4>
-          <ul>
-            <li>
-              <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
-            </li>
-            <li>
-              <NavLink to="/privacypolicy">Privacy Policy</NavLink>
-            </li>
-            <li>
-              <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
-            </li>
-            <li>
-              <NavLink to="/sitemap">Sitemap</NavLink>
-            </li>
-          </ul>
-        </div>
-
-        {/* Services Section */}
-        <div className="footer-section">
-          <h4>Services</h4>
-          <ul>
-            <li>
-              <NavLink to="/webdevelopment/service/subservice1"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Web Development</NavLink>
-            </li>
-            <li>
-              <NavLink to="/mobiledevelopment/service/subservice2"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Mobile Development</NavLink>
-            </li>
-            <li>
-              <NavLink to="/services/subservice3/SEO" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>SEO</NavLink>
-            </li>
-            <li>
-              <NavLink to="/services/subservice3/PaymentGatewayIntegration"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Payment Gateway</NavLink>
-            </li>
-            <li>
-              <NavLink to="/services/subservice3/AI_Integration_Services"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>AI Integration</NavLink>
-            </li>
-            <li>
-              <NavLink to="/services/subservice3/SocialMediaMarketing"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Social Media</NavLink>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-section">
-        <h4>Socials</h4>
-              <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
-                <li style={{ marginRight: "10px", marginTop:"-0.2rem" }}>
-                  <NavLink to="/">
-                    <i className="fa-brands fa-facebook"></i>
-                  </NavLink>
-                </li>
-                <li style={{ marginRight: "10px", marginTop:"-0.2rem" }}>
-                  <NavLink onClick={openInsta}>
-                    <i className="fa-brands fa-instagram"></i>
-                  </NavLink>
-                </li>
-                <li style={{ marginRight: "10px", marginTop:"-0.2rem" }}>
-                  <NavLink onClick={openLinkedin}>
-                    <i className="fa-brands fa-linkedin"></i>
-                  </NavLink>
-                </li>
-              </ul>
-        </div>
-        <div className="footer-section">
-        <h4>FAQs</h4>
-              <ul className="list-unstyled">
-                <li>
-                  <NavLink to="/faq">
-                    <i className="fa-solid fa-circle-question"></i> 
-                  </NavLink>
-                </li>
-              </ul>
-        </div>
-
-        <div >
-          <h4>Newsletter</h4>
-          <p>Stay updated with our latest news and offerings.</p>
-          <NewsletterForm onSubmit={handleNewsletterSubmit}>
-            <NewsletterInput
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <NewsletterButton type="submit" className="send">Send</NewsletterButton>
-          </NewsletterForm>
-          {message && <p>{message}</p>}
-        </div>
-      </div>
-
-      {/* Footer Bottom */}
-      <div className="footer-bottom">
-        <p>&copy;{new Date().getFullYear()} WebXplore Studio - All Rights Reserved</p>
-      </div>
-    </FooterContainer>
+      </FooterContainer>
+    </>
   );
 }
 
@@ -277,5 +305,45 @@ const FooterContainer = styled.footer`
         width:5rem
       }
   }
-    
 `;
+
+const PartnerSection = styled.section`
+  padding: 2rem 1rem;
+  text-align: center;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .partners {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+
+    .partner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 100px; /* Adjust size as needed */
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .partners {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+`;
+

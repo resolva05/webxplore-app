@@ -1,12 +1,15 @@
 // import React from 'react'
+import './Home.css';
+import Services from './Services';
+import Testimonials from './Testimonials';
+import { animated, useSpring } from 'react-spring';
+import { useState, useEffect } from 'react';
+import KeyFeatures from './KeyFeatures';
+import HeroSection from '../heroSection/HeroSection';
 import './Home.css'
-import Services from "./Services";
-import Testimonials from "./Testimonials";
-import { animated, useSpring } from "react-spring";
-import { useState, useEffect } from "react";
-import KeyFeatures from "./KeyFeatures";
-import HeroSection from "../heroSection/HeroSection";
 import logo from "../../assets/hcl.png"
+import Homefaq from './Homefaq';
+import Homecontact from './Homecontact';
 
 const Home = () => {
   useEffect(() => {
@@ -36,6 +39,8 @@ const Home = () => {
       <div>
         <Testimonials />
       </div>
+      <Homefaq/>
+      <Homecontact/>
       <div className="client-logo-section-container">
         <h2 className="client-logo-title">Our Clients</h2>
         <div className="client-logo-section">

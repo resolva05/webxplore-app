@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import S1faq from "./S1faq.jsx";
 import web1 from "../../../assets/webimg1.jpg";
-
+import { FaCode, FaShoppingCart, FaMobileAlt, FaFileAlt, FaPlug, FaDesktop } from "react-icons/fa"; // Add icons
 const AnimatedText = ({ text }) => {
   const words = text.split(" ");
 
@@ -59,74 +59,93 @@ const Service1 = () => {
           </Col>
         </Row>
         <hr className="my-4"></hr>
-        <div>
-          <h2 style={{ color: "black", marginBottom: "40px" }}>
+        {/* Web Development Services Section */}
+        <div className="webservice">
+          <h2
+            style={{
+              color: "#2c3e50",
+              marginBottom: "40px",
+              textAlign: "center",
+              fontFamily: "Arial",
+              fontSize: "2.2rem",
+            }}
+          >
             Our Web Development Services
           </h2>
 
-          <h4 style={{ color: "black" }}>1. Custom Website Development</h4>
-          <p>
-            We build custom websites tailored to your specific business needs.
-            From small business websites to complex enterprise solutions, we
-            deliver unique and scalable websites that are optimized for
-            performance and security.
-          </p>
+          <div className="text-center mt-5">
+            <p
+              style={{
+                color: "#7f8c8d",
+                fontSize: "1rem",
+                fontFamily: "Arial",
+                lineHeight: "1.6",
+                marginTop: "-30px",
+              }}
+            >
+              At WebXplore Studio, we specialize in providing a wide range of web development services that help businesses establish a strong online presence. Whether you're looking for a simple website or a complex web application, we offer tailored solutions that prioritize both functionality and user experience. Our team is committed to delivering high-quality services with the latest technologies, ensuring your website not only looks great but performs optimally on all devices.
+            </p>
+          </div>
 
-          <h4 style={{ color: "black" }}>2. eCommerce Development</h4>
-          <p>
-            Launch your online store with our robust eCommerce solutions. We
-            develop secure, scalable, and easy-to-manage eCommerce websites
-            using platforms like Shopify, WooCommerce, and Magento.
-          </p>
-
-          <h4 style={{ color: "black" }}>3. Responsive Web Design</h4>
-          <p>
-            Ensure your website looks great on all devices with our responsive
-            web design services. We create websites that automatically adjust to
-            any screen size, offering a seamless experience across desktops,
-            tablets, and smartphones.
-          </p>
-
-          <h4 style={{ color: "black" }}>4. CMS Development</h4>
-          <p>
-            Manage your website content effortlessly with our custom CMS
-            (Content Management System) development services. Whether you need
-            WordPress, Joomla, or a custom CMS solution, we ensure your website
-            is easy to update without technical expertise.
-          </p>
-
-          <h4 style={{ color: "black" }}>5. Progressive Web Apps (PWA)</h4>
-          <p>
-            Enhance user experience with Progressive Web Apps that combine the
-            best of web and mobile applications. PWAs offer fast loading times,
-            offline capabilities, and native app-like experiences on any device.
-          </p>
-
-          <h4 style={{ color: "black" }}>
-            6. Single Page Applications (SPA)
-          </h4>
-          <p>
-            SPAs provide dynamic interactions on a single page, improving
-            performance and user experience. We specialize in frameworks like
-            React, Angular, and Vue.js to build fast and responsive single-page
-            applications.
-          </p>
-
-          <h4 style={{ color: "black" }}>7. API Integration & Development</h4>
-          <p>
-            Seamlessly connect your website to third-party services with our API
-            integration services. We also develop custom APIs to enhance your
-            website’s functionality and communication with other platforms.
-          </p>
-
-          <h4 style={{ color: "black" }}>8. Website Maintenance & Support</h4>
-          <p>
-            Keep your website running smoothly with our ongoing maintenance and
-            support services. We handle updates, security patches, backups, and
-            performance monitoring to ensure your website operates without
-            interruption.
-          </p>
+          <Row>
+            {[
+              {
+                title: "Custom Website Development",
+                description:
+                  "We build custom websites tailored to your specific business needs. From small business websites to complex enterprise solutions, we deliver unique and scalable websites that are optimized for performance and security.",
+                icon: <FaCode size={40} />,
+              },
+              {
+                title: "eCommerce Development",
+                description:
+                  "Launch your online store with our robust eCommerce solutions. We develop secure, scalable, and easy-to-manage eCommerce websites using platforms like Shopify, WooCommerce, and Magento.",
+                icon: <FaShoppingCart size={40} />,
+              },
+              {
+                title: "Responsive Web Design",
+                description:
+                  "Ensure your website looks great on all devices with our responsive web design services. We create websites that automatically adjust to any screen size, offering a seamless experience across desktops, tablets, and smartphones.",
+                icon: <FaMobileAlt size={40} />,
+              },
+              {
+                title: "CMS Development",
+                description:
+                  "Manage your website content effortlessly with our custom CMS (Content Management System) development services. Whether you need WordPress, Joomla, or a custom CMS solution, we ensure your website is easy to update without technical expertise.",
+                icon: <FaFileAlt size={40} />,
+              },
+              {
+                title: "Progressive Web Apps (PWA)",
+                description:
+                  "Enhance user experience with Progressive Web Apps that combine the best of web and mobile applications. PWAs offer fast loading times, offline capabilities, and native app-like experiences on any device.",
+                icon: <FaPlug size={40} />,
+              },
+              {
+                title: "Single Page Applications (SPA)",
+                description:
+                  "SPAs provide dynamic interactions on a single page, improving performance and user experience. We specialize in frameworks like React, Angular, and Vue.js to build fast and responsive single-page applications.",
+                icon: <FaDesktop size={40} />,
+              },
+            ].map((service, index) => (
+              <Col lg={4} md={6} sm={12} key={index} className="mb-4">
+                <Card className="service-card">
+                  <Card.Body>
+                    <div className="text-center mb-3">
+                      <div className="service-icon">{service.icon}</div>
+                    </div>
+                    <Card.Title
+                      className="text-center"
+                      style={{ color: "#2c3e50", fontWeight: "400" }}
+                    >
+                      {service.title}
+                    </Card.Title>
+                    <Card.Text className="text-muted">{service.description}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
         </div>
+
 
         {/* </Col>
         </Row> */}

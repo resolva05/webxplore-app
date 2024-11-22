@@ -5,50 +5,40 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Form, FormControl } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/logoimg.png";
-import SearchRecommendation from "../SearchRecommendations/SearchRecommendations.jsx"; // Import the new recommendations component
-import axios from "axios";
+import SearchRecommendation from "../SearchRecommendations/SearchRecommendations.jsx";
 import "./Header.css";
 
 const Header = () => {
-  const [showSearchBox, setShowSearchBox] = useState(false); // Search box visibility
-  const [query, setQuery] = useState(""); // Search query
-  const [searchResults, setSearchResults] = useState([]); // Search results
-  const [isSticky, setIsSticky] = useState(false);
-  const navigate = useNavigate();
+  const [showSearchBox, setShowSearchBox] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSticky, setIsSticky] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  const navigate = useNavigate();
+
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/home?query=${encodeURIComponent(searchQuery)}`);
     }
   };
-  const closeSearchBar = () => {
-    setShowSearchBox(false);  // Close search bar on selection
-    setQuery("");  // Reset query after selection
-    setSearchResults([]); // Clear search results after selection
-  };
-  // Toggle search box visibility
+
   const toggleSearchBox = () => {
     setShowSearchBox((prevState) => !prevState);
-    setQuery(""); // Clear query when closing the search box
-    setSearchResults([]); // Clear search results when closing the search box
   };
 
-  // Handle scroll event for sticky navbar
   const handleScroll = () => {
     setIsSticky(window.scrollY > 50);
-    setIsSticky(window.scrollY > 50);
   };
-
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -69,14 +59,8 @@ const Header = () => {
             WebXplore Studio
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            id="basic-navbar-nav"
-            className="justify-content-end"
-          >
-            <Nav
-              className="ms-auto d-flex align-items-center"
-              style={{ flexWrap: "wrap" }}
-            >
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Nav className="ms-auto d-flex align-items-center">
               <NavLink
                 to="/home"
                 className="nav-link"
@@ -84,13 +68,62 @@ const Header = () => {
               >
                 Home
               </NavLink>
-              <NavLink
-                to="/service"
-                className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Services
-              </NavLink>
+              <div className="nav-link service-dropdown">
+                <NavLink
+                  to="/service"
+                  className="service-link"
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                >
+                  Services
+                </NavLink>
+                <FontAwesomeIcon
+                  icon={faCaretDown}
+                  className="dropdown-icon"
+                  onClick={() => setDropdownVisible((prev) => !prev)}
+                />
+                {dropdownVisible && (
+                  <div className="dropdown-menu animated-dropdown">
+                    <NavLink
+                      to="/service/subservice1"
+                      className="dropdown-item"
+                    >
+                      Web Development
+                    </NavLink>
+                    <NavLink
+                      to="/service/subservice2"
+                      className="dropdown-item"
+                    >
+                      Mobile Development
+                    </NavLink>
+                    <div className="dropdown-item dropdown-submenu">
+                      <span>Other Services</span>
+                      <div className="submenu">
+                        <NavLink to="/services/SEO" className="submenu-item">
+                          SEO
+                        </NavLink>
+                        <NavLink
+                          to="/services/PaymentGatewayIntegration"
+                          className="submenu-item"
+                        >
+                          Payment Gateway Integration
+                        </NavLink>
+                        <NavLink
+                          to="/services/AI_Integration_Services"
+                          className="submenu-item"
+                        >
+                          AI Integration Services
+                        </NavLink>
+                        <NavLink
+                          to="/services/SocialMediaMarketing"
+                          className="submenu-item"
+                        >
+                          Social Media Marketing Services
+                        </NavLink>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
               <NavLink
                 to="/portfolio"
                 className="nav-link"
@@ -119,40 +152,42 @@ const Header = () => {
               >
                 Contact Us
               </NavLink>
-              <Nav className="ms-auto d-flex align-items-center">
-            {/* Other nav items */}
-            <FontAwesomeIcon
-              icon={faSearch}
-              size="lg"
-              onClick={toggleSearchBox}
-              className="search-icon"
-              aria-label="Search"
-            />
-          </Nav>
+              <FontAwesomeIcon
+                icon={faSearch}
+                size="lg"
+                onClick={toggleSearchBox}
+                className="search-icon"
+                aria-label="Search"
+              />
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
       {showSearchBox && (
-      <header className="header">
-        <div className="header-container">
-          <form onSubmit={handleSearchSubmit} className="search-form">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              placeholder="Search for blogs or projects..."
-              className="search-input"
-            />
-            <button type="submit" className="search-button">
-              Search
-            </button>
-          </form>
-         {searchQuery && <SearchRecommendation query={searchQuery} closeSearchBar={closeSearchBar}/>}
-        </div>
-      </header>
-    )}
+        <header className="header">
+          <div className="header-container">
+            <form onSubmit={handleSearchSubmit} className="search-form">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                placeholder="Search for blogs or projects..."
+                className="search-input"
+              />
+              <button type="submit" className="search-button">
+                Search
+              </button>
+            </form>
+            {searchQuery && (
+              <SearchRecommendation
+                query={searchQuery}
+                closeSearchBar={() => setShowSearchBox(false)}
+              />
+            )}
+          </div>
+        </header>
+      )}
     </div>
   );
 };

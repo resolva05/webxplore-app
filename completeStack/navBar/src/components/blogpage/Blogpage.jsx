@@ -40,7 +40,12 @@ const Blogpage = () => {
   const [activePostId, setActivePostId] = useState(null); // Track which post's comments are being shown
   const [posts, setPosts] = useState([]); // State to hold posts fetched from MongoDB
   const [loading, setLoading] = useState(true); // Initialize loading state
+  const contentSectionRef = useRef(null); // Declare contentSectionRef here
+  const keyPointsRef = useRef(null);
 
+  const generateSlug = (title) => {
+    return encodeURIComponent(title.replace(/\s+/g, "-").replace(/[^\w\-]/g, ""));
+  };
   useEffect(() => {
     window.scrollTo(0,0);
   }, []);
@@ -177,7 +182,7 @@ const Blogpage = () => {
           <Col md={9}>
             <Row className="g-4">
               {filteredPosts.map((post) => (
-                <Col md={6} lg={4} key={post._id}>
+                <Col md={6} lg={4} key={post.title}>
                   <Card
                     className="card-hover abc"
                     style={{ borderRadius: "20px", height: "97%" }}
@@ -206,7 +211,7 @@ const Blogpage = () => {
                       style={{ padding: "10px 15px", marginBottom: "20px" }}
                     >
                       <NavLink
-                        to={`/blogpage/subblogpage/${post._id}`}
+                        to={`/blogpage/subblogpage/${(post.title)}`}
                         style={{ width: "77%" }}
                       >
                         <button
@@ -227,7 +232,7 @@ const Blogpage = () => {
                         style={{ width: "20%" }}
                       >
                         <button
-                          onClick={() => handleOpenComments(post._id)}
+                          onClick={() => handleOpenComments(post.title)}
                           className="comment-icon-btn"
                           style={{
                             display: "flex",
@@ -252,7 +257,7 @@ const Blogpage = () => {
                               marginBottom: "3px",
                             }}
                           >
-                            {comments[post._id]?.length || 0}
+                            {comments[post.title]?.length || 0}
                           </span>
                         </button>
                       </div>
