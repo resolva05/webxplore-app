@@ -5,12 +5,15 @@ import "./Subblogpage.css";
 import subimg from "../../assets/subblog2.png";
 
 
-
 const Subblogpage = () => {
   const { postId } = useParams(); 
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   window.scrollTo(top);
+  // }, []);
 
   useEffect(() => {
     const fetchPost = async () => {

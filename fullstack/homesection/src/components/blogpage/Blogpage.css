@@ -160,6 +160,10 @@
   border-bottom: none;
 }
 
+.text-left h1{
+  color: black;
+}
+
 /* Icon or symbol for each comment */
 .comment-icon {
   margin-right: 10px;

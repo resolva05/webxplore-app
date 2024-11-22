@@ -14,14 +14,31 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 95%; /* Let the card adjust to content */
+    height: 98%; /* Let the card adjust to content */
   }
   
+.custom-cards{
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 98%; /* Let the card adjust to content */
+}
+
+.mobcs{
+  height: 50vh;
+  /* max-height: 800px; */
+  object-fit:cover; /* Ensures the image scales properly */
+}
+
   /* Image Styling */
   .custom-card img {
-    height: auto;
-    max-height: 180px;
-    object-fit: cover; /* Ensures the image scales properly */
+    height: 35vh;
+    /* max-height: 300px; */
+    object-fit: fill; /* Ensures the image scales properly */
   }
   
   /* Hover effect for Card */

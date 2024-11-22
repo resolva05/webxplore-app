@@ -1,17 +1,57 @@
+require('dotenv').config();
 const express = require("express");
-const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config();
-
+const bodyParser = require("body-parser");
 const app = express();
 const PORT = 5000;
+const nodemailer = require("nodemailer");
+const searchRoute = require("./search.js");
 
-// Middleware
+app.use(express.json())
+
+// Enable CORS for all routes
 app.use(cors());
 app.use(bodyParser.json());
 
-// Email route for sending case study
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true, // Try with or without this option
+  tlsInsecure: true, // Disable TLS validation temporarily for testing
+}).then(() => console.log('DB Connected Mongo Running'))
+.catch(err => {
+  console.error('DB Connection Error:', err);
+  console.error('Error cause:', err.cause);  // This will give you more information
+});
+
+
+const Post=require('./models/Post')
+const D=require('./models/d')
+// Route to get all posts (if you need to fetch all posts somewhere)
+
+app.get("/getUsers", async (req, res) => {
+  try {
+    const posts = await Post.find();
+    // console.log(posts)
+    res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching posts" });
+  }
+});
+
+app.get("/portfolio", async (req, res) => {
+  try {
+    const posts = await D.find();
+    res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching posts" });
+  }
+});
+
 app.post("/send-email", async (req, res) => {
   const { email } = req.body;
 
@@ -67,7 +107,7 @@ app.post("/send-email", async (req, res) => {
       attachments: [
         {
           filename: "Case_Study_AI_Powered_Chatbots.pdf",
-          path: "../homesection/src/assets/cs1.pdf", // Path to the PDF file
+          path: "../navBar/src/assets/cs1.pdf", // Path to the PDF file
         },
       ],
     };
@@ -80,6 +120,123 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
+
+// Route to get a post by postId
+app.get("/getUsers/:postId", async (req, res) => {
+  const { postId } = req.params;
+
+  try {
+    const post = await Post.findById(postId); // Find the post by its MongoDB _id
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    res.json(post);
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+app.get("/portfolio/:postId", async (req, res) => {
+  const { postId } = req.params;
+
+  try {
+    const post = await D.findById(postId); // Find the post by its MongoDB _id
+    // console.log(post)
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    res.json(post);
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+//contact
+const Contact=require('./models/contact')
+
+app.get('/getContactFormData', async (req, res) => {
+  try {
+    const contactFormData = await Contact.find({ formType: 'contact' });
+    res.json(contactFormData);
+  } catch (error) {
+    console.error('Error fetching contact form data:', error);
+    res.status(500).json({ message: 'Error fetching contact form data' });
+  }
+});
+
+app.get('/getPopupFormData', async (req, res) => {
+  try {
+    const popupFormData = await Contact.find({ formType: 'popup' });
+    res.json(popupFormData);
+  } catch (error) {
+    console.error('Error fetching popup form data:', error);
+    res.status(500).json({ message: 'Error fetching popup form data' });
+  }
+});
+
+
+app.get('/getAllFormData', async (req, res) => {
+  try {
+    const formData = await Contact.find();
+    res.json(formData);  // This will include the formType field in the response
+  } catch (error) {
+    console.error('Error fetching form data:', error);
+    res.status(500).json({ message: 'Error fetching form data' });
+  }
+});
+
+app.post('/contact', async (req, res) => {
+  const { firstName, lastName, email, phoneNumber, message } = req.body;
+
+  if (!firstName || !lastName || !email || !phoneNumber || !message) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  const newContactData = new Contact({
+    firstName,
+    lastName,
+    email,
+    phone: phoneNumber,
+    message,
+    formType: 'contact',  // Set formType to 'contact'
+  });
+
+  try {
+    await newContactData.save();
+    res.status(201).json({ message: 'Contact form submitted successfully!' });
+  } catch (error) {
+    console.error('Error saving contact:', error);
+    res.status(500).json({ message: 'Error saving contact' });
+  }
+});
+
+//popup contact page
+
+// Route to handle form submission
+app.post('/submitForm', async (req, res) => {
+  const { name, email, phone, requirements } = req.body;
+
+  try {
+    const newFormData = new Contact({
+      name,
+      email,
+      phone,
+      requirements,
+      formType: 'popup',  // Set formType to 'popup'
+    });
+    await newFormData.save();
+    res.status(200).json({ message: 'Form data submitted successfully' });
+  } catch (error) {
+    console.error('Error saving popup data:', error);
+    res.status(500).json({ message: 'Error submitting form data', error });
+  }
+});
+
+app.use("/api", searchRoute);
+
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

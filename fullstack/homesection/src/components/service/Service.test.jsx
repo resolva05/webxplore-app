@@ -1,8 +1,7 @@
-// Service.test.jsx
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom"; // For NavLink to work
+import { BrowserRouter } from "react-router-dom";
 import Service from "./Service";
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, global, vi } from "vitest";
 import { within } from "@testing-library/react";
 
 // Helper to render component within Router context
@@ -27,13 +26,22 @@ describe("Service Component", () => {
 
   it("renders all 'Read' buttons for each service card", () => {
     const webDevCard = screen.getByText("Web Development").closest(".card");
-//   const appDevCard = screen.getByText("Mobile App Development").closest(".card");
-    const webDevReadButton = within(webDevCard).getByRole("button", { name: /Read/i });
-//   const appDevReadButton = within(appDevCard).getByRole("button", { name: /Read/i });
+    const appDevCard = screen
+      .getByText("Mobile App Development")
+      .closest(".card");
+    const otherDevCard = screen.getByText("Other Services").closest(".card");
+    const webDevReadButton = within(webDevCard).getByRole("button", {
+      name: /Read/i,
+    });
+    const appDevReadButton = within(appDevCard).getByRole("button", {
+      name: /Read/i,
+    });
+    const otherDevReadButton = within(otherDevCard).getByRole("button", {
+      name: /Read/i,
+    });
 
-  expect(webDevReadButton).toBeInTheDocument();
-//   expect(appDevReadButton).toBeInTheDocument();
+    expect(webDevReadButton).toBeInTheDocument();
+    expect(appDevReadButton).toBeInTheDocument();
+    expect(otherDevReadButton).toBeInTheDocument();
   });
-
 });
- 

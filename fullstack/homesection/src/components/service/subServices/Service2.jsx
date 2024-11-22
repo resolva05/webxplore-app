@@ -27,8 +27,7 @@ const Service2 = () => {
           {/* Description Section */}
           <Row className="my-5">
             <Col md={6}>
-              <h2 style={{ color: "black" }}>Project Description</h2>
-              <p>
+              <p style={{fontSize:"1.5rem"}}>
                 Elevate your business with custom mobile app solutions tailored
                 to your needs. We specialize in iOS, Android, and cross-platform
                 app development, ensuring seamless user experiences across all

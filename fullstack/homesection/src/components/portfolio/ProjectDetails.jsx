@@ -33,7 +33,7 @@ const ProjectDetails = () => {
 
   return (
     <div className="project-details-container">
-      <h1 className="project-title">{project.title}</h1>
+      <h1 className="project-titles">{project.title}</h1>
       <h2 className="project-overview-title">Project Overview</h2>
       <p className="project-overview">{project.projectOverview}</p>
       <h2 className="project-technology-title">Technology Stack</h2>

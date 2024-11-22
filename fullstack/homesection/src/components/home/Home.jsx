@@ -1,14 +1,19 @@
+// import React from 'react'
+import './Home.css';
+import Services from './Services';
+import Testimonials from './Testimonials';
+import { animated, useSpring } from 'react-spring';
+import { useState, useEffect } from 'react';
+import KeyFeatures from './KeyFeatures';
+import HeroSection from '../heroSection/HeroSection';
 import './Home.css'
-import Services from "./Services";
-import Testimonials from "./Testimonials";
-import { animated, useSpring } from "react-spring";
-import { useState, useEffect } from "react";
-import KeyFeatures from "./KeyFeatures";
-import HeroSection from "../heroSection/HeroSection";
-import logo from '../../assets/hcl.png'
+import logo from "../../assets/hcl.png"
+import Homefaq from './Homefaq';
+import Homecontact from './Homecontact';
+
 const Home = () => {
   useEffect(() => {
-    window.scrollTo(top);
+    window.scrollTo(0, 0); // Scroll to top when the component mounts
   }, []);
 
   const [flip, setFlip] = useState(false);
@@ -30,15 +35,15 @@ const Home = () => {
       <div>
         <KeyFeatures />
       </div>
+      
       <div>
         <Testimonials />
       </div>
-
-      {/* Client Logo Section */}
+      <Homefaq/>
+      <Homecontact/>
       <div className="client-logo-section-container">
         <h2 className="client-logo-title">Our Clients</h2>
         <div className="client-logo-section">
-          {/* Add your client logos here */}
           <img src={logo} alt="Client 1" className="client-logo" />
           <img src={logo} alt="Client 2" className="client-logo" />
           <img src={logo} alt="Client 3" className="client-logo" />

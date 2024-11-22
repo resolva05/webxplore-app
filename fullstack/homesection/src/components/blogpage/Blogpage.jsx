@@ -18,6 +18,8 @@ import logo from "../../assets/logonew.png";
 import vid from "../../assets/blogvideo.mp4";
 import "./Blogpage.css";
 
+
+
 const categories = [
   "Web Development",
   "AI Web Development",
@@ -40,9 +42,13 @@ const Blogpage = () => {
   const [loading, setLoading] = useState(true); // Initialize loading state
   const contentSectionRef = useRef(null); // Declare contentSectionRef here
   const keyPointsRef = useRef(null);
-  useEffect(() => {
-    window.scrollTo(top);
 
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+  
+  useEffect(() => {
     // Fetch posts from MongoDB
     fetch("http://localhost:5000/getUsers")
       .then((response) => response.json())
@@ -54,36 +60,6 @@ const Blogpage = () => {
         console.error("Error fetching posts:", error);
         setLoading(false); // Set loading to false if there's an error
       });
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target) {
-            entry.target.classList.add("fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const contentSection = contentSectionRef.current;
-    const keyPoints = keyPointsRef.current
-      ? keyPointsRef.current.querySelectorAll(".key-point")
-      : [];
-
-    if (contentSection) observer.observe(contentSection);
-    keyPoints.forEach((point) => {
-      if (point) observer.observe(point);
-    });
-
-    return () => {
-      if (contentSection) observer.unobserve(contentSection);
-      keyPoints.forEach((point) => {
-        if (point) observer.unobserve(point);
-      });
-    };
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -114,14 +90,7 @@ const Blogpage = () => {
   const filteredPosts = selectedCategories.length
     ? posts.filter((post) => selectedCategories.includes(post.category))
     : posts;
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="spinner"></div>
-        <p>Loading posts...</p>
-      </div>
-    );
-  }
+
 
   return (
     <>
@@ -343,7 +312,9 @@ const Blogpage = () => {
         </Modal>
       </Container>
     </>
+    
   );
+
 };
 
 export default Blogpage;

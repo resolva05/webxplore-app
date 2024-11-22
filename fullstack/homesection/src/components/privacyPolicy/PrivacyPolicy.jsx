@@ -4,7 +4,7 @@ import "./PrivacyPolicy.css";
 
 const PrivacyPolicy = () => {
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(top);
   }, []);
   return (
     <>
