@@ -4,11 +4,9 @@ import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import aws from '../../assets/aws.png'
-import azure from '../../assets/azure.png'
-import cloud from '../../assets/cloud.png'
-
-
+import aws from '../../assets/aws.png';
+import azure from '../../assets/azure.png';
+import cloud from '../../assets/cloud.png';
 
 const openInsta = () => {
   window.open("https://www.instagram.com/webxplore_studio?igsh=MTR3MmpmNHNqYnF2Nw==");
@@ -63,143 +61,139 @@ function Footer() {
 
   return (
     <>
-      
-
-      {/* FooterContainer */}
       <FooterContainer>
-        {/* Web Development Partners Section */}
-      <PartnerSection>
-        <h3>Our Web Development Partners</h3>
-        <div className="partners">
-          <div className="partner">
-            <img src={aws} alt="AWS" />
-            <p>AWS</p>
-          </div>
-          <div className="partner">
-            <img src={azure} alt="Microsoft Azure" />
-            <p>Microsoft Azure</p>
-          </div>
-          <div className="partner">
-            <img src={cloud} alt="Google Cloud" />
-            <p>Google Cloud</p>
-          </div>
-        </div>
-      </PartnerSection>
         <div className="footer-content">
-          {/* Logo Section */}
-          <div className="footer-logo">
-            <img src={logo} alt="Logo" style={{ height: "24vh" }} />
+          <div className="footer-logo-webdev">
+            <div className="footer-logo">
+              <img src={logo} alt="Logo" />
+            </div>
+              <h3>Our Web Development Partners</h3>
+            <PartnerSection>
+              <div className="partners">
+                <div className="partner">
+                  <img src={aws} alt="AWS" />
+                </div>
+                <div className="partner">
+                  <img src={azure} alt="Microsoft Azure" />
+                </div>
+                <div className="partner">
+                  <img src={cloud} alt="Google Cloud" />
+                </div>
+              </div>
+            </PartnerSection>
           </div>
 
-          {/* About Section */}
-          <div className="footer-section">
-            <h4>About</h4>
-            <ul>
-              <li>
-                <NavLink to="/contact">Contact Us</NavLink>
-              </li>
-              <li>
-                <NavLink to="/aboutus">About Us</NavLink>
-              </li>
-              <li>
-                <NavLink to="/">Careers</NavLink>
-              </li>
-              <li>
-                <NavLink to="/">Press</NavLink>
-              </li>
-            </ul>
-          </div>
+          {/* Footer Sections in a Single Line */}
+          <div className="footer-sections">
+            <div className="footer-section">
+              <h4>About</h4>
+              <ul>
+                <li>
+                  <NavLink to="/contact">Contact Us</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/aboutus">About Us</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Careers</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Press</NavLink>
+                </li>
+              </ul>
+            </div>
 
-          {/* Information Section */}
-          <div className="footer-section">
-            <h4>Information</h4>
-            <ul>
-              <li>
-                <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
-              </li>
-              <li>
-                <NavLink to="/privacypolicy">Privacy Policy</NavLink>
-              </li>
-              <li>
-                <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
-              </li>
-              <li>
-                <NavLink to="/sitemap">Sitemap</NavLink>
-              </li>
-            </ul>
-          </div>
+            <div className="footer-section">
+              <h4>Information</h4>
+              <ul>
+                <li>
+                  <NavLink to="/termsandcondtion">Terms & Conditions</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/privacypolicy">Privacy Policy</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/cookiespolicy">Cookies Policy</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/sitemap">Sitemap</NavLink>
+                </li>
+              </ul>
+            </div>
 
-          {/* Services Section */}
-          <div className="footer-section">
-            <h4>Services</h4>
-            <ul>
-              <li>
-                <NavLink to="/webdevelopment/service/subservice1">Web Development</NavLink>
-              </li>
-              <li>
-                <NavLink to="/mobiledevelopment/service/subservice2">Mobile Development</NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/SEO">SEO</NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/PaymentGatewayIntegration">Payment Gateway</NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/AI_Integration_Services">AI Integration</NavLink>
-              </li>
-              <li>
-                <NavLink to="/services/SocialMediaMarketing">Social Media</NavLink>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>Socials</h4>
-            <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
-              <li style={{ marginRight: "10px" }}>
-                <NavLink to="/">
-                  <i className="fa-brands fa-facebook"></i>
-                </NavLink>
-              </li>
-              <li style={{ marginRight: "10px" }}>
-                <NavLink onClick={openInsta}>
-                  <i className="fa-brands fa-instagram"></i>
-                </NavLink>
-              </li>
-              <li style={{ marginRight: "10px" }}>
-                <NavLink onClick={openLinkedin}>
-                  <i className="fa-brands fa-linkedin"></i>
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>FAQs</h4>
-            <ul className="list-unstyled">
-              <li>
-                <NavLink to="/faq">
-                  <i className="fa-solid fa-circle-question"></i>
-                </NavLink>
-              </li>
-            </ul>
-          </div>
+            <div className="footer-section">
+              <h4>Services</h4>
+              <ul>
+                <li>
+                <NavLink to="/webdevelopment"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Web Development</NavLink>
+                </li>
+                <li>
+                <NavLink to="/mobiledevelopment"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Mobile Development</NavLink>
+                </li>
+                <li>
+                <NavLink to="/service/SEO" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>SEO</NavLink>
+                </li>
+                <li>
+                <NavLink to="/service/PaymentGatewayIntegration"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Payment Gateway</NavLink>
+                </li>
+                <li>
+                <NavLink to="/service/AI_Integration_Services"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>AI Integration</NavLink>
+                </li>
+                <li>
+                <NavLink to="/service/SocialMediaMarketing"onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Social Media</NavLink>
+                </li>
+              </ul>
+            </div>
 
-          <div>
-            <h4>Newsletter</h4>
-            <p>Stay updated with our latest news and offerings.</p>
-            <NewsletterForm onSubmit={handleNewsletterSubmit}>
-              <NewsletterInput
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <NewsletterButton type="submit" className="send">
-                Send
-              </NewsletterButton>
-            </NewsletterForm>
-            {message && <p>{message}</p>}
+            <div className="footer-section">
+              <h4>Socials</h4>
+              <ul className="list-unstyled d-flex justify-content-center justify-content-md-start">
+                <li style={{ marginRight: "10px" }}>
+                  <NavLink to="/">
+                    <i className="fa-brands fa-facebook"></i>
+                  </NavLink>
+                </li>
+                <li style={{ marginRight: "10px" }}>
+                  <NavLink onClick={openInsta}>
+                    <i className="fa-brands fa-instagram"></i>
+                  </NavLink>
+                </li>
+                <li style={{ marginRight: "10px" }}>
+                  <NavLink onClick={openLinkedin}>
+                    <i className="fa-brands fa-linkedin"></i>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+
+            <div className="footer-section">
+              <h4>FAQs</h4>
+              <ul className="list-unstyled">
+                <li>
+                  <NavLink to="/faq">
+                    <i className="fa-solid fa-circle-question"></i>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Newsletter</h4>
+              <p>Stay updated with our latest news and offerings.</p>
+              <NewsletterForm onSubmit={handleNewsletterSubmit}>
+                <NewsletterInput
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <NewsletterButton type="submit" className="send">
+                  Send
+                </NewsletterButton>
+              </NewsletterForm>
+              {message && <p>{message}</p>}
+            </div>
           </div>
         </div>
 
@@ -213,7 +207,6 @@ function Footer() {
 }
 
 export default Footer;
-
 const FooterContainer = styled.footer`
   background: black;
   color: white;
@@ -221,24 +214,43 @@ const FooterContainer = styled.footer`
 
   .footer-content {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
     gap: 2rem;
+    margin: 0 10vw; /* Equal margins on both sides */
+
+    .footer-logo-webdev {
+      display: flex;
+      justify-content: flex-start; /* Align logo and partners to the left */
+      align-items: center;
+      width: 100%;
+      margin-bottom: 2rem;
+      gap: 2rem; /* Space between logo and partners */
+      flex-wrap: wrap; /* Allow wrapping of items on smaller screens */
+    }
 
     .footer-logo {
       flex: 1;
-      text-align: center;
+      text-align: left;
+      margin-right: 2rem;
 
       img {
-        height: 100px;
-        border-radius: 15px;
+        height: 32vh; /* Adjust logo size */
+        margin-right: 2rem;
       }
+    }
+
+    .footer-sections {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      width: 100%;
     }
 
     .footer-section {
       flex: 1;
       min-width: 150px;
+      margin-bottom: 1rem; /* Add margin for smaller screens */
 
       h4 {
         font-size: 1.2rem;
@@ -262,20 +274,6 @@ const FooterContainer = styled.footer`
           }
         }
       }
-
-      .social-icons {
-        display: flex;
-        gap: 1rem;
-
-        i {
-          font-size: 1.5rem;
-          cursor: pointer;
-
-          &:hover {
-            color: grey;
-          }
-        }
-      }
     }
   }
 
@@ -285,9 +283,27 @@ const FooterContainer = styled.footer`
     font-size: 0.9rem;
     border-top: 1px solid grey;
     padding-top: 1rem;
+    margin-bottom: -20px
   }
 
-  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .footer-content {
+      margin: 0 5vw; /* Reduce side margin for smaller screens */
+    }
+
+    .footer-logo-webdev {
+      gap: 1rem; /* Reduce gap between logo and partners */
+    }
+
+    .footer-logo img {
+      height: 20vh; /* Decrease logo size on medium screens */
+    }
+
+    .footer-sections {
+      gap: 1rem; /* Reduce gap between sections */
+    }
+  }
+
   @media (max-width: 768px) {
     .footer-content {
       flex-direction: column;
@@ -295,15 +311,51 @@ const FooterContainer = styled.footer`
     }
 
     .footer-logo img {
-      height: 80px;
+      height: 8vh; /* Decrease logo size for smaller devices */
+    }
+
+    .footer-sections {
+      flex-direction: column;
+      align-items: center;
     }
 
     .footer-section {
-      text-align: center;
+      text-align: center; /* Center-align section content */
+      min-width: 100%; /* Make sections take full width */
     }
-      .send{
-        width:5rem
-      }
+
+    .footer-logo-webdev {
+      flex-direction: column; /* Stack logo and partners vertically */
+      gap: 1rem; /* Add space between logo and partners */
+    }
+
+    .partner-section {
+      margin-left: 0; /* Remove margin-left for smaller screens */
+      margin-top: 1rem; /* Add top margin */
+    }
+
+    .send {
+      width: 100%; /* Make the newsletter input take full width */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-logo img {
+      height: 6vh; /* Even smaller logo size */
+    }
+
+    .footer-sections {
+      gap: 0.5rem; /* Further reduce gap for small screens */
+    }
+
+    .footer-section {
+      text-align: center; /* Ensure content is centered */
+      min-width: 100%;
+    }
+
+    .footer-bottom {
+      font-size: 0.8rem; /* Smaller font size for footer text */
+    }
   }
 `;
 
@@ -314,36 +366,32 @@ const PartnerSection = styled.section`
   h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    @media (max-width: 768px) {
+      font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
   }
 
   .partners {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    align-items: center;
-
-    .partner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      img {
-        width: 100px; /* Adjust size as needed */
-        margin-bottom: 0.5rem;
-      }
-
-      p {
-        font-weight: bold;
-        color: #333;
-      }
-    }
+    flex-wrap: wrap; /* Allow wrapping of partners */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%; /* Prevent overflow */
+    padding: 0;
   }
 
-  @media (max-width: 768px) {
-    .partners {
-      flex-direction: column;
-      gap: 1rem;
+  .partner {
+    width: 100px; /* Fixed width for partners */
+    height: 100px; /* Fixed height for partners */
+    max-width: 100%; /* Prevent overflow */
+    margin: 1rem; /* Add margin around partner images */
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Prevent distortion of the image */
     }
   }
 `;
-

@@ -84,13 +84,13 @@ const Header = () => {
                 {dropdownVisible && (
                   <div className="dropdown-menu animated-dropdown">
                     <NavLink
-                      to="/service/subservice1"
+                      to="/service/webdevelopment"
                       className="dropdown-item"
                     >
                       Web Development
                     </NavLink>
                     <NavLink
-                      to="/service/subservice2"
+                      to="/service/mobiledevelopment"
                       className="dropdown-item"
                     >
                       Mobile Development
@@ -98,23 +98,23 @@ const Header = () => {
                     <div className="dropdown-item dropdown-submenu">
                       <span>Other Services</span>
                       <div className="submenu">
-                        <NavLink to="/services/SEO" className="submenu-item">
+                        <NavLink to="/service/SEO" className="submenu-item">
                           SEO
                         </NavLink>
                         <NavLink
-                          to="/services/PaymentGatewayIntegration"
+                          to="/service/PaymentGatewayIntegration"
                           className="submenu-item"
                         >
                           Payment Gateway Integration
                         </NavLink>
                         <NavLink
-                          to="/services/AI_Integration_Services"
+                          to="/service/AI_Integration_Services"
                           className="submenu-item"
                         >
                           AI Integration Services
                         </NavLink>
                         <NavLink
-                          to="/services/SocialMediaMarketing"
+                          to="/service/SocialMediaMarketing"
                           className="submenu-item"
                         >
                           Social Media Marketing Services

@@ -49,7 +49,7 @@ const Service = () => {
                     high-performance, scalable, and visually appealing websites
                     that boost user engagement and drive business growth.
                   </Card.Text>
-                  <NavLink to={"./subservice1"}>
+                  <NavLink to={"./webdevelopment"}>
                     <button className="w-100 mt-auto btncard">Read</button>
                   </NavLink>
                 </Card.Body>
@@ -70,7 +70,7 @@ const Service = () => {
                     designed to enhance user engagement and drive business
                     growth.
                   </Card.Text>
-                  <NavLink to={"./subservice2"}>
+                  <NavLink to={"./mobiledevelopment"}>
                     <button className="w-100 mt-auto btncard">Read</button>
                   </NavLink>
                 </Card.Body>
@@ -89,7 +89,7 @@ const Service = () => {
                   <Card.Text>
                   Our expertise ensures seamless functionality and growth for your digital platforms. 
                   </Card.Text>
-                  <NavLink to={"./subservice3"}>
+                  <NavLink to={"./otherservices"}>
                     <button className="w-100 mt-auto btncard">Read</button>
                   </NavLink>
                 </Card.Body>
