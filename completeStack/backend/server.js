@@ -170,20 +170,37 @@ app.get('/getUsers/:title', async (req, res) => {
 
 
 
-app.get("/portfolio/:postId", async (req, res) => {
-  const { postId } = req.params;
+// app.get("/portfolio/:postId", async (req, res) => {
+//   const { postId } = req.params;
+
+//   try {
+//     const post = await D.findById(postId); 
+//     if (!post) {
+//       return res.status(404).json({ message: "Post not found" });
+//     }
+//     res.json(post);
+//   } catch (error) {
+//     console.error("Error fetching post:", error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
+
+// Fetch a project by title
+app.get('/portfolio/title/:title', async (req, res) => {
+  const { title } = req.params;
 
   try {
-    const post = await D.findById(postId); // Find the post by its MongoDB _id
-    if (!post) {
-      return res.status(404).json({ message: "Post not found" });
+    const project = await D.findOne({ title });
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
     }
-    res.json(post);
+    res.json(project);
   } catch (error) {
-    console.error("Error fetching post:", error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Error fetching project by title", error });
   }
 });
+
 
 // contact routes
 app.get('/getContactFormData', async (req, res) => {
@@ -286,6 +303,77 @@ app.post('/submitForm', async (req, res) => {
   } catch (error) {
     console.error('Error saving popup data:', error);
     res.status(500).json({ message: 'Error saving popup data' });
+  }
+});
+
+app.post('/homecontact', async (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
+
+  if (!firstName || !lastName || !email || !phone || !message) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  const newHomeContactData = new Contact({
+    firstName,
+    lastName,
+    email,
+    phone,
+    message,
+    formType: 'homecontact', // Set formType to 'homecontact'
+  });
+
+  try {
+    await newHomeContactData.save();
+    res.status(201).json({ message: 'Home contact form submitted successfully!' });
+  } catch (error) {
+    console.error('Error saving home contact data:', error);
+    res.status(500).json({ message: 'Error saving home contact data' });
+  }
+});
+
+// Fetch all homecontact form data
+app.get('/getHomeContactData', async (req, res) => {
+  try {
+    const homeContactData = await Contact.find({ formType: 'homecontact' });
+    res.json(homeContactData);
+  } catch (error) {
+    console.error('Error fetching home contact data:', error);
+    res.status(500).json({ message: 'Error fetching home contact data' });
+  }
+});
+
+app.post("/submitBlogContact", async (req, res) => {
+  const { firstName, lastName, phoneNumber, email, message } = req.body;
+
+  if (!firstName || !lastName || !phoneNumber || !email || !message) {
+    return res.status(400).json({ message: "All fields are required." });
+  }
+
+  try {
+    const newContact = new Contact({
+      firstName,
+      lastName,
+      phone: phoneNumber,
+      email,
+      message,
+      formType: "blogcontact",
+    });
+
+    await newContact.save();
+    res.status(200).json({ message: "Form submitted successfully!" });
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    res.status(500).json({ message: "Error saving form data." });
+  }
+});
+
+app.get('/getBlogContactData', async (req, res) => {
+  try {
+    const blogContactData = await Contact.find({ formType: 'blogcontact' });
+    res.json(blogContactData);
+  } catch (error) {
+    console.error('Error fetching home contact data:', error);
+    res.status(500).json({ message: 'Error fetching home contact data' });
   }
 });
 

@@ -147,7 +147,7 @@ const Cards = () => {
                     }`}
                   >
                     <Card.Title className="cardtitle text-center">
-                      Cross-Playform Development
+                      Cross-Platform Development
                     </Card.Title>
                     <Card.Text className="card-text">
                       • Frameworks: Build versatile apps using leading

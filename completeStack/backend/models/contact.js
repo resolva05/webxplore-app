@@ -1,3 +1,4 @@
+// models/Contact.js
 const mongoose = require("mongoose");
 
 const contactSchema = new mongoose.Schema(
@@ -11,11 +12,10 @@ const contactSchema = new mongoose.Schema(
     formType: {
       type: String,
       required: true,
-      enum: ['contact', 'popup', 'caseStudy', 'newsletter'], // Added 'newsletter'
+      enum: ["contact", "popup", "caseStudy", "newsletter", "homecontact", "blogcontact"], // added blogcontact
     },
   },
   { timestamps: true }
 );
 
-const Contact = mongoose.model("ContactData", contactSchema); // 'ContactData' collection
-module.exports = Contact;
+module.exports = mongoose.model("ContactData", contactSchema);

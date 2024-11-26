@@ -21,18 +21,18 @@ mongoose.connection.on('error', (error) => {
 // Search endpoint
 router.get('/search', async (req, res) => {
   const { query } = req.query;
-  
+
   if (!query) {
     return res.status(400).json({ error: "Query parameter is missing" });
   }
 
   try {
     const blogResults = await Blog.find({
-      title: { $regex: query, $options: 'i' }
+      title: { $regex: query, $options: 'i' } // Case-insensitive title search
     }).select('title _id').lean();
 
     const projectResults = await Project.find({
-      title: { $regex: query, $options: 'i' }
+      title: { $regex: query, $options: 'i' } // Case-insensitive title search
     }).select('title _id').lean();
 
     const results = [
@@ -43,6 +43,34 @@ router.get('/search', async (req, res) => {
     res.json(results);
   } catch (error) {
     console.error("Error fetching search results:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Route for blog page (based on title)
+router.get('/blog/:title', async (req, res) => {
+  try {
+    const blog = await Blog.findOne({ title: req.params.title });
+    if (!blog) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+    res.json(blog); // Return the blog details
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Route for project page (based on title)
+router.get('/project/:title', async (req, res) => {
+  try {
+    const project = await Project.findOne({ title: req.params.title });
+    if (!project) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+    res.json(project); // Return the project details
+  } catch (error) {
+    console.error("Error fetching project:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });

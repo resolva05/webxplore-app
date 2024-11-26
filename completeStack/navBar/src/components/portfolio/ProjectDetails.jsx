@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import './ProjectDetails.css';
 
 const ProjectDetails = () => {
-  const { dataId } = useParams();
+  const { title } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
-    window.scrollTo(top);
+    window.scrollTo(0, 0);
 
     const fetchProject = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/portfolio/${dataId}`); // API URL with the project ID
+        const response = await fetch(`http://localhost:5000/portfolio/title/${title}`);
         const data = await response.json();
-        setProject(data); 
+        setProject(data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching project details:", error);
@@ -23,12 +23,12 @@ const ProjectDetails = () => {
     };
 
     fetchProject();
-  }, [dataId]);
+  }, [title]);
 
   if (loading) return <p>Loading...</p>;
 
   if (!project) {
-    return <div>Project not found.</div>; // Handle case when project isn't found
+    return <div>Project not found.</div>;
   }
 
   return (

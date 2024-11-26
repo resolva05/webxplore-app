@@ -15,7 +15,7 @@ const HeroSection = () => {
   return (
     <section className="hero-section">
       <video className="vid" src={vido} autoPlay loop muted />
-      <div className="bckgrdimg" />
+     
       <Container fluid>
         <Row className="justify-content-center align-items-center hero-content">
           <Col md={8} className="text-center">

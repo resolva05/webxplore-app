@@ -1,7 +1,7 @@
 // import React from 'react'
 import "./Services.css";
 import Carousel from "react-bootstrap/Carousel";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import customweb from "../../assets/customweb.png";
 import prototypeimg from "../../assets/prototype.png"
 import fullstackimg from "../../assets/fullstackimg.png"
@@ -12,12 +12,16 @@ import ba from "../../assets/ba.png"
 import { useInView } from "react-intersection-observer";
 import { Card, Button, Container, Row, Col, Image } from "react-bootstrap";
 
+
+
 const Services = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger animation only once
+    
     threshold: 0.2// Trigger when 20% of the card is visible
   });
   const carouselRef = useRef(null);
+  const [carouselIndex, setCarouselIndex] = useState(0); 
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -39,6 +43,16 @@ const Services = () => {
         observer.unobserve(carouselRef.current);
       }
     };
+  },
+  []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndex((prevIndex) => (prevIndex + 1) % 6); // Cycle through 6 carousel items
+    }, 5000); // Change every 5 seconds
+  
+    return () => {
+      clearInterval(interval); // Clear interval on cleanup
+    };
   }, []);
   return (
     <div className="carousel-container   " ref={carouselRef}>
@@ -48,7 +62,7 @@ const Services = () => {
       >
         Services Overview
       </div>
-      <Carousel id="myCarousel">
+      <Carousel id="myCarousel" activeIndex={carouselIndex} onSelect={setCarouselIndex}>
         <Carousel.Item>
           <Container fluid className="d-flex justify-content-center mt-5">
             <Row className="w-100">
