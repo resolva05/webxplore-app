@@ -1,12 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../src/components/footer/Footer';
-import Header from './components/header/Header';
+import {HeaderData} from './components/header/HeaderData.jsx';
 import { Outlet, useLocation } from 'react-router-dom';
 import BackToTop from './components/BackToTop';
 import PopUp from './components/popup/PopUp';
 import Cookies from './components/cookie/Cookie.jsx'
 import Chatbot from './components/chatbot/Chatbot.jsx'
 import React from 'react';
+import './index.css';
 
 function App() {
   const location = useLocation(); // Access the current location (route)
@@ -63,7 +64,7 @@ function App() {
   return (
     <>
     
-      <Header />
+      <HeaderData />
       <Outlet />
       <Cookies/>
       <Chatbot/>

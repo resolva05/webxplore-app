@@ -1,195 +1,91 @@
-import { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Form, FormControl } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../assets/logoimg.png";
-import SearchRecommendation from "../SearchRecommendations/SearchRecommendations.jsx";
-import "./Header.css";
+"use client";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [showSearchBox, setShowSearchBox] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isSticky, setIsSticky] = useState(false);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+const transition = {
+  type: "spring",
+  mass: 0.5,
+  damping: 11.5,
+  stiffness: 100,
+  restDelta: 0.001,
+  restSpeed: 0.001,
+};
 
-  const navigate = useNavigate();
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/home?query=${encodeURIComponent(searchQuery)}`);
-    }
-  };
-
-  const toggleSearchBox = () => {
-    setShowSearchBox((prevState) => !prevState);
-  };
-
-  const handleScroll = () => {
-    setIsSticky(window.scrollY > 50);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export const Header = ({ setActive, active, item, children }) => {
   return (
-    <div className={`head ${isSticky ? "sticky" : ""}`}>
-      <Navbar
-        expand="lg"
-        className={`sticky-top ${isSticky ? "is-sticky" : ""}`}
-        style={{ backgroundColor: "white" }}
+    <div onMouseEnter={() => setActive(item)} className="relative mr-3">
+      <motion.p
+        transition={{ duration: 1.3 }}
+        className="cursor-pointer text-white hover:opacity-[0.9] dark:text-white"
       >
-        <Container>
-          <img src={logo} alt="logo" className="logoheader" />
-          <NavLink
-            to="/home"
-            className="maintext"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            WebXplore Studio
-          </NavLink>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Nav className="ms-auto d-flex align-items-center">
-              <NavLink
-                to="/home"
-                className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        {item}
+      </motion.p>
+      {active !== null && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={transition}
+        >
+          {active === item && (
+            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
+              <motion.div
+                transition={transition}
+                layoutId="active"
+                className="bg-black dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
               >
-                Home
-              </NavLink>
-              <div className="nav-link service-dropdown">
-                <NavLink
-                  to="/service"
-                  className="service-link"
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                >
-                  Services
-                </NavLink>
-                <FontAwesomeIcon
-                  icon={faCaretDown}
-                  className="dropdown-icon"
-                  onClick={() => setDropdownVisible((prev) => !prev)}
-                />
-                {dropdownVisible && (
-                  <div className="dropdown-menu animated-dropdown">
-                    <NavLink
-                      to="/service/webdevelopment"
-                      className="dropdown-item"
-                    >
-                      Web Development
-                    </NavLink>
-                    <NavLink
-                      to="/service/mobiledevelopment"
-                      className="dropdown-item"
-                    >
-                      Mobile Development
-                    </NavLink>
-                    <div className="dropdown-item dropdown-submenu">
-                      <span>Other Services</span>
-                      <div className="submenu">
-                        <NavLink to="/service/SEO" className="submenu-item">
-                          SEO
-                        </NavLink>
-                        <NavLink
-                          to="/service/PaymentGatewayIntegration"
-                          className="submenu-item"
-                        >
-                          Payment Gateway Integration
-                        </NavLink>
-                        <NavLink
-                          to="/service/AI_Integration_Services"
-                          className="submenu-item"
-                        >
-                          AI Integration Services
-                        </NavLink>
-                        <NavLink
-                          to="/service/SocialMediaMarketing"
-                          className="submenu-item"
-                        >
-                          Social Media Marketing Services
-                        </NavLink>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <NavLink
-                to="/portfolio"
-                className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Portfolio
-              </NavLink>
-              <NavLink
-                to="/casestudy"
-                className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Case Study
-              </NavLink>
-              <NavLink
-                to="/pricing"
-                className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Pricing
-              </NavLink>
-              <NavLink
-                to="/contact"
-                className="nav-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Contact Us
-              </NavLink>
-              <FontAwesomeIcon
-                icon={faSearch}
-                size="lg"
-                onClick={toggleSearchBox}
-                className="search-icon"
-                aria-label="Search"
-              />
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-      {showSearchBox && (
-        <header className="header">
-          <div className="header-container">
-            <form onSubmit={handleSearchSubmit} className="search-form">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                placeholder="Search for blogs or projects..."
-                className="search-input"
-              />
-              <button type="submit" className="search-button">
-                Search
-              </button>
-            </form>
-            {searchQuery && (
-              <SearchRecommendation
-                query={searchQuery}
-                closeSearchBar={() => setShowSearchBox(false)}
-              />
-            )}
-          </div>
-        </header>
+                <motion.div layout className="w-max h-full p-4">
+                  {children}
+                </motion.div>
+              </motion.div>
+            </div>
+          )}
+        </motion.div>
       )}
     </div>
   );
 };
 
-export default Header;
+export const Menu = ({ setActive, children, visible }) => {
+  return (
+    <nav
+      onMouseLeave={() => setActive(null)}
+      className={`relative dark:bg-black dark:border-white/[0.2] shadow-input flex justify-center space-x-4 px-8 py-6 transition-all duration-300 ease-in-out ${
+        visible ? "top-0" : "-top-full"
+      }`}
+    >
+      {children}
+    </nav>
+  );
+};
+
+export const ProductItem = ({ title, description, src, to }) => {
+  return (
+    <Link to={to} className="flex space-x-2" style={{ textDecoration: "none" }}>
+      <img
+        src={src}
+        width={140}
+        height={70}
+        alt={title}
+        className="flex-shrink-0 rounded-md shadow-2xl"
+      />
+      <div>
+        <h4 className="text-xl font-bold mb-1 text-white dark:text-white">{title}</h4>
+        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+          {description}
+        </p>
+      </div>
+    </Link>
+  );
+};
+
+export const HoveredLink = ({ children, ...rest }) => {
+  return (
+    <Link
+      {...rest}
+      className="text-neutral-700 dark:text-neutral-200 hover:text-white"
+      style={{ textDecoration: "none" }}
+    >
+      {children}
+    </Link>
+  );
+};

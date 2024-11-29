@@ -1,107 +1,8 @@
-/* Global Styles */
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    padding: 20px;
-  } */
-  
-  /* Custom Card Styles */
-  .custom-card {
-    width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 98%; /* Let the card adjust to content */
-  }
-  
-.custom-cards{
-  width: 100%;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 98%; /* Let the card adjust to content */
-}
-
-.mobcs{
-  height: 50vh;
-  /* max-height: 800px; */
-  object-fit:cover; /* Ensures the image scales properly */
-}
-
-  /* Image Styling */
-  .custom-card img {
-    height: 35vh;
-    /* max-height: 300px; */
-    object-fit: fill; /* Ensures the image scales properly */
-  }
-  
-  /* Hover effect for Card */
-  .custom-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Card Body Flexibility */
-  .custom-card .card-body {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
-  /* Card Text Flexibility */
-  .custom-card .card-text {
-    flex-grow: 1;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    color: #333;
-  }
-  
-  /* Button styling */
-  .custom-card .btn {
-    margin-top: auto;
-    border-radius: 8px;
-    background-color: #343a40;
-    border: none;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .custom-card .btn:hover {
-    background-color: #212529;
-  }
-  
-  /* Responsive Breakpoints */
-  @media (max-width: 767px) {
-    .custom-card {
-      height: auto; /* Auto height for smaller devices */
-    }
-  
-    .custom-card .card-text {
-      font-size: 0.9rem;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .custom-card .card-body {
-      padding: 25px;
-    }
-  }
-  
-  .abc{
-    background-color: black;
-  }
-  /* Keyframes for smooth appearance */
+/* Fade-in Animation */
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
@@ -109,54 +10,146 @@
   }
 }
 
-.animate-title {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+/* Fade-in Delay for Title */
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.animate-title.show {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes fadeInDelay2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.animate-description p {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+/* Tailwind Custom Animation Classes */
+.animate-fade-in-delay {
+  animation: fadeIn 2.5s ease-out forwards;
 }
 
-.animate-description p.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.imgservice{
-  top: 0; /* Cover the top */
-    left: 0; /* Cover the left */
-    right: 0; /* Cover the right */
-    bottom: 0; /* Cover the bottom */
-    background-image: url('../../assets/serviceimgmain.png'); /* Ensure the correct path to your image */
-    background-size: cover; /* Ensure the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    opacity: 0; /* Initially hidden */
-    animation: fadeIn 1.5s forwards; /* Fade in animation */
+.animate-fade-in-delay2 {
+  animation: fadeInDelay 3.5s 0.5s ease-out forwards;
 }
 
-.btncard{
-  background-color: black;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 40px;
-    border: 2px solid white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+
+.text-white {
+  color: white !important;
 }
 
-.btncard:hover {
-  background-color: white;
-  color: black;
-  transform: translateY(-5px); /* Add a hover lift effect */
-  border: 2px solid black;
+.text-neutral-300 {
+  color: #d1d1d1 !important;
+}
+
+/* Ensure text does not overflow and wraps correctly */
+@media (max-width: 640px) {
+  .max-w-3xl {
+    max-width: 90%; /* Allow more width on smaller screens */
+  }
+  .text-neutral-300 {
+    font-size: 1rem; /* Smaller text on mobile */
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .max-w-3xl {
+    max-width: 80%; /* Medium screens (tablet) */
+  }
+}
+
+@media (min-width: 1024px) {
+  .max-w-3xl {
+    max-width: 80%; /* Larger screens (desktop) */
+  }
+}
+
+
+
+/* Main Section Styling */
+.service-section {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+/* Styling for the section title */
+.service-title {
+  padding: 40px;
+  background-color: #0B0B0F;
+  color: white;
+  text-align: center;
+}
+
+/* Card Styling */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  background-color: #2C2C2E;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0;
+}
+
+/* Image inside card (background) */
+.service-card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5; /* Make image slightly transparent */
+}
+
+/* Card content (text) */
+.service-card div {
+  position: relative;
+  z-index: 10;
+  padding: 40px;
+  color: white;
+}
+
+/* Card Hover Effects */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styling */
+.service-card button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.service-card button:hover {
+  background-color: #2980b9;
+}
+
+/* Ensure cards take full width on mobile screens */
+@media (max-width: 768px) {
+  .service-card {
+    max-width: 100%;
+  }
+}
+
+/* No gaps between sections */
+.service-section {
+  padding: 0;
 }

@@ -3,9 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Service from './components/service/Service.jsx'
 import Home from './components/home/Home.jsx'
-import Portfolio from './components/portfolio/Portfolio.jsx'
 import Contactus from './components/contactus/Contactus.jsx'
 import Service1 from './components/service/subServices/Service1.jsx'
 import Service2 from './components/service/subServices/Service2.jsx'
@@ -14,16 +12,16 @@ import Blogpage from './components/blogpage/Blogpage.jsx'
 import Subblogpage from './components/blogpage/Subblogpage.jsx'
 import Faq from './components/faq/Faq.jsx'
 import AboutUs from './components/aboutus/AboutUs.jsx'
-import PopUp from './components/popup/PopUp.jsx'
 import Case from './components/caseStudy/Case.jsx'
 import Pricing from './components/pricingSection/Pricing.jsx'
 import TermsConditions from '../../navBar/src/components/tnc/TermsConditions.jsx'
 import CookiesPolicy from '../../navBar/src/components/cookiePolicy/CookiesPolicy.jsx'
 import PrivacyPolicy from '../../navBar/src/components/privacyPolicy/PrivacyPolicy.jsx'
 import ProjectDetails from '../../navBar/src/components/portfolio/ProjectDetails.jsx'
-import ServiceDetails from '../../navBar/src/components/service/subServices/ServiceDetails.jsx'
+import {ServiceDetailsData} from '../../navBar/src/components/service/subServices/ServiceDetailsData.jsx'
 import Sitemap from '../../navBar/src/components/sitemap/Sitemap.jsx'
-import OtherServicesCards from './components/service/subServices/OtherServicesCards.jsx'
+import { ServiceData } from './components/service/ServiceData.jsx'
+import { PortfolioData } from './components/portfolio/PortfolioData.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'service',
-        element: <Service />
+        element: <ServiceData />
       }
       ,
       {
@@ -41,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path:'portfolio',
-        element:<Portfolio/>
+        element:<PortfolioData/>
       },
       {
         path:'',
@@ -100,11 +98,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/service/:servicekey',
-        element:<ServiceDetails/>
+        element:<ServiceDetailsData/>
       },
       {
         path:'/aboutus/service',
-        element:<Service/>
+        element:<ServiceData/>
       },
       {
         path:"/faq/contact",
@@ -151,7 +149,7 @@ const router = createBrowserRouter([
       },
       {
         path:"service/:servicekey",
-        element:<ServiceDetails/>
+        element:<ServiceDetailsData/>
       },
       {
         path:"/faq",

@@ -43,38 +43,41 @@ const SearchRecommendation = ({ query, closeSearchBar }) => {
   const projectResults = results.filter(result => result.type === "project");
 
   return (
-    <div className="search-recommendations">
-      {loading && <div className="loader">Loading...</div>}
-      {results.length === 0 && !loading && query && <p>No results found</p>}
+    <div className="relative w-full max-w-2xl mx-auto z-50 mt-4 bg-white shadow-lg rounded-lg border border-gray-200">
+      {loading && <div className="loader text-center py-4 text-gray-500">Loading...</div>}
+      
+      {results.length === 0 && !loading && query && (
+        <div className="text-center py-4 text-gray-500">No results found</div>
+      )}
 
-      <div className="recommendation-container">
+      <div className="flex gap-8 p-6">
         {/* Left Section - Blogs */}
-        <div className="recommendation-column">
-          <h3>Our Blogs</h3>
-          <div className="recommendation-list">
+        <div className="w-1/2">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Our Blogs</h3>
+          <div className="space-y-2 max-h-96 overflow-y-auto">
             {blogResults.map(result => (
               <div
                 key={result._id}
                 onClick={() => handleSelect(result)}
-                className="recommendation-item blog-item"
+                className="cursor-pointer p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <p>{result.title}</p>
+                <p className="text-gray-700">{result.title}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Right Section - Projects */}
-        <div className="recommendation-column">
-          <h3>Our Projects</h3>
-          <div className="recommendation-list">
+        <div className="w-1/2">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">Our Projects</h3>
+          <div className="space-y-2 max-h-96 overflow-y-auto">
             {projectResults.map(result => (
               <div
                 key={result._id}
                 onClick={() => handleSelect(result)}
-                className="recommendation-item project-item"
+                className="cursor-pointer p-2 hover:bg-gray-100 rounded-lg transition-colors"
               >
-                <p>{result.title}</p>
+                <p className="text-gray-700">{result.title}</p>
               </div>
             ))}
           </div>

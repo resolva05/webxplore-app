@@ -4,7 +4,6 @@ import "./AboutUs.css";
 import { NavLink } from "react-router-dom";
 import aboutus from "../../assets/aboutus.png"
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
-
 import { FaStar, FaLightbulb, FaHandshake, FaUsers, FaLeaf, FaCode, FaMobileAlt, FaSearch, FaShareAlt, FaMoneyCheckAlt, FaRobot } from "react-icons/fa";
 
 const AboutUs = () => {
@@ -84,11 +83,6 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-
-
-
-
-
       {/* Content Section */}
       <div
         className="about-us-container container mt-5 p-4"
@@ -117,14 +111,12 @@ const AboutUs = () => {
               solutions, and exceptional service that empowers our clients to
               achieve their business goals and exceed expectations.
             </p>
-            <NavLink to={'./service'}>
+            <NavLink to={'./service'} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
               <button className="btn btn-primary about-btn">Discover More</button>
             </NavLink>
           </div>
         </div>
       </div>
-
-
 
       {/* Key Points Section */}
       <div className="key-points-section container mt-5 p-4" ref={keyPointsRef}>

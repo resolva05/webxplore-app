@@ -1,14 +1,13 @@
 import './Home.css';
-import Services from './Services';
-import Testimonials from './Testimonials';
 import { animated, useSpring } from 'react-spring';
 import { useState, useEffect } from 'react';
-import KeyFeatures from './KeyFeatures';
-import HeroSection from '../heroSection/HeroSection';
-import './Home.css'
+import {HeroSectionData} from '../heroSection/HeroSectionData'
 
 import Homefaq from './Homefaq';
 import Homecontact from './Homecontact';
+import { Testimonialdata } from './Testimonialdata';
+import { KeyFeaturesData } from './KeyFeaturesData';
+import { ServicesData } from './ServicesData';
 
 const Home = () => {
   useEffect(() => {
@@ -27,19 +26,22 @@ const Home = () => {
 
   return (
     <>
+      <ServicesData />
       <animated.div style={props}>
-        <HeroSection />
+        <HeroSectionData />
       </animated.div>
-      <Services />
+      <hr />
+      <br />
+      <br />
       <div>
-        <KeyFeatures />
+        <KeyFeaturesData />
       </div>
-
+<hr />
       <div>
-        <Testimonials />
+        <Testimonialdata />
       </div>
-      <Homecontact/>
-      <Homefaq/>
+      <Homecontact />
+      <Homefaq />
 
     </>
   );

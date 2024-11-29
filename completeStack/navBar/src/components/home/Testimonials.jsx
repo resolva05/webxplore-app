@@ -1,293 +1,191 @@
-// import { Carousel, Card } from "react-bootstrap";
-import "./Testimon.css";
-// import Card from "react-bootstrap/Card";
-import Carousel from "react-bootstrap/Carousel";
-import { useEffect, useRef } from "react";
-import icon1 from "../../assets/icons1.png";
-import icon2 from "../../assets/icons2.png";
+import PropTypes from "prop-types";
+import { motion, AnimatePresence } from "framer-motion";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 
-const Testimonials = () => {
-  const carouselRef = useRef(null);
+export const Testimonials = ({ testimonials, autoplay = false, text }) => {
+  const [active, setActive] = useState(0);
+
+  const handleNext = () => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const isActive = (index) => index === active;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          carouselRef.current.classList.add("visible");
-        } else {
-          carouselRef.current.classList.remove("visible");
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (carouselRef.current) {
-      observer.observe(carouselRef.current);
+    if (autoplay) {
+      const interval = setInterval(handleNext, 5000);
+      return () => clearInterval(interval);
     }
+  }, [autoplay]);
 
-    return () => {
-      if (carouselRef.current) {
-        observer.unobserve(carouselRef.current);
-      }
-    };
-  }, []);
+  const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
   return (
-    <>
-      <div className="carousel-container lastsection" ref={carouselRef}>
-        <div
-          className="text-center testmonheading"
-          style={{ fontFamily: "sans-serif" }}
+    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+      {/* Section title and description */}
+      <div className="text-center mb-10">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="text-5xl font-bold dark:text-white text-black"
         >
-          Clients testimonials
-        </div>
-        <Carousel id="myCarousel" data-bs-theme="dark">
-          <Carousel.Item>
-            <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
-              <div
-                className="rounded-full overflow-hidden mx-auto mt-2 shadow-lg"
-                style={{
-                  width: "150px", // fixed width
-                  height: "150px",
-                  borderRadius: "50%", // fixed height (same as width for perfect circle)
-                }}
-              >
-                <img
-                  src="https://cdn.pixabay.com/photo/2016/03/31/20/37/client-1295901_640.png"
-                  alt="Laptop Logo"
-                  className="w-full h-full shadow-lg "
-                  style={{ height: "100%" }}
-                />
-              </div>
-              <div className="p-4">
-                <div
-                  className="text-container mx-auto"
-                  style={{
-                    maxWidth: "85%",
-                    padding: "10px",
-                    borderRadius: "10px",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  <p
-                    className="mt-3 text-sm text-gray-600"
-                    style={{
-                      whiteSpace: "normal",
-                      wordWrap: "break-word",
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                      marginBottom: "20px",
-                      width: "85%",
-                    }}
-                  >
-                    <img
-                      src={icon1}
-                      alt=""
-                      style={{ marginBottom: "10px", marginRight: "5px" }}
-                    />
-                    Working with WebXplore Studio has been an absolute pleasure.
-                    Their team took the time to understand our business goals
-                    and delivered a website that exceeded our expectations. The
-                    design is clean, responsive, and user-friendly. We’ve seen a
-                    significant increase in traffic and engagement since the
-                    launch
-                    <img
-                      src={icon2}
-                      alt=""
-                      style={{ marginTop: "10px", marginLeft: "5px" }}
-                    />
-                  </p>
-                  <div style={{ marginTop: "10px" }}>
-                    - CEO, Resolva Insights Pvt Ltd
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
-              <div
-                className="rounded-full overflow-hidden mx-auto mt-2 shadow-lg"
-                style={{
-                  width: "150px", // fixed width
-                  height: "150px",
-                  borderRadius: "50%", // fixed height (same as width for perfect circle)
-                }}
-              >
-                <img
-                  src="https://cdn.pixabay.com/photo/2016/03/31/20/37/client-1295901_640.png"
-                  alt="Laptop Logo"
-                  className="w-full h-full shadow-lg"
-                  style={{ height: "100%" }}
-                />
-              </div>
-              <div className="p-4">
-                <div
-                  className="text-container mx-auto"
-                  style={{
-                    maxWidth: "90%",
-                    padding: "10px",
-                    borderRadius: "10px",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  <p
-                    className="mt-3 text-sm text-gray-600"
-                    style={{
-                      whiteSpace: "normal",
-                      wordWrap: "break-word",
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                      marginBottom: "20px",
-                      width: "85%",
-                    }}
-                  >
-                    <img
-                      src={icon1}
-                      alt=""
-                      style={{ marginBottom: "10px", marginRight: "5px" }}
-                    />
-                    WebXplore Studio helped us create an e-commerce site that
-                    truly represents our brand. Their team was professional and
-                    responsive, making the entire experience smooth and
-                    enjoyable. Our sales have increased significantly since
-                    launching the new site!
-                    <img
-                      src={icon2}
-                      alt=""
-                      style={{ marginTop: "10px", marginLeft: "5px" }}
-                    />
-                  </p>
-                  <div>- Owner of Fashion Boutique Brand</div>
-                </div>
-              </div>
-            </div>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
-              <div
-                className="rounded-full overflow-hidden mx-auto mt-2 shadow-lg"
-                style={{
-                  width: "150px", // fixed width
-                  height: "150px",
-                  borderRadius: "50%", // fixed height (same as width for perfect circle)
-                }}
-              >
-                <img
-                  src="https://cdn.pixabay.com/photo/2016/03/31/20/37/client-1295901_640.png"
-                  alt="Laptop Logo"
-                  className=" w-full h-full shadow-lg "
-                  style={{ height: "100%" }}
-                />
-              </div>
-              <div className="p-4">
-                <div
-                  className="text-container mx-auto"
-                  style={{
-                    maxWidth: "85%",
-                    padding: "10px",
-                    borderRadius: "10px",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  <p
-                    className="mt-3 text-sm text-gray-600"
-                    style={{
-                      whiteSpace: "normal",
-                      wordWrap: "break-word",
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                      marginBottom: "20px",
-                      width: "85%",
-                    }}
-                  >
-                    <img
-                      src={icon1}
-                      alt=""
-                      style={{ marginBottom: "10px", marginRight: "5px" }}
-                    />
-                    We approached WebXplore Studio for an SEO strategy to
-                    improve our online visibility. They conducted thorough
-                    research and implemented effective tactics that delivered
-                    immediate results. Our website's ranking has improved, and
-                    we're attracting more customers than ever!
-                    <img
-                      src={icon2}
-                      alt=""
-                      style={{ marginTop: "10px", marginLeft: "5px" }}
-                    />
-                  </p>
-                  <div>- Founder of Food and Beverages</div>
-                </div>
-              </div>
-            </div>
-          </Carousel.Item>
-
-          <Carousel.Item>
-            <div className="max-w-full w-[90%] md:w-[300px] rounded-md text-center border-0 mx-auto">
-              <div
-                className="rounded-full overflow-hidden mx-auto mt-2 shadow-lg"
-                style={{
-                  width: "150px", // fixed width
-                  height: "150px",
-                  borderRadius: "50%", // fixed height (same as width for perfect circle)
-                }}
-              >
-                <img
-                  src="https://cdn.pixabay.com/photo/2016/03/31/20/37/client-1295901_640.png"
-                  alt="Laptop Logo"
-                  className="w-full h-full shadow-lg "
-                  style={{ height: "100%" }}
-                />
-              </div>
-              <div className="p-4">
-                <div
-                  className="text-container mx-auto"
-                  style={{
-                    maxWidth: "85%",
-                    padding: "10px",
-                    borderRadius: "10px",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  <p
-                    className="mt-3 text-sm text-gray-600"
-                    style={{
-                      whiteSpace: "normal",
-                      wordWrap: "break-word",
-                      marginRight: "auto",
-                      marginLeft: "auto",
-                      marginBottom: "20px",
-                      width: "85%",
-                    }}
-                  >
-                    <img
-                      src={icon1}
-                      alt=""
-                      style={{ marginBottom: "10px", marginRight: "5px" }}
-                    />
-                    We needed a dynamic website for our travel agency, and
-                    WebXplore Studio delivered. They brought our ideas to life
-                    with stunning visuals and an intuitive layout. Our clients
-                    appreciate the ease of booking their adventures online, and
-                    we’ve seen a significant uptick in inquiries.
-                    <img
-                      src={icon2}
-                      alt=""
-                      style={{ marginTop: "10px", marginLeft: "5px" }}
-                    />
-                  </p>
-                  <div>- Managing Director of Travel Agency</div>
-                </div>
-              </div>
-            </div>
-          </Carousel.Item>
-        </Carousel>
+          {text?.title || "Clients Testimonials"}
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity:1 }}
+          transition={{ duration: 10.8 }}
+          className="text-lg mt-4 dark:text-neutral-500 text-gray-600"
+        >
+          {text?.description || `At WebXplore Studio, we pride ourselves on delivering exceptional results that exceed our client's expectations. Here's what they have to say about our services.
+`}
+        </motion.p>
       </div>
-    </>
+
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div>
+          <div className="relative h-80 w-full">
+            <AnimatePresence>
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.src}
+                  initial={{
+                    opacity: 0,
+                    scale: 0.9,
+                    z: -100,
+                    rotate: randomRotateY(),
+                  }}
+                  animate={{
+                    opacity: isActive(index) ? 1 : 0.7,
+                    scale: isActive(index) ? 1 : 0.95,
+                    z: isActive(index) ? 0 : -100,
+                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    zIndex: isActive(index)
+                      ? 999
+                      : testimonials.length + 2 - index,
+                    y: isActive(index) ? [0, -80, 0] : 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.9,
+                    z: 100,
+                    rotate: randomRotateY(),
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute inset-0 origin-bottom"
+                >
+                  <img
+                    src={testimonial.src}
+                    alt={testimonial.name}
+                    className="h-full w-full rounded-3xl object-cover object-center"
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+        <div className="flex justify-between flex-col py-4">
+          <motion.div
+            key={active}
+            initial={{
+              y: 20,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            exit={{
+              y: -20,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "easeInOut",
+            }}
+          >
+            <h3 className="text-2xl font-bold dark:text-white text-black">
+              {testimonials[active].name}
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-neutral-500">
+              {testimonials[active].designation}
+            </p>
+            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
+              {testimonials[active].quote.split(" ").map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                    y: 5,
+                  }}
+                  animate={{
+                    filter: "blur(0px)",
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeInOut",
+                    delay: 0.02 * index,
+                  }}
+                  className="inline-block"
+                >
+                  {word}&nbsp;
+                </motion.span>
+              ))}
+            </motion.p>
+          </motion.div>
+          <div className="flex gap-4 pt-12 md:pt-0" style={{ marginTop: "20px" }}>
+            <button
+              onClick={handlePrev}
+              className="h-7 w-7 rounded-full bg-gray-100 flex items-center justify-center group/button"
+            >
+              <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="h-7 w-7 rounded-full bg-gray-100 flex items-center justify-center group/button"
+            >
+              <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Testimonials;
+Testimonials.propTypes = {
+  testimonials: PropTypes.arrayOf(
+    PropTypes.shape({
+      quote: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      designation: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  autoplay: PropTypes.bool,
+  text: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
+};
+
+Testimonials.defaultProps = {
+  autoplay: false,
+  text: {
+    title: "Clients Testimonials",
+    description: `At WebXplore Studio, we pride ourselves on delivering exceptional results that exceed our client's expectations. Here's what they have to say about our services.
+`
+  },
+};

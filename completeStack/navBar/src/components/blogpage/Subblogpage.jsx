@@ -1,228 +1,179 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import "./Subblogpage.css";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import subimg from "../../assets/subblog2.png";
 
 const Subblogpage = () => {
-  const { title } = useParams(); // Get slug from URL params
+  const { title } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    email: "",
-    message: "",
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: '',
+    message: '',
   });
 
   const [formErrors, setFormErrors] = useState({});
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState('');
 
-  // useEffect for fetching the post by slug
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/getUsers/${title}`); // Fetch post by slug
+    axios
+      .get(`http://localhost:5000/getUsers/${title}`)
+      .then((response) => {
         setPost(response.data);
-      } catch (err) {
-        console.error("Error fetching post:", err);
-        setError("Post not found!"); // Error message if post is not found
-      } finally {
         setLoading(false);
-      }
-    };
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, [title]);
 
-    fetchPost();
-  }, [title]); // Dependency array with slug
-
-  // Loading state
-  if (loading) {
-    return <p className="loading-text">Loading...</p>;
-  }
-
-  // Error or post not found
-  if (error || !post) {
-    return <p className="error-text">{error}</p>; // Show "Post not found!" if there's an error
-  }
-
-  // Split content into paragraphs
-  const contentParagraphs = post.content.split("\n");
-
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value.trim(), // Trim whitespace
-    }));
-  };
-
-  // Validate form data
   const validateForm = () => {
     const errors = {};
-
-    // First Name Validation
-    if (!formData.firstName) errors.firstName = "First name is required.";
-
-    // Last Name Validation
-    if (!formData.lastName) errors.lastName = "Last name is required.";
-
-    // Phone Number Validation (Basic international format check)
-    const phoneRegex = /^[0-9+\-\(\)\s]*$/; // Allow digits, spaces, +, -, and parentheses
-    if (!formData.phoneNumber) {
-      errors.phoneNumber = "Phone number is required.";
-    } else if (!phoneRegex.test(formData.phoneNumber)) {
-      errors.phoneNumber = "Invalid phone number.";
-    }
-
-    // Email Validation (Enhanced regex)
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!formData.firstName) errors.firstName = 'First name is required.';
+    if (!formData.lastName) errors.lastName = 'Last name is required.';
+    if (!formData.phoneNumber) errors.phoneNumber = 'Phone number is required.';
     if (!formData.email) {
-      errors.email = "Email is required.";
-    } else if (!emailRegex.test(formData.email)) {
-      errors.email = "Invalid email address.";
+      errors.email = 'Email is required.';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Invalid email address.';
     }
-
-    // Message Validation
-    if (!formData.message) errors.message = "Message is required.";
-
+    if (!formData.message) errors.message = 'Message is required.';
     return errors;
   };
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setFormErrors(validationErrors);
-    } else {
-      setFormErrors({}); // Reset errors
-      try {
-        // Send data to backend
-        const response = await axios.post("http://localhost:5000/submitBlogContact", formData);
-        setSubmitStatus({ type: "success", message: response.data.message });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-        // Reset the form after successful submission
-        setFormData({
-          firstName: "",
-          lastName: "",
-          phoneNumber: "",
-          email: "",
-          message: "",
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateForm();
+    if (Object.keys(errors).length === 0) {
+      axios
+        .post('http://localhost:5000/submitBlogContact', formData)
+        .then(() => {
+          setSubmitStatus('Form submitted successfully.');
+          setFormData({
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            email: '',
+            message: '',
+          });
+        })
+        .catch(() => {
+          setSubmitStatus('Error submitting form.');
         });
-      } catch (error) {
-        setSubmitStatus({ type: "error", message: "Failed to submit form. Please try again." });
-      }
+    } else {
+      setFormErrors(errors);
     }
   };
 
-  return (
-    <>
-      <div className="subblogpage-container">
-        <div className="post-card">
-          <div className="title-image-container">
-            <h1 className="post-title">{post.title}</h1>
-            <img src={subimg} alt="" className="subimg" />
-          </div>
-          <p className="post-description">{post.description}</p>
-          <p className="post-date">Published on: {post.date}</p>
+  if (loading) return <div className="text-white text-center text-2xl">Loading...</div>;
+  if (error) return <div className="text-white text-center text-2xl">Error loading post.</div>;
 
-          <div className="post-content">
-            {contentParagraphs.map((paragraph, index) => (
-              <p
-                key={index}
-                className="post-paragraph"
-                dangerouslySetInnerHTML={{
-                  __html: paragraph.replace(/\n/g, "<br />"), // Ensure new lines are rendered correctly
-                }}
-              />
-            ))}
-          </div>
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-black p-6 sm:p-4">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-[1200px] p-8 sm:p-6 text-gray-800 animate-fadeIn">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-3">
+          <img
+            src={subimg}
+            alt={post.title}
+            className="w-full sm:w-1/3 max-h-96 object-cover rounded-lg"
+          />
+          <h1 className="flex-1 text-4xl font-bold text-left sm:text-2xl sm:leading-snug">
+            {post.title}
+          </h1>
+        </div>
+        <p className="text-lg font-bold text-gray-700 my-4 sm:text-base">
+          {post.description}
+        </p>
+        <p className="text-sm text-gray-600 mb-6">{post.date}</p>
+        <div className="text-base leading-7 text-gray-900 sm:text-sm sm:leading-6">
+          {post.content.split('\n').map((paragraph, idx) => (
+            <p key={idx} className="mb-5 whitespace-pre-line">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
-        {/* Contact Form Section */}
+        <div className="mt-10 bg-gray-200 p-7 rounded-lg shadow-md">
+          <h2 className="text-xl text-gray-800 sm:text-lg">Contact Us</h2>
+          <form className="flex flex-col" onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block font-bold text-gray-700 mb-2">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring focus:ring-indigo-200 sm:text-sm"
+              />
+              {formErrors.firstName && <p className="text-red-500 text-xs">{formErrors.firstName}</p>}
+            </div>
+            <div className="mb-4">
+              <label className="block font-bold text-gray-700 mb-2">Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring focus:ring-indigo-200 sm:text-sm"
+              />
+              {formErrors.lastName && <p className="text-red-500 text-xs">{formErrors.lastName}</p>}
+            </div>
+            <div className="mb-4">
+              <label className="block font-bold text-gray-700 mb-2">Phone Number</label>
+              <input
+                type="text"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring focus:ring-indigo-200 sm:text-sm"
+              />
+              {formErrors.phoneNumber && (
+                <p className="text-red-500 text-xs">{formErrors.phoneNumber}</p>
+              )}
+            </div>
+            <div className="mb-4">
+              <label className="block font-bold text-gray-700 mb-2">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring focus:ring-indigo-200 sm:text-sm"
+              />
+              {formErrors.email && <p className="text-red-500 text-xs">{formErrors.email}</p>}
+            </div>
+            <div className="mb-4">
+              <label className="block font-bold text-gray-700 mb-2">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring focus:ring-indigo-200 sm:text-sm"
+              ></textarea>
+              {formErrors.message && <p className="text-red-500 text-xs">{formErrors.message}</p>}
+            </div>
+            <button
+              type="submit"
+              className="px-5 py-2.5 bg-black text-white text-lg rounded-md hover:bg-gray-700 transition duration-300 sm:text-sm sm:px-4 sm:py-2"
+            >
+              Submit
+            </button>
+            {submitStatus && <p className="mt-5 text-green-600">{submitStatus}</p>}
+          </form>
+        </div>
       </div>
-      <div className="contact-form-section">
-        <h2>Contact Us</h2>
-        <p>
-          Have any questions or feedback? Feel free to reach out by filling out the form below. We’ll get back to you as soon as possible.
-        </p>
-
-        {/* Display status message */}
-        {submitStatus && (
-          <div className={`submit-status ${submitStatus.type}`}>
-            {submitStatus.message}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            {formErrors.firstName && <span className="error-text">{formErrors.firstName}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            {formErrors.lastName && <span className="error-text">{formErrors.lastName}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input
-              type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            {formErrors.phoneNumber && <span className="error-text">{formErrors.phoneNumber}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="form-input"
-            />
-            {formErrors.email && <span className="error-text">{formErrors.email}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              className="form-input"
-              rows="4"
-            />
-            {formErrors.message && <span className="error-text">{formErrors.message}</span>}
-          </div>
-
-          <button type="submit" className="submit-button">Send Message</button>
-        </form>
-      </div>
-    </>
+    </div>
   );
 };
 

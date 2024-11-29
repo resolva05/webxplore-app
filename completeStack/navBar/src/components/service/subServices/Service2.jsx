@@ -1,78 +1,81 @@
-import React from "react";
-import { Card, Button, Container, Row, Col, Image } from "react-bootstrap";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-// import vid from "../../../assets/vid.mp4";
 import S2faq from "./S2faq";
-import "./Service2.css";
 import Cards from "./Cards";
 import s2 from "../../../assets/s2img.jpg";
 
 const Service2 = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(top);
   }, []);
 
   return (
     <div>
-      <Container>
-        {/* Header Section */}
-        <div>
-          <Row className="my-5">
-            <Col md={12}>
-              <h1 className="text-center" style={{color:"black"}}>Mobile App Development</h1>
-            </Col>
-          </Row>
-
-          {/* Description Section */}
-          <Row className="my-5">
-            <Col md={6}>
-              <p style={{fontSize:"1.5rem"}}>
-                Elevate your business with custom mobile app solutions tailored
-                to your needs. We specialize in iOS, Android, and cross-platform
-                app development, ensuring seamless user experiences across all
-                devices. From concept to launch, our expert team delivers
-                innovative, scalable, and secure apps designed to enhance user
-                engagement and drive business growth.
-              </p>
-            </Col>
-            <Col md={6}>
-              <Image src={s2} rounded fluid />
-            </Col>
-          </Row>
+      {/* Header Section */}
+      <div className="bg-gray-50 py-16">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+            Mobile App Development
+          </h1>
         </div>
-        <Cards />
-        <hr className="my-4"></hr>
-      </Container>
+      </div>
 
-      <div>
-        <Container className="py-5">
-          {/* Section Heading */}
-          <Row className="text-center mb-4">
-            <Col lg={{ span: 8, offset: 2 }}>
-              <h1 className="display-4 font-weight-bold" style={{color:"black"}}>
-                Frequently Asked Questions
-              </h1>
-              <p className="mt-3 text-muted">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Facere, assumenda
-              </p>
-            </Col>
-          </Row>
+      {/* Description Section */}
+      <div className="container mx-auto py-16 px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <p className="text-lg leading-relaxed text-gray-700">
+              Elevate your business with custom mobile app solutions tailored to
+              your needs. We specialize in iOS, Android, and cross-platform app
+              development, ensuring seamless user experiences across all
+              devices. From concept to launch, our expert team delivers
+              innovative, scalable, and secure apps designed to enhance user
+              engagement and drive business growth.
+            </p>
+          </div>
+          <div>
+            <img
+              src={s2}
+              alt="Mobile App Development"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
 
-          <S2faq />
-          {/* Contact Link */}
-          <Row className="text-center mt-4">
-            <Col>
-              <p className="text-muted">
-                Can't find what you're looking for?{" "}
-                <NavLink to={"./contact"}>
-                  <Button>Contact us</Button>
-                </NavLink>
-              </p>
-            </Col>
-          </Row>
-        </Container>
+      {/* Cards Section */}
+      <div className="bg-gray-100 py-16">
+        <div className="container mx-auto">
+          <Cards />
+        </div>
+      </div>
+
+      <div className="container mx-auto py-16 px-6 md:px-12 lg:px-20">
+        <hr className="border-t border-gray-300 my-8" />
+
+        {/* FAQ Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-800">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-3 text-gray-600">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere,
+            assumenda.
+          </p>
+        </div>
+        <S2faq />
+
+        {/* Contact Section */}
+        <div className="text-center mt-12">
+          <p className="text-gray-600">
+            Can't find what you're looking for?{" "}
+            <NavLink to="./contact">
+              <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700">
+                Contact Us
+              </button>
+            </NavLink>
+          </p>
+        </div>
       </div>
     </div>
   );
