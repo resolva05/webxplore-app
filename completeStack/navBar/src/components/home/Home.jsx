@@ -1,4 +1,3 @@
-// import React from 'react'
 import './Home.css';
 import Services from './Services';
 import Testimonials from './Testimonials';
@@ -6,6 +5,10 @@ import { animated, useSpring } from 'react-spring';
 import { useState, useEffect } from 'react';
 import KeyFeatures from './KeyFeatures';
 import HeroSection from '../heroSection/HeroSection';
+import './Home.css'
+
+import Homefaq from './Homefaq';
+import Homecontact from './Homecontact';
 
 const Home = () => {
   useEffect(() => {
@@ -31,10 +34,13 @@ const Home = () => {
       <div>
         <KeyFeatures />
       </div>
-      
+
       <div>
         <Testimonials />
       </div>
+      <Homecontact/>
+      <Homefaq/>
+
     </>
   );
 };

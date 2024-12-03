@@ -1,95 +1,81 @@
 import "./Portfolio.css";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Collapse from "react-bootstrap/Collapse";
-import { useState, useEffect } from "react";
-import "../home/Testimon.css";
+import { useEffect, useRef, useState } from "react";
 import ProjectCards from "./ProjectCards";
+import vid from '../../assets/videobgport3.mp4';
 
 const Portfolio = () => {
+  const videoRef = useRef(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024);
+
   useEffect(() => {
-    window.scrollTo(top);
-  }, []);
-  const [open, setOpen] = useState(false);
- 
+    const handleResize = () => {
+      setIsLaptop(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    const handleScroll = () => {
+      if (!videoRef.current) return;
+
+      const currentScrollY = window.scrollY;
+      const scrollDirection = currentScrollY > lastScrollY ? "down" : "up";
+      const scrollSpeed = Math.abs(currentScrollY - lastScrollY) / 100;
+
+      if (scrollDirection === "down") {
+        videoRef.current.currentTime = Math.max(
+          videoRef.current.currentTime - scrollSpeed,
+          0
+        );
+      } else {
+        videoRef.current.currentTime = Math.min(
+          videoRef.current.currentTime + scrollSpeed,
+          videoRef.current.duration
+        );
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [lastScrollY]);
 
   return (
     <>
-      <div className=" cont relative w-full port">
-        <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 d-flex">
-          <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
-            <h1
-              className="headingport"
-            >
-              Delivering cutting-edge solutions
-            </h1>
-            <p className="ptagtext">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequatur modi blanditiis dolores quasi eaque explicabo!Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-              modi blanditiis dolores quasi eaque explicabo!Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Consequatur modi blanditiis
-              dolores quasi eaque explicabo!Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Consequatur modi blanditiis dolores
-              quasi eaque explicabo!Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Consequatur modi blanditiis dolores quasi eaque
-              explicabo!
-            </p>
-            <form action="" className="mt-8 flex items-start space-x-2">
-              <div>
-                <Button
-                  className="btn"
-                  onClick={() => setOpen(!open)}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={open}
-                  style={{
-                    marginBottom: "10px",
-                    borderRadius: "25px",
-                  }}
-                >
-                  Know More
-                </Button>
-                <div style={{ minHeight: "150px", width: "100%" }}>
-                  <Collapse in={open} dimension="height">
-                    <div id="example-collapse-text">
-                      <Card
-                        body
-                        style={{
-                          width: "60%",
-                          maxWidth: "60%",
-                          minWidth: "250px",
-                          height: "auto",
-                          backgroundColor: "white",
-                          marginBottom: "10px",
-                        }}
-                      >
-                        Anim pariatur cliche reprehenderit, enim eiusmod high
-                        life accusamus terry richardson ad squid. Nihil anim
-                        keffiyeh helvetica, craft beer labore wes anderson cred
-                        nesciunt sapiente ea proident.
-                      </Card>
-                    </div>
-                  </Collapse>
-                </div>
-              </div>
-            </form>
+      {isLaptop ? (
+        <div className="cont relative w-full">
+          <div className="heading-containers">
+            <video
+              ref={videoRef}
+              className="vid"
+              src={vid}
+              autoPlay
+              loop={false}
+              muted
+              data-testid="blog-video"
+            />
           </div>
         </div>
-      </div>
+      ) : (
+        /* Welcome text for smaller screens with animation */
+        <div className="welcome-text">
+          <span className="word-1">WELCOME</span>
+          <span className="word-2">TO</span>
+          <span className="word-3">OUR</span>
+          <span className="word-4">PORTFOLIO</span>
+        </div>
+      )}
+  
       <div className="portfolioimg">
-        <h2
-          className="text-center"
-          style={{
-           
-            color: "white",
-            paddingTop: "20px",
-            paddingBottom: "20px",
-          }}
-        >
-          Our Projects
-        </h2>
-          <ProjectCards/>
+        <h2 className="text-center project-title">Our Projects</h2>
+        <ProjectCards />
       </div>
+  
       <div style={{ backgroundColor: "white", height: "1px" }}></div>
     </>
   );

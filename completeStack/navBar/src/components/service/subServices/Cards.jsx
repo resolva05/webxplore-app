@@ -87,7 +87,7 @@ const Cards = () => {
                       inView ? "animate-text" : ""
                     }`}
                   >
-                    <Card.Title className="card-title text-center">
+                    <Card.Title className="cardtitle text-center">
                       Android Development
                     </Card.Title>
                     <Card.Text className="card-text">
@@ -146,8 +146,8 @@ const Cards = () => {
                       inView ? "animate-text" : ""
                     }`}
                   >
-                    <Card.Title className="card-title text-center">
-                      Cross-Playform Development
+                    <Card.Title className="cardtitle text-center">
+                      Cross-Platform Development
                     </Card.Title>
                     <Card.Text className="card-text">
                       • Frameworks: Build versatile apps using leading

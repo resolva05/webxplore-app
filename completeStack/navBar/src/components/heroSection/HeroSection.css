@@ -10,19 +10,6 @@
     overflow: hidden; /* Prevent overflow of background image */
   }
   
-  .bckgrdimg {
-    position: absolute; /* Position it absolutely */
-    top: 0; /* Cover the top */
-    left: 0; /* Cover the left */
-    right: 0; /* Cover the right */
-    bottom: 0; /* Cover the bottom */
-    background-image: url('../../assets/heroimg.png'); /* Ensure the correct path to your image */
-    background-size: cover; /* Ensure the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    opacity: 0; /* Initially hidden */
-    animation: fadeIn 1.5s forwards; /* Fade in animation */
-  }
   
   /* Fade in animation for the background image */
   @keyframes fadeIn {

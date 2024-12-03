@@ -3,6 +3,7 @@ export const data = {
         {
             title: "Keyword Research & Strategy",
             description: "Every successful SEO campaign starts with thorough keyword research. At WebXplore Studio, we dive deep into understanding your business, industry, and target audience to discover high-value keywords that resonate with potential customers. Our strategy involves identifying relevant keywords with high search volume and low competition, analysing user intent to target keywords that align with what your customers are searching for, and building a roadmap that integrates these keywords into every aspect of your website, from content to technical SEO."
+           
         },
         {
             title: "On-Page SEO Optimization",

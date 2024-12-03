@@ -23,6 +23,7 @@ import PrivacyPolicy from '../../navBar/src/components/privacyPolicy/PrivacyPoli
 import ProjectDetails from '../../navBar/src/components/portfolio/ProjectDetails.jsx'
 import ServiceDetails from '../../navBar/src/components/service/subServices/ServiceDetails.jsx'
 import Sitemap from '../../navBar/src/components/sitemap/Sitemap.jsx'
+import OtherServicesCards from './components/service/subServices/OtherServicesCards.jsx'
 
 const router = createBrowserRouter([
   {
@@ -61,32 +62,75 @@ const router = createBrowserRouter([
       }
       ,
       {
-        path:'/service/subservice1',
+        path:'/service/webdevelopment',
         element:<Service1/>
       },
       {
-        path:'/service/subservice2',
+        path:'/service/mobiledevelopment',
         element:<Service2/>
       },
       {
-        path:'/service/subservice3',
+        path:'/service/otherservices',
         element:<Service3/>
       },
       {
-        path:'/service/subservice1/contact',
+        path:'/service/webdevelopment/contact',
         element:<Contactus/>
       },
       {
-        path:'/service/subservice2/contact',
+        path:'/service/mobiledevelopment/contact',
         element:<Contactus/>
       }
       ,
       {
-        path:'/service/subservice3/contact',
+        path:'/service/otherservices/contact',
         element:<Contactus/>
       },
       {
-        path:'/aboutus/contact',
+        path:'/portfolio/contact',
+        element:<Contactus/>
+      },
+      {
+        path:'/webdevelopment',
+        element:<Service1/>
+      },
+      {
+        path:'/mobiledevelopment',
+        element:<Service2/>
+      },
+      {
+        path:'/service/:servicekey',
+        element:<ServiceDetails/>
+      },
+      {
+        path:'/aboutus/service',
+        element:<Service/>
+      },
+      {
+        path:"/faq/contact",
+        element:<Contactus/>
+      },
+      {
+        path:"/aboutus/service/webdevelopment",
+        element:<Service1/>
+      }
+      ,
+      {
+        path:"/aboutus/service/mobiledevelopment",
+        element:<Service2/>
+      }
+      ,
+      {
+        path:"/aboutus/service/otherservices",
+        element:<Service3/>
+      }
+      ,
+      {
+        path:"/webdevelopment/contact",
+        element:<Contactus/>
+      },
+      {
+        path:"/mobiledevelopment/contact",
         element:<Contactus/>
       },
       {
@@ -98,15 +142,15 @@ const router = createBrowserRouter([
         element: <Blogpage/>,
       },
       {
-        path: "blogpage/subblogpage/:postId",
+        path: "blog/:title",
         element:<Subblogpage/>
       },
       {
-        path:"portfolio/projectdetails/:dataId",
+        path:"portfolio/:title",
         element:<ProjectDetails/>
       },
       {
-        path:"services/:servicekey",
+        path:"service/:servicekey",
         element:<ServiceDetails/>
       },
       {
@@ -116,7 +160,8 @@ const router = createBrowserRouter([
       {
         path:"aboutus",
         element:<AboutUs/>
-      },{
+      },
+      {
         path:"/privacypolicy",
         element: <PrivacyPolicy/>
       },

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import img from "../../assets/blogimg.png";
 import img2 from "../../assets/categoryimg.png";
 import img3 from "../../assets/blogone.png";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle,ThumbsUp  } from "lucide-react";
 import {
   Row,
   Col,
@@ -17,6 +17,8 @@ import {
 import logo from "../../assets/logonew.png";
 import vid from "../../assets/blogvideo.mp4";
 import "./Blogpage.css";
+
+
 
 const categories = [
   "Web Development",
@@ -40,9 +42,16 @@ const Blogpage = () => {
   const [loading, setLoading] = useState(true); // Initialize loading state
   const contentSectionRef = useRef(null); // Declare contentSectionRef here
   const keyPointsRef = useRef(null);
-  useEffect(() => {
-    window.scrollTo(top);
+  const [likes, setLikes] = useState({}); // State to store likes for each post
 
+  const generateSlug = (title) => {
+    return encodeURIComponent(title.replace(/\s+/g, "-").replace(/[^\w\-]/g, ""));
+  };
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+  
+  useEffect(() => {
     // Fetch posts from MongoDB
     fetch("http://localhost:5000/getUsers")
       .then((response) => response.json())
@@ -54,36 +63,6 @@ const Blogpage = () => {
         console.error("Error fetching posts:", error);
         setLoading(false); // Set loading to false if there's an error
       });
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target) {
-            entry.target.classList.add("fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const contentSection = contentSectionRef.current;
-    const keyPoints = keyPointsRef.current
-      ? keyPointsRef.current.querySelectorAll(".key-point")
-      : [];
-
-    if (contentSection) observer.observe(contentSection);
-    keyPoints.forEach((point) => {
-      if (point) observer.observe(point);
-    });
-
-    return () => {
-      if (contentSection) observer.unobserve(contentSection);
-      keyPoints.forEach((point) => {
-        if (point) observer.unobserve(point);
-      });
-    };
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -114,14 +93,15 @@ const Blogpage = () => {
   const filteredPosts = selectedCategories.length
     ? posts.filter((post) => selectedCategories.includes(post.category))
     : posts;
-  if (loading) {
-    return (
-      <div className="loading-container">
-        <div className="spinner"></div>
-        <p>Loading posts...</p>
-      </div>
-    );
-  }
+
+    const handleLikeClick = (postId) => {
+      setLikes((prevLikes) => {
+        const newLikes = { ...prevLikes };
+        newLikes[postId] = (newLikes[postId] || 0) + 1;
+        return newLikes;
+      });
+    };
+
 
   return (
     <>
@@ -211,7 +191,7 @@ const Blogpage = () => {
           <Col md={9}>
             <Row className="g-4">
               {filteredPosts.map((post) => (
-                <Col md={6} lg={4} key={post._id}>
+                <Col md={6} lg={4} key={post.title}>
                   <Card
                     className="card-hover abc"
                     style={{ borderRadius: "20px", height: "97%" }}
@@ -222,9 +202,19 @@ const Blogpage = () => {
                       className="aspect-ratio-16/9"
                     />
                     <Card.Body>
-                      <Card.Text className="text-muted text-xs">
-                        {post.category}
-                      </Card.Text>
+                    <div className="d-flex justify-content-between">
+                        <Card.Text className="text-muted text-xs">
+                          {post.category}
+                        </Card.Text>
+                        <div
+                          onClick={() => handleLikeClick(post.title)}
+                          style={{ cursor: "pointer", display: "flex" }}
+                        >
+                          <ThumbsUp size={24} style={{ marginRight: "5px" }} />
+                          <span>{likes[post.title] || 0}</span>
+                        </div>
+                      </div>
+                    
                       <Card.Title className="font-weight-bold">
                         {post.title}
                       </Card.Title>
@@ -240,7 +230,7 @@ const Blogpage = () => {
                       style={{ padding: "10px 15px", marginBottom: "20px" }}
                     >
                       <NavLink
-                        to={`/blogpage/subblogpage/${post._id}`}
+                        to={`/blog/${(post.title)}`}
                         style={{ width: "77%" }}
                       >
                         <button
@@ -261,7 +251,7 @@ const Blogpage = () => {
                         style={{ width: "20%" }}
                       >
                         <button
-                          onClick={() => handleOpenComments(post._id)}
+                          onClick={() => handleOpenComments(post.title)}
                           className="comment-icon-btn"
                           style={{
                             display: "flex",
@@ -286,7 +276,7 @@ const Blogpage = () => {
                               marginBottom: "3px",
                             }}
                           >
-                            {comments[post._id]?.length || 0}
+                            {comments[post.title]?.length || 0}
                           </span>
                         </button>
                       </div>
@@ -343,7 +333,9 @@ const Blogpage = () => {
         </Modal>
       </Container>
     </>
+    
   );
+
 };
 
 export default Blogpage;

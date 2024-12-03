@@ -14,6 +14,9 @@
     margin-bottom: 15px; /* Space below the title */
     text-align: center; /* Center the title */
 }
+.project-titles{
+    color: black;
+}
 
 .project-image {
     width: 100%; /* Full width image */
