@@ -31,8 +31,11 @@ const SearchRecommendation = ({ query, closeSearchBar }) => {
   }, [query]);
 
   const handleSelect = (result) => {
-    const path = result.type === "blog" ? `/blogpage/subblogpage/${result._id}` : `/portfolio/projectdetails/${result._id}`;
-    navigate(path);
+    const path =
+      result.type === "blog"
+        ? `/blog/${encodeURIComponent(result.title)}`
+        : `/portfolio/${encodeURIComponent(result.title)}`;
+    navigate(path); // Navigate to the blog or project page with the title in URL
     closeSearchBar(); // Close the search bar and recommendations
   };
 

@@ -1,11 +1,6 @@
 /* Importing a Google Font (or you can use your custom font) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-
-.hehe{
-  
-}
-
 /* Styling and animation for the welcome text */
 .welcome-text {
   font-size: 80px; /* Increase the font size */

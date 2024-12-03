@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Homecontact.css";
+import axios from "axios";
 import logo from "../../assets/hcl.png"; // You can replace this with your logo
 
 const Homecontact = () => {
@@ -33,22 +34,29 @@ const Homecontact = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      console.log("Form Submitted", formData);
-      setSubmitStatus({ type: "success", message: "Your message has been sent!" });
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        message: "",
-      });
+      try {
+        // Send data to backend
+        const response = await axios.post("http://localhost:5000/homecontact", formData);
+        setSubmitStatus({ type: "success", message: response.data.message });
+
+        // Reset the form after successful submission
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+      } catch (error) {
+        setSubmitStatus({ type: "error", message: "Failed to submit form. Please try again." });
+      }
     }
   };
 
@@ -142,28 +150,28 @@ const Homecontact = () => {
       </div>
 
       {/* Client Section (30%) */}
-<div className="client-section">
-  <div className="client-intro">
-    <h3 className="clienttext">Our Clients</h3>
-    <p>
-      We are proud to work with some amazing clients. Here's a look at some of the companies we've partnered with to deliver top-notch services.
-    </p>
-  </div>
-  <div className="client-images">
-    <img src={logo} alt="Client 1" className="client-logo" />
-    <img src={logo} alt="Client 2" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-    <img src={logo} alt="Client 3" className="client-logo" />
-  </div>
-</div>
+      <div className="client-section">
+        <div className="client-intro">
+          <h3 className="clienttext">Our Clients</h3>
+          <p>
+            We are proud to work with some amazing clients. Here's a look at some of the companies we've partnered with to deliver top-notch services.
+          </p>
+        </div>
+        <div className="client-images">
+          <img src={logo} alt="Client 1" className="client-logo" />
+          <img src={logo} alt="Client 2" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+          <img src={logo} alt="Client 3" className="client-logo" />
+        </div>
+      </div>
     </div>
   );
 };

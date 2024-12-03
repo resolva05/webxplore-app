@@ -1,3 +1,62 @@
+.client-logo-section-container {
+  width: 100%;
+  overflow: hidden; 
+  background-color: #f5f5f5; 
+  padding: 50px 0;
+}
+
+.client-logo-title {
+  text-align: center;
+  font-size: 3.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.client-logo-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  animation: scroll-logo 20s linear infinite; 
+}
+
+.client-logo {
+  width: 150px; 
+  height: auto;
+  margin: 0 20px;
+  object-fit: contain;
+}
+
+
+@keyframes scroll-logo {
+  0% {
+    transform: translateX(100%); 
+  }
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+
+
+.client-logo-section {
+  display: flex;
+  width: 100%; 
+}
+
+.client-logo-section img {
+  animation: slide 20s linear infinite; 
+  margin-right: 30px; 
+}
+
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%); 
+  }
+}
 
 
 .text-slide {

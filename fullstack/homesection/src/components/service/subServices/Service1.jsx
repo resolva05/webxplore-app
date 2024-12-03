@@ -168,7 +168,7 @@ const Service1 = () => {
             </Col>
           </Row>
 
-          <S1faq />
+          <S1faq/>
 
           {/* Contact Link */}
           <Row className="text-center mt-4">

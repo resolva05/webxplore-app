@@ -24,7 +24,7 @@ const OtherServicesCards = () => {
     <div className="services-container">
       {services.map((service, index) => (
         <div className="service-card" key={service.key} style={{ animationDelay: `${index * 0.2}s` }}>
-          <h3 className="service-title">{service.name}</h3>
+          {/* <h3 className="service-title">{service.name}</h3> */}
           <div className="image-wrapper">
             <img src={service.photo} alt={service.name} className="service-photo" />
           </div>

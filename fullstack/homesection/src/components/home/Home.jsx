@@ -1,4 +1,3 @@
-// import React from 'react'
 import './Home.css';
 import Services from './Services';
 import Testimonials from './Testimonials';
@@ -35,13 +34,13 @@ const Home = () => {
       <div>
         <KeyFeatures />
       </div>
-      
+
       <div>
         <Testimonials />
       </div>
       <Homecontact/>
       <Homefaq/>
-      
+
     </>
   );
 };
