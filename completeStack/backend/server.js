@@ -4,14 +4,20 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
-const PORT = 5000;
+const PORT = 5001;
 const nodemailer = require("nodemailer");
 const searchRoute = require("./search.js");
 
 app.use(express.json())
 
 // Enable CORS for all routes
-app.use(cors());
+const corsOptions ={ 
+    origin: "http://localhost:5000",
+    methods: "GET, POST",
+    credentionals:true
+}
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 // Connect to MongoDB
@@ -126,7 +132,7 @@ app.post("/send-email", async (req, res) => {
       attachments: [
         {
           filename: "Case_Study_AI_Powered_Chatbots.pdf",
-          path: "../navBar/src/assets/cs1.pdf", // Path to the PDF file
+          path: "../frontend/src/assets/cs1.pdf", // Path to the PDF file
         },
       ],
     };
